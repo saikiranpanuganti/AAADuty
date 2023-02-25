@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7F1A485029AA802200C432DF /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1A484E29AA802200C432DF /* SideMenuView.xib */; };
 		7F1A485129AA802200C432DF /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A484F29AA802200C432DF /* SideMenuView.swift */; };
+		7F1A485529AA827D00C432DF /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A485329AA827D00C432DF /* MenuTableViewCell.swift */; };
+		7F1A485629AA827D00C432DF /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1A485429AA827D00C432DF /* MenuTableViewCell.xib */; };
 		7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9329A8F77A0049662D /* AppDelegate.swift */; };
 		7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */; };
 		7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9729A8F77A0049662D /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		7F1A484E29AA802200C432DF /* SideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
 		7F1A484F29AA802200C432DF /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		7F1A485329AA827D00C432DF /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		7F1A485429AA827D00C432DF /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		7FD0BE9029A8F77A0049662D /* AAADuty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAADuty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD0BE9329A8F77A0049662D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F1A485229AA826C00C432DF /* MenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				7F1A485329AA827D00C432DF /* MenuTableViewCell.swift */,
+				7F1A485429AA827D00C432DF /* MenuTableViewCell.xib */,
+			);
+			path = MenuCell;
+			sourceTree = "<group>";
+		};
 		7FD0BE8729A8F77A0049662D = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +140,7 @@
 		7FD0BEC529AA3F100049662D /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				7F1A485229AA826C00C432DF /* MenuCell */,
 				7FD0BED129AA7F9C0049662D /* SideMenuView */,
 				7FD0BECA29AA66F40049662D /* ProfileCell */,
 			);
@@ -210,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FD0BEBA29A9320F0049662D /* TabBar.storyboard in Resources */,
+				7F1A485629AA827D00C432DF /* MenuTableViewCell.xib in Resources */,
 				7F1A485029AA802200C432DF /* SideMenuView.xib in Resources */,
 				7FD0BEA029A8F77B0049662D /* LaunchScreen.storyboard in Resources */,
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
@@ -227,6 +242,7 @@
 			files = (
 				7FD0BEB429A9105F0049662D /* OTPViewController.swift in Sources */,
 				7FD0BEC429A9E9880049662D /* ProfileTabViewController.swift in Sources */,
+				7F1A485529AA827D00C432DF /* MenuTableViewCell.swift in Sources */,
 				7FD0BEAC29A8FE930049662D /* AAALabel.swift in Sources */,
 				7FD0BEB229A90ED60049662D /* AAAView.swift in Sources */,
 				7FD0BEBE29A9E5D60049662D /* HomeTabViewController.swift in Sources */,
