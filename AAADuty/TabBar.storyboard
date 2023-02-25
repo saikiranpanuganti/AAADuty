@@ -11,7 +11,7 @@
         <!--Home-->
         <scene sceneID="idW-ZG-ovh">
             <objects>
-                <viewController id="KUC-cR-C6X" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KUC-cR-C6X" customClass="HomeTabViewController" customModule="AAADuty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="abL-xZ-EEs">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
         <!--Bookings-->
         <scene sceneID="5QV-gu-iRp">
             <objects>
-                <viewController id="356-X8-PWi" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingsTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="356-X8-PWi" customClass="BookingsTabViewController" customModule="AAADuty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eH2-2t-Dcd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,7 +43,7 @@
         <!--Wallet-->
         <scene sceneID="BNO-WJ-X3b">
             <objects>
-                <viewController id="0eT-tx-BFW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalletTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0eT-tx-BFW" customClass="WalletTabViewController" customModule="AAADuty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="foW-JO-lW4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
         <!--Profile-->
         <scene sceneID="VOl-lw-8fk">
             <objects>
-                <viewController id="y0l-8M-SRz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y0l-8M-SRz" customClass="ProfileTabViewController" customModule="AAADuty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wBR-ri-Fyc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

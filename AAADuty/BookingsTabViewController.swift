@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookingsTabViewController: UITabBarController {
+class BookingsTabViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

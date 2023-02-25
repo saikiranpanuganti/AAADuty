@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WalletTabViewController: UITabBarController {
+class WalletTabViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

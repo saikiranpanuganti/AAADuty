@@ -23,10 +23,10 @@ class TabBarViewController: UITabBarController {
         
         delegate = self
         
-        tabBar.tintColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)
+        tabBar.tintColor = UIColor(red: 18/255, green: 69/255, blue: 115/255, alpha: 1)//UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)
         tabBar.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 18/255, green: 69/255, blue: 115/255, alpha: 1)], for: .selected)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)], for: .normal)
         
         tabBar.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.16).cgColor

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A88-qp-VLD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5R7-9E-c0j">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -67,10 +67,11 @@
                             <constraint firstItem="x3m-SS-aj7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="yzZ-fF-PhM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="CTF-hF-Rbm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="4"/>
+            <point key="canvasLocation" x="962.59541984732823" y="3.5211267605633805"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="61h-hI-ATG">
@@ -96,7 +97,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="056-L5-peF">
-                                        <rect key="frame" x="50" y="259" width="293" height="461.66666666666674"/>
+                                        <rect key="frame" x="50" y="249.66666666666666" width="293" height="480.66666666666674"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYk-H0-vM5">
                                                 <rect key="frame" x="0.0" y="0.0" width="293" height="170"/>
@@ -117,7 +118,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO AAA DUTY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YL0-4S-Jkl" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="195" width="293" height="21"/>
+                                                <rect key="frame" x="0.0" y="195.00000000000003" width="293" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.47843137254901957" green="0.62745098039215685" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -131,7 +132,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LET'S GO START" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g1P-fM-VJf" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="241" width="293" height="23.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="240.33333333333334" width="293" height="40.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -145,7 +146,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quickly create, interactive services with AAA Duty" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCN-4A-nGg" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="289.33333333333337" width="293" height="37.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="306" width="293" height="39.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                                 <color key="textColor" red="0.14901960784313725" green="0.396078431372549" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -159,7 +160,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzi-Yl-e8O">
-                                                <rect key="frame" x="0.0" y="351.66666666666663" width="293" height="110"/>
+                                                <rect key="frame" x="0.0" y="370.66666666666674" width="293" height="110"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proceed" translatesAutoresizingMaskIntoConstraints="NO" id="fWD-jn-HfI">
                                                         <rect key="frame" x="106.66666666666666" y="30" width="80" height="80"/>
@@ -210,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ib-ss-2Wf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810" y="4"/>
+            <point key="canvasLocation" x="1736.6412213740457" y="3.5211267605633805"/>
         </scene>
         <!--Mobile Login View Controller-->
         <scene sceneID="Wjy-uX-gB7">
@@ -367,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sc-Yf-UAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1579" y="4"/>
+            <point key="canvasLocation" x="2504.5801526717555" y="3.5211267605633805"/>
         </scene>
         <!--OTPViewController-->
         <scene sceneID="B1z-R9-akC">
@@ -590,33 +591,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGY-Qa-yFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2337" y="4"/>
+            <point key="canvasLocation" x="3263.3587786259541" y="3.5211267605633805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kcs-qO-cVV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5R7-9E-c0j" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yhy-21-UOd">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1Kh-z3-bzh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tq0-wg-43j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="176" y="4"/>
         </scene>
     </scenes>
     <designables>
+        <designable name="3tD-VD-joU">
+            <size key="intrinsicContentSize" width="322.33333333333331" height="20.333333333333332"/>
+        </designable>
         <designable name="Kqa-EN-hUW">
-            <size key="intrinsicContentSize" width="58" height="31"/>
+            <size key="intrinsicContentSize" width="58" height="30"/>
         </designable>
         <designable name="RqP-eb-UDP">
-            <size key="intrinsicContentSize" width="202.33333333333334" height="35"/>
+            <size key="intrinsicContentSize" width="195.66666666666666" height="36"/>
         </designable>
         <designable name="Xft-ot-5eC">
-            <size key="intrinsicContentSize" width="109" height="37.333333333333336"/>
+            <size key="intrinsicContentSize" width="100.66666666666667" height="34.333333333333336"/>
         </designable>
         <designable name="YL0-4S-Jkl">
-            <size key="intrinsicContentSize" width="190.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="197" height="20.333333333333332"/>
         </designable>
         <designable name="dCN-4A-nGg">
-            <size key="intrinsicContentSize" width="360.33333333333331" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="382.66666666666669" height="20"/>
         </designable>
         <designable name="foI-4M-4JI">
-            <size key="intrinsicContentSize" width="92.666666666666671" height="35"/>
+            <size key="intrinsicContentSize" width="102.33333333333333" height="40.666666666666664"/>
         </designable>
         <designable name="g1P-fM-VJf">
-            <size key="intrinsicContentSize" width="138" height="23.333333333333332"/>
+            <size key="intrinsicContentSize" width="251.33333333333334" height="40.666666666666664"/>
         </designable>
         <designable name="rJU-vH-Phv">
-            <size key="intrinsicContentSize" width="76.333333333333329" height="37.333333333333336"/>
+            <size key="intrinsicContentSize" width="68" height="34.333333333333336"/>
         </designable>
     </designables>
     <resources>
