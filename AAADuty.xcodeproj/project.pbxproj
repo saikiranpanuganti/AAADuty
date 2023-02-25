@@ -13,6 +13,21 @@
 		7FD0BE9B29A8F77A0049662D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9929A8F77A0049662D /* Main.storyboard */; };
 		7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9C29A8F77B0049662D /* Assets.xcassets */; };
 		7FD0BEA029A8F77B0049662D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9E29A8F77B0049662D /* LaunchScreen.storyboard */; };
+		7FD0BEA829A8F7950049662D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEA729A8F7950049662D /* SplashViewController.swift */; };
+		7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEA929A8FC950049662D /* WelcomeViewController.swift */; };
+		7FD0BEAC29A8FE930049662D /* AAALabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEAB29A8FE930049662D /* AAALabel.swift */; };
+		7FD0BEAE29A904980049662D /* MobileLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEAD29A904980049662D /* MobileLoginViewController.swift */; };
+		7FD0BEB029A908E20049662D /* AAAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEAF29A908E20049662D /* AAAButton.swift */; };
+		7FD0BEB229A90ED60049662D /* AAAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEB129A90ED60049662D /* AAAView.swift */; };
+		7FD0BEB429A9105F0049662D /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEB329A9105F0049662D /* OTPViewController.swift */; };
+		7FD0BEB629A922FB0049662D /* OTPStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEB529A922FB0049662D /* OTPStackView.swift */; };
+		7FD0BEB829A931F50049662D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEB729A931F50049662D /* TabBarViewController.swift */; };
+		7FD0BEBA29A9320F0049662D /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD0BEB929A9320F0049662D /* TabBar.storyboard */; };
+		7FD0BEBC29A9E4AD0049662D /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEBB29A9E4AD0049662D /* Controllers.swift */; };
+		7FD0BEBE29A9E5D60049662D /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEBD29A9E5D60049662D /* HomeTabViewController.swift */; };
+		7FD0BEC029A9E96E0049662D /* BookingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEBF29A9E96E0049662D /* BookingsTabViewController.swift */; };
+		7FD0BEC229A9E97C0049662D /* WalletTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEC129A9E97C0049662D /* WalletTabViewController.swift */; };
+		7FD0BEC429A9E9880049662D /* ProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +39,21 @@
 		7FD0BE9C29A8F77B0049662D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FD0BE9F29A8F77B0049662D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FD0BEA129A8F77B0049662D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FD0BEA729A8F7950049662D /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		7FD0BEA929A8FC950049662D /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		7FD0BEAB29A8FE930049662D /* AAALabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAALabel.swift; sourceTree = "<group>"; };
+		7FD0BEAD29A904980049662D /* MobileLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileLoginViewController.swift; sourceTree = "<group>"; };
+		7FD0BEAF29A908E20049662D /* AAAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAAButton.swift; sourceTree = "<group>"; };
+		7FD0BEB129A90ED60049662D /* AAAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAAView.swift; sourceTree = "<group>"; };
+		7FD0BEB329A9105F0049662D /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		7FD0BEB529A922FB0049662D /* OTPStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPStackView.swift; sourceTree = "<group>"; };
+		7FD0BEB729A931F50049662D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		7FD0BEB929A9320F0049662D /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		7FD0BEBB29A9E4AD0049662D /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
+		7FD0BEBD29A9E5D60049662D /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		7FD0BEBF29A9E96E0049662D /* BookingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsTabViewController.swift; sourceTree = "<group>"; };
+		7FD0BEC129A9E97C0049662D /* WalletTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTabViewController.swift; sourceTree = "<group>"; };
+		7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +89,22 @@
 				7FD0BE9329A8F77A0049662D /* AppDelegate.swift */,
 				7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */,
 				7FD0BE9729A8F77A0049662D /* ViewController.swift */,
+				7FD0BEA729A8F7950049662D /* SplashViewController.swift */,
+				7FD0BEA929A8FC950049662D /* WelcomeViewController.swift */,
+				7FD0BEAD29A904980049662D /* MobileLoginViewController.swift */,
+				7FD0BEB329A9105F0049662D /* OTPViewController.swift */,
+				7FD0BEB729A931F50049662D /* TabBarViewController.swift */,
+				7FD0BEBD29A9E5D60049662D /* HomeTabViewController.swift */,
+				7FD0BEBF29A9E96E0049662D /* BookingsTabViewController.swift */,
+				7FD0BEC129A9E97C0049662D /* WalletTabViewController.swift */,
+				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
+				7FD0BEB529A922FB0049662D /* OTPStackView.swift */,
+				7FD0BEBB29A9E4AD0049662D /* Controllers.swift */,
+				7FD0BEAB29A8FE930049662D /* AAALabel.swift */,
+				7FD0BEAF29A908E20049662D /* AAAButton.swift */,
+				7FD0BEB129A90ED60049662D /* AAAView.swift */,
 				7FD0BE9929A8F77A0049662D /* Main.storyboard */,
+				7FD0BEB929A9320F0049662D /* TabBar.storyboard */,
 				7FD0BE9C29A8F77B0049662D /* Assets.xcassets */,
 				7FD0BE9E29A8F77B0049662D /* LaunchScreen.storyboard */,
 				7FD0BEA129A8F77B0049662D /* Info.plist */,
@@ -125,6 +170,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FD0BEBA29A9320F0049662D /* TabBar.storyboard in Resources */,
 				7FD0BEA029A8F77B0049662D /* LaunchScreen.storyboard in Resources */,
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
 				7FD0BE9B29A8F77A0049662D /* Main.storyboard in Resources */,
@@ -138,9 +184,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FD0BEB429A9105F0049662D /* OTPViewController.swift in Sources */,
+				7FD0BEC429A9E9880049662D /* ProfileTabViewController.swift in Sources */,
+				7FD0BEAC29A8FE930049662D /* AAALabel.swift in Sources */,
+				7FD0BEB229A90ED60049662D /* AAAView.swift in Sources */,
+				7FD0BEBE29A9E5D60049662D /* HomeTabViewController.swift in Sources */,
+				7FD0BEB029A908E20049662D /* AAAButton.swift in Sources */,
+				7FD0BEB829A931F50049662D /* TabBarViewController.swift in Sources */,
+				7FD0BEBC29A9E4AD0049662D /* Controllers.swift in Sources */,
+				7FD0BEC229A9E97C0049662D /* WalletTabViewController.swift in Sources */,
+				7FD0BEAE29A904980049662D /* MobileLoginViewController.swift in Sources */,
 				7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */,
+				7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */,
 				7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */,
+				7FD0BEB629A922FB0049662D /* OTPStackView.swift in Sources */,
+				7FD0BEC029A9E96E0049662D /* BookingsTabViewController.swift in Sources */,
 				7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */,
+				7FD0BEA829A8F7950049662D /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +352,7 @@
 				INFOPLIST_FILE = AAADuty/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = TabBar;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +380,7 @@
 				INFOPLIST_FILE = AAADuty/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = TabBar;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
