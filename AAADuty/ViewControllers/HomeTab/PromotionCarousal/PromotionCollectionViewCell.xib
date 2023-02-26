@@ -29,6 +29,9 @@
                                 <inset key="imageEdgeInsets" minX="10" minY="8" maxX="10" maxY="10"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="menuIcon"/>
+                                <connections>
+                                    <action selector="sideMenuAction" destination="gTV-IL-0wX" eventType="touchUpInside" id="5mN-Xg-J1D"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hg-5m-nn9">
                                 <rect key="frame" x="304" y="137" width="46" height="48"/>
@@ -38,9 +41,12 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="bellIcon"/>
+                                <connections>
+                                    <action selector="notificationAction" destination="gTV-IL-0wX" eventType="touchUpInside" id="9cV-Uh-vtY"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEK-aQ-aAw" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                <rect key="frame" x="70" y="150.66666666666666" width="83" height="20.333333333333343"/>
+                                <rect key="frame" x="70" y="147" width="106" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -115,7 +121,7 @@
     </objects>
     <designables>
         <designable name="bEK-aQ-aAw">
-            <size key="intrinsicContentSize" width="83" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="106" height="28"/>
         </designable>
     </designables>
     <resources>

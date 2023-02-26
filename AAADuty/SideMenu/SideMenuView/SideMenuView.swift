@@ -12,9 +12,14 @@ struct MenuItem {
 
 import UIKit
 
+protocol SideMenuViewDelegate: AnyObject {
+    func hideSideMenu()
+}
+
 class SideMenuView: UIView {
     @IBOutlet weak var menuTableView: UITableView!
     
+    weak var delegate: SideMenuViewDelegate?
     var menu: [MenuItem] = [MenuItem(icon: "users", title: "Order History"), MenuItem(icon: "history", title: "Transactions"), MenuItem(icon: "recent", title: "My Profile"), MenuItem(icon: "users", title: "Rate Us"), MenuItem(icon: "history", title: "Contact"), MenuItem(icon: "recent", title: "Logout")]
     
     class func instanceFromNib() -> SideMenuView {
@@ -29,8 +34,19 @@ class SideMenuView: UIView {
         
         menuTableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
         menuTableView.register(UINib(nibName: "MenuTableViewCell", bundle: nil), forCellReuseIdentifier: "MenuTableViewCell")
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognised))
+        tapGesture.numberOfTapsRequired = 1
+        addGestureRecognizer(tapGesture)
+    }
+    
+    func setBackground(color: UIColor) {
+        backgroundColor = color
     }
 
+    @objc func tapGestureRecognised() {
+        delegate?.hideSideMenu()
+    }
 }
 
 extension SideMenuView: UITableViewDataSource {

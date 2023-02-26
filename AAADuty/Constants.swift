@@ -10,7 +10,7 @@ import UIKit
 let screenWidth: CGFloat = UIScreen.main.bounds.width
 let screenHeight: CGFloat = UIScreen.main.bounds.height
 
-let sideMenuWidth: CGFloat = screenWidth*0.8
+let sideMenuWidth: CGFloat = screenWidth
 
 var topSafeAreaHeight : CGFloat = 44.0
 var bottomSafeAreaHeight : CGFloat = 30

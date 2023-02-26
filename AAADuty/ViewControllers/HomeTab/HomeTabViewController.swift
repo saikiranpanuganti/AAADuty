@@ -10,12 +10,11 @@ import UIKit
 class HomeTabViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
-    
     var categories: [Category] {
         return AppData.shared.categories
     }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,7 +78,7 @@ extension HomeTabViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeTabViewController: PromotionCollectionViewCellDelegate {
     func sideMenuTapped() {
-        
+        showHideSideMenu()
     }
     func notificationsTapped() {
         
