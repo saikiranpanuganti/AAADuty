@@ -11,6 +11,10 @@
 		7F1A485129AA802200C432DF /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A484F29AA802200C432DF /* SideMenuView.swift */; };
 		7F1A485529AA827D00C432DF /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A485329AA827D00C432DF /* MenuTableViewCell.swift */; };
 		7F1A485629AA827D00C432DF /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1A485429AA827D00C432DF /* MenuTableViewCell.xib */; };
+		7F1A485A29AB3F3D00C432DF /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A485829AB3F3D00C432DF /* PromotionCollectionViewCell.swift */; };
+		7F1A485B29AB3F3D00C432DF /* PromotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1A485929AB3F3D00C432DF /* PromotionCollectionViewCell.xib */; };
+		7F1A486129AB448600C432DF /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A485F29AB448600C432DF /* ImageCollectionViewCell.swift */; };
+		7F1A486229AB448600C432DF /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1A486029AB448600C432DF /* ImageCollectionViewCell.xib */; };
 		7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9329A8F77A0049662D /* AppDelegate.swift */; };
 		7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */; };
 		7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9729A8F77A0049662D /* ViewController.swift */; };
@@ -42,6 +46,10 @@
 		7F1A484F29AA802200C432DF /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		7F1A485329AA827D00C432DF /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		7F1A485429AA827D00C432DF /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		7F1A485829AB3F3D00C432DF /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
+		7F1A485929AB3F3D00C432DF /* PromotionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionCollectionViewCell.xib; sourceTree = "<group>"; };
+		7F1A485F29AB448600C432DF /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		7F1A486029AB448600C432DF /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		7FD0BE9029A8F77A0049662D /* AAADuty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAADuty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD0BE9329A8F77A0049662D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +98,42 @@
 			path = MenuCell;
 			sourceTree = "<group>";
 		};
+		7F1A485729AB3F1800C432DF /* HomeTab */ = {
+			isa = PBXGroup;
+			children = (
+				7FD0BEBD29A9E5D60049662D /* HomeTabViewController.swift */,
+				7F1A485E29AB447600C432DF /* ImageCell */,
+				7F1A485D29AB40A700C432DF /* CategoriesCarousal */,
+				7F1A485C29AB3F6800C432DF /* PromotionCarousal */,
+			);
+			path = HomeTab;
+			sourceTree = "<group>";
+		};
+		7F1A485C29AB3F6800C432DF /* PromotionCarousal */ = {
+			isa = PBXGroup;
+			children = (
+				7F1A485829AB3F3D00C432DF /* PromotionCollectionViewCell.swift */,
+				7F1A485929AB3F3D00C432DF /* PromotionCollectionViewCell.xib */,
+			);
+			path = PromotionCarousal;
+			sourceTree = "<group>";
+		};
+		7F1A485D29AB40A700C432DF /* CategoriesCarousal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CategoriesCarousal;
+			sourceTree = "<group>";
+		};
+		7F1A485E29AB447600C432DF /* ImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				7F1A485F29AB448600C432DF /* ImageCollectionViewCell.swift */,
+				7F1A486029AB448600C432DF /* ImageCollectionViewCell.xib */,
+			);
+			path = ImageCell;
+			sourceTree = "<group>";
+		};
 		7FD0BE8729A8F77A0049662D = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +161,7 @@
 				7FD0BEAD29A904980049662D /* MobileLoginViewController.swift */,
 				7FD0BEB329A9105F0049662D /* OTPViewController.swift */,
 				7FD0BEB729A931F50049662D /* TabBarViewController.swift */,
-				7FD0BEBD29A9E5D60049662D /* HomeTabViewController.swift */,
+				7F1A485729AB3F1800C432DF /* HomeTab */,
 				7FD0BEBF29A9E96E0049662D /* BookingsTabViewController.swift */,
 				7FD0BEC129A9E97C0049662D /* WalletTabViewController.swift */,
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
@@ -229,6 +273,8 @@
 				7FD0BEA029A8F77B0049662D /* LaunchScreen.storyboard in Resources */,
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
 				7FD0BE9B29A8F77A0049662D /* Main.storyboard in Resources */,
+				7F1A485B29AB3F3D00C432DF /* PromotionCollectionViewCell.xib in Resources */,
+				7F1A486229AB448600C432DF /* ImageCollectionViewCell.xib in Resources */,
 				7FD0BECE29AA672A0049662D /* ProfileTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,10 +302,12 @@
 				7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */,
 				7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */,
 				7F1A485129AA802200C432DF /* SideMenuView.swift in Sources */,
+				7F1A486129AB448600C432DF /* ImageCollectionViewCell.swift in Sources */,
 				7FD0BED029AA6FA10049662D /* Constants.swift in Sources */,
 				7FD0BEB629A922FB0049662D /* OTPStackView.swift in Sources */,
 				7FD0BEC029A9E96E0049662D /* BookingsTabViewController.swift in Sources */,
 				7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */,
+				7F1A485A29AB3F3D00C432DF /* PromotionCollectionViewCell.swift in Sources */,
 				7FD0BEA829A8F7950049662D /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

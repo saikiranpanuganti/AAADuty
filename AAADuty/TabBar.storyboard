@@ -15,14 +15,36 @@
                     <view key="view" contentMode="scaleToFill" id="abL-xZ-EEs">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="isS-1w-wng">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qpv-hU-3It">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yTb-8B-xZ9"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.94901960784313721" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="yTb-8B-xZ9" firstAttribute="bottom" secondItem="isS-1w-wng" secondAttribute="bottom" id="6vr-V7-kJw"/>
+                            <constraint firstItem="yTb-8B-xZ9" firstAttribute="trailing" secondItem="isS-1w-wng" secondAttribute="trailing" id="Jtv-WE-R6M"/>
+                            <constraint firstItem="isS-1w-wng" firstAttribute="top" secondItem="abL-xZ-EEs" secondAttribute="top" id="Xrc-QW-SWv"/>
+                            <constraint firstItem="isS-1w-wng" firstAttribute="leading" secondItem="yTb-8B-xZ9" secondAttribute="leading" id="fgA-By-wmg"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homeTab" selectedImage="homeTab" id="WDx-gX-y3H"/>
+                    <connections>
+                        <outlet property="collectionView" destination="isS-1w-wng" id="1SP-P3-i9b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnX-65-az4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-543" y="-439"/>
+            <point key="canvasLocation" x="-544.27480916030527" y="-439.43661971830988"/>
         </scene>
         <!--Bookings-->
         <scene sceneID="5QV-gu-iRp">
