@@ -14,6 +14,7 @@ class MobileLoginViewController: BaseViewController {
         super.viewDidLoad()
 
         mobileTextfield.tintColor = UIColor.white
+        mobileTextfield.attributedPlaceholder = NSAttributedString(string: "Phone Number", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 112/255, green: 162/255, blue: 207/255, alpha: 1)])
         mobileTextfield.becomeFirstResponder()
     }
     

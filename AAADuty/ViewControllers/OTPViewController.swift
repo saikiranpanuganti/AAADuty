@@ -37,7 +37,7 @@ class OTPViewController: BaseViewController {
         }
     }
     
-    func resendSendOTP() {
+    func resendOTP() {
         showLoader()
         
         let bodyParams: [String: Any] = ["MobileNumber": mobileNumber]
@@ -47,7 +47,7 @@ class OTPViewController: BaseViewController {
             if let data = data {
                 do {
                     if let jsonResponse = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                        print("sendOTP response: \(jsonResponse)")
+                        print("resendOTP response: \(jsonResponse)")
                         if let statusCode = jsonResponse["StatusCode"] as? Int, statusCode == 200 {
                             self?.showAlert(title: "Success", message: "OTP Sent Successfully")
                         }else {
@@ -96,7 +96,7 @@ class OTPViewController: BaseViewController {
     }
 
     @IBAction func resendOTPTapped() {
-        resendSendOTP()
+        resendOTP()
     }
     
     @IBAction func verifyOTPTapped() {
