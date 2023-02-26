@@ -13,4 +13,12 @@ class AppData {
     static let shared: AppData = AppData()
     
     var categories: [Category] = []
+    var user: User?
+    
+    var isLogged: Bool {
+        if user == nil {
+            
+        }
+        return user != nil
+    }
 }

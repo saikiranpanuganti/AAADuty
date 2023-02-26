@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol HomeTabViewControllerDelegate: AnyObject {
+    func navigateToStart()
+}
+
 class HomeTabViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    weak var delegate: HomeTabViewControllerDelegate?
     
     var categories: [Category] {
         return AppData.shared.categories
@@ -17,6 +23,8 @@ class HomeTabViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sideMenuAvailable = true
         
         collectionView.register(UINib(nibName: "PromotionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PromotionCollectionViewCell")
         collectionView.register(UINib(nibName: "CategoriesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoriesCollectionViewCell")
@@ -29,8 +37,12 @@ class HomeTabViewController: BaseViewController {
         
     }
     
-    
-
+    override func logoutUser() {
+        AppData.shared.user?.removeUser()
+        AppData.shared.user = nil
+        
+        delegate?.navigateToStart()
+    }
 }
 
 extension HomeTabViewController: UICollectionViewDataSource {

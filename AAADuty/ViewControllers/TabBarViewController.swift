@@ -51,8 +51,21 @@ extension TabBarViewController: UITabBarControllerDelegate {
       let normalFont = UIFont.systemFont(ofSize: 14)
       let selectedFont = UIFont.boldSystemFont(ofSize: 14)
       viewControllers?.forEach {
+          if let homeVC = $0 as? HomeTabViewController {
+              homeVC.delegate = self
+          }
           let selected = $0 == self.selectedViewController
           $0.tabBarItem.setTitleTextAttributes([.font: selected ? selectedFont : normalFont], for: .normal)
       }
   }
+}
+
+
+extension TabBarViewController: HomeTabViewControllerDelegate {
+    func navigateToStart() {
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.viewControllers = [Controllers.welcome.getController()]
+            self?.navigationController?.popToRootViewController(animated: true)
+        }
+    }
 }

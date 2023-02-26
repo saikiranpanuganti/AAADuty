@@ -12,12 +12,13 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getCategories()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        AppData.shared.user = getUser()
         
+        if AppData.shared.isLogged {
+            getCategories()
+        }else {
+            navigationController?.pushViewController(Controllers.welcome.getController(), animated: true)
+        }
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -28,6 +29,15 @@ class SplashViewController: UIViewController {
         
         let bottom = view.safeAreaInsets.bottom
         bottomSafeAreaHeight = bottom
+    }
+    
+    func getUser() -> User? {
+        if let userData = UserDefaults.standard.object(forKey: userData_UD) as? Data {
+            if let user = try? JSONDecoder().decode(User.self, from: userData) {
+                return user
+            }
+        }
+        return nil
     }
 
     func getCategories() {

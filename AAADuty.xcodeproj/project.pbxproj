@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */; };
 		7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */; };
+		7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */; };
 		7F1A485029AA802200C432DF /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1A484E29AA802200C432DF /* SideMenuView.xib */; };
 		7F1A485129AA802200C432DF /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A484F29AA802200C432DF /* SideMenuView.swift */; };
 		7F1A485529AA827D00C432DF /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A485329AA827D00C432DF /* MenuTableViewCell.swift */; };
@@ -57,6 +58,7 @@
 		3D345A99F1A8F0CD9AECA32D /* Pods_AAADuty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AAADuty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionCollectionViewCell.xib; sourceTree = "<group>"; };
+		7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		7F1A484E29AA802200C432DF /* SideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
 		7F1A484F29AA802200C432DF /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		7F1A485329AA827D00C432DF /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				7F1A487229AB6F6300C432DF /* CategoriesModel.swift */,
+				7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				7F1A486129AB448600C432DF /* ImageCollectionViewCell.swift in Sources */,
 				7FD0BED029AA6FA10049662D /* Constants.swift in Sources */,
 				7F1A486629AB513700C432DF /* CategoriesCollectionViewCell.swift in Sources */,
+				7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */,
 				7FD0BEB629A922FB0049662D /* OTPStackView.swift in Sources */,
 				7FD0BEC029A9E96E0049662D /* BookingsTabViewController.swift in Sources */,
 				7F1A487529AB708B00C432DF /* AppData.swift in Sources */,

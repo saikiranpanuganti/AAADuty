@@ -19,3 +19,6 @@ let promotionCellHeight: CGFloat = topSafeAreaHeight + 104 + ((screenWidth - 20)
 let bannerCellHeight: CGFloat = ((screenWidth - 40) * (18/38))
 
 let categoryCellHeight: CGFloat = 140
+
+
+let userData_UD = "userData_UD"

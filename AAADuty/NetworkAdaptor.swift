@@ -18,7 +18,7 @@ enum NetworkMethod: String {
 
 class Headers {
     static func getHeaders() -> [String: String] {
-        return ["X-API-KEY": "cpaiYdow0H1N49p4wwnI16H1h3ceEE8X7jsFaPj6"]
+        return ["Content-Type": "application/json", "X-API-KEY": "cpaiYdow0H1N49p4wwnI16H1h3ceEE8X7jsFaPj6"]
     }
 }
 

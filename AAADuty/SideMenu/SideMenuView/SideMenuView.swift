@@ -5,22 +5,39 @@
 //  Created by Saikiran Panuganti on 25/02/23.
 //
 
+enum MenuType {
+    case orderHistory
+    case transactions
+    case myProfile
+    case rateUs
+    case contact
+    case logout
+}
+
 struct MenuItem {
     var icon: String
     var title: String
+    var type: MenuType
 }
 
 import UIKit
 
 protocol SideMenuViewDelegate: AnyObject {
     func hideSideMenu()
+    func handleLogout()
 }
+
+extension SideMenuViewDelegate {
+    func hideSideMenu() {  }
+    func handleLogout() {  }
+}
+
 
 class SideMenuView: UIView {
     @IBOutlet weak var menuTableView: UITableView!
     
     weak var delegate: SideMenuViewDelegate?
-    var menu: [MenuItem] = [MenuItem(icon: "users", title: "Order History"), MenuItem(icon: "history", title: "Transactions"), MenuItem(icon: "recent", title: "My Profile"), MenuItem(icon: "users", title: "Rate Us"), MenuItem(icon: "history", title: "Contact"), MenuItem(icon: "recent", title: "Logout")]
+    var menu: [MenuItem] = [MenuItem(icon: "users", title: "Order History", type: .orderHistory), MenuItem(icon: "history", title: "Transactions", type: .transactions), MenuItem(icon: "recent", title: "My Profile", type: .myProfile), MenuItem(icon: "users", title: "Rate Us", type: .rateUs), MenuItem(icon: "history", title: "Contact", type: .contact), MenuItem(icon: "recent", title: "Logout", type: .logout)]
     
     class func instanceFromNib() -> SideMenuView {
         return UINib(nibName: "SideMenuView", bundle: Bundle(for: self)).instantiate(withOwner: nil, options: nil)[0] as! SideMenuView
@@ -37,6 +54,8 @@ class SideMenuView: UIView {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognised))
         tapGesture.numberOfTapsRequired = 1
+        tapGesture.cancelsTouchesInView = false
+        tapGesture.delegate = self
         addGestureRecognizer(tapGesture)
     }
     
@@ -106,6 +125,33 @@ extension SideMenuView: UITableViewDataSource {
 
 extension SideMenuView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.section == 0 {
+            
+        }else if indexPath.section == 1 {
+            if menu[indexPath.row].type == .orderHistory {
+                
+            }else if menu[indexPath.row].type == .transactions {
+                
+            }else if menu[indexPath.row].type == .myProfile {
+                
+            }else if menu[indexPath.row].type == .rateUs {
+                
+            }else if menu[indexPath.row].type == .contact {
+                
+            }else if menu[indexPath.row].type == .logout {
+                delegate?.handleLogout()
+            }
+        }
     }
 }
+
+
+extension SideMenuView: UIGestureRecognizerDelegate {
+    internal func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view?.isDescendant(of: menuTableView) == true {
+            return false
+        }
+        return true
+    }
+}
+ 

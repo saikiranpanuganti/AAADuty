@@ -25,7 +25,7 @@ protocol OTPDelegate: AnyObject {
 }
 
 class OTPStackView: UIStackView {
-    let numberOfFields = 4
+    let numberOfFields = 6
     var textFieldsCollection: [OTPTextField] = []
     weak var delegate: OTPDelegate?
     var showsWarningColor = false
@@ -72,12 +72,13 @@ class OTPStackView: UIStackView {
     
     //Customisation and setting OTPTextFields
     private final func setupTextField(_ textField: OTPTextField){
+        let width = (((screenWidth - 30)*0.9) - 75)/6
         textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
         self.addArrangedSubview(textField)
         textField.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        textField.heightAnchor.constraint(equalToConstant: 55).isActive = true
-        textField.widthAnchor.constraint(equalToConstant: 55).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: width).isActive = true
+        textField.widthAnchor.constraint(equalToConstant: width).isActive = true
         textField.backgroundColor = textBackgroundColor
         textField.textAlignment = .center
         textField.adjustsFontSizeToFitWidth = false
