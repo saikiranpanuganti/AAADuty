@@ -7,10 +7,10 @@
 
 import UIKit
 
-class HomeTabViewController: UIViewController {
+class HomeTabViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let sideMenuView = SideMenuView.instanceFromNib()
+    
     
     var categories: [Category] {
         return AppData.shared.categories
@@ -18,8 +18,6 @@ class HomeTabViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        addSideMenuView()
         
         collectionView.register(UINib(nibName: "PromotionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PromotionCollectionViewCell")
         collectionView.register(UINib(nibName: "CategoriesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoriesCollectionViewCell")
@@ -32,16 +30,7 @@ class HomeTabViewController: UIViewController {
         
     }
     
-    func addSideMenuView() {
-        view.addSubview(sideMenuView)
-        sideMenuView.isHidden = true
-        
-        sideMenuView.translatesAutoresizingMaskIntoConstraints = false
-        sideMenuView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
-        sideMenuView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        sideMenuView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        sideMenuView.widthAnchor.constraint(equalToConstant: sideMenuWidth).isActive = true
-    }
+    
 
 }
 
@@ -51,10 +40,13 @@ extension HomeTabViewController: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromotionCollectionViewCell", for: indexPath)
-            return cell
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromotionCollectionViewCell", for: indexPath) as? PromotionCollectionViewCell {
+                cell.delegate = self
+                return cell
+            }
         }else if indexPath.item == 1 {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCollectionViewCell", for: indexPath) as? CategoriesCollectionViewCell {
+                cell.delegate = self
                 cell.configureUI(categoriesArray: categories)
                 return cell
             }
@@ -82,5 +74,20 @@ extension HomeTabViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension HomeTabViewController: PromotionCollectionViewCellDelegate {
+    func sideMenuTapped() {
+        
+    }
+    func notificationsTapped() {
+        
+    }
+}
+
+extension HomeTabViewController: CategoriesCollectionViewCellDelegate {
+    func categoryTapped(category: Category) {
+        
     }
 }

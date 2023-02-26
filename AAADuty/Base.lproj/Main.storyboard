@@ -97,7 +97,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="056-L5-peF">
-                                        <rect key="frame" x="50" y="259" width="293" height="461.66666666666674"/>
+                                        <rect key="frame" x="50" y="249.66666666666666" width="293" height="480.66666666666674"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYk-H0-vM5">
                                                 <rect key="frame" x="0.0" y="0.0" width="293" height="170"/>
@@ -118,7 +118,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO AAA DUTY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YL0-4S-Jkl" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="195" width="293" height="21"/>
+                                                <rect key="frame" x="0.0" y="195.00000000000003" width="293" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.47843137254901957" green="0.62745098039215685" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -132,7 +132,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LET'S GO START" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g1P-fM-VJf" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="241" width="293" height="23.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="240.33333333333334" width="293" height="40.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -146,7 +146,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quickly create, interactive services with AAA Duty" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCN-4A-nGg" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="289.33333333333337" width="293" height="37.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="306" width="293" height="39.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                                 <color key="textColor" red="0.14901960784313725" green="0.396078431372549" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -160,7 +160,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzi-Yl-e8O">
-                                                <rect key="frame" x="0.0" y="351.66666666666663" width="293" height="110"/>
+                                                <rect key="frame" x="0.0" y="370.66666666666674" width="293" height="110"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proceed" translatesAutoresizingMaskIntoConstraints="NO" id="fWD-jn-HfI">
                                                         <rect key="frame" x="106.66666666666666" y="30" width="80" height="80"/>

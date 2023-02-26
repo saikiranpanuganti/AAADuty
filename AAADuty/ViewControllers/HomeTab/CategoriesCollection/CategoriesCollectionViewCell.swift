@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol CategoriesCollectionViewCellDelegate: AnyObject {
+    func categoryTapped(category: Category)
+}
+
 class CategoriesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var roundedView: UIView!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     
+    weak var delegate: CategoriesCollectionViewCellDelegate?
     var categories: [Category] = []
 
     override func awakeFromNib() {
@@ -52,7 +57,9 @@ extension CategoriesCollectionViewCell: UICollectionViewDataSource {
 }
 
 extension CategoriesCollectionViewCell: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.categoryTapped(category: categories[indexPath.row])
+    }
 }
 
 extension CategoriesCollectionViewCell: UICollectionViewDelegateFlowLayout {

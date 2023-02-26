@@ -6,21 +6,21 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CategoryCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var roundedView: AAAView!
     @IBOutlet weak var imageOutlet: UIImageView!
     @IBOutlet weak var titleOutlet: AAALabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        imageOutlet.layer.cornerRadius = 20
-        imageOutlet.layer.masksToBounds = true
     }
 
     func configureUI(category: Category) {
-//        imageOutlet.image = UIImage(named: "dummyCategory")
+        imageOutlet.sd_setImage(with: URL(string: category.requestImageURL ?? ""))
         titleOutlet.text = category.category
-        imageOutlet.backgroundColor = category.colorCode?.hexStringToUIColor()
+        roundedView.backgroundColor = category.colorCode?.hexStringToUIColor()
     }
 }
