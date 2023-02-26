@@ -10,6 +10,8 @@ import UIKit
 class CategoriesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var roundedView: UIView!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
+    
+    var categories: [Category] = []
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,15 +29,22 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         categoriesCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 
+    func configureUI(categoriesArray: [Category]) {
+        categories = categoriesArray
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.categoriesCollectionView.reloadData()
+        }
+    }
 }
 
 extension CategoriesCollectionViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return categories.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = categoriesCollectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as? CategoryCollectionViewCell {
-            cell.configureUI()
+            cell.configureUI(category: categories[indexPath.row])
             return cell
         }
         return UICollectionViewCell()

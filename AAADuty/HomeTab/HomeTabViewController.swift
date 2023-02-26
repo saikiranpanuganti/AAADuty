@@ -11,6 +11,10 @@ class HomeTabViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let sideMenuView = SideMenuView.instanceFromNib()
+    
+    var categories: [Category] {
+        return AppData.shared.categories
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +54,10 @@ extension HomeTabViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromotionCollectionViewCell", for: indexPath)
             return cell
         }else if indexPath.item == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCollectionViewCell", for: indexPath)
-            return cell
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCollectionViewCell", for: indexPath) as? CategoriesCollectionViewCell {
+                cell.configureUI(categoriesArray: categories)
+                return cell
+            }
         }
         return UICollectionViewCell()
     }
@@ -66,7 +72,8 @@ extension HomeTabViewController: UICollectionViewDelegateFlowLayout {
         if indexPath.item == 0 {
             return CGSize(width: collectionView.frame.width, height: promotionCellHeight)
         }else if indexPath.item == 1 {
-            return CGSize(width: collectionView.frame.width, height: categoriesCellHeight)
+            let rows: Int = ((categories.count/3) + (((categories.count % 3) == 0) ? 0 : 1))
+            return CGSize(width: collectionView.frame.width, height: (((screenWidth + 40)*CGFloat(rows))/3) + 30)
         }
         return CGSize.zero
     }

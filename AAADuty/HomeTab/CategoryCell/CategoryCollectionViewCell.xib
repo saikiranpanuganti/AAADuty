@@ -22,14 +22,14 @@
                             <constraint firstAttribute="width" secondItem="BzX-Xr-6ZS" secondAttribute="height" multiplier="1:1" id="b40-cM-1wP"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QR-5s-doe" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="168" width="161" height="16.333333333333343"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QR-5s-doe" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="168" width="161" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                <real key="value" value="14"/>
+                                <real key="value" value="12"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="fontWeight">
                                 <integer key="value" value="3"/>
@@ -58,7 +58,7 @@
     </objects>
     <designables>
         <designable name="2QR-5s-doe">
-            <size key="intrinsicContentSize" width="35.666666666666664" height="16.333333333333332"/>
+            <size key="intrinsicContentSize" width="30.666666666666668" height="14"/>
         </designable>
     </designables>
 </document>

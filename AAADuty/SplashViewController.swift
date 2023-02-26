@@ -11,14 +11,13 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        getCategories()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        navigationController?.pushViewController(Controllers.tabBar.getController(), animated: true)
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -31,4 +30,20 @@ class SplashViewController: UIViewController {
         bottomSafeAreaHeight = bottom
     }
 
+    func getCategories() {
+        NetworkAdaptor.requestWithHeaders(urlString: Url.categories.getUrl(), method: .get) { data, response, error in
+            if let data = data {
+                do {
+                    let cateogriesModel = try JSONDecoder().decode(CategoriesModel.self, from: data)
+                    AppData.shared.categories = cateogriesModel.categories ?? []
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        self?.navigationController?.pushViewController(Controllers.tabBar.getController(), animated: true)
+                    }
+                }catch {
+                    print("Error: SplashViewController getCategories - \(error.localizedDescription)")
+                }
+            }
+        }
+    }
 }

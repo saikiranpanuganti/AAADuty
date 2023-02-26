@@ -13,11 +13,14 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        imageOutlet.layer.cornerRadius = 20
+        imageOutlet.layer.masksToBounds = true
     }
 
-    func configureUI() {
-        imageOutlet.image = UIImage(named: "dummyCategory")
-        titleOutlet.text = "Pest Control"
+    func configureUI(category: Category) {
+//        imageOutlet.image = UIImage(named: "dummyCategory")
+        titleOutlet.text = category.category
+        imageOutlet.backgroundColor = category.colorCode?.hexStringToUIColor()
     }
 }

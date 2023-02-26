@@ -19,6 +19,11 @@
 		7F1A486729AB513700C432DF /* CategoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1A486529AB513700C432DF /* CategoriesCollectionViewCell.xib */; };
 		7F1A486B29AB515300C432DF /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A486929AB515300C432DF /* CategoryCollectionViewCell.swift */; };
 		7F1A486C29AB515300C432DF /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1A486A29AB515300C432DF /* CategoryCollectionViewCell.xib */; };
+		7F1A486E29AB6D0800C432DF /* NetworkAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A486D29AB6D0800C432DF /* NetworkAdaptor.swift */; };
+		7F1A487029AB6E2600C432DF /* UrlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A486F29AB6E2600C432DF /* UrlHandler.swift */; };
+		7F1A487329AB6F6300C432DF /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A487229AB6F6300C432DF /* CategoriesModel.swift */; };
+		7F1A487529AB708B00C432DF /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A487429AB708B00C432DF /* AppData.swift */; };
+		7F1A487829AB797600C432DF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A487729AB797600C432DF /* UIColor+Extension.swift */; };
 		7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9329A8F77A0049662D /* AppDelegate.swift */; };
 		7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */; };
 		7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9729A8F77A0049662D /* ViewController.swift */; };
@@ -58,6 +63,11 @@
 		7F1A486529AB513700C432DF /* CategoriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F1A486929AB515300C432DF /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F1A486A29AB515300C432DF /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		7F1A486D29AB6D0800C432DF /* NetworkAdaptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAdaptor.swift; sourceTree = "<group>"; };
+		7F1A486F29AB6E2600C432DF /* UrlHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlHandler.swift; sourceTree = "<group>"; };
+		7F1A487229AB6F6300C432DF /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
+		7F1A487429AB708B00C432DF /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		7F1A487729AB797600C432DF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7FD0BE9029A8F77A0049662D /* AAADuty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAADuty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD0BE9329A8F77A0049662D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +164,22 @@
 			path = CategoryCell;
 			sourceTree = "<group>";
 		};
+		7F1A487129AB6F3800C432DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7F1A487229AB6F6300C432DF /* CategoriesModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7F1A487629AB796700C432DF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F1A487729AB797600C432DF /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7FD0BE8729A8F77A0049662D = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +203,9 @@
 				7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */,
 				7FD0BE9729A8F77A0049662D /* ViewController.swift */,
 				7FD0BEA729A8F7950049662D /* SplashViewController.swift */,
+				7F1A487429AB708B00C432DF /* AppData.swift */,
+				7F1A487629AB796700C432DF /* Extensions */,
+				7F1A487129AB6F3800C432DF /* Models */,
 				7FD0BEA929A8FC950049662D /* WelcomeViewController.swift */,
 				7FD0BEAD29A904980049662D /* MobileLoginViewController.swift */,
 				7FD0BEB329A9105F0049662D /* OTPViewController.swift */,
@@ -185,6 +214,8 @@
 				7FD0BEBF29A9E96E0049662D /* BookingsTabViewController.swift */,
 				7FD0BEC129A9E97C0049662D /* WalletTabViewController.swift */,
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
+				7F1A486D29AB6D0800C432DF /* NetworkAdaptor.swift */,
+				7F1A486F29AB6E2600C432DF /* UrlHandler.swift */,
 				7FD0BEB529A922FB0049662D /* OTPStackView.swift */,
 				7FD0BECF29AA6FA10049662D /* Constants.swift */,
 				7FD0BEC529AA3F100049662D /* SideMenu */,
@@ -312,16 +343,20 @@
 				7F1A486B29AB515300C432DF /* CategoryCollectionViewCell.swift in Sources */,
 				7FD0BEC429A9E9880049662D /* ProfileTabViewController.swift in Sources */,
 				7F1A485529AA827D00C432DF /* MenuTableViewCell.swift in Sources */,
+				7F1A487029AB6E2600C432DF /* UrlHandler.swift in Sources */,
 				7FD0BEAC29A8FE930049662D /* AAALabel.swift in Sources */,
 				7FD0BEB229A90ED60049662D /* AAAView.swift in Sources */,
 				7FD0BEBE29A9E5D60049662D /* HomeTabViewController.swift in Sources */,
 				7FD0BEB029A908E20049662D /* AAAButton.swift in Sources */,
+				7F1A487829AB797600C432DF /* UIColor+Extension.swift in Sources */,
 				7FD0BECD29AA672A0049662D /* ProfileTableViewCell.swift in Sources */,
 				7FD0BEB829A931F50049662D /* TabBarViewController.swift in Sources */,
+				7F1A487329AB6F6300C432DF /* CategoriesModel.swift in Sources */,
 				7FD0BEBC29A9E4AD0049662D /* Controllers.swift in Sources */,
 				7FD0BEC229A9E97C0049662D /* WalletTabViewController.swift in Sources */,
 				7FD0BEAE29A904980049662D /* MobileLoginViewController.swift in Sources */,
 				7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */,
+				7F1A486E29AB6D0800C432DF /* NetworkAdaptor.swift in Sources */,
 				7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */,
 				7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */,
 				7F1A485129AA802200C432DF /* SideMenuView.swift in Sources */,
@@ -330,6 +365,7 @@
 				7F1A486629AB513700C432DF /* CategoriesCollectionViewCell.swift in Sources */,
 				7FD0BEB629A922FB0049662D /* OTPStackView.swift in Sources */,
 				7FD0BEC029A9E96E0049662D /* BookingsTabViewController.swift in Sources */,
+				7F1A487529AB708B00C432DF /* AppData.swift in Sources */,
 				7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */,
 				7F1A485A29AB3F3D00C432DF /* PromotionCollectionViewCell.swift in Sources */,
 				7FD0BEA829A8F7950049662D /* SplashViewController.swift in Sources */,

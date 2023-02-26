@@ -15,8 +15,7 @@ let sideMenuWidth: CGFloat = screenWidth*0.8
 var topSafeAreaHeight : CGFloat = 44.0
 var bottomSafeAreaHeight : CGFloat = 30
 
-let promotionCellHeight: CGFloat = 174 + ((screenWidth - 20) * (18/38)) + 10
+let promotionCellHeight: CGFloat = topSafeAreaHeight + 104 + ((screenWidth - 20) * (18/38)) + 10
 let bannerCellHeight: CGFloat = ((screenWidth - 40) * (18/38))
 
-let categoriesCellHeight: CGFloat = (((screenWidth + 40)*4)/3) + 30
 let categoryCellHeight: CGFloat = 140
