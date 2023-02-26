@@ -39,20 +39,17 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="bellIcon"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdX-yc-fuc" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                <rect key="frame" x="70" y="87.666666666666671" width="9" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="xRw-9U-1dp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEK-aQ-aAw" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
+                                <rect key="frame" x="70" y="86" width="106" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="fontWeight">
-                                        <integer key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                        <real key="value" value="2"/>
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontWeight">
+                                        <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -60,16 +57,17 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1hg-5m-nn9" firstAttribute="centerY" secondItem="yZG-dS-lGB" secondAttribute="centerY" id="7as-a7-n5W"/>
-                            <constraint firstItem="RdX-yc-fuc" firstAttribute="leading" secondItem="yZG-dS-lGB" secondAttribute="trailing" constant="20" id="FQq-vu-pgt"/>
+                            <constraint firstItem="1hg-5m-nn9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bEK-aQ-aAw" secondAttribute="trailing" constant="20" id="GPm-GX-Rxy"/>
                             <constraint firstItem="yZG-dS-lGB" firstAttribute="leading" secondItem="8kY-lC-ro4" secondAttribute="leading" constant="10" id="UeT-cx-rLV"/>
                             <constraint firstAttribute="height" constant="128" id="gHO-7W-8sI"/>
+                            <constraint firstItem="bEK-aQ-aAw" firstAttribute="leading" secondItem="yZG-dS-lGB" secondAttribute="trailing" constant="20" id="hW5-4D-w8g"/>
+                            <constraint firstItem="bEK-aQ-aAw" firstAttribute="centerY" secondItem="yZG-dS-lGB" secondAttribute="centerY" id="hgs-F2-RC0"/>
                             <constraint firstAttribute="trailing" secondItem="1hg-5m-nn9" secondAttribute="trailing" constant="10" id="trg-bf-bNE"/>
                             <constraint firstAttribute="bottom" secondItem="yZG-dS-lGB" secondAttribute="bottom" constant="10" id="wMy-4b-Dw2"/>
-                            <constraint firstItem="RdX-yc-fuc" firstAttribute="centerY" secondItem="yZG-dS-lGB" secondAttribute="centerY" id="wnA-TR-ABR"/>
                         </constraints>
                     </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fnh-0P-O2b">
-                        <rect key="frame" x="20" y="138" width="320" height="151.66666666666663"/>
+                        <rect key="frame" x="10" y="138" width="340" height="161"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.94901960784313721" blue="0.95686274509803915" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="fnh-0P-O2b" secondAttribute="height" multiplier="380:180" id="zrQ-F7-KwN"/>
@@ -82,7 +80,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="qJo-LR-hPl">
-                        <rect key="frame" x="20" y="294.66666666666669" width="320" height="26"/>
+                        <rect key="frame" x="20" y="304" width="320" height="26"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="26" id="Ad9-wg-BWF"/>
                         </constraints>
@@ -100,10 +98,10 @@
                 <constraint firstItem="fnh-0P-O2b" firstAttribute="top" secondItem="8kY-lC-ro4" secondAttribute="bottom" constant="10" id="Gf9-aj-JSK"/>
                 <constraint firstItem="qJo-LR-hPl" firstAttribute="top" secondItem="fnh-0P-O2b" secondAttribute="bottom" constant="5" id="TCP-Zx-QjP"/>
                 <constraint firstItem="qJo-LR-hPl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Ufw-1Y-dnv"/>
-                <constraint firstItem="fnh-0P-O2b" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="fxo-CK-Cp9"/>
+                <constraint firstItem="fnh-0P-O2b" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="fxo-CK-Cp9"/>
                 <constraint firstItem="8kY-lC-ro4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jmz-Kr-zbp"/>
                 <constraint firstItem="8kY-lC-ro4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nLU-bW-DTA"/>
-                <constraint firstAttribute="trailing" secondItem="fnh-0P-O2b" secondAttribute="trailing" constant="20" id="qsQ-2t-tVo"/>
+                <constraint firstAttribute="trailing" secondItem="fnh-0P-O2b" secondAttribute="trailing" constant="10" id="qsQ-2t-tVo"/>
                 <constraint firstAttribute="trailing" secondItem="8kY-lC-ro4" secondAttribute="trailing" id="rDM-Bu-CSY"/>
                 <constraint firstAttribute="trailing" secondItem="qJo-LR-hPl" secondAttribute="trailing" constant="20" id="zTn-GV-hPh"/>
             </constraints>
@@ -116,8 +114,8 @@
         </collectionViewCell>
     </objects>
     <designables>
-        <designable name="RdX-yc-fuc">
-            <size key="intrinsicContentSize" width="9" height="2.3333333333333335"/>
+        <designable name="bEK-aQ-aAw">
+            <size key="intrinsicContentSize" width="106" height="28"/>
         </designable>
     </designables>
     <resources>

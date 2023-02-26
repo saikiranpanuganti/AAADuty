@@ -15,37 +15,61 @@ enum AAAFontWeight: Int {
     case bold = 4
 }
 
+enum AAAFontFamily {
+    case poppins
+    case sogue
+}
+
 @IBDesignable class AAALabel: UILabel {
 
     @IBInspectable var fontSize: CGFloat = 14 {
         didSet {
-            switch AAAFontWeight(rawValue: fontWeight) {
-            case .light:
-                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
-            case .medium:
-                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
-            case .semibold:
-                self.font = UIFont(name: "Trebuchet MS Bold", size: fontSize)
-            case .bold:
-                self.font = UIFont(name: "Trebuchet MS Bold", size: fontSize)
-            default:
-                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
-            }
+            setFont()
         }
     }
     
     @IBInspectable var fontWeight: Int = 1 {
         didSet {
-            switch AAAFontWeight(rawValue: fontWeight) {
-            case .light:
+            setFont()
+        }
+    }
+    
+    @IBInspectable var isPoppinsFont: Bool = false {
+        didSet {
+            setFont()
+        }
+    }
+    
+    func setFont() {
+        switch AAAFontWeight(rawValue: fontWeight) {
+        case .light:
+            if isPoppinsFont {
                 self.font = UIFont(name: "Trebuchet MS", size: fontSize)
-            case .medium:
+            }else {
                 self.font = UIFont(name: "Trebuchet MS", size: fontSize)
-            case .semibold:
+            }
+        case .medium:
+            if isPoppinsFont {
+                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
+            }else {
+                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
+            }
+        case .semibold:
+            if isPoppinsFont {
                 self.font = UIFont(name: "Trebuchet MS Bold", size: fontSize)
-            case .bold:
+            }else {
                 self.font = UIFont(name: "Trebuchet MS Bold", size: fontSize)
-            default:
+            }
+        case .bold:
+            if isPoppinsFont {
+                self.font = UIFont(name: "Trebuchet MS Bold", size: fontSize)
+            }else {
+                self.font = UIFont(name: "Trebuchet MS Bold", size: fontSize)
+            }
+        default:
+            if isPoppinsFont {
+                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
+            }else {
                 self.font = UIFont(name: "Trebuchet MS", size: fontSize)
             }
         }

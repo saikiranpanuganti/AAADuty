@@ -18,6 +18,7 @@ class HomeTabViewController: UIViewController {
         addSideMenuView()
         
         collectionView.register(UINib(nibName: "PromotionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PromotionCollectionViewCell")
+        collectionView.register(UINib(nibName: "CategoriesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoriesCollectionViewCell")
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -42,11 +43,14 @@ class HomeTabViewController: UIViewController {
 
 extension HomeTabViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
+        if indexPath.item == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromotionCollectionViewCell", for: indexPath)
+            return cell
+        }else if indexPath.item == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCollectionViewCell", for: indexPath)
             return cell
         }
         return UICollectionViewCell()
@@ -59,8 +63,10 @@ extension HomeTabViewController: UICollectionViewDelegate {
 
 extension HomeTabViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.section == 0 {
-            return CGSize(width: collectionView.frame.width-10, height: promotionCellHeight)
+        if indexPath.item == 0 {
+            return CGSize(width: collectionView.frame.width, height: promotionCellHeight)
+        }else if indexPath.item == 1 {
+            return CGSize(width: collectionView.frame.width, height: categoriesCellHeight)
         }
         return CGSize.zero
     }
