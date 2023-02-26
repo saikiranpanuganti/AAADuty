@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */; };
+		7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */; };
 		7F1A485029AA802200C432DF /* SideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1A484E29AA802200C432DF /* SideMenuView.xib */; };
 		7F1A485129AA802200C432DF /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A484F29AA802200C432DF /* SideMenuView.swift */; };
 		7F1A485529AA827D00C432DF /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A485329AA827D00C432DF /* MenuTableViewCell.swift */; };
@@ -53,6 +55,8 @@
 /* Begin PBXFileReference section */
 		2FFEE8DE53F2788FC92E8386 /* Pods-AAADuty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AAADuty.release.xcconfig"; path = "Target Support Files/Pods-AAADuty/Pods-AAADuty.release.xcconfig"; sourceTree = "<group>"; };
 		3D345A99F1A8F0CD9AECA32D /* Pods_AAADuty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AAADuty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
+		7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F1A484E29AA802200C432DF /* SideMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuView.xib; sourceTree = "<group>"; };
 		7F1A484F29AA802200C432DF /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		7F1A485329AA827D00C432DF /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 		7FB8C40C29AB9579005B6B4E /* PromotionCarousal */ = {
 			isa = PBXGroup;
 			children = (
+				7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */,
+				7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */,
 			);
 			path = PromotionCarousal;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
 				7FD0BE9B29A8F77A0049662D /* Main.storyboard in Resources */,
 				7F1A486729AB513700C432DF /* CategoriesCollectionViewCell.xib in Resources */,
+				7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */,
 				7F1A486229AB448600C432DF /* ImageCollectionViewCell.xib in Resources */,
 				7F1A486C29AB515300C432DF /* CategoryCollectionViewCell.xib in Resources */,
 				7FD0BECE29AA672A0049662D /* ProfileTableViewCell.xib in Resources */,
@@ -425,6 +432,7 @@
 				7FD0BECD29AA672A0049662D /* ProfileTableViewCell.swift in Sources */,
 				7FD0BEB829A931F50049662D /* TabBarViewController.swift in Sources */,
 				7F1A487329AB6F6300C432DF /* CategoriesModel.swift in Sources */,
+				7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */,
 				7FD0BEBC29A9E4AD0049662D /* Controllers.swift in Sources */,
 				7FD0BEC229A9E97C0049662D /* WalletTabViewController.swift in Sources */,
 				7FD0BEAE29A904980049662D /* MobileLoginViewController.swift in Sources */,
