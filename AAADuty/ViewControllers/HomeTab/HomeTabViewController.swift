@@ -99,6 +99,6 @@ extension HomeTabViewController: PromotionCollectionViewCellDelegate {
 
 extension HomeTabViewController: CategoriesCollectionViewCellDelegate {
     func categoryTapped(category: Category) {
-        
+        navigationController?.pushViewController(Controllers.flatTyre.getController(), animated: true)
     }
 }

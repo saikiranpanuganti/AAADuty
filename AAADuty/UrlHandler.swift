@@ -8,22 +8,31 @@
 
 import Foundation
 
+fileprivate var baseUrl = "https://3m7wx2g9bb.execute-api.ap-south-1.amazonaws.com"
+
+
 enum Url {
     case categories
     case generateOtp
     case resendOTP
     case validateUser
+    case getTypes
+    case getComplaintTypes
     
     func getUrl() -> String {
         switch self {
         case .categories:
-            return "https://3m7wx2g9bb.execute-api.ap-south-1.amazonaws.com/V1/getcategories"
+            return baseUrl + "/V1/getcategories"
         case .generateOtp:
-            return "https://3m7wx2g9bb.execute-api.ap-south-1.amazonaws.com/V1/generateuserotp"
+            return baseUrl + "/V1/generateuserotp"
         case .resendOTP:
-            return "https://3m7wx2g9bb.execute-api.ap-south-1.amazonaws.com/V1/resenduserotp"
+            return baseUrl + "/V1/generateuserotp"
         case .validateUser:
-            return "https://3m7wx2g9bb.execute-api.ap-south-1.amazonaws.com/V1/validateuser"
+            return baseUrl + "/V1/validateuser"
+        case .getTypes:
+            return baseUrl + "/V1/gettypes"
+        case .getComplaintTypes:
+            return baseUrl + "/V1/getcomplainttypes"
         }
     }
 }

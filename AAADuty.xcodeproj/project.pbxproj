@@ -10,6 +10,12 @@
 		7F02F0BD29AE1B2500E4B775 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0BC29AE1B2400E4B775 /* LocationManager.swift */; };
 		7F02F0BF29AE243F00E4B775 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0BE29AE243F00E4B775 /* Toast.swift */; };
 		7F02F0C129AE4A1E00E4B775 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0C029AE4A1E00E4B775 /* String+Extension.swift */; };
+		7F02F0C329AE70F100E4B775 /* FlatTyreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0C229AE70F100E4B775 /* FlatTyreViewController.swift */; };
+		7F02F0C529AE724500E4B775 /* Services.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F02F0C429AE724500E4B775 /* Services.storyboard */; };
+		7F02F0CD29AE79B500E4B775 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0CB29AE79B500E4B775 /* LocationTableViewCell.swift */; };
+		7F02F0CE29AE79B500E4B775 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F02F0CC29AE79B500E4B775 /* LocationTableViewCell.xib */; };
+		7F02F0D229AE7DFA00E4B775 /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0D029AE7DFA00E4B775 /* ServiceTableViewCell.swift */; };
+		7F02F0D329AE7DFA00E4B775 /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F02F0D129AE7DFA00E4B775 /* ServiceTableViewCell.xib */; };
 		7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */; };
 		7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */; };
 		7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */; };
@@ -62,6 +68,12 @@
 		7F02F0BC29AE1B2400E4B775 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		7F02F0BE29AE243F00E4B775 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		7F02F0C029AE4A1E00E4B775 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		7F02F0C229AE70F100E4B775 /* FlatTyreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatTyreViewController.swift; sourceTree = "<group>"; };
+		7F02F0C429AE724500E4B775 /* Services.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Services.storyboard; sourceTree = "<group>"; };
+		7F02F0CB29AE79B500E4B775 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		7F02F0CC29AE79B500E4B775 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		7F02F0D029AE7DFA00E4B775 /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		7F02F0D129AE7DFA00E4B775 /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
 		7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -136,6 +148,24 @@
 			children = (
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7F02F0C629AE776300E4B775 /* LocationCell */ = {
+			isa = PBXGroup;
+			children = (
+				7F02F0CB29AE79B500E4B775 /* LocationTableViewCell.swift */,
+				7F02F0CC29AE79B500E4B775 /* LocationTableViewCell.xib */,
+			);
+			path = LocationCell;
+			sourceTree = "<group>";
+		};
+		7F02F0CF29AE7DE900E4B775 /* ServiceCell */ = {
+			isa = PBXGroup;
+			children = (
+				7F02F0D029AE7DFA00E4B775 /* ServiceTableViewCell.swift */,
+				7F02F0D129AE7DFA00E4B775 /* ServiceTableViewCell.xib */,
+			);
+			path = ServiceCell;
 			sourceTree = "<group>";
 		};
 		7F1A485229AA826C00C432DF /* MenuCell */ = {
@@ -215,6 +245,9 @@
 				7FD0BEBF29A9E96E0049662D /* BookingsTabViewController.swift */,
 				7FD0BEC129A9E97C0049662D /* WalletTabViewController.swift */,
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
+				7F02F0C229AE70F100E4B775 /* FlatTyreViewController.swift */,
+				7F02F0CF29AE7DE900E4B775 /* ServiceCell */,
+				7F02F0C629AE776300E4B775 /* LocationCell */,
 				7F1A485729AB3F1800C432DF /* HomeTab */,
 				7FB8C40829AB949A005B6B4E /* BaseViewController.swift */,
 			);
@@ -272,6 +305,7 @@
 				7FD0BEB129A90ED60049662D /* AAAView.swift */,
 				7FD0BE9929A8F77A0049662D /* Main.storyboard */,
 				7FD0BEB929A9320F0049662D /* TabBar.storyboard */,
+				7F02F0C429AE724500E4B775 /* Services.storyboard */,
 				7FD0BE9C29A8F77B0049662D /* Assets.xcassets */,
 				7FD0BE9E29A8F77B0049662D /* LaunchScreen.storyboard */,
 				7FD0BEA129A8F77B0049662D /* Info.plist */,
@@ -377,6 +411,7 @@
 			files = (
 				7FD0BEBA29A9320F0049662D /* TabBar.storyboard in Resources */,
 				7F1A485629AA827D00C432DF /* MenuTableViewCell.xib in Resources */,
+				7F02F0CE29AE79B500E4B775 /* LocationTableViewCell.xib in Resources */,
 				7F1A485029AA802200C432DF /* SideMenuView.xib in Resources */,
 				7FD0BEA029A8F77B0049662D /* LaunchScreen.storyboard in Resources */,
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
@@ -385,7 +420,9 @@
 				7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */,
 				7F1A486229AB448600C432DF /* ImageCollectionViewCell.xib in Resources */,
 				7F1A486C29AB515300C432DF /* CategoryCollectionViewCell.xib in Resources */,
+				7F02F0C529AE724500E4B775 /* Services.storyboard in Resources */,
 				7FD0BECE29AA672A0049662D /* ProfileTableViewCell.xib in Resources */,
+				7F02F0D329AE7DFA00E4B775 /* ServiceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +484,7 @@
 				7FD0BEAC29A8FE930049662D /* AAALabel.swift in Sources */,
 				7FD0BEB229A90ED60049662D /* AAAView.swift in Sources */,
 				7FD0BEBE29A9E5D60049662D /* HomeTabViewController.swift in Sources */,
+				7F02F0C329AE70F100E4B775 /* FlatTyreViewController.swift in Sources */,
 				7FD0BEB029A908E20049662D /* AAAButton.swift in Sources */,
 				7F1A487829AB797600C432DF /* UIColor+Extension.swift in Sources */,
 				7FD0BECD29AA672A0049662D /* ProfileTableViewCell.swift in Sources */,
@@ -460,6 +498,7 @@
 				7F02F0BF29AE243F00E4B775 /* Toast.swift in Sources */,
 				7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */,
 				7F1A486E29AB6D0800C432DF /* NetworkAdaptor.swift in Sources */,
+				7F02F0D229AE7DFA00E4B775 /* ServiceTableViewCell.swift in Sources */,
 				7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */,
 				7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */,
 				7F1A485129AA802200C432DF /* SideMenuView.swift in Sources */,
@@ -468,6 +507,7 @@
 				7F1A486629AB513700C432DF /* CategoriesCollectionViewCell.swift in Sources */,
 				7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */,
 				7FD0BEB629A922FB0049662D /* OTPStackView.swift in Sources */,
+				7F02F0CD29AE79B500E4B775 /* LocationTableViewCell.swift in Sources */,
 				7FD0BEC029A9E96E0049662D /* BookingsTabViewController.swift in Sources */,
 				7F02F0C129AE4A1E00E4B775 /* String+Extension.swift in Sources */,
 				7F1A487529AB708B00C432DF /* AppData.swift in Sources */,
