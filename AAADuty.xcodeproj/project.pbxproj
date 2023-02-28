@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7F02F0BD29AE1B2500E4B775 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0BC29AE1B2400E4B775 /* LocationManager.swift */; };
+		7F02F0BF29AE243F00E4B775 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0BE29AE243F00E4B775 /* Toast.swift */; };
+		7F02F0C129AE4A1E00E4B775 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0C029AE4A1E00E4B775 /* String+Extension.swift */; };
 		7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */; };
 		7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */; };
 		7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */; };
@@ -58,6 +60,8 @@
 		2FFEE8DE53F2788FC92E8386 /* Pods-AAADuty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AAADuty.release.xcconfig"; path = "Target Support Files/Pods-AAADuty/Pods-AAADuty.release.xcconfig"; sourceTree = "<group>"; };
 		3D345A99F1A8F0CD9AECA32D /* Pods_AAADuty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AAADuty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F02F0BC29AE1B2400E4B775 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		7F02F0BE29AE243F00E4B775 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		7F02F0C029AE4A1E00E4B775 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				7F1A487729AB797600C432DF /* UIColor+Extension.swift */,
+				7F02F0C029AE4A1E00E4B775 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				7F1A486F29AB6E2600C432DF /* UrlHandler.swift */,
 				7FD0BEB529A922FB0049662D /* OTPStackView.swift */,
 				7FD0BECF29AA6FA10049662D /* Constants.swift */,
+				7F02F0BE29AE243F00E4B775 /* Toast.swift */,
 				7FD0BEC529AA3F100049662D /* SideMenu */,
 				7FD0BEBB29A9E4AD0049662D /* Controllers.swift */,
 				7F02F0B929ADCB7B00E4B775 /* Fonts */,
@@ -451,6 +457,7 @@
 				7FD0BEBC29A9E4AD0049662D /* Controllers.swift in Sources */,
 				7FD0BEC229A9E97C0049662D /* WalletTabViewController.swift in Sources */,
 				7FD0BEAE29A904980049662D /* MobileLoginViewController.swift in Sources */,
+				7F02F0BF29AE243F00E4B775 /* Toast.swift in Sources */,
 				7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */,
 				7F1A486E29AB6D0800C432DF /* NetworkAdaptor.swift in Sources */,
 				7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */,
@@ -462,6 +469,7 @@
 				7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */,
 				7FD0BEB629A922FB0049662D /* OTPStackView.swift in Sources */,
 				7FD0BEC029A9E96E0049662D /* BookingsTabViewController.swift in Sources */,
+				7F02F0C129AE4A1E00E4B775 /* String+Extension.swift in Sources */,
 				7F1A487529AB708B00C432DF /* AppData.swift in Sources */,
 				7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */,
 				7FD0BEA829A8F7950049662D /* SplashViewController.swift in Sources */,

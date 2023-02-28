@@ -9,11 +9,17 @@ import Foundation
 import CoreLocation
 
 
+protocol LocationManagerDelegate: AnyObject {
+    func deniedLocationAccess()
+}
+
+
 class LocationManager: NSObject {
     
     static let shared: LocationManager = LocationManager()
     
     private var locationManager: CLLocationManager?
+    weak var delegate: LocationManagerDelegate?
     
     private override init() {
         super.init()
@@ -43,7 +49,7 @@ extension LocationManager : CLLocationManagerDelegate {
         if status == .authorizedAlways {
             print("Authorized")
         }else if status == .denied {
-            print("Show Alert - Denied")
+            delegate?.deniedLocationAccess()
         }else {
             print("Show Alert - \(status.rawValue)")
         }
@@ -52,7 +58,7 @@ extension LocationManager : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
         if let latitude = location?.coordinate.latitude, let longitude = location?.coordinate.longitude {
-            AppData.shared.userLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            print("Location: \(location)")
             return
         }
     }

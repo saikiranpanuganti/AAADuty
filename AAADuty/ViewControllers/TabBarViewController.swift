@@ -34,13 +34,25 @@ class TabBarViewController: UITabBarController {
         tabBar.layer.shadowRadius = 5
         tabBar.layer.shadowOpacity = 1
         
+        LocationManager.shared.delegate = self
         LocationManager.shared.setUpLocationManager()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(retryLocationPermissionAccess), name: NSNotification.Name(retrylocationAccess), object: nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         updateTabBarSelection()
+    }
+    
+    @objc func retryLocationPermissionAccess() {
+//        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+        
+        if let BUNDLE_IDENTIFIER = Bundle.main.bundleIdentifier,
+            let url = URL(string: "\(UIApplication.openSettingsURLString)&path=LOCATION/\(BUNDLE_IDENTIFIER)") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
 }
 
@@ -69,5 +81,12 @@ extension TabBarViewController: HomeTabViewControllerDelegate {
             self?.navigationController?.viewControllers = [Controllers.welcome.getController()]
             self?.navigationController?.popToRootViewController(animated: true)
         }
+    }
+}
+
+
+extension TabBarViewController: LocationManagerDelegate {
+    func deniedLocationAccess() {
+        Notify.showToastWith(text: "We require location permission for address")
     }
 }
