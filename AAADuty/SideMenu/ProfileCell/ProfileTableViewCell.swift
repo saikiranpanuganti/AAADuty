@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var roundBorder: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
-    
+    @IBOutlet weak var profileName: AAALabel!
     @IBOutlet weak var roundedViewCenterY: NSLayoutConstraint!
 
     override func awakeFromNib() {
@@ -35,4 +36,8 @@ class ProfileTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func updateProfile() {
+        profileImageView.sd_setImage(with: URL(string: AppData.shared.user?.avatar ?? ""))
+        profileName.text = AppData.shared.user?.customerName
+    }
 }

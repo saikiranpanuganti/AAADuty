@@ -84,6 +84,7 @@ extension SideMenuView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             if let cell = menuTableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell {
+                cell.updateProfile()
                 return cell
             }
         }else if indexPath.section == 1 {

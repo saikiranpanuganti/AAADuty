@@ -46,7 +46,9 @@ class LocationManager: NSObject {
 
 extension LocationManager : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            locationManager?.requestLocation()
+            locationManager?.startUpdatingLocation()
             print("Authorized")
         }else if status == .denied {
             delegate?.deniedLocationAccess()

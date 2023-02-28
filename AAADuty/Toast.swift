@@ -69,7 +69,7 @@ class Toast: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        label = UILabel(frame: CGRect(x: 10, y: 0, width: (frame.width - 80), height: frame.height))
+        label = UILabel(frame: CGRect(x: 20, y: 0, width: (frame.width - 70), height: frame.height))
         if let label = label {
             label.font = UIFont(name: "Trebuchet MS", size: 16)
             label.textColor = UIColor.white
@@ -78,7 +78,7 @@ class Toast: UIView {
             addSubview(label)
         }
         
-        button = UIButton(frame: CGRect(x: (frame.width - 60.0), y: 0, width: 40, height: frame.height))
+        button = UIButton(frame: CGRect(x: (frame.width - 50.0), y: 0, width: 30, height: frame.height))
         if let button = button {
             button.setTitle("OK", for: .normal)
             button.backgroundColor = UIColor.clear
