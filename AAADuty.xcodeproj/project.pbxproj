@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F02F0BD29AE1B2500E4B775 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0BC29AE1B2400E4B775 /* LocationManager.swift */; };
 		7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */; };
 		7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */; };
 		7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		2FFEE8DE53F2788FC92E8386 /* Pods-AAADuty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AAADuty.release.xcconfig"; path = "Target Support Files/Pods-AAADuty/Pods-AAADuty.release.xcconfig"; sourceTree = "<group>"; };
 		3D345A99F1A8F0CD9AECA32D /* Pods_AAADuty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AAADuty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F02F0BC29AE1B2400E4B775 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -123,6 +125,13 @@
 				2FFEE8DE53F2788FC92E8386 /* Pods-AAADuty.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7F02F0B929ADCB7B00E4B775 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		7F1A485229AA826C00C432DF /* MenuCell */ = {
@@ -241,6 +250,7 @@
 				7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */,
 				7FD0BE9729A8F77A0049662D /* ViewController.swift */,
 				7F1A487429AB708B00C432DF /* AppData.swift */,
+				7F02F0BC29AE1B2400E4B775 /* LocationManager.swift */,
 				7FB8C40729AB9449005B6B4E /* ViewControllers */,
 				7F1A487629AB796700C432DF /* Extensions */,
 				7F1A487129AB6F3800C432DF /* Models */,
@@ -250,6 +260,7 @@
 				7FD0BECF29AA6FA10049662D /* Constants.swift */,
 				7FD0BEC529AA3F100049662D /* SideMenu */,
 				7FD0BEBB29A9E4AD0049662D /* Controllers.swift */,
+				7F02F0B929ADCB7B00E4B775 /* Fonts */,
 				7FD0BEAB29A8FE930049662D /* AAALabel.swift */,
 				7FD0BEAF29A908E20049662D /* AAAButton.swift */,
 				7FD0BEB129A90ED60049662D /* AAAView.swift */,
@@ -435,6 +446,7 @@
 				7FD0BECD29AA672A0049662D /* ProfileTableViewCell.swift in Sources */,
 				7FD0BEB829A931F50049662D /* TabBarViewController.swift in Sources */,
 				7F1A487329AB6F6300C432DF /* CategoriesModel.swift in Sources */,
+				7F02F0BD29AE1B2500E4B775 /* LocationManager.swift in Sources */,
 				7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */,
 				7FD0BEBC29A9E4AD0049662D /* Controllers.swift in Sources */,
 				7FD0BEC229A9E97C0049662D /* WalletTabViewController.swift in Sources */,
@@ -603,6 +615,8 @@
 				DEVELOPMENT_TEAM = L2Z5JFXQ85;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AAADuty/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use location to suggest nearest stores";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use location to suggest nearest stores";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -632,6 +646,8 @@
 				DEVELOPMENT_TEAM = L2Z5JFXQ85;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AAADuty/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use location to suggest nearest stores";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use location to suggest nearest stores";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

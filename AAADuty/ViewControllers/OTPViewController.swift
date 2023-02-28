@@ -21,9 +21,10 @@ class OTPViewController: BaseViewController {
     }
     
     func getCategories() {
-        NetworkAdaptor.requestWithHeaders(urlString: Url.categories.getUrl(), method: .get) { data, response, error in
+        NetworkAdaptor.requestWithHeaders(urlString: Url.categories.getUrl(), method: .get) { [weak self] data, response, error in
             if let data = data {
                 do {
+                    self?.stopLoader()
                     let cateogriesModel = try JSONDecoder().decode(CategoriesModel.self, from: data)
                     AppData.shared.categories = cateogriesModel.categories ?? []
                     
@@ -31,7 +32,7 @@ class OTPViewController: BaseViewController {
                         self?.navigationController?.pushViewController(Controllers.tabBar.getController(), animated: true)
                     }
                 }catch {
-                    print("Error: SplashViewController getCategories - \(error.localizedDescription)")
+                    print("Error: OTPViewController getCategories - \(error.localizedDescription)")
                 }
             }
         }
@@ -73,9 +74,8 @@ class OTPViewController: BaseViewController {
         showLoader()
         
         let bodyParams: [String: Any] = ["MobileNumber": mobileNumber, "OTP": otpStackView.getOTP()]
-        print("BOdy Params - \(bodyParams)")
+        
         NetworkAdaptor.requestWithHeaders(urlString: Url.validateUser.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
-            self?.stopLoader()
             if let data = data {
                 do {
                     let userModel = try JSONDecoder().decode(UserModel.self, from: data)
@@ -84,12 +84,15 @@ class OTPViewController: BaseViewController {
                         AppData.shared.user?.saveUser()
                         self?.getCategories()
                     }else {
+                        self?.stopLoader()
                         self?.showAlert(title: "Error", message: "Something went wrong")
                     }
                 }catch {
+                    self?.stopLoader()
                     self?.showAlert(title: "Error", message: error.localizedDescription)
                 }
             }else {
+                self?.stopLoader()
                 self?.showAlert(title: "Error", message: "Something went wrong")
             }
         }

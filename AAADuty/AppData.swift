@@ -16,9 +16,6 @@ class AppData {
     var user: User?
     
     var isLogged: Bool {
-        if user == nil {
-            
-        }
         return user != nil
     }
 }

@@ -23,7 +23,7 @@ class TabBarViewController: UITabBarController {
         
         delegate = self
         
-        tabBar.tintColor = UIColor(red: 18/255, green: 69/255, blue: 115/255, alpha: 1)//UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)
+        tabBar.tintColor = UIColor(red: 18/255, green: 69/255, blue: 115/255, alpha: 1)
         tabBar.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 18/255, green: 69/255, blue: 115/255, alpha: 1)], for: .selected)
@@ -33,6 +33,8 @@ class TabBarViewController: UITabBarController {
         tabBar.layer.shadowOffset = CGSize(width: 0, height: -3)
         tabBar.layer.shadowRadius = 5
         tabBar.layer.shadowOpacity = 1
+        
+        LocationManager.shared.setUpLocationManager()
     }
 
     override func viewDidAppear(_ animated: Bool) {
