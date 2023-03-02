@@ -48,7 +48,6 @@ class OTPViewController: BaseViewController {
             if let data = data {
                 do {
                     if let jsonResponse = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                        print("resendOTP response: \(jsonResponse)")
                         if let statusCode = jsonResponse["StatusCode"] as? Int, statusCode == 200 {
                             self?.showAlert(title: "Success", message: "OTP Sent Successfully")
                         }else {

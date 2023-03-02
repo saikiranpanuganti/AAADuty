@@ -28,7 +28,6 @@ class MobileLoginViewController: BaseViewController {
                 if let data = data {
                     do {
                         if let jsonResponse = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                            print("sendOTP response: \(jsonResponse)")
                             if let statusCode = jsonResponse["Status"] as? String, statusCode == "SUCCESS" {
                                 self?.navigateToOTPScreen()
                             }else {

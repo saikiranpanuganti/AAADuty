@@ -26,7 +26,6 @@ class LocationTableViewCell: UITableViewCell {
         notificationButton.tintColor = UIColor.white
         
         LocationManager.shared.getAddress(asString: true) { [weak self] address, area in
-            print("LocationTableViewCell Adress: \(address)")
             guard let self = self else { return }
             
             self.areaOutlet.text = area

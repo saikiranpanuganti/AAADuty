@@ -23,29 +23,45 @@ class SubServicesTableViewCell: UITableViewCell {
         subServiceCollectionView.dataSource = self
         subServiceCollectionView.delegate = self
     }
+    
+    func updateCollectionView() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.subServiceCollectionView.reloadData()
+        }
+    }
 
     func configureUI(category: Category?, subCategory: SubCategoryModel?) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            print("SubServicesTableViewCell category - \(category?.category) subCategory - \(subCategory?.categories?.count)")
+            
             self.subCategory = subCategory
             self.subServiceDescription.text = category?.subCategoryMessage
             self.subServiceCollectionView.reloadData()
         }
     }
     
+    func setSelectedSubCategory(indexPath: IndexPath) {
+        for index in 0..<(subCategory?.categories?.count ?? 0) {
+            if index == indexPath.row {
+                subCategory?.categories?[index].isSelected = true
+            }else {
+                subCategory?.categories?[index].isSelected = false
+            }
+        }
+    }
 }
 
 
 extension SubServicesTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("SubServicesTableViewCell numberOfItemsInSection - \(subCategory?.categories?.count ?? 0)")
         return subCategory?.categories?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = subServiceCollectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewCell", for: indexPath) as? SubCategoryCollectionViewCell {
-            cell.configureUI()
+            cell.configureUI(subCategory: subCategory?.categories?[indexPath.row])
             return cell
         }
         return UICollectionViewCell()
@@ -54,7 +70,8 @@ extension SubServicesTableViewCell: UICollectionViewDataSource {
 
 extension SubServicesTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        setSelectedSubCategory(indexPath: indexPath)
+        updateCollectionView()
     }
 }
 

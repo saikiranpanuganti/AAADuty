@@ -39,7 +39,6 @@ class FlatTyreViewController: UIViewController {
                 if let data = data {
                     do {
                         let subCategoryModel = try JSONDecoder().decode(SubCategoryModel.self, from: data)
-                        print("subCategoryModel - \(subCategoryModel.categories?.count)")
                         self.subCategories = subCategoryModel
                         self.updateUI()
                     }catch {

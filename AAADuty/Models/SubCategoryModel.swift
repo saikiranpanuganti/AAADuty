@@ -10,7 +10,7 @@ import Foundation
 // MARK: - SubCategoryModel
 struct SubCategoryModel: Codable {
     let status, statusCode, message: String?
-    let categories: [SubCategory]?
+    var categories: [SubCategory]?
 
     enum CodingKeys: String, CodingKey {
         case status = "Status"
@@ -27,6 +27,7 @@ struct SubCategory: Codable {
     let imageURL: String?
     let isActive: Bool?
     let v: Int?
+    var isSelected: Bool = false
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
