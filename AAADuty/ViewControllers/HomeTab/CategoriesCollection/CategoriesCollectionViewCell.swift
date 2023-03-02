@@ -31,7 +31,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         categoriesCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
         
-        categoriesCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        categoriesCollectionView.contentInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
     }
 
     func configureUI(categoriesArray: [Category]) {
@@ -64,7 +64,7 @@ extension CategoriesCollectionViewCell: UICollectionViewDelegate {
 
 extension CategoriesCollectionViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (categoriesCollectionView.frame.width - 80)/3, height: (categoriesCollectionView.frame.width + 40)/3)
+        return CGSize(width: (categoriesCollectionView.frame.width - 120)/3, height: (categoriesCollectionView.frame.width + 10)/3)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0

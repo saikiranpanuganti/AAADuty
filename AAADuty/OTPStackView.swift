@@ -82,7 +82,7 @@ class OTPStackView: UIStackView {
         textField.backgroundColor = textBackgroundColor
         textField.textAlignment = .center
         textField.adjustsFontSizeToFitWidth = false
-        textField.font = UIFont(name: "Kefa", size: 20)
+        textField.font = UIFont(name: "Trebuchet MS", size: 20)
         textField.textColor = UIColor(red: 116/255, green: 162/255, blue: 207/255, alpha: 1)
         textField.layer.cornerRadius = 5
         textField.layer.borderWidth = 2

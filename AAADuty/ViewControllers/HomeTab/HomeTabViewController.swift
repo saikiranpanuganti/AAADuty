@@ -76,7 +76,7 @@ extension HomeTabViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: collectionView.frame.width, height: promotionCellHeight)
         }else if indexPath.item == 1 {
             let rows: Int = ((categories.count/3) + (((categories.count % 3) == 0) ? 0 : 1))
-            return CGSize(width: collectionView.frame.width, height: (((screenWidth + 40)*CGFloat(rows))/3) + 30)
+            return CGSize(width: collectionView.frame.width, height: (((screenWidth + 40)*CGFloat(rows))/3))
         }
         return CGSize.zero
     }

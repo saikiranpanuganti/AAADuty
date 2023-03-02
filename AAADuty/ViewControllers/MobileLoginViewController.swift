@@ -15,6 +15,7 @@ class MobileLoginViewController: BaseViewController {
 
         mobileTextfield.tintColor = UIColor.white
         mobileTextfield.attributedPlaceholder = NSAttributedString(string: "Phone Number", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 112/255, green: 162/255, blue: 207/255, alpha: 1)])
+        mobileTextfield.delegate = self
         mobileTextfield.becomeFirstResponder()
     }
     
@@ -61,5 +62,12 @@ class MobileLoginViewController: BaseViewController {
 
     @IBAction func sendOtpTapped() {
         sendOTP()
+    }
+}
+
+
+extension MobileLoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        mobileTextfield.resignFirstResponder()
     }
 }
