@@ -44,33 +44,33 @@ enum AAAFontFamily {
         switch AAAFontWeight(rawValue: fontWeight) {
         case .light:
             if isPoppinsFont {
-                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
+                self.font = UIFont(name: "Poppins-Light", size: fontSize)
             }else {
-                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
+                self.font = UIFont(name: "Segoe-UI", size: fontSize)
             }
         case .medium:
             if isPoppinsFont {
-                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
+                self.font = UIFont(name: "Poppins-Medium", size: fontSize)
             }else {
-                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
+                self.font = UIFont(name: "Segoe-UI", size: fontSize)
             }
         case .semibold:
             if isPoppinsFont {
-                self.font = UIFont(name: "Trebuchet MS Bold", size: fontSize)
+                self.font = UIFont(name: "Poppins-SemiBold", size: fontSize)
             }else {
-                self.font = UIFont(name: "Trebuchet MS Bold", size: fontSize)
+                self.font = UIFont(name: "Segoe-UI-Bold", size: fontSize)
             }
         case .bold:
             if isPoppinsFont {
-                self.font = UIFont(name: "Trebuchet MS Bold", size: fontSize)
+                self.font = UIFont(name: "Poppins-Bold", size: fontSize)
             }else {
-                self.font = UIFont(name: "Trebuchet MS Bold", size: fontSize)
+                self.font = UIFont(name: "Segoe-UI-Bold", size: fontSize)
             }
         default:
             if isPoppinsFont {
-                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
+                self.font = UIFont(name: "Poppins-Regular", size: fontSize)
             }else {
-                self.font = UIFont(name: "Trebuchet MS", size: fontSize)
+                self.font = UIFont(name: "Segoe-UI", size: fontSize)
             }
         }
     }

@@ -38,6 +38,13 @@
 		7F1A487829AB797600C432DF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A487729AB797600C432DF /* UIColor+Extension.swift */; };
 		7F30A52E29B112EB002F802F /* SubCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A52D29B112EB002F802F /* SubCategoryCollectionViewCell.xib */; };
 		7F30A53029B112EF002F802F /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30A52F29B112EF002F802F /* SubCategoryCollectionViewCell.swift */; };
+		7F30A53529B1175E002F802F /* Poppins-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53229B1172A002F802F /* Poppins-Light.otf */; };
+		7F30A53629B11760002F802F /* Poppins-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53429B11758002F802F /* Poppins-Regular.otf */; };
+		7F30A53729B11762002F802F /* Poppins-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53329B11730002F802F /* Poppins-Medium.otf */; };
+		7F30A53829B11765002F802F /* Poppins-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53129B11720002F802F /* Poppins-Bold.otf */; };
+		7F30A53A29B1176E002F802F /* Poppins-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53929B1176E002F802F /* Poppins-SemiBold.otf */; };
+		7F30A53F29B117E2002F802F /* Segoe-UI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53E29B117E2002F802F /* Segoe-UI.TTF */; };
+		7F30A54129B11828002F802F /* Segoe-UI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A54029B11828002F802F /* Segoe-UI-Bold.ttf */; };
 		7FB8C40929AB949A005B6B4E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C40829AB949A005B6B4E /* BaseViewController.swift */; };
 		7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9329A8F77A0049662D /* AppDelegate.swift */; };
 		7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */; };
@@ -100,6 +107,13 @@
 		7F1A487729AB797600C432DF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7F30A52D29B112EB002F802F /* SubCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F30A52F29B112EF002F802F /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		7F30A53129B11720002F802F /* Poppins-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.otf"; sourceTree = "<group>"; };
+		7F30A53229B1172A002F802F /* Poppins-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.otf"; sourceTree = "<group>"; };
+		7F30A53329B11730002F802F /* Poppins-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.otf"; sourceTree = "<group>"; };
+		7F30A53429B11758002F802F /* Poppins-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.otf"; sourceTree = "<group>"; };
+		7F30A53929B1176E002F802F /* Poppins-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.otf"; sourceTree = "<group>"; };
+		7F30A53E29B117E2002F802F /* Segoe-UI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe-UI.TTF"; path = "../../../../fonts/Segoe-UI.TTF"; sourceTree = "<group>"; };
+		7F30A54029B11828002F802F /* Segoe-UI-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe-UI-Bold.ttf"; sourceTree = "<group>"; };
 		7FB8C40829AB949A005B6B4E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7FD0BE9029A8F77A0049662D /* AAADuty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAADuty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD0BE9329A8F77A0049662D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +168,8 @@
 		7F02F0B929ADCB7B00E4B775 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				7F30A53C29B11783002F802F /* SegoeUI */,
+				7F30A53B29B11775002F802F /* Poppins */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -260,6 +276,27 @@
 				7F02F0C029AE4A1E00E4B775 /* String+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7F30A53B29B11775002F802F /* Poppins */ = {
+			isa = PBXGroup;
+			children = (
+				7F30A53229B1172A002F802F /* Poppins-Light.otf */,
+				7F30A53429B11758002F802F /* Poppins-Regular.otf */,
+				7F30A53329B11730002F802F /* Poppins-Medium.otf */,
+				7F30A53929B1176E002F802F /* Poppins-SemiBold.otf */,
+				7F30A53129B11720002F802F /* Poppins-Bold.otf */,
+			);
+			path = Poppins;
+			sourceTree = "<group>";
+		};
+		7F30A53C29B11783002F802F /* SegoeUI */ = {
+			isa = PBXGroup;
+			children = (
+				7F30A54029B11828002F802F /* Segoe-UI-Bold.ttf */,
+				7F30A53E29B117E2002F802F /* Segoe-UI.TTF */,
+			);
+			path = SegoeUI;
 			sourceTree = "<group>";
 		};
 		7FB8C40729AB9449005B6B4E /* ViewControllers */ = {
@@ -437,17 +474,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F30A53A29B1176E002F802F /* Poppins-SemiBold.otf in Resources */,
 				7FD0BEBA29A9320F0049662D /* TabBar.storyboard in Resources */,
 				7F1A485629AA827D00C432DF /* MenuTableViewCell.xib in Resources */,
 				7F02F0CE29AE79B500E4B775 /* LocationTableViewCell.xib in Resources */,
 				7F30A52E29B112EB002F802F /* SubCategoryCollectionViewCell.xib in Resources */,
 				7F1A485029AA802200C432DF /* SideMenuView.xib in Resources */,
 				7FD0BEA029A8F77B0049662D /* LaunchScreen.storyboard in Resources */,
+				7F30A54129B11828002F802F /* Segoe-UI-Bold.ttf in Resources */,
+				7F30A53529B1175E002F802F /* Poppins-Light.otf in Resources */,
+				7F30A53F29B117E2002F802F /* Segoe-UI.TTF in Resources */,
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
+				7F30A53829B11765002F802F /* Poppins-Bold.otf in Resources */,
+				7F30A53729B11762002F802F /* Poppins-Medium.otf in Resources */,
 				7FD0BE9B29A8F77A0049662D /* Main.storyboard in Resources */,
 				7F1A486729AB513700C432DF /* CategoriesCollectionViewCell.xib in Resources */,
 				7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */,
 				7F13C2D629B0E07300EFFE7E /* SubServicesTableViewCell.xib in Resources */,
+				7F30A53629B11760002F802F /* Poppins-Regular.otf in Resources */,
 				7F1A486229AB448600C432DF /* ImageCollectionViewCell.xib in Resources */,
 				7F1A486C29AB515300C432DF /* CategoryCollectionViewCell.xib in Resources */,
 				7F02F0C529AE724500E4B775 /* Services.storyboard in Resources */,
