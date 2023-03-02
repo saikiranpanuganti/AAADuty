@@ -12,13 +12,15 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppData.shared.user = getUser()
+//        AppData.shared.user = getUser()
+//
+//        if AppData.shared.isLogged {
+//            getCategories()
+//        }else {
+//            navigationController?.pushViewController(Controllers.welcome.getController(), animated: true)
+//        }
         
-        if AppData.shared.isLogged {
-            getCategories()
-        }else {
-            navigationController?.pushViewController(Controllers.welcome.getController(), animated: true)
-        }
+        getCategories()
     }
     
     override func viewSafeAreaInsetsDidChange() {

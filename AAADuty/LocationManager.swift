@@ -21,6 +21,8 @@ class LocationManager: NSObject {
     private var locationManager: CLLocationManager?
     weak var delegate: LocationManagerDelegate?
     
+    var userCurrentAddress: String = ""
+    
     private override init() {
         super.init()
         
@@ -42,6 +44,58 @@ class LocationManager: NSObject {
     func getLocation() -> CLLocation? {
         return locationManager?.location
     }
+    
+    func getAddress(asString: Bool, _ completion: @escaping ((String, String) -> ())) {
+        if let myLocation = locationManager?.location {
+            CLGeocoder().reverseGeocodeLocation(myLocation, completionHandler:{(placemarks, error) in
+                if error != nil {
+                    completion(error.debugDescription, "")
+                }else {
+                    let p = CLPlacemark(placemark: (placemarks?[0] as CLPlacemark?)!)
+                    var subThoroughfare:String = ""
+                    var thoroughfare:String = ""
+                    var subLocality:String = ""
+                    var subAdministrativeArea:String = ""
+                    var postalCode:String = ""
+                    var country:String = ""
+                    var area:String = ""
+                    var address:String = ""
+                            
+                    if ((p.subThoroughfare) != nil) {
+                        subThoroughfare = (p.subThoroughfare)!
+                    }
+                    if ((p.thoroughfare) != nil) {
+                        thoroughfare = p.thoroughfare!
+                        area = thoroughfare
+                    }
+                    if ((p.subAdministrativeArea) != nil) {
+                        subAdministrativeArea = p.subAdministrativeArea!
+                        area = subAdministrativeArea
+                    }
+                    if ((p.subLocality) != nil) {
+                        subLocality = p.subLocality!
+                        area = subLocality
+                    }
+                    if ((p.postalCode) != nil) {
+                        postalCode = p.postalCode!
+                    }
+                    if ((p.country) != nil) {
+                        country = p.country!
+                    }
+                    
+                    
+                    if asString {
+                        address = "\(subThoroughfare) \(thoroughfare) \(subLocality) \(subAdministrativeArea) \(postalCode) \(country)"
+                    }else {
+                        address =  "\(subThoroughfare) \(thoroughfare)\n\(subLocality) \(subAdministrativeArea) \(postalCode)\n\(country)"
+                    }
+                    completion(address, area)
+                }
+            })
+        }else {
+            completion("No location available", "Location not available")
+        }
+    }
 }
 
 extension LocationManager : CLLocationManagerDelegate {
@@ -58,8 +112,7 @@ extension LocationManager : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        if let latitude = location?.coordinate.latitude, let longitude = location?.coordinate.longitude {
+        if let location = locations.last {
             print("Location: \(location)")
             return
         }

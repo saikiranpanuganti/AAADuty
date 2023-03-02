@@ -99,9 +99,9 @@
                             <constraint firstItem="bYp-eO-X0K" firstAttribute="leading" secondItem="ylY-98-QAk" secondAttribute="leading" constant="24" id="9lP-sp-53O"/>
                             <constraint firstAttribute="trailing" secondItem="FPj-Ec-nJN" secondAttribute="trailing" constant="10" id="FKX-VA-Sf0"/>
                             <constraint firstItem="Glq-tX-5cs" firstAttribute="centerY" secondItem="tVn-rs-suj" secondAttribute="centerY" id="Ho1-tJ-D9o"/>
+                            <constraint firstItem="FPj-Ec-nJN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Glq-tX-5cs" secondAttribute="trailing" constant="20" id="ZT8-BL-2Dx"/>
                             <constraint firstItem="tVn-rs-suj" firstAttribute="top" secondItem="ylY-98-QAk" secondAttribute="top" constant="10" id="ZrK-18-j85"/>
                             <constraint firstItem="XyM-v0-zDZ" firstAttribute="leading" secondItem="bYp-eO-X0K" secondAttribute="leading" id="dJJ-AC-bcY"/>
-                            <constraint firstItem="FPj-Ec-nJN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Glq-tX-5cs" secondAttribute="trailing" constant="20" id="fKx-vT-nNW"/>
                             <constraint firstItem="qgh-EC-37Z" firstAttribute="leading" secondItem="bYp-eO-X0K" secondAttribute="trailing" constant="5" id="giO-j4-LDY"/>
                             <constraint firstItem="bYp-eO-X0K" firstAttribute="top" secondItem="tVn-rs-suj" secondAttribute="bottom" constant="20" id="i0C-fK-UAW"/>
                             <constraint firstItem="FPj-Ec-nJN" firstAttribute="centerY" secondItem="tVn-rs-suj" secondAttribute="centerY" id="i1f-ik-Asw"/>
@@ -121,6 +121,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addressOutlet" destination="XyM-v0-zDZ" id="V5B-0w-eCw"/>
+                <outlet property="areaOutlet" destination="qgh-EC-37Z" id="d8Y-pc-jBM"/>
                 <outlet property="notificationButton" destination="FPj-Ec-nJN" id="dSB-F0-O0T"/>
                 <outlet property="titleOutlet" destination="Glq-tX-5cs" id="WnV-7X-ahX"/>
             </connections>

@@ -16,4 +16,12 @@ import UIKit
         }
     }
     
+    @IBInspectable var roundedTop: Bool = false {
+        didSet {
+            if roundedTop {
+                self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            }
+        }
+    }
+    
 }
