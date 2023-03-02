@@ -14,8 +14,6 @@
 		7F02F0C529AE724500E4B775 /* Services.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F02F0C429AE724500E4B775 /* Services.storyboard */; };
 		7F02F0CD29AE79B500E4B775 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0CB29AE79B500E4B775 /* LocationTableViewCell.swift */; };
 		7F02F0CE29AE79B500E4B775 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F02F0CC29AE79B500E4B775 /* LocationTableViewCell.xib */; };
-		7F02F0D229AE7DFA00E4B775 /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0D029AE7DFA00E4B775 /* ServiceTableViewCell.swift */; };
-		7F02F0D329AE7DFA00E4B775 /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F02F0D129AE7DFA00E4B775 /* ServiceTableViewCell.xib */; };
 		7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */; };
 		7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */; };
 		7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */; };
@@ -78,8 +76,6 @@
 		7F02F0C429AE724500E4B775 /* Services.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Services.storyboard; sourceTree = "<group>"; };
 		7F02F0CB29AE79B500E4B775 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		7F02F0CC29AE79B500E4B775 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
-		7F02F0D029AE7DFA00E4B775 /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
-		7F02F0D129AE7DFA00E4B775 /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
 		7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -171,15 +167,6 @@
 			path = LocationCell;
 			sourceTree = "<group>";
 		};
-		7F02F0CF29AE7DE900E4B775 /* ServiceCell */ = {
-			isa = PBXGroup;
-			children = (
-				7F02F0D029AE7DFA00E4B775 /* ServiceTableViewCell.swift */,
-				7F02F0D129AE7DFA00E4B775 /* ServiceTableViewCell.xib */,
-			);
-			path = ServiceCell;
-			sourceTree = "<group>";
-		};
 		7F13C2D229B0E04900EFFE7E /* subServicesCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,7 +190,6 @@
 			children = (
 				7F13C2D929B104EB00EFFE7E /* SubCategory */,
 				7F02F0C629AE776300E4B775 /* LocationCell */,
-				7F02F0CF29AE7DE900E4B775 /* ServiceCell */,
 				7F02F0C229AE70F100E4B775 /* FlatTyreViewController.swift */,
 			);
 			path = FlatTyre;
@@ -466,7 +452,6 @@
 				7F1A486C29AB515300C432DF /* CategoryCollectionViewCell.xib in Resources */,
 				7F02F0C529AE724500E4B775 /* Services.storyboard in Resources */,
 				7FD0BECE29AA672A0049662D /* ProfileTableViewCell.xib in Resources */,
-				7F02F0D329AE7DFA00E4B775 /* ServiceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +530,6 @@
 				7F02F0BF29AE243F00E4B775 /* Toast.swift in Sources */,
 				7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */,
 				7F1A486E29AB6D0800C432DF /* NetworkAdaptor.swift in Sources */,
-				7F02F0D229AE7DFA00E4B775 /* ServiceTableViewCell.swift in Sources */,
 				7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */,
 				7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */,
 				7F30A53029B112EF002F802F /* SubCategoryCollectionViewCell.swift in Sources */,
