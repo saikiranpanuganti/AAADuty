@@ -55,7 +55,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUU-XI-OYa">
-                                <rect key="frame" x="30" y="82.666666666666671" width="337" height="2"/>
+                                <rect key="frame" x="30" y="81" width="337" height="2"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="pgz-Ao-npz"/>
@@ -85,10 +85,10 @@
                             <constraint firstAttribute="trailing" secondItem="Do2-iF-DZQ" secondAttribute="trailing" constant="15" id="Xt6-SS-wKV"/>
                             <constraint firstAttribute="trailing" secondItem="Sxo-CA-K1s" secondAttribute="trailing" constant="30" id="a07-e6-ilQ"/>
                             <constraint firstItem="Sxo-CA-K1s" firstAttribute="leading" secondItem="edm-RZ-P3V" secondAttribute="leading" constant="30" id="aA3-r4-n1u"/>
+                            <constraint firstItem="GUU-XI-OYa" firstAttribute="top" secondItem="Jqc-UC-D4q" secondAttribute="bottom" constant="10" id="dSN-Mt-l9U"/>
                             <constraint firstItem="OuO-Cn-K01" firstAttribute="centerY" secondItem="Jqc-UC-D4q" secondAttribute="centerY" id="e3J-b6-3te"/>
                             <constraint firstItem="Jqc-UC-D4q" firstAttribute="centerY" secondItem="JQN-xQ-AnR" secondAttribute="centerY" id="lRS-M0-evu"/>
                             <constraint firstItem="Do2-iF-DZQ" firstAttribute="centerY" secondItem="JQN-xQ-AnR" secondAttribute="centerY" id="n1w-qA-Fbp"/>
-                            <constraint firstItem="GUU-XI-OYa" firstAttribute="top" secondItem="JQN-xQ-AnR" secondAttribute="bottom" constant="10" id="puS-Ch-GNG"/>
                             <constraint firstItem="OuO-Cn-K01" firstAttribute="leading" secondItem="JQN-xQ-AnR" secondAttribute="trailing" constant="10" id="wcM-uO-Xqf"/>
                             <constraint firstItem="Do2-iF-DZQ" firstAttribute="leading" secondItem="OuO-Cn-K01" secondAttribute="trailing" constant="10" id="yD4-jh-NDn"/>
                             <constraint firstItem="GUU-XI-OYa" firstAttribute="leading" secondItem="edm-RZ-P3V" secondAttribute="leading" constant="30" id="yzF-hs-STZ"/>

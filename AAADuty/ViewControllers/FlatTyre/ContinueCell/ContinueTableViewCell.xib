@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Vb-ld-Ord">
-                        <rect key="frame" x="49.666666666666657" y="32.333333333333329" width="297" height="59.333333333333329"/>
+                        <rect key="frame" x="55" y="30.000000000000004" width="286" height="57.333333333333343"/>
                         <color key="backgroundColor" name="orangeAppColor"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="0Vb-ld-Ord" secondAttribute="height" multiplier="5:1" id="crY-KT-cXC"/>
@@ -35,8 +35,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="0Vb-ld-Ord" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Bwd-uB-LWl"/>
-                    <constraint firstItem="0Vb-ld-Ord" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="3:4" id="HMB-CT-0rY"/>
+                    <constraint firstItem="0Vb-ld-Ord" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="EtQ-hM-F7T"/>
+                    <constraint firstItem="0Vb-ld-Ord" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="FT3-AG-QFw"/>
                     <constraint firstItem="0Vb-ld-Ord" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="erV-dQ-iE1"/>
+                    <constraint firstItem="0Vb-ld-Ord" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="55" id="tKr-pq-cxO"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

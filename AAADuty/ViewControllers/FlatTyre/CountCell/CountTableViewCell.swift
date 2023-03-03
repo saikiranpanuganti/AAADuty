@@ -29,8 +29,9 @@ class CountTableViewCell: UITableViewCell {
         roundedView.layer.shadowRadius = 10
     }
     
-    func configureUI() {
-        
+    func configureUI(count: Int, amount: Double) {
+        countOutlet.text = "\(count)"
+        totalAmountOutlet.text = "\(amount)"
     }
     
     @IBAction func plusTapped() {

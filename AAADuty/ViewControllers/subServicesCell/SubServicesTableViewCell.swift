@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import SDWebImage
+
+protocol SubServicesTableViewCellDelegate: AnyObject {
+    
+}
 
 class SubServicesTableViewCell: UITableViewCell {
     @IBOutlet weak var serviceIcon: UIImageView!
@@ -37,6 +42,8 @@ class SubServicesTableViewCell: UITableViewCell {
             guard let self = self else { return }
             
             self.subCategory = subCategory
+            self.servicename.text = category?.category
+            self.serviceIcon.sd_setImage(with: URL(string: category?.requestImageURL ?? ""))
             self.subServiceDescription.text = category?.subCategoryMessage
             self.subServiceCollectionView.reloadData()
         }
@@ -72,6 +79,7 @@ extension SubServicesTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         setSelectedSubCategory(indexPath: indexPath)
         updateCollectionView()
+        
     }
 }
 

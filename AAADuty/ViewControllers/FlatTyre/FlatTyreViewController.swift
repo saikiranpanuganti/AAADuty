@@ -12,6 +12,11 @@ class FlatTyreViewController: BaseViewController {
     
     var category: Category?
     var subCategories: SubCategoryModel?
+    var count: Int = 0
+    var price: Double = 10
+    var amount: Double {
+        return Double(count)*price
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +27,6 @@ class FlatTyreViewController: BaseViewController {
         tableView.register(UINib(nibName: "ContinueTableViewCell", bundle: nil), forCellReuseIdentifier: "ContinueTableViewCell")
         tableView.register(UINib(nibName: "CommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "CommentsTableViewCell")
         tableView.register(UINib(nibName: "LocationSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationSelectionTableViewCell")
-        tableView.register(UINib(nibName: "", bundle: nil), forCellReuseIdentifier: "")
-        tableView.register(UINib(nibName: "", bundle: nil), forCellReuseIdentifier: "")
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -59,11 +62,19 @@ class FlatTyreViewController: BaseViewController {
         }
     }
     
+    func updateCountCell() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if let countCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? CountTableViewCell {
+                countCell.configureUI(count: self.count, amount: self.amount)
+            }
+        }
+    }
 }
 
 extension FlatTyreViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 6
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -81,7 +92,20 @@ extension FlatTyreViewController: UITableViewDataSource {
             }
         }else if indexPath.section == 2 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CountTableViewCell", for: indexPath) as? CountTableViewCell {
-                cell.configureUI()
+                cell.delegate = self
+                cell.configureUI(count: count, amount: amount)
+                return cell
+            }
+        }else if indexPath.section == 3 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSelectionTableViewCell", for: indexPath) as? LocationSelectionTableViewCell {
+                return cell
+            }
+        }else if indexPath.section == 4 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as? CommentsTableViewCell {
+                return cell
+            }
+        }else if indexPath.section == 5 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "ContinueTableViewCell", for: indexPath) as? ContinueTableViewCell {
                 return cell
             }
         }
@@ -93,10 +117,10 @@ extension FlatTyreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 120
-        }else if indexPath.section == 1 || indexPath.section == 2 {
+        }else {
             return UITableView.automaticDimension
         }
-        return 0
+//        return 0
     }
 }
 
@@ -104,5 +128,19 @@ extension FlatTyreViewController: UITableViewDelegate {
 extension FlatTyreViewController: LocationTableViewCellDelegate {
     func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+
+extension FlatTyreViewController: CountTableViewCellDelegate {
+    func plusTapped() {
+        count += 1
+        updateCountCell()
+    }
+    func minusTapped() {
+        if count > 0 {
+            count -= 1
+            updateCountCell()
+        }
     }
 }

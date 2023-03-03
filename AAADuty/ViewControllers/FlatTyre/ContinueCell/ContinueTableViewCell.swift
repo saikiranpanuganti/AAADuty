@@ -24,7 +24,7 @@ class ContinueTableViewCell: UITableViewCell {
         continueButton.layer.shadowOpacity = 1
         continueButton.layer.shadowOffset = .zero
         continueButton.layer.shadowRadius = 5
-        continueButton.layer.masksToBounds = true
+//        continueButton.layer.masksToBounds = true
     }
     
     @IBAction func continueTapped() {

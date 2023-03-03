@@ -21,6 +21,7 @@ class SubCategoryCollectionViewCell: UICollectionViewCell {
 
     func configureUI(subCategory: SubCategory?) {
         subCat = subCategory
+        subCategoryName.text = subCategory?.typeName
         if subCategory?.isSelected ?? false {
             subCategorySelected()
         }else {

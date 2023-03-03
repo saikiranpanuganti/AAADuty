@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLAT TYRE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Glq-tX-5cs" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                <rect key="frame" x="78" y="11" width="111.33333333333331" height="28"/>
+                                <rect key="frame" x="78" y="8.3333333333333321" width="115.33333333333331" height="33.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -63,7 +63,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgh-EC-37Z" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                <rect key="frame" x="43" y="60" width="45.666666666666657" height="21"/>
+                                <rect key="frame" x="43" y="58.000000000000007" width="49" height="25.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyM-v0-zDZ" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                <rect key="frame" x="24" y="86" width="31.666666666666671" height="15.333333333333329"/>
+                                <rect key="frame" x="24.000000000000004" y="86" width="34.333333333333343" height="18.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.66274509803921566" green="0.72549019607843135" blue="0.7803921568627451" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -131,13 +131,13 @@
     </objects>
     <designables>
         <designable name="Glq-tX-5cs">
-            <size key="intrinsicContentSize" width="111.33333333333333" height="28"/>
+            <size key="intrinsicContentSize" width="115.33333333333333" height="33.666666666666664"/>
         </designable>
         <designable name="XyM-v0-zDZ">
-            <size key="intrinsicContentSize" width="31.666666666666668" height="15.333333333333334"/>
+            <size key="intrinsicContentSize" width="34.333333333333336" height="18.333333333333332"/>
         </designable>
         <designable name="qgh-EC-37Z">
-            <size key="intrinsicContentSize" width="45.666666666666664" height="21"/>
+            <size key="intrinsicContentSize" width="49" height="25.333333333333332"/>
         </designable>
     </designables>
     <resources>

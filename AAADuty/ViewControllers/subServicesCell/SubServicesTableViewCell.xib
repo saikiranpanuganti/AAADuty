@@ -7,47 +7,49 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.otf">
+            <string>Poppins-Medium</string>
+        </array>
+        <array key="Segoe-UI-Bold.ttf">
+            <string>SegoeUI-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="243" id="KGk-i7-Jjw" customClass="SubServicesTableViewCell" customModule="AAADuty" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="243"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="378" id="KGk-i7-Jjw" customClass="SubServicesTableViewCell" customModule="AAADuty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="378"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="243"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="378"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9GB-Lc-M6g">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="243"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="378"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-ZP-AP5" customClass="AAAView" customModule="AAADuty" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="243"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="378"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ude-T4-dbH">
-                                        <rect key="frame" x="30" y="20" width="33" height="33"/>
+                                        <rect key="frame" x="30" y="20" width="42" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="33" id="4Nc-fs-9rw"/>
+                                            <constraint firstAttribute="width" constant="42" id="4Nc-fs-9rw"/>
                                             <constraint firstAttribute="width" secondItem="ude-T4-dbH" secondAttribute="height" multiplier="1:1" id="c8b-WH-V3y"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohs-GZ-IQG" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                        <rect key="frame" x="83" y="26" width="45.666666666666657" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohs-GZ-IQG">
+                                        <rect key="frame" x="92" y="30.666666666666671" width="45" height="21"/>
+                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="18"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontWeight">
-                                                <integer key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isPoppinsFont" value="NO"/>
-                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyI-I9-ler" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="73" width="39" height="18.666666666666671"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="30.000000000000004" y="82" width="41.333333333333343" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="ERv-Fk-Lwk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -61,10 +63,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Fwt-EX-J6n">
-                                        <rect key="frame" x="30" y="111.66666666666669" width="260" height="103.33333333333331"/>
+                                        <rect key="frame" x="30" y="127" width="260" height="113.33333333333331"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="Fwt-EX-J6n" secondAttribute="height" multiplier="3:1" constant="-50" id="aOf-ow-dzn"/>
+                                            <constraint firstAttribute="width" secondItem="Fwt-EX-J6n" secondAttribute="height" multiplier="3:1" constant="-80" id="aOf-ow-dzn"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fhg-64-EA8">
                                             <size key="itemSize" width="128" height="128"/>
@@ -83,9 +85,9 @@
                                     <constraint firstItem="ude-T4-dbH" firstAttribute="top" secondItem="mgY-ZP-AP5" secondAttribute="top" constant="20" id="byq-BG-UFA"/>
                                     <constraint firstItem="Fwt-EX-J6n" firstAttribute="top" secondItem="hyI-I9-ler" secondAttribute="bottom" constant="20" id="dcw-Mn-F2o"/>
                                     <constraint firstItem="hyI-I9-ler" firstAttribute="leading" secondItem="mgY-ZP-AP5" secondAttribute="leading" constant="30" id="gED-Ts-awE"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fwt-EX-J6n" secondAttribute="bottom" constant="10" id="jbL-nf-1qU"/>
                                     <constraint firstItem="Fwt-EX-J6n" firstAttribute="leading" secondItem="mgY-ZP-AP5" secondAttribute="leading" constant="30" id="mSc-V2-sUr"/>
                                     <constraint firstItem="hyI-I9-ler" firstAttribute="top" secondItem="ude-T4-dbH" secondAttribute="bottom" constant="20" id="sUV-VJ-Ex4"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fwt-EX-J6n" secondAttribute="bottom" constant="10" id="wU9-uQ-ueh"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -118,15 +120,15 @@
                 <outlet property="subServiceCollectionView" destination="Fwt-EX-J6n" id="74I-TQ-bDC"/>
                 <outlet property="subServiceDescription" destination="hyI-I9-ler" id="kpi-th-aY3"/>
             </connections>
-            <point key="canvasLocation" x="94.656488549618317" y="89.788732394366207"/>
+            <point key="canvasLocation" x="94.656488549618317" y="137.32394366197184"/>
         </tableViewCell>
     </objects>
     <designables>
         <designable name="Ohs-GZ-IQG">
-            <size key="intrinsicContentSize" width="45.666666666666664" height="21"/>
+            <size key="intrinsicContentSize" width="44.333333333333336" height="21"/>
         </designable>
         <designable name="hyI-I9-ler">
-            <size key="intrinsicContentSize" width="39" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="41.333333333333336" height="20.333333333333332"/>
         </designable>
     </designables>
     <resources>
