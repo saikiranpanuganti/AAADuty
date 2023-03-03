@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FlatTyreViewController: UIViewController {
+class FlatTyreViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var category: Category?
@@ -18,6 +18,7 @@ class FlatTyreViewController: UIViewController {
 
         tableView.register(UINib(nibName: "LocationTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationTableViewCell")
         tableView.register(UINib(nibName: "SubServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "SubServicesTableViewCell")
+        tableView.register(UINib(nibName: "CountTableViewCell", bundle: nil), forCellReuseIdentifier: "CountTableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -33,9 +34,12 @@ class FlatTyreViewController: UIViewController {
     
     func getSubCategories() {
         if let categoryId = category?.id {
+            showLoader()
             let bodyParams: [String: Any] = ["CategoryID": categoryId]
             NetworkAdaptor.requestWithHeaders(urlString: Url.getTypes.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
+                self.stopLoader()
+                
                 if let data = data {
                     do {
                         let subCategoryModel = try JSONDecoder().decode(SubCategoryModel.self, from: data)
@@ -53,7 +57,7 @@ class FlatTyreViewController: UIViewController {
 
 extension FlatTyreViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -69,6 +73,11 @@ extension FlatTyreViewController: UITableViewDataSource {
                 cell.configureUI(category: category, subCategory: subCategories)
                 return cell
             }
+        }else if indexPath.section == 2 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CountTableViewCell", for: indexPath) as? CountTableViewCell {
+                cell.configureUI()
+                return cell
+            }
         }
         return UITableViewCell()
     }
@@ -78,7 +87,7 @@ extension FlatTyreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 120
-        }else if indexPath.section == 1 {
+        }else if indexPath.section == 1 || indexPath.section == 2 {
             return UITableView.automaticDimension
         }
         return 0

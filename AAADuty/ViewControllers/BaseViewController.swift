@@ -70,7 +70,7 @@ class BaseViewController: UIViewController {
         loadingIndicator.style = UIActivityIndicatorView.Style.large
         loadingIndicator.startAnimating()
         alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: false, completion: nil)
         return alert
     }
     
@@ -83,6 +83,7 @@ class BaseViewController: UIViewController {
     func stopLoader() {
         DispatchQueue.main.async { [weak self] in
             self?.loader?.dismiss(animated: true, completion: nil)
+            self?.loader = nil
         }
     }
     

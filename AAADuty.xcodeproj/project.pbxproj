@@ -43,8 +43,15 @@
 		7F30A53729B11762002F802F /* Poppins-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53329B11730002F802F /* Poppins-Medium.otf */; };
 		7F30A53829B11765002F802F /* Poppins-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53129B11720002F802F /* Poppins-Bold.otf */; };
 		7F30A53A29B1176E002F802F /* Poppins-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53929B1176E002F802F /* Poppins-SemiBold.otf */; };
-		7F30A53F29B117E2002F802F /* Segoe-UI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53E29B117E2002F802F /* Segoe-UI.TTF */; };
 		7F30A54129B11828002F802F /* Segoe-UI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A54029B11828002F802F /* Segoe-UI-Bold.ttf */; };
+		7F37C6EA29B1B183001212E1 /* CountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37C6E829B1B183001212E1 /* CountTableViewCell.swift */; };
+		7F37C6EB29B1B183001212E1 /* CountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6E929B1B183001212E1 /* CountTableViewCell.xib */; };
+		7F37C6ED29B1BC31001212E1 /* Segoe-UI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6EC29B1BC31001212E1 /* Segoe-UI.TTF */; };
+		7F37C6F129B1BF2A001212E1 /* Segoe-UI-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6F029B1BF2A001212E1 /* Segoe-UI-SemiBold.ttf */; };
+		7F37C6F529B1C058001212E1 /* LocationSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37C6F329B1C058001212E1 /* LocationSelectionTableViewCell.swift */; };
+		7F37C6F629B1C058001212E1 /* LocationSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6F429B1C058001212E1 /* LocationSelectionTableViewCell.xib */; };
+		7F37C6FA29B1CE41001212E1 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37C6F829B1CE41001212E1 /* CommentsTableViewCell.swift */; };
+		7F37C6FB29B1CE41001212E1 /* CommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6F929B1CE41001212E1 /* CommentsTableViewCell.xib */; };
 		7FB8C40929AB949A005B6B4E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C40829AB949A005B6B4E /* BaseViewController.swift */; };
 		7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9329A8F77A0049662D /* AppDelegate.swift */; };
 		7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */; };
@@ -112,8 +119,15 @@
 		7F30A53329B11730002F802F /* Poppins-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.otf"; sourceTree = "<group>"; };
 		7F30A53429B11758002F802F /* Poppins-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.otf"; sourceTree = "<group>"; };
 		7F30A53929B1176E002F802F /* Poppins-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.otf"; sourceTree = "<group>"; };
-		7F30A53E29B117E2002F802F /* Segoe-UI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Segoe-UI.TTF"; path = "../../../../fonts/Segoe-UI.TTF"; sourceTree = "<group>"; };
 		7F30A54029B11828002F802F /* Segoe-UI-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe-UI-Bold.ttf"; sourceTree = "<group>"; };
+		7F37C6E829B1B183001212E1 /* CountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTableViewCell.swift; sourceTree = "<group>"; };
+		7F37C6E929B1B183001212E1 /* CountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountTableViewCell.xib; sourceTree = "<group>"; };
+		7F37C6EC29B1BC31001212E1 /* Segoe-UI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe-UI.TTF"; sourceTree = "<group>"; };
+		7F37C6F029B1BF2A001212E1 /* Segoe-UI-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe-UI-SemiBold.ttf"; sourceTree = "<group>"; };
+		7F37C6F329B1C058001212E1 /* LocationSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		7F37C6F429B1C058001212E1 /* LocationSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSelectionTableViewCell.xib; sourceTree = "<group>"; };
+		7F37C6F829B1CE41001212E1 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
+		7F37C6F929B1CE41001212E1 /* CommentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsTableViewCell.xib; sourceTree = "<group>"; };
 		7FB8C40829AB949A005B6B4E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7FD0BE9029A8F77A0049662D /* AAADuty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAADuty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD0BE9329A8F77A0049662D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -204,9 +218,12 @@
 		7F13C2DE29B1124F00EFFE7E /* FlatTyre */ = {
 			isa = PBXGroup;
 			children = (
+				7F02F0C229AE70F100E4B775 /* FlatTyreViewController.swift */,
+				7F37C6F729B1CE31001212E1 /* CommentsCell */,
+				7F37C6F229B1C00E001212E1 /* LocationSelection */,
+				7F37C6E729B1B141001212E1 /* CountCell */,
 				7F13C2D929B104EB00EFFE7E /* SubCategory */,
 				7F02F0C629AE776300E4B775 /* LocationCell */,
-				7F02F0C229AE70F100E4B775 /* FlatTyreViewController.swift */,
 			);
 			path = FlatTyre;
 			sourceTree = "<group>";
@@ -294,9 +311,37 @@
 			isa = PBXGroup;
 			children = (
 				7F30A54029B11828002F802F /* Segoe-UI-Bold.ttf */,
-				7F30A53E29B117E2002F802F /* Segoe-UI.TTF */,
+				7F37C6F029B1BF2A001212E1 /* Segoe-UI-SemiBold.ttf */,
+				7F37C6EC29B1BC31001212E1 /* Segoe-UI.TTF */,
 			);
 			path = SegoeUI;
+			sourceTree = "<group>";
+		};
+		7F37C6E729B1B141001212E1 /* CountCell */ = {
+			isa = PBXGroup;
+			children = (
+				7F37C6E829B1B183001212E1 /* CountTableViewCell.swift */,
+				7F37C6E929B1B183001212E1 /* CountTableViewCell.xib */,
+			);
+			path = CountCell;
+			sourceTree = "<group>";
+		};
+		7F37C6F229B1C00E001212E1 /* LocationSelection */ = {
+			isa = PBXGroup;
+			children = (
+				7F37C6F329B1C058001212E1 /* LocationSelectionTableViewCell.swift */,
+				7F37C6F429B1C058001212E1 /* LocationSelectionTableViewCell.xib */,
+			);
+			path = LocationSelection;
+			sourceTree = "<group>";
+		};
+		7F37C6F729B1CE31001212E1 /* CommentsCell */ = {
+			isa = PBXGroup;
+			children = (
+				7F37C6F829B1CE41001212E1 /* CommentsTableViewCell.swift */,
+				7F37C6F929B1CE41001212E1 /* CommentsTableViewCell.xib */,
+			);
+			path = CommentsCell;
 			sourceTree = "<group>";
 		};
 		7FB8C40729AB9449005B6B4E /* ViewControllers */ = {
@@ -483,17 +528,21 @@
 				7FD0BEA029A8F77B0049662D /* LaunchScreen.storyboard in Resources */,
 				7F30A54129B11828002F802F /* Segoe-UI-Bold.ttf in Resources */,
 				7F30A53529B1175E002F802F /* Poppins-Light.otf in Resources */,
-				7F30A53F29B117E2002F802F /* Segoe-UI.TTF in Resources */,
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
 				7F30A53829B11765002F802F /* Poppins-Bold.otf in Resources */,
 				7F30A53729B11762002F802F /* Poppins-Medium.otf in Resources */,
 				7FD0BE9B29A8F77A0049662D /* Main.storyboard in Resources */,
+				7F37C6ED29B1BC31001212E1 /* Segoe-UI.TTF in Resources */,
 				7F1A486729AB513700C432DF /* CategoriesCollectionViewCell.xib in Resources */,
 				7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */,
 				7F13C2D629B0E07300EFFE7E /* SubServicesTableViewCell.xib in Resources */,
 				7F30A53629B11760002F802F /* Poppins-Regular.otf in Resources */,
 				7F1A486229AB448600C432DF /* ImageCollectionViewCell.xib in Resources */,
+				7F37C6FB29B1CE41001212E1 /* CommentsTableViewCell.xib in Resources */,
+				7F37C6F129B1BF2A001212E1 /* Segoe-UI-SemiBold.ttf in Resources */,
+				7F37C6EB29B1B183001212E1 /* CountTableViewCell.xib in Resources */,
 				7F1A486C29AB515300C432DF /* CategoryCollectionViewCell.xib in Resources */,
+				7F37C6F629B1C058001212E1 /* LocationSelectionTableViewCell.xib in Resources */,
 				7F02F0C529AE724500E4B775 /* Services.storyboard in Resources */,
 				7FD0BECE29AA672A0049662D /* ProfileTableViewCell.xib in Resources */,
 			);
@@ -576,6 +625,7 @@
 				7F1A486E29AB6D0800C432DF /* NetworkAdaptor.swift in Sources */,
 				7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */,
 				7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */,
+				7F37C6F529B1C058001212E1 /* LocationSelectionTableViewCell.swift in Sources */,
 				7F30A53029B112EF002F802F /* SubCategoryCollectionViewCell.swift in Sources */,
 				7F1A485129AA802200C432DF /* SideMenuView.swift in Sources */,
 				7F1A486129AB448600C432DF /* ImageCollectionViewCell.swift in Sources */,
@@ -587,8 +637,10 @@
 				7FD0BEC029A9E96E0049662D /* BookingsTabViewController.swift in Sources */,
 				7F02F0C129AE4A1E00E4B775 /* String+Extension.swift in Sources */,
 				7F1A487529AB708B00C432DF /* AppData.swift in Sources */,
+				7F37C6EA29B1B183001212E1 /* CountTableViewCell.swift in Sources */,
 				7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */,
 				7FD0BEA829A8F7950049662D /* SplashViewController.swift in Sources */,
+				7F37C6FA29B1CE41001212E1 /* CommentsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
