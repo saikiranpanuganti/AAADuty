@@ -17,6 +17,9 @@ struct OrderDetails {
 class OrderConfirmationViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    var makePaymentView: MakePaymentView = MakePaymentView.instanceFromNib()
+    var makePaymentViewTopAnchor: NSLayoutConstraint?
+    
     var orderDetails: OrderDetails?
 
     override func viewDidLoad() {
@@ -29,12 +32,52 @@ class OrderConfirmationViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        view.addSubview(makePaymentView)
+        makePaymentView.translatesAutoresizingMaskIntoConstraints = false
+        makePaymentViewTopAnchor = makePaymentView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 50)
+        makePaymentViewTopAnchor?.isActive = true
+        makePaymentView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        makePaymentView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//        makePaymentView.heightAnchor.constraint(equalToConstant: 95+((screenWidth-110)*2)/5).isActive = true
+        makePaymentView.heightAnchor.constraint(equalToConstant: screenHeight).isActive = true
+        
+        makePaymentView.isHidden = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognised))
+        tapGesture.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapGesture)
     }
     
     func updateUI() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.tableView.reloadData()
+        }
+    }
+    
+    func showPaymentView() {
+        makePaymentView.isHidden = false
+        makePaymentView.configureUI(amount: orderDetails?.totalAmount ?? 0)
+        makePaymentViewTopAnchor?.constant = -screenHeight
+        view.bringSubviewToFront(makePaymentView)
+        UIView.animate(withDuration: 0.3, delay: 0) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func tapGestureRecognised() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            if !self.makePaymentView.isHidden {
+                self.makePaymentViewTopAnchor?.constant = 50
+                UIView.animate(withDuration: 0.3) {
+                    self.view.layoutIfNeeded()
+                } completion: { bool in
+                    self.makePaymentView.isHidden = true
+                }
+            }
         }
     }
 }
@@ -104,6 +147,6 @@ extension OrderConfirmationViewController: OrderReviewTableViewCellDelegate {
         
     }
     func makePaymentTapped() {
-        
+        showPaymentView()
     }
 }

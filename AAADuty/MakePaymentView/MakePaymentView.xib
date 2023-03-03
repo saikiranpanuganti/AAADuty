@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Segoe-UI-SemiBold.ttf">
+            <string>SegoeUI-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MakePaymentView" customModule="AAADuty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="337"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psx-GU-YFa">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="337"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7el-wJ-cwL" customClass="AAAView" customModule="AAADuty" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="134.33333333333337" width="393" height="202.66666666666663"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAd-0B-TXi">
+                                    <rect key="frame" x="176.66666666666666" y="10" width="40" height="4"/>
+                                    <color key="backgroundColor" red="0.070588235294117646" green="0.27058823529411763" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="4" id="Gmc-fE-xub"/>
+                                        <constraint firstAttribute="width" constant="40" id="Qg8-Gw-9wJ"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yy9-9Y-L5E">
+                                    <rect key="frame" x="55" y="116.00000000000001" width="283" height="56.666666666666671"/>
+                                    <color key="backgroundColor" name="orangeAppColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="yy9-9Y-L5E" secondAttribute="height" multiplier="5:1" id="Diz-I7-rqh"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="MAKE PAYMENT">
+                                        <fontDescription key="titleFontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="18"/>
+                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="makePaymentTapped" destination="iN0-l3-epB" eventType="touchUpInside" id="SoQ-xh-7fH"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1OO-QK-SXP">
+                                    <rect key="frame" x="55" y="49" width="283" height="47"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="tSS-lW-BDh">
+                                            <rect key="frame" x="113.33333333333333" y="11" width="56.333333333333329" height="25"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhv-Uu-O2D">
+                                                    <rect key="frame" x="0.0" y="0.0" width="10" height="25"/>
+                                                    <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjo-cM-zO2">
+                                                    <rect key="frame" x="13.000000000000004" y="0.0" width="43.333333333333343" height="25"/>
+                                                    <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="dQh-PR-SoX"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="tSS-lW-BDh" firstAttribute="centerX" secondItem="1OO-QK-SXP" secondAttribute="centerX" id="C2c-ku-oJx"/>
+                                        <constraint firstItem="tSS-lW-BDh" firstAttribute="centerY" secondItem="1OO-QK-SXP" secondAttribute="centerY" id="NIM-IT-i9R"/>
+                                        <constraint firstAttribute="width" secondItem="1OO-QK-SXP" secondAttribute="height" multiplier="6:1" id="ZAz-aj-wQC"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.90980392156862744" green="0.95294117647058818" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="1OO-QK-SXP" secondAttribute="trailing" constant="55" id="36G-ff-9nY"/>
+                                <constraint firstItem="yy9-9Y-L5E" firstAttribute="top" secondItem="1OO-QK-SXP" secondAttribute="bottom" constant="20" id="3D7-21-Mem"/>
+                                <constraint firstItem="1OO-QK-SXP" firstAttribute="top" secondItem="FAd-0B-TXi" secondAttribute="bottom" constant="35" id="8bR-fp-oqO"/>
+                                <constraint firstItem="1OO-QK-SXP" firstAttribute="leading" secondItem="7el-wJ-cwL" secondAttribute="leading" constant="55" id="CaF-TN-9sd"/>
+                                <constraint firstAttribute="trailing" secondItem="yy9-9Y-L5E" secondAttribute="trailing" constant="55" id="JBc-zj-zfh"/>
+                                <constraint firstItem="yy9-9Y-L5E" firstAttribute="leading" secondItem="7el-wJ-cwL" secondAttribute="leading" constant="55" id="S9Z-yA-3wh"/>
+                                <constraint firstAttribute="bottom" secondItem="yy9-9Y-L5E" secondAttribute="bottom" constant="30" id="WFU-sS-XRc"/>
+                                <constraint firstItem="FAd-0B-TXi" firstAttribute="top" secondItem="7el-wJ-cwL" secondAttribute="top" constant="10" id="g3M-6o-43S"/>
+                                <constraint firstItem="FAd-0B-TXi" firstAttribute="centerX" secondItem="7el-wJ-cwL" secondAttribute="centerX" id="qHn-XD-bov"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="roundedTop" value="NO"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="7el-wJ-cwL" firstAttribute="leading" secondItem="psx-GU-YFa" secondAttribute="leading" id="0Od-8B-TMc"/>
+                        <constraint firstAttribute="bottom" secondItem="7el-wJ-cwL" secondAttribute="bottom" id="acG-qe-zcn"/>
+                        <constraint firstAttribute="trailing" secondItem="7el-wJ-cwL" secondAttribute="trailing" id="plA-nM-ZKc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="psx-GU-YFa" secondAttribute="trailing" id="Vcd-1U-0WU"/>
+                <constraint firstAttribute="bottom" secondItem="psx-GU-YFa" secondAttribute="bottom" id="ddX-Td-bDD"/>
+                <constraint firstItem="psx-GU-YFa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jSX-xp-0Lf"/>
+                <constraint firstItem="psx-GU-YFa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zCc-o6-gVZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="amountLabel" destination="bjo-cM-zO2" id="MBa-Xx-IYP"/>
+                <outlet property="amountView" destination="1OO-QK-SXP" id="s04-KJ-qEo"/>
+                <outlet property="makePaymentButton" destination="yy9-9Y-L5E" id="a78-w6-bbn"/>
+                <outlet property="topLine" destination="FAd-0B-TXi" id="Zpl-hS-dej"/>
+            </connections>
+            <point key="canvasLocation" x="0.76335877862595414" y="201.05633802816902"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="orangeAppColor">
+            <color red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -14,6 +14,8 @@
 		7F02F0C529AE724500E4B775 /* Services.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F02F0C429AE724500E4B775 /* Services.storyboard */; };
 		7F02F0CD29AE79B500E4B775 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02F0CB29AE79B500E4B775 /* LocationTableViewCell.swift */; };
 		7F02F0CE29AE79B500E4B775 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F02F0CC29AE79B500E4B775 /* LocationTableViewCell.xib */; };
+		7F08777B29B27FC7004CB905 /* MakePaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F08777A29B27FC7004CB905 /* MakePaymentView.swift */; };
+		7F08777D29B27FCF004CB905 /* MakePaymentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F08777C29B27FCF004CB905 /* MakePaymentView.xib */; };
 		7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */; };
 		7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */; };
 		7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */; };
@@ -99,6 +101,8 @@
 		7F02F0C429AE724500E4B775 /* Services.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Services.storyboard; sourceTree = "<group>"; };
 		7F02F0CB29AE79B500E4B775 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		7F02F0CC29AE79B500E4B775 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		7F08777A29B27FC7004CB905 /* MakePaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePaymentView.swift; sourceTree = "<group>"; };
+		7F08777C29B27FCF004CB905 /* MakePaymentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MakePaymentView.xib; sourceTree = "<group>"; };
 		7F0DEE3929AB96B9000BADA7 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F0DEE3A29AB96B9000BADA7 /* PromotionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromotionCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -213,6 +217,15 @@
 				7F02F0CC29AE79B500E4B775 /* LocationTableViewCell.xib */,
 			);
 			path = LocationCell;
+			sourceTree = "<group>";
+		};
+		7F08777929B27FB0004CB905 /* MakePaymentView */ = {
+			isa = PBXGroup;
+			children = (
+				7F08777C29B27FCF004CB905 /* MakePaymentView.xib */,
+				7F08777A29B27FC7004CB905 /* MakePaymentView.swift */,
+			);
+			path = MakePaymentView;
 			sourceTree = "<group>";
 		};
 		7F13C2D229B0E04900EFFE7E /* subServicesCell */ = {
@@ -466,6 +479,7 @@
 				7F1A487429AB708B00C432DF /* AppData.swift */,
 				7F13C2D029B0DF7500EFFE7E /* ServiceType.swift */,
 				7F02F0BC29AE1B2400E4B775 /* LocationManager.swift */,
+				7F08777929B27FB0004CB905 /* MakePaymentView */,
 				7FB8C40729AB9449005B6B4E /* ViewControllers */,
 				7F1A487629AB796700C432DF /* Extensions */,
 				7F1A487129AB6F3800C432DF /* Models */,
@@ -613,6 +627,7 @@
 				7F37C6EB29B1B183001212E1 /* CountTableViewCell.xib in Resources */,
 				7FB7B54929B24E6C0006E206 /* OrderAddressTableViewCell.xib in Resources */,
 				7F1A486C29AB515300C432DF /* CategoryCollectionViewCell.xib in Resources */,
+				7F08777D29B27FCF004CB905 /* MakePaymentView.xib in Resources */,
 				7F37C6F629B1C058001212E1 /* LocationSelectionTableViewCell.xib in Resources */,
 				7F02F0C529AE724500E4B775 /* Services.storyboard in Resources */,
 				7FD0BECE29AA672A0049662D /* ProfileTableViewCell.xib in Resources */,
@@ -683,6 +698,7 @@
 				7F02F0C329AE70F100E4B775 /* FlatTyreViewController.swift in Sources */,
 				7FD0BEB029A908E20049662D /* AAAButton.swift in Sources */,
 				7F1A487829AB797600C432DF /* UIColor+Extension.swift in Sources */,
+				7F08777B29B27FC7004CB905 /* MakePaymentView.swift in Sources */,
 				7FD0BECD29AA672A0049662D /* ProfileTableViewCell.swift in Sources */,
 				7FB7B54829B24E6C0006E206 /* OrderAddressTableViewCell.swift in Sources */,
 				7FD0BEB829A931F50049662D /* TabBarViewController.swift in Sources */,
