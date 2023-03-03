@@ -99,9 +99,16 @@ extension HomeTabViewController: PromotionCollectionViewCellDelegate {
 
 extension HomeTabViewController: CategoriesCollectionViewCellDelegate {
     func categoryTapped(category: Category) {
-        if let flatTyreVC = Controllers.flatTyre.getController() as? FlatTyreViewController {
-            flatTyreVC.category = category
-            navigationController?.pushViewController(flatTyreVC, animated: true)
+        if category.serviceType == .flatTyre {
+            if let flatTyreVC = Controllers.flatTyre.getController() as? FlatTyreViewController {
+                flatTyreVC.category = category
+                navigationController?.pushViewController(flatTyreVC, animated: true)
+            }
+        }else if category.serviceType == .towing {
+            if let towingVC = Controllers.towing.getController() as? TowingViewController {
+                towingVC.category = category
+                navigationController?.pushViewController(towingVC, animated: true)
+            }
         }
     }
 }

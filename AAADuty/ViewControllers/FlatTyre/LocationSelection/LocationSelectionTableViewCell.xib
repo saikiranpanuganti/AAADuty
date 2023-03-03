@@ -105,6 +105,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addressTextfield" destination="Jqc-UC-D4q" id="tOk-eO-MSy"/>
+                <outlet property="locationTitle" destination="Sxo-CA-K1s" id="78f-un-VqS"/>
             </connections>
             <point key="canvasLocation" x="52.671755725190835" y="52.112676056338032"/>
         </tableViewCell>

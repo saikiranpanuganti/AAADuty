@@ -99,7 +99,7 @@ struct Category: Codable {
             case "61234c0930fd466a54bd250d":
                 return "Select type of Vehicle"
             case "61234e0fa782e16a6fc4fc58":
-                return ""
+                return "Select type of AC"
             case "61234e46ea21b46a7d44739c":
                 return ""
             case "61c198214ee3da924a153d48":

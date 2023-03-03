@@ -13,12 +13,17 @@ protocol LocationSelectionTableViewCellDelegate: AnyObject {
 
 class LocationSelectionTableViewCell: UITableViewCell {
     @IBOutlet weak var addressTextfield: UITextField!
+    @IBOutlet weak var locationTitle: UILabel!
     
     weak var delegate: LocationSelectionTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func configureUI(title: String) {
+        locationTitle.text = title
     }
 
     @IBAction func locationTapped() {

@@ -15,7 +15,7 @@ protocol SubServicesTableViewCellDelegate: AnyObject {
 class SubServicesTableViewCell: UITableViewCell {
     @IBOutlet weak var serviceIcon: UIImageView!
     @IBOutlet weak var servicename: AAALabel!
-    @IBOutlet weak var subServiceDescription: AAALabel!
+    @IBOutlet weak var subServiceDescription: UILabel!
     @IBOutlet weak var subServiceCollectionView: UICollectionView!
 
     weak var delegate: SubServicesTableViewCellDelegate?

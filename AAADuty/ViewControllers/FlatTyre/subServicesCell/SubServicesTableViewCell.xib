@@ -44,23 +44,14 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyI-I9-ler" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyI-I9-ler">
                                         <rect key="frame" x="30" y="82" width="43" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="ERv-Fk-Lwk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="16"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontWeight">
-                                                <integer key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isPoppinsFont" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Fwt-EX-J6n">
                                         <rect key="frame" x="30" y="127" width="260" height="113.33333333333331"/>
@@ -117,7 +108,7 @@
                 <outlet property="serviceIcon" destination="ude-T4-dbH" id="Vaj-rn-OxV"/>
                 <outlet property="servicename" destination="Ohs-GZ-IQG" id="opd-k5-uhQ"/>
                 <outlet property="subServiceCollectionView" destination="Fwt-EX-J6n" id="74I-TQ-bDC"/>
-                <outlet property="subServiceDescription" destination="hyI-I9-ler" id="kpi-th-aY3"/>
+                <outlet property="subServiceDescription" destination="hyI-I9-ler" id="prM-r5-zoX"/>
             </connections>
             <point key="canvasLocation" x="94.656488549618317" y="137.32394366197184"/>
         </tableViewCell>

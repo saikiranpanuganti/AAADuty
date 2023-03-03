@@ -123,6 +123,44 @@
             </objects>
             <point key="canvasLocation" x="1669" y="4"/>
         </scene>
+        <!--Towing View Controller-->
+        <scene sceneID="KTM-5w-RbS">
+            <objects>
+                <viewController storyboardIdentifier="TowingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O4d-p2-lVm" customClass="TowingViewController" customModule="AAADuty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yme-E6-ha6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHY-AK-IMg">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
+                                <color key="backgroundColor" name="navigationBarColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hsi-xh-ihu">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gfZ-BY-IcU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QHY-AK-IMg" firstAttribute="height" secondItem="yme-E6-ha6" secondAttribute="height" multiplier="0.5" id="6sd-po-DdS"/>
+                            <constraint firstItem="QHY-AK-IMg" firstAttribute="top" secondItem="yme-E6-ha6" secondAttribute="top" id="CYf-zn-6zS"/>
+                            <constraint firstAttribute="trailing" secondItem="hsi-xh-ihu" secondAttribute="trailing" id="OIm-bi-wRg"/>
+                            <constraint firstItem="QHY-AK-IMg" firstAttribute="leading" secondItem="yme-E6-ha6" secondAttribute="leading" id="Ww1-WU-YQ0"/>
+                            <constraint firstAttribute="trailing" secondItem="QHY-AK-IMg" secondAttribute="trailing" id="Z4m-BK-rcM"/>
+                            <constraint firstAttribute="bottom" secondItem="hsi-xh-ihu" secondAttribute="bottom" id="dPT-0C-0k2"/>
+                            <constraint firstItem="hsi-xh-ihu" firstAttribute="top" secondItem="gfZ-BY-IcU" secondAttribute="top" id="jWd-QO-qmX"/>
+                            <constraint firstItem="hsi-xh-ihu" firstAttribute="leading" secondItem="yme-E6-ha6" secondAttribute="leading" id="t52-Ti-soq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="hsi-xh-ihu" id="7xq-St-cLD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uzX-vM-Pc4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2497" y="4"/>
+        </scene>
     </scenes>
     <resources>
         <namedColor name="navigationBarColor">
