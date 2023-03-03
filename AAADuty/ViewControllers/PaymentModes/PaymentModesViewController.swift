@@ -37,6 +37,7 @@ extension PaymentModesViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as? LocationTableViewCell {
                 cell.delegate = self
+                cell.configureUI(title: "PAYMENT METHOD")
                 return cell
             }
         }else if indexPath.row == 1 {

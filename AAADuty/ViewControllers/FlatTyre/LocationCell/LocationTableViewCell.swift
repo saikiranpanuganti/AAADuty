@@ -32,6 +32,10 @@ class LocationTableViewCell: UITableViewCell {
             self.addressOutlet.text = address
         }
     }
+    
+    func configureUI(title: String) {
+        titleOutlet.text = title
+    }
 
     @IBAction func backButtonTapped() {
         delegate?.backButtonTapped()
