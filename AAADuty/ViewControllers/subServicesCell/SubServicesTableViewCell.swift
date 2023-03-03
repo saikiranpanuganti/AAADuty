@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 
 protocol SubServicesTableViewCellDelegate: AnyObject {
-    
+    func subServiceTapped(subCategory: SubCategory?)
 }
 
 class SubServicesTableViewCell: UITableViewCell {
@@ -18,6 +18,8 @@ class SubServicesTableViewCell: UITableViewCell {
     @IBOutlet weak var subServiceDescription: AAALabel!
     @IBOutlet weak var subServiceCollectionView: UICollectionView!
 
+    weak var delegate: SubServicesTableViewCellDelegate?
+    
     var category: Category?
     var subCategory: SubCategoryModel?
     
@@ -79,7 +81,7 @@ extension SubServicesTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         setSelectedSubCategory(indexPath: indexPath)
         updateCollectionView()
-        
+        delegate?.subServiceTapped(subCategory: subCategory?.categories?[indexPath.row])
     }
 }
 

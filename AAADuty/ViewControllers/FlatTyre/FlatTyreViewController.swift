@@ -12,10 +12,14 @@ class FlatTyreViewController: BaseViewController {
     
     var category: Category?
     var subCategories: SubCategoryModel?
+    var selectedSubCategory: SubCategory?
+    var complaintType: ComplaintType?
     var count: Int = 0
-    var price: Double = 10
+    var price: Int {
+        return complaintType?.price ?? 0
+    }
     var amount: Double {
-        return Double(count)*price
+        return Double(count*price)
     }
 
     override func viewDidLoad() {
@@ -41,6 +45,20 @@ class FlatTyreViewController: BaseViewController {
         }
     }
     
+    func updateCountCell(withZero: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if let countCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? CountTableViewCell {
+                if withZero {
+                    self.count = 0
+                    countCell.configureUI(count: 0, amount: 0)
+                }else {
+                    countCell.configureUI(count: self.count, amount: self.amount)
+                }
+            }
+        }
+    }
+    
     func getSubCategories() {
         if let categoryId = category?.id {
             showLoader()
@@ -62,14 +80,28 @@ class FlatTyreViewController: BaseViewController {
         }
     }
     
-    func updateCountCell() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            if let countCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? CountTableViewCell {
-                countCell.configureUI(count: self.count, amount: self.amount)
+    func getComplaintType(categoryId: String?, typeID: String?) {
+        if let categoryId = categoryId, let typeID = typeID {
+            showLoader()
+            
+            let bodyParams: [String: Any] = ["CategoryID": categoryId, "TypeID": typeID]
+            NetworkAdaptor.requestWithHeaders(urlString: Url.getComplaintTypes.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+                guard let self = self else { return }
+                self.stopLoader()
+                
+                if let data = data {
+                    do {
+                        let complaintTypeModel = try JSONDecoder().decode(ComplaintTypeModel.self, from: data)
+                        self.complaintType = complaintTypeModel.complaintTypes?.first
+                        self.updateCountCell(withZero: true)
+                    }catch {
+                        print("Error: FlatTyreViewController getComplaintType - \(error.localizedDescription)")
+                    }
+                }
             }
         }
     }
+    
 }
 
 extension FlatTyreViewController: UITableViewDataSource {
@@ -87,6 +119,7 @@ extension FlatTyreViewController: UITableViewDataSource {
             }
         }else if indexPath.section == 1 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SubServicesTableViewCell", for: indexPath) as? SubServicesTableViewCell {
+                cell.delegate = self
                 cell.configureUI(category: category, subCategory: subCategories)
                 return cell
             }
@@ -135,12 +168,20 @@ extension FlatTyreViewController: LocationTableViewCellDelegate {
 extension FlatTyreViewController: CountTableViewCellDelegate {
     func plusTapped() {
         count += 1
-        updateCountCell()
+        updateCountCell(withZero: false)
     }
     func minusTapped() {
         if count > 0 {
             count -= 1
-            updateCountCell()
+            updateCountCell(withZero: false)
         }
+    }
+}
+
+
+extension FlatTyreViewController: SubServicesTableViewCellDelegate {
+    func subServiceTapped(subCategory: SubCategory?) {
+        selectedSubCategory = subCategory
+        getComplaintType(categoryId: subCategory?.categoryID, typeID: subCategory?.id)
     }
 }
