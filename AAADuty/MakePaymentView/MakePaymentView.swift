@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MakePaymentViewDelegate: AnyObject {
-    func makePaymentTapped()
+    func navigateToPaymentModes()
 }
 
 class MakePaymentView: UIView {
@@ -51,6 +51,6 @@ class MakePaymentView: UIView {
     }
     
     @IBAction func makePaymentTapped() {
-        delegate?.makePaymentTapped()
+        delegate?.navigateToPaymentModes()
     }
 }

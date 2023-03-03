@@ -34,6 +34,8 @@ class OrderConfirmationViewController: UIViewController {
         tableView.delegate = self
         
         view.addSubview(makePaymentView)
+        makePaymentView.delegate = self
+        
         makePaymentView.translatesAutoresizingMaskIntoConstraints = false
         makePaymentViewTopAnchor = makePaymentView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 50)
         makePaymentViewTopAnchor?.isActive = true
@@ -148,5 +150,18 @@ extension OrderConfirmationViewController: OrderReviewTableViewCellDelegate {
     }
     func makePaymentTapped() {
         showPaymentView()
+    }
+}
+
+
+extension OrderConfirmationViewController: MakePaymentViewDelegate {
+    func navigateToPaymentModes() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {
+                controller.orderDetails = self.orderDetails
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
     }
 }

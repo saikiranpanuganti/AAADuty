@@ -85,6 +85,44 @@
             </objects>
             <point key="canvasLocation" x="813" y="4"/>
         </scene>
+        <!--Payment Modes View Controller-->
+        <scene sceneID="sr6-DX-4Jf">
+            <objects>
+                <viewController storyboardIdentifier="PaymentModesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xpy-kz-Smh" customClass="PaymentModesViewController" customModule="AAADuty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AEU-EX-gsR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xip-cv-Uqb">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
+                                <color key="backgroundColor" name="navigationBarColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QPG-Ah-1Xf">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bkr-WM-byz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Xip-cv-Uqb" firstAttribute="height" secondItem="AEU-EX-gsR" secondAttribute="height" multiplier="0.5" id="1Ob-Mf-amn"/>
+                            <constraint firstAttribute="bottom" secondItem="QPG-Ah-1Xf" secondAttribute="bottom" id="G4X-vd-TX5"/>
+                            <constraint firstAttribute="trailing" secondItem="Xip-cv-Uqb" secondAttribute="trailing" id="HTG-LZ-6Ph"/>
+                            <constraint firstItem="Xip-cv-Uqb" firstAttribute="leading" secondItem="AEU-EX-gsR" secondAttribute="leading" id="JS2-uG-df7"/>
+                            <constraint firstItem="QPG-Ah-1Xf" firstAttribute="top" secondItem="bkr-WM-byz" secondAttribute="top" id="JUE-NO-AnQ"/>
+                            <constraint firstAttribute="trailing" secondItem="QPG-Ah-1Xf" secondAttribute="trailing" id="M9j-jH-cgT"/>
+                            <constraint firstItem="QPG-Ah-1Xf" firstAttribute="leading" secondItem="AEU-EX-gsR" secondAttribute="leading" id="V9I-B0-IY6"/>
+                            <constraint firstItem="Xip-cv-Uqb" firstAttribute="top" secondItem="AEU-EX-gsR" secondAttribute="top" id="m6S-Pn-VZb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="QPG-Ah-1Xf" id="KBM-gu-anQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0lI-R2-S7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1669" y="4"/>
+        </scene>
     </scenes>
     <resources>
         <namedColor name="navigationBarColor">
