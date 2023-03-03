@@ -60,33 +60,33 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTk-gO-Zx2">
-                        <rect key="frame" x="25" y="107.66666666666667" width="305" height="1"/>
+                        <rect key="frame" x="25" y="112.66666666666667" width="305" height="1"/>
                         <color key="backgroundColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="lWG-Jd-0cg"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYW-Wv-zPt">
-                        <rect key="frame" x="30" y="138.66666666666666" width="49" height="21.333333333333343"/>
+                        <rect key="frame" x="30" y="143.66666666666666" width="49" height="21.333333333333343"/>
                         <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="16"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fL-3M-vUi">
-                        <rect key="frame" x="285" y="138.66666666666666" width="40" height="21.333333333333343"/>
+                        <rect key="frame" x="285" y="143.66666666666666" width="40" height="21.333333333333343"/>
                         <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="16"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67W-iE-C2m">
-                        <rect key="frame" x="0.0" y="190" width="355" height="4"/>
+                        <rect key="frame" x="0.0" y="195" width="355" height="4"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.94901960784313721" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="4" id="Ixu-je-KbN"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf7-P5-tpl">
-                        <rect key="frame" x="274" y="138.66666666666666" width="9" height="21.333333333333343"/>
+                        <rect key="frame" x="274" y="143.66666666666666" width="9" height="21.333333333333343"/>
                         <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="16"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                     <constraint firstItem="sTk-gO-Zx2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="bDi-vQ-F2E"/>
                     <constraint firstAttribute="trailing" secondItem="6fL-3M-vUi" secondAttribute="trailing" constant="30" id="e9K-7D-6O2"/>
                     <constraint firstAttribute="trailing" secondItem="uXE-d2-j3Y" secondAttribute="trailing" constant="30" id="ewt-Oa-sBf"/>
-                    <constraint firstItem="sTk-gO-Zx2" firstAttribute="top" secondItem="Zcq-iw-hFS" secondAttribute="bottom" constant="30" id="i50-E1-ylS"/>
+                    <constraint firstItem="sTk-gO-Zx2" firstAttribute="top" secondItem="Zcq-iw-hFS" secondAttribute="bottom" constant="35" id="i50-E1-ylS"/>
                     <constraint firstItem="mad-Ml-Fle" firstAttribute="leading" secondItem="Zcq-iw-hFS" secondAttribute="trailing" constant="5" id="mMk-gP-4PB"/>
                     <constraint firstAttribute="trailing" secondItem="67W-iE-C2m" secondAttribute="trailing" id="o7y-Fx-jhh"/>
                     <constraint firstItem="8OY-uy-lZD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="qTR-qu-han"/>
