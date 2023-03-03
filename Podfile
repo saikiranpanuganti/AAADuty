@@ -9,5 +9,6 @@ target 'AAADuty' do
 
 
 	pod 'SDWebImage', '~> 5.0'
+  pod 'IQKeyboardManagerSwift', '6.5.0'
 
 end

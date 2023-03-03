@@ -124,9 +124,6 @@
         </tableViewCell>
     </objects>
     <designables>
-        <designable name="Ohs-GZ-IQG">
-            <size key="intrinsicContentSize" width="44.333333333333336" height="21"/>
-        </designable>
         <designable name="hyI-I9-ler">
             <size key="intrinsicContentSize" width="41.333333333333336" height="20.333333333333332"/>
         </designable>
