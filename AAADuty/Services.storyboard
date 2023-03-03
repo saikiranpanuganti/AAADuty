@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,10 +47,51 @@
             </objects>
             <point key="canvasLocation" x="18" y="4"/>
         </scene>
+        <!--Order Confirmation View Controller-->
+        <scene sceneID="kKn-J7-lrP">
+            <objects>
+                <viewController storyboardIdentifier="OrderConfirmationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="liO-gV-ZSh" customClass="OrderConfirmationViewController" customModule="AAADuty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jkd-WA-1d5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vf7-aM-UMB">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
+                                <color key="backgroundColor" name="navigationBarColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7UW-sm-EHl">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1Ks-Fu-02w"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7UW-sm-EHl" secondAttribute="trailing" id="6mq-8v-UQ0"/>
+                            <constraint firstItem="7UW-sm-EHl" firstAttribute="top" secondItem="1Ks-Fu-02w" secondAttribute="top" id="8zI-Pn-Kp9"/>
+                            <constraint firstItem="7UW-sm-EHl" firstAttribute="leading" secondItem="jkd-WA-1d5" secondAttribute="leading" id="DSR-jB-4Kw"/>
+                            <constraint firstAttribute="bottom" secondItem="7UW-sm-EHl" secondAttribute="bottom" id="FjE-ZH-lhu"/>
+                            <constraint firstAttribute="trailing" secondItem="vf7-aM-UMB" secondAttribute="trailing" id="bEW-Z5-N9e"/>
+                            <constraint firstItem="vf7-aM-UMB" firstAttribute="leading" secondItem="jkd-WA-1d5" secondAttribute="leading" id="gsG-EO-v1i"/>
+                            <constraint firstItem="vf7-aM-UMB" firstAttribute="top" secondItem="jkd-WA-1d5" secondAttribute="top" id="nhB-bK-F8N"/>
+                            <constraint firstItem="vf7-aM-UMB" firstAttribute="height" secondItem="jkd-WA-1d5" secondAttribute="height" multiplier="0.5" id="rNG-mQ-2mc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="7UW-sm-EHl" id="IoS-47-2Om"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="txg-nL-Seb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="813" y="4"/>
+        </scene>
     </scenes>
     <resources>
         <namedColor name="navigationBarColor">
             <color red="0.070588235294117646" green="0.27058823529411763" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

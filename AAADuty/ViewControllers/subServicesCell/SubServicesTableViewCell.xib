@@ -87,7 +87,6 @@
                                     <constraint firstItem="hyI-I9-ler" firstAttribute="leading" secondItem="mgY-ZP-AP5" secondAttribute="leading" constant="30" id="gED-Ts-awE"/>
                                     <constraint firstItem="Fwt-EX-J6n" firstAttribute="leading" secondItem="mgY-ZP-AP5" secondAttribute="leading" constant="30" id="mSc-V2-sUr"/>
                                     <constraint firstItem="hyI-I9-ler" firstAttribute="top" secondItem="ude-T4-dbH" secondAttribute="bottom" constant="20" id="sUV-VJ-Ex4"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fwt-EX-J6n" secondAttribute="bottom" constant="10" id="wU9-uQ-ueh"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

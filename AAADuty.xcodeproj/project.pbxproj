@@ -54,6 +54,7 @@
 		7F37C6FB29B1CE41001212E1 /* CommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6F929B1CE41001212E1 /* CommentsTableViewCell.xib */; };
 		7F37C6FF29B1D641001212E1 /* ContinueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37C6FD29B1D641001212E1 /* ContinueTableViewCell.swift */; };
 		7F37C70029B1D641001212E1 /* ContinueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6FE29B1D641001212E1 /* ContinueTableViewCell.xib */; };
+		7FB7B54429B2298B0006E206 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */; };
 		7FB8C40929AB949A005B6B4E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C40829AB949A005B6B4E /* BaseViewController.swift */; };
 		7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9329A8F77A0049662D /* AppDelegate.swift */; };
 		7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */; };
@@ -132,6 +133,7 @@
 		7F37C6F929B1CE41001212E1 /* CommentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsTableViewCell.xib; sourceTree = "<group>"; };
 		7F37C6FD29B1D641001212E1 /* ContinueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueTableViewCell.swift; sourceTree = "<group>"; };
 		7F37C6FE29B1D641001212E1 /* ContinueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContinueTableViewCell.xib; sourceTree = "<group>"; };
+		7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		7FB8C40829AB949A005B6B4E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7FD0BE9029A8F77A0049662D /* AAADuty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAADuty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD0BE9329A8F77A0049662D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -358,6 +360,14 @@
 			path = ContinueCell;
 			sourceTree = "<group>";
 		};
+		7FB7B54229B229640006E206 /* OrderConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */,
+			);
+			path = OrderConfirmation;
+			sourceTree = "<group>";
+		};
 		7FB8C40729AB9449005B6B4E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +379,7 @@
 				7FD0BEBF29A9E96E0049662D /* BookingsTabViewController.swift */,
 				7FD0BEC129A9E97C0049662D /* WalletTabViewController.swift */,
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
+				7FB7B54229B229640006E206 /* OrderConfirmation */,
 				7F13C2DE29B1124F00EFFE7E /* FlatTyre */,
 				7F13C2D229B0E04900EFFE7E /* subServicesCell */,
 				7F1A485729AB3F1800C432DF /* HomeTab */,
@@ -632,6 +643,7 @@
 				7F1A487329AB6F6300C432DF /* CategoriesModel.swift in Sources */,
 				7F02F0BD29AE1B2500E4B775 /* LocationManager.swift in Sources */,
 				7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */,
+				7FB7B54429B2298B0006E206 /* OrderConfirmationViewController.swift in Sources */,
 				7FD0BEBC29A9E4AD0049662D /* Controllers.swift in Sources */,
 				7FD0BEC229A9E97C0049662D /* WalletTabViewController.swift in Sources */,
 				7FD0BEAE29A904980049662D /* MobileLoginViewController.swift in Sources */,

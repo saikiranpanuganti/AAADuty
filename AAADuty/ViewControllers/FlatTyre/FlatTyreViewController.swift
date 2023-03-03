@@ -14,6 +14,7 @@ class FlatTyreViewController: BaseViewController {
     var subCategories: SubCategoryModel?
     var selectedSubCategory: SubCategory?
     var complaintType: ComplaintType?
+    var pincode: Int = 530002
     var count: Int = 0
     var price: Int {
         return complaintType?.price ?? 0
@@ -50,11 +51,18 @@ class FlatTyreViewController: BaseViewController {
             guard let self = self else { return }
             if let countCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? CountTableViewCell {
                 if withZero {
-                    self.count = 0
-                    countCell.configureUI(count: 0, amount: 0)
-                }else {
-                    countCell.configureUI(count: self.count, amount: self.amount)
+                    self.count = 1
                 }
+                countCell.configureUI(count: self.count, amount: self.amount)
+            }
+        }
+    }
+    
+    func navigateToOrderConfirmationVC() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
+                self.navigationController?.pushViewController(controller, animated: true)
             }
         }
     }
@@ -102,6 +110,34 @@ class FlatTyreViewController: BaseViewController {
         }
     }
     
+    func checkAvailability() {
+        if let categoryId = selectedSubCategory?.categoryID {
+            showLoader()
+            
+            let bodyParams: [String: Any] = ["pinCode": pincode, "CategoryID": categoryId]
+            NetworkAdaptor.requestWithHeaders(urlString: Url.checkRequestAvailability.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+                guard let self = self else { return }
+                self.stopLoader()
+                
+                if let data = data {
+                    do {
+                        if let responseJson = try JSONSerialization.jsonObject(with: data) as? [String: Any], let message = responseJson["Message"] as? String {
+                            if message == "Please Take A Request For Today" {
+                                self.navigateToOrderConfirmationVC()
+                            }else {
+                                self.showAlert(title: "Error", message: message)
+                            }
+                        }else {
+                            self.showAlert(title: "Error", message: "Something went wrong")
+                        }
+                    }catch {
+                        print("Error: FlatTyreViewController checkAvailability - \(error.localizedDescription)")
+                        self.showAlert(title: "Error", message: error.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
 }
 
 extension FlatTyreViewController: UITableViewDataSource {
@@ -139,6 +175,7 @@ extension FlatTyreViewController: UITableViewDataSource {
             }
         }else if indexPath.section == 5 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ContinueTableViewCell", for: indexPath) as? ContinueTableViewCell {
+                cell.delegate = self
                 return cell
             }
         }
@@ -150,10 +187,10 @@ extension FlatTyreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 120
-        }else {
-            return UITableView.automaticDimension
+        }else if indexPath.section == 1 {
+            return 170 + (screenWidth - 60)/3
         }
-//        return 0
+        return UITableView.automaticDimension
     }
 }
 
@@ -181,7 +218,16 @@ extension FlatTyreViewController: CountTableViewCellDelegate {
 
 extension FlatTyreViewController: SubServicesTableViewCellDelegate {
     func subServiceTapped(subCategory: SubCategory?) {
-        selectedSubCategory = subCategory
-        getComplaintType(categoryId: subCategory?.categoryID, typeID: subCategory?.id)
+        if selectedSubCategory?.id != subCategory?.id {
+            selectedSubCategory = subCategory
+            getComplaintType(categoryId: subCategory?.categoryID, typeID: subCategory?.id)
+        }
+    }
+}
+
+
+extension FlatTyreViewController: ContinueTableViewCellDelegate {
+    func continueTapped() {
+        checkAvailability()
     }
 }
