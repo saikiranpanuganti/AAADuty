@@ -68,6 +68,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="locationTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DKT-PW-KKB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -100,6 +103,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addressTextfield" destination="Jqc-UC-D4q" id="tOk-eO-MSy"/>
+            </connections>
             <point key="canvasLocation" x="52.671755725190835" y="52.112676056338032"/>
         </tableViewCell>
     </objects>

@@ -7,17 +7,22 @@
 
 import UIKit
 
+protocol LocationSelectionTableViewCellDelegate: AnyObject {
+    func locationTapped()
+}
+
 class LocationSelectionTableViewCell: UITableViewCell {
+    @IBOutlet weak var addressTextfield: UITextField!
+    
+    weak var delegate: LocationSelectionTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBAction func locationTapped() {
+        delegate?.locationTapped()
     }
     
 }

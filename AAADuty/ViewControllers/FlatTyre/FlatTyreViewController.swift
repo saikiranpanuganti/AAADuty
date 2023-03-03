@@ -19,6 +19,12 @@ class FlatTyreViewController: BaseViewController {
         tableView.register(UINib(nibName: "LocationTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationTableViewCell")
         tableView.register(UINib(nibName: "SubServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "SubServicesTableViewCell")
         tableView.register(UINib(nibName: "CountTableViewCell", bundle: nil), forCellReuseIdentifier: "CountTableViewCell")
+        tableView.register(UINib(nibName: "ContinueTableViewCell", bundle: nil), forCellReuseIdentifier: "ContinueTableViewCell")
+        tableView.register(UINib(nibName: "CommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "CommentsTableViewCell")
+        tableView.register(UINib(nibName: "LocationSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationSelectionTableViewCell")
+        tableView.register(UINib(nibName: "", bundle: nil), forCellReuseIdentifier: "")
+        tableView.register(UINib(nibName: "", bundle: nil), forCellReuseIdentifier: "")
+        
         tableView.dataSource = self
         tableView.delegate = self
         
