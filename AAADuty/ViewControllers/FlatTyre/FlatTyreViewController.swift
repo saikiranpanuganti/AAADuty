@@ -14,6 +14,7 @@ class FlatTyreViewController: BaseViewController {
     var subCategories: SubCategoryModel?
     var selectedSubCategory: SubCategory?
     var complaintType: ComplaintType?
+    var address: String = ""
     var pincode: Int = 530002
     var count: Int = 0
     var price: Int {
@@ -62,6 +63,7 @@ class FlatTyreViewController: BaseViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
+                controller.orderDetails = OrderDetails(category: self.category, totalAmount: Int(self.amount), address: self.address, serviceDetails: self.complaintType?.complaint)
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
@@ -204,8 +206,10 @@ extension FlatTyreViewController: LocationTableViewCellDelegate {
 
 extension FlatTyreViewController: CountTableViewCellDelegate {
     func plusTapped() {
-        count += 1
-        updateCountCell(withZero: false)
+        if complaintType != nil {
+            count += 1
+            updateCountCell(withZero: false)
+        }
     }
     func minusTapped() {
         if count > 0 {

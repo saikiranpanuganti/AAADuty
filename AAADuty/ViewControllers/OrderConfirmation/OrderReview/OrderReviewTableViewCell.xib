@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Segoe-UI.TTF">
+            <string>SegoeUI</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="303" id="KGk-i7-Jjw" customClass="OrderReviewTableViewCell" customModule="AAADuty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="303"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="303"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review your request details to avoid cancellations" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg7-Zr-9Aq">
+                        <rect key="frame" x="20" y="30" width="315" height="48"/>
+                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="18"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank your service partner for helping you stay safe indoors. Support them though these tough times with a tip." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kb-WA-4Og">
+                        <rect key="frame" x="20" y="93" width="315" height="52"/>
+                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
+                        <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdI-AP-uy4">
+                        <rect key="frame" x="10" y="160" width="90" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="2Xj-WA-YcG"/>
+                            <constraint firstAttribute="height" constant="25" id="YSf-1K-1AN"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Overview">
+                            <fontDescription key="titleFontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
+                            <color key="baseForegroundColor" red="0.29019607843137252" green="0.45098039215686275" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="overviewTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9x1-LB-3j5"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxz-v4-KkL">
+                        <rect key="frame" x="255" y="160" width="110" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Khr-Qe-1RO"/>
+                            <constraint firstAttribute="width" constant="110" id="geJ-Kv-Bv1"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Read policy">
+                            <fontDescription key="titleFontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
+                            <color key="baseForegroundColor" red="0.29019607843137252" green="0.45098039215686275" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="readPolicyTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zhu-g4-Z1L"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ny0-Wd-dpF">
+                        <rect key="frame" x="20" y="200" width="335" height="50.333333333333343"/>
+                        <color key="backgroundColor" name="orangeAppColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ny0-Wd-dpF" secondAttribute="height" multiplier="6:0.9" id="g7o-RX-jgl"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="MAKE PAYMENT">
+                            <fontDescription key="titleFontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="18"/>
+                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="makePaymentTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4BL-UR-b1j"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Xg7-Zr-9Aq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="1fs-d1-4g1"/>
+                    <constraint firstItem="rxz-v4-KkL" firstAttribute="centerY" secondItem="zdI-AP-uy4" secondAttribute="centerY" id="94L-Hy-xdd"/>
+                    <constraint firstItem="8Kb-WA-4Og" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="BAq-Zk-Kwg"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ny0-Wd-dpF" secondAttribute="bottom" constant="10" id="CoU-7o-GOG"/>
+                    <constraint firstItem="Xg7-Zr-9Aq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Hn2-Ge-g3U"/>
+                    <constraint firstItem="ny0-Wd-dpF" firstAttribute="top" secondItem="zdI-AP-uy4" secondAttribute="bottom" constant="15" id="MbV-5B-QWa"/>
+                    <constraint firstAttribute="trailing" secondItem="ny0-Wd-dpF" secondAttribute="trailing" constant="20" id="Ot3-0f-Rf6"/>
+                    <constraint firstAttribute="trailing" secondItem="Xg7-Zr-9Aq" secondAttribute="trailing" constant="40" id="eq7-Xt-shr"/>
+                    <constraint firstItem="zdI-AP-uy4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gVT-Bu-77S"/>
+                    <constraint firstAttribute="trailing" secondItem="8Kb-WA-4Og" secondAttribute="trailing" constant="40" id="hu6-pF-C5n"/>
+                    <constraint firstItem="ny0-Wd-dpF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="rj9-TY-LN2"/>
+                    <constraint firstItem="zdI-AP-uy4" firstAttribute="top" secondItem="8Kb-WA-4Og" secondAttribute="bottom" constant="15" id="wW9-2Q-WTg"/>
+                    <constraint firstItem="8Kb-WA-4Og" firstAttribute="top" secondItem="Xg7-Zr-9Aq" secondAttribute="bottom" constant="15" id="yeH-ey-fnO"/>
+                    <constraint firstAttribute="trailing" secondItem="rxz-v4-KkL" secondAttribute="trailing" constant="10" id="znv-ql-T6P"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="paymentButton" destination="ny0-Wd-dpF" id="hby-cq-OCi"/>
+            </connections>
+            <point key="canvasLocation" x="43.511450381679388" y="110.91549295774648"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="orangeAppColor">
+            <color red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

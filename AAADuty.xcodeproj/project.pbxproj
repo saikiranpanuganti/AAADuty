@@ -55,6 +55,12 @@
 		7F37C6FF29B1D641001212E1 /* ContinueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37C6FD29B1D641001212E1 /* ContinueTableViewCell.swift */; };
 		7F37C70029B1D641001212E1 /* ContinueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6FE29B1D641001212E1 /* ContinueTableViewCell.xib */; };
 		7FB7B54429B2298B0006E206 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */; };
+		7FB7B54829B24E6C0006E206 /* OrderAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54629B24E6C0006E206 /* OrderAddressTableViewCell.swift */; };
+		7FB7B54929B24E6C0006E206 /* OrderAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB7B54729B24E6C0006E206 /* OrderAddressTableViewCell.xib */; };
+		7FB7B54D29B257DB0006E206 /* BillDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54B29B257DB0006E206 /* BillDetailsTableViewCell.swift */; };
+		7FB7B54E29B257DB0006E206 /* BillDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB7B54C29B257DB0006E206 /* BillDetailsTableViewCell.xib */; };
+		7FB7B55229B25CBC0006E206 /* OrderReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B55029B25CBC0006E206 /* OrderReviewTableViewCell.swift */; };
+		7FB7B55329B25CBC0006E206 /* OrderReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB7B55129B25CBC0006E206 /* OrderReviewTableViewCell.xib */; };
 		7FB8C40929AB949A005B6B4E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C40829AB949A005B6B4E /* BaseViewController.swift */; };
 		7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9329A8F77A0049662D /* AppDelegate.swift */; };
 		7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */; };
@@ -134,6 +140,12 @@
 		7F37C6FD29B1D641001212E1 /* ContinueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueTableViewCell.swift; sourceTree = "<group>"; };
 		7F37C6FE29B1D641001212E1 /* ContinueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContinueTableViewCell.xib; sourceTree = "<group>"; };
 		7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
+		7FB7B54629B24E6C0006E206 /* OrderAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAddressTableViewCell.swift; sourceTree = "<group>"; };
+		7FB7B54729B24E6C0006E206 /* OrderAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderAddressTableViewCell.xib; sourceTree = "<group>"; };
+		7FB7B54B29B257DB0006E206 /* BillDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		7FB7B54C29B257DB0006E206 /* BillDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		7FB7B55029B25CBC0006E206 /* OrderReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderReviewTableViewCell.swift; sourceTree = "<group>"; };
+		7FB7B55129B25CBC0006E206 /* OrderReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderReviewTableViewCell.xib; sourceTree = "<group>"; };
 		7FB8C40829AB949A005B6B4E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7FD0BE9029A8F77A0049662D /* AAADuty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAADuty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD0BE9329A8F77A0049662D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -364,8 +376,38 @@
 			isa = PBXGroup;
 			children = (
 				7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */,
+				7FB7B54F29B25CA70006E206 /* OrderReview */,
+				7FB7B54A29B257C90006E206 /* BillDetails */,
+				7FB7B54529B24E480006E206 /* OrderAdress */,
 			);
 			path = OrderConfirmation;
+			sourceTree = "<group>";
+		};
+		7FB7B54529B24E480006E206 /* OrderAdress */ = {
+			isa = PBXGroup;
+			children = (
+				7FB7B54629B24E6C0006E206 /* OrderAddressTableViewCell.swift */,
+				7FB7B54729B24E6C0006E206 /* OrderAddressTableViewCell.xib */,
+			);
+			path = OrderAdress;
+			sourceTree = "<group>";
+		};
+		7FB7B54A29B257C90006E206 /* BillDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7FB7B54B29B257DB0006E206 /* BillDetailsTableViewCell.swift */,
+				7FB7B54C29B257DB0006E206 /* BillDetailsTableViewCell.xib */,
+			);
+			path = BillDetails;
+			sourceTree = "<group>";
+		};
+		7FB7B54F29B25CA70006E206 /* OrderReview */ = {
+			isa = PBXGroup;
+			children = (
+				7FB7B55029B25CBC0006E206 /* OrderReviewTableViewCell.swift */,
+				7FB7B55129B25CBC0006E206 /* OrderReviewTableViewCell.xib */,
+			);
+			path = OrderReview;
 			sourceTree = "<group>";
 		};
 		7FB8C40729AB9449005B6B4E /* ViewControllers */ = {
@@ -555,6 +597,7 @@
 				7F30A54129B11828002F802F /* Segoe-UI-Bold.ttf in Resources */,
 				7F30A53529B1175E002F802F /* Poppins-Light.otf in Resources */,
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
+				7FB7B54E29B257DB0006E206 /* BillDetailsTableViewCell.xib in Resources */,
 				7F30A53829B11765002F802F /* Poppins-Bold.otf in Resources */,
 				7F30A53729B11762002F802F /* Poppins-Medium.otf in Resources */,
 				7FD0BE9B29A8F77A0049662D /* Main.storyboard in Resources */,
@@ -565,8 +608,10 @@
 				7F30A53629B11760002F802F /* Poppins-Regular.otf in Resources */,
 				7F1A486229AB448600C432DF /* ImageCollectionViewCell.xib in Resources */,
 				7F37C6FB29B1CE41001212E1 /* CommentsTableViewCell.xib in Resources */,
+				7FB7B55329B25CBC0006E206 /* OrderReviewTableViewCell.xib in Resources */,
 				7F37C6F129B1BF2A001212E1 /* Segoe-UI-SemiBold.ttf in Resources */,
 				7F37C6EB29B1B183001212E1 /* CountTableViewCell.xib in Resources */,
+				7FB7B54929B24E6C0006E206 /* OrderAddressTableViewCell.xib in Resources */,
 				7F1A486C29AB515300C432DF /* CategoryCollectionViewCell.xib in Resources */,
 				7F37C6F629B1C058001212E1 /* LocationSelectionTableViewCell.xib in Resources */,
 				7F02F0C529AE724500E4B775 /* Services.storyboard in Resources */,
@@ -639,6 +684,7 @@
 				7FD0BEB029A908E20049662D /* AAAButton.swift in Sources */,
 				7F1A487829AB797600C432DF /* UIColor+Extension.swift in Sources */,
 				7FD0BECD29AA672A0049662D /* ProfileTableViewCell.swift in Sources */,
+				7FB7B54829B24E6C0006E206 /* OrderAddressTableViewCell.swift in Sources */,
 				7FD0BEB829A931F50049662D /* TabBarViewController.swift in Sources */,
 				7F1A487329AB6F6300C432DF /* CategoriesModel.swift in Sources */,
 				7F02F0BD29AE1B2500E4B775 /* LocationManager.swift in Sources */,
@@ -659,10 +705,12 @@
 				7F37C6FF29B1D641001212E1 /* ContinueTableViewCell.swift in Sources */,
 				7FD0BED029AA6FA10049662D /* Constants.swift in Sources */,
 				7F1A486629AB513700C432DF /* CategoriesCollectionViewCell.swift in Sources */,
+				7FB7B54D29B257DB0006E206 /* BillDetailsTableViewCell.swift in Sources */,
 				7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */,
 				7FD0BEB629A922FB0049662D /* OTPStackView.swift in Sources */,
 				7F02F0CD29AE79B500E4B775 /* LocationTableViewCell.swift in Sources */,
 				7FD0BEC029A9E96E0049662D /* BookingsTabViewController.swift in Sources */,
+				7FB7B55229B25CBC0006E206 /* OrderReviewTableViewCell.swift in Sources */,
 				7F02F0C129AE4A1E00E4B775 /* String+Extension.swift in Sources */,
 				7F1A487529AB708B00C432DF /* AppData.swift in Sources */,
 				7F37C6EA29B1B183001212E1 /* CountTableViewCell.swift in Sources */,
