@@ -44,6 +44,7 @@
 		7F1A487829AB797600C432DF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A487729AB797600C432DF /* UIColor+Extension.swift */; };
 		7F1D5C0029B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1D5BFE29B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift */; };
 		7F1D5C0129B2F3AC00B8C6DD /* TowingDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1D5BFF29B2F3AC00B8C6DD /* TowingDetailsTableViewCell.xib */; };
+		7F1D5C0429B2FB8900B8C6DD /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1D5C0329B2FB8900B8C6DD /* MapsViewController.swift */; };
 		7F30A52E29B112EB002F802F /* SubCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A52D29B112EB002F802F /* SubCategoryCollectionViewCell.xib */; };
 		7F30A53029B112EF002F802F /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30A52F29B112EF002F802F /* SubCategoryCollectionViewCell.swift */; };
 		7F30A53529B1175E002F802F /* Poppins-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53229B1172A002F802F /* Poppins-Light.otf */; };
@@ -137,6 +138,7 @@
 		7F1A487729AB797600C432DF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7F1D5BFE29B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowingDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		7F1D5BFF29B2F3AC00B8C6DD /* TowingDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TowingDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		7F1D5C0329B2FB8900B8C6DD /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		7F30A52D29B112EB002F802F /* SubCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F30A52F29B112EF002F802F /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F30A53129B11720002F802F /* Poppins-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.otf"; sourceTree = "<group>"; };
@@ -376,6 +378,14 @@
 			path = TowingOrderDetails;
 			sourceTree = "<group>";
 		};
+		7F1D5C0229B2FB7B00B8C6DD /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				7F1D5C0329B2FB8900B8C6DD /* MapsViewController.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
 		7F30A53B29B11775002F802F /* Poppins */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +493,7 @@
 				7FD0BEBF29A9E96E0049662D /* BookingsTabViewController.swift */,
 				7FD0BEC129A9E97C0049662D /* WalletTabViewController.swift */,
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
+				7F1D5C0229B2FB7B00B8C6DD /* Maps */,
 				7F08778A29B29393004CB905 /* Towing */,
 				7F08777E29B28A12004CB905 /* PaymentModes */,
 				7FB7B54229B229640006E206 /* OrderConfirmation */,
@@ -602,6 +613,7 @@
 				7FD0BE8D29A8F77A0049662D /* Frameworks */,
 				7FD0BE8E29A8F77A0049662D /* Resources */,
 				1BB6A3A44B89A5A0275C29BD /* [CP] Embed Pods Frameworks */,
+				E7C3482070FEEC1778F6A8B1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -728,6 +740,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AAADuty/Pods-AAADuty-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E7C3482070FEEC1778F6A8B1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AAADuty/Pods-AAADuty-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AAADuty/Pods-AAADuty-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AAADuty/Pods-AAADuty-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -745,6 +774,7 @@
 				7F1A487029AB6E2600C432DF /* UrlHandler.swift in Sources */,
 				7FD0BEAC29A8FE930049662D /* AAALabel.swift in Sources */,
 				7FD0BEB229A90ED60049662D /* AAAView.swift in Sources */,
+				7F1D5C0429B2FB8900B8C6DD /* MapsViewController.swift in Sources */,
 				7F13C2D829B0FEEB00EFFE7E /* SubCategoryModel.swift in Sources */,
 				7FD0BEBE29A9E5D60049662D /* HomeTabViewController.swift in Sources */,
 				7F13C2D529B0E07300EFFE7E /* SubServicesTableViewCell.swift in Sources */,

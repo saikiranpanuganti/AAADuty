@@ -10,5 +10,7 @@ target 'AAADuty' do
 
 	pod 'SDWebImage', '~> 5.0'
   pod 'IQKeyboardManagerSwift', '6.5.0'
+  pod 'GoogleMaps', '7.4.0'
+  pod 'GooglePlaces', '7.4.0'
 
 end
