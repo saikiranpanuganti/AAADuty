@@ -14,7 +14,7 @@ class FlatTyreViewController: BaseViewController {
     var subCategories: SubCategoryModel?
     var selectedSubCategory: SubCategory?
     var complaintType: ComplaintType?
-    var address: String = ""
+    var address: String?
     var pincode: Int = 530002
     var count: Int = 0
     var price: Int {

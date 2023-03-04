@@ -13,7 +13,13 @@ class TowingViewController: BaseViewController {
     var category: Category?
     var subCategories: SubCategoryModel?
     var selectedSubCategory: SubCategory?
+    var complaintType: ComplaintType?
     var pincode: Int = 530002
+    var pickUpLocation: String?
+    var dropLocation: String?
+    var price: Int {
+        return complaintType?.price ?? 0
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +47,7 @@ class TowingViewController: BaseViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
-//                controller.orderDetails = OrderDetails(category: self.category, totalAmount: Int(self.amount), address: self.address, serviceDetails: self.complaintType?.complaint)
+                controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.price, serviceDetails: self.complaintType?.complaint, pickUpAddress: self.pickUpLocation, dropAddress: self.dropLocation)
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
@@ -69,8 +75,32 @@ class TowingViewController: BaseViewController {
         }
     }
     
+    func getComplaintType(categoryId: String?, typeID: String?) {
+        if let categoryId = categoryId, let typeID = typeID {
+            showLoader()
+            
+            let bodyParams: [String: Any] = ["CategoryID": categoryId, "TypeID": typeID]
+            NetworkAdaptor.requestWithHeaders(urlString: Url.getComplaintTypes.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+                guard let self = self else { return }
+                self.stopLoader()
+                
+                if let data = data {
+                    do {
+                        let complaintTypeModel = try JSONDecoder().decode(ComplaintTypeModel.self, from: data)
+                        self.complaintType = complaintTypeModel.complaintTypes?.first
+                    }catch {
+                        print("Error: FlatTyreViewController getComplaintType - \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+    }
+    
     func checkAvailability() {
         if let categoryId = selectedSubCategory?.categoryID {
+            if !areAllFieldsFilled() {
+                return
+            }
             showLoader()
             
             let bodyParams: [String: Any] = ["pinCode": pincode, "CategoryID": categoryId]
@@ -95,7 +125,13 @@ class TowingViewController: BaseViewController {
                     }
                 }
             }
+        }else {
+            self.showAlert(title: "Error", message: "Please selected type of towing")
         }
+    }
+    
+    func areAllFieldsFilled() -> Bool {
+        return true
     }
 }
 
@@ -165,6 +201,7 @@ extension TowingViewController: SubServicesTableViewCellDelegate {
     func subServiceTapped(subCategory: SubCategory?) {
         if selectedSubCategory?.id != subCategory?.id {
             selectedSubCategory = subCategory
+            getComplaintType(categoryId: subCategory?.categoryID, typeID: subCategory?.id)
         }
     }
 }

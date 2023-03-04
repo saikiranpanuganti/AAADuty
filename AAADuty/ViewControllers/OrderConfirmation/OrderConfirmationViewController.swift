@@ -10,8 +10,10 @@ import UIKit
 struct OrderDetails {
     var category: Category?
     var totalAmount: Int?
-    var address: String?
+    var address: String? = ""
     var serviceDetails: String?
+    var pickUpAddress: String? = ""
+    var dropAddress: String? = ""
 }
 
 class OrderConfirmationViewController: UIViewController {
@@ -26,6 +28,7 @@ class OrderConfirmationViewController: UIViewController {
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: "LocationTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationTableViewCell")
+        tableView.register(UINib(nibName: "TowingDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "TowingDetailsTableViewCell")
         tableView.register(UINib(nibName: "OrderAddressTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderAddressTableViewCell")
         tableView.register(UINib(nibName: "BillDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "BillDetailsTableViewCell")
         tableView.register(UINib(nibName: "OrderReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderReviewTableViewCell")
@@ -98,10 +101,18 @@ extension OrderConfirmationViewController: UITableViewDataSource {
                 return cell
             }
         }else if indexPath.row == 1 {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "OrderAddressTableViewCell", for: indexPath) as? OrderAddressTableViewCell {
-                cell.delegate = self
-                cell.configureUI(orderDetails: orderDetails)
-                return cell
+            if orderDetails?.category?.serviceType == .towing {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "TowingDetailsTableViewCell", for: indexPath) as? TowingDetailsTableViewCell {
+                    cell.delegate = self
+                    cell.configureUI(orderDetails: orderDetails)
+                    return cell
+                }
+            }else {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "OrderAddressTableViewCell", for: indexPath) as? OrderAddressTableViewCell {
+                    cell.delegate = self
+                    cell.configureUI(orderDetails: orderDetails)
+                    return cell
+                }
             }
         }else if indexPath.row == 2 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "BillDetailsTableViewCell", for: indexPath) as? BillDetailsTableViewCell {
@@ -163,5 +174,11 @@ extension OrderConfirmationViewController: MakePaymentViewDelegate {
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
+    }
+}
+
+extension OrderConfirmationViewController: TowingDetailsTableViewCellDelegate {
+    func towingEditTapped() {
+        
     }
 }

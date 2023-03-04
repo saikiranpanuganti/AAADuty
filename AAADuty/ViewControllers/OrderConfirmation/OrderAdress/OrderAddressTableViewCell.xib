@@ -95,10 +95,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3e3-vZ-73c">
-                                        <rect key="frame" x="0.0" y="204.66666666666666" width="320" height="4"/>
+                                        <rect key="frame" x="0.0" y="204.66666666666666" width="320" height="10"/>
                                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="4" id="Os4-fp-UJ5"/>
+                                            <constraint firstAttribute="height" constant="10" id="Os4-fp-UJ5"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auE-FU-vgk">
@@ -169,11 +169,6 @@
             <point key="canvasLocation" x="204.58015267175571" y="76.760563380281695"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="dsI-Ng-D90">
-            <size key="intrinsicContentSize" width="78.333333333333329" height="16"/>
-        </designable>
-    </designables>
     <resources>
         <namedColor name="navigationBarColor">
             <color red="0.070588235294117646" green="0.27058823529411763" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

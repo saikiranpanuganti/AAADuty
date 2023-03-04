@@ -42,6 +42,8 @@
 		7F1A487329AB6F6300C432DF /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A487229AB6F6300C432DF /* CategoriesModel.swift */; };
 		7F1A487529AB708B00C432DF /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A487429AB708B00C432DF /* AppData.swift */; };
 		7F1A487829AB797600C432DF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A487729AB797600C432DF /* UIColor+Extension.swift */; };
+		7F1D5C0029B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1D5BFE29B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift */; };
+		7F1D5C0129B2F3AC00B8C6DD /* TowingDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1D5BFF29B2F3AC00B8C6DD /* TowingDetailsTableViewCell.xib */; };
 		7F30A52E29B112EB002F802F /* SubCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A52D29B112EB002F802F /* SubCategoryCollectionViewCell.xib */; };
 		7F30A53029B112EF002F802F /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F30A52F29B112EF002F802F /* SubCategoryCollectionViewCell.swift */; };
 		7F30A53529B1175E002F802F /* Poppins-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53229B1172A002F802F /* Poppins-Light.otf */; };
@@ -133,6 +135,8 @@
 		7F1A487229AB6F6300C432DF /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
 		7F1A487429AB708B00C432DF /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		7F1A487729AB797600C432DF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7F1D5BFE29B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowingDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		7F1D5BFF29B2F3AC00B8C6DD /* TowingDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TowingDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		7F30A52D29B112EB002F802F /* SubCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F30A52F29B112EF002F802F /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F30A53129B11720002F802F /* Poppins-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.otf"; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				7F08778B29B293A9004CB905 /* TowingViewController.swift */,
+				7F1D5BFD29B2F37800B8C6DD /* TowingOrderDetails */,
 			);
 			path = Towing;
 			sourceTree = "<group>";
@@ -360,6 +365,15 @@
 				7F02F0C029AE4A1E00E4B775 /* String+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7F1D5BFD29B2F37800B8C6DD /* TowingOrderDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7F1D5BFE29B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift */,
+				7F1D5BFF29B2F3AC00B8C6DD /* TowingDetailsTableViewCell.xib */,
+			);
+			path = TowingOrderDetails;
 			sourceTree = "<group>";
 		};
 		7F30A53B29B11775002F802F /* Poppins */ = {
@@ -657,6 +671,7 @@
 				7F13C2D629B0E07300EFFE7E /* SubServicesTableViewCell.xib in Resources */,
 				7F08778929B28C2B004CB905 /* PaymentModeTableViewCell.xib in Resources */,
 				7F30A53629B11760002F802F /* Poppins-Regular.otf in Resources */,
+				7F1D5C0129B2F3AC00B8C6DD /* TowingDetailsTableViewCell.xib in Resources */,
 				7F1A486229AB448600C432DF /* ImageCollectionViewCell.xib in Resources */,
 				7F37C6FB29B1CE41001212E1 /* CommentsTableViewCell.xib in Resources */,
 				7FB7B55329B25CBC0006E206 /* OrderReviewTableViewCell.xib in Resources */,
@@ -752,6 +767,7 @@
 				7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */,
 				7F1A486E29AB6D0800C432DF /* NetworkAdaptor.swift in Sources */,
 				7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */,
+				7F1D5C0029B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift in Sources */,
 				7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */,
 				7F37C6F529B1C058001212E1 /* LocationSelectionTableViewCell.swift in Sources */,
 				7F30A53029B112EF002F802F /* SubCategoryCollectionViewCell.swift in Sources */,
