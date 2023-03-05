@@ -23,6 +23,13 @@ class LocationManager: NSObject {
     
     var userCurrentAddress: String = ""
     
+    var isAuthorized: Bool {
+        if locationManager?.authorizationStatus == .authorizedAlways || locationManager?.authorizationStatus == .authorizedWhenInUse {
+            return true
+        }
+        return false
+    }
+    
     private override init() {
         super.init()
         
