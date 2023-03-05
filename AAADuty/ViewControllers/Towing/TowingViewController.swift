@@ -15,8 +15,9 @@ class TowingViewController: BaseViewController {
     var selectedSubCategory: SubCategory?
     var complaintType: ComplaintType?
     var pincode: Int = 530002
-    var pickUpLocation: String?
-    var dropLocation: String?
+    var pickUpLocation: Location?
+    var dropLocation: Location?
+    
     var price: Int {
         return complaintType?.price ?? 0
     }
@@ -47,7 +48,7 @@ class TowingViewController: BaseViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
-                controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.price, serviceDetails: self.complaintType?.complaint, pickUpAddress: self.pickUpLocation, dropAddress: self.dropLocation)
+                controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.price, serviceDetails: self.complaintType?.complaint, pickUpAddress: self.pickUpLocation?.address, dropAddress: self.dropLocation?.address)
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
@@ -157,12 +158,14 @@ extension TowingViewController: UITableViewDataSource {
             }
         }else if indexPath.row == 2 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSelectionTableViewCell", for: indexPath) as? LocationSelectionTableViewCell {
-                cell.configureUI(title: "Pickup Location")
+                cell.delegate = self
+                cell.configureUI(title: "Pickup Location", address: pickUpLocation?.address, pickUp: true)
                 return cell
             }
         }else if indexPath.row == 3 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSelectionTableViewCell", for: indexPath) as? LocationSelectionTableViewCell {
-                cell.configureUI(title: "Drop Location")
+                cell.delegate = self
+                cell.configureUI(title: "Drop Location", address: dropLocation?.address, pickUp: false)
                 return cell
             }
         }else if indexPath.row == 4 {
@@ -210,5 +213,37 @@ extension TowingViewController: SubServicesTableViewCellDelegate {
 extension TowingViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
         checkAvailability()
+    }
+}
+
+
+extension TowingViewController: LocationSelectionTableViewCellDelegate {
+    func locationTapped(isFromPickUp: Bool) {
+        if let mapsVc = Controllers.maps.getController() as? MapsViewController {
+            mapsVc.pickUp = isFromPickUp
+            mapsVc.delegate = self
+            navigationController?.pushViewController(mapsVc, animated: true)
+        }
+    }
+}
+
+
+extension TowingViewController: MapsViewControllerDelegate {
+    func selectedLocation(location: Location?, pickUp: Bool) {
+        if pickUp {
+            if let location = location {
+                if let cell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? LocationSelectionTableViewCell {
+                    pickUpLocation = location
+                    cell.updateAddress(address: location.address)
+                }
+            }
+        }else {
+            if let location = location {
+                if let cell = tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? LocationSelectionTableViewCell {
+                    dropLocation = location
+                    cell.updateAddress(address: location.address)
+                }
+            }
+        }
     }
 }

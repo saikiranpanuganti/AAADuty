@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SubCategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var roundedView: AAAView!
@@ -22,6 +23,7 @@ class SubCategoryCollectionViewCell: UICollectionViewCell {
     func configureUI(subCategory: SubCategory?) {
         subCat = subCategory
         subCategoryName.text = subCategory?.typeName
+        subCategoryImage.sd_setImage(with: URL(string: subCategory?.imageURL ?? ""))
         if subCategory?.isSelected ?? false {
             subCategorySelected()
         }else {

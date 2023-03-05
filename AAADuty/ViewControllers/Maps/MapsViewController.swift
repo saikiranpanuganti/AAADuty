@@ -9,10 +9,16 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-struct GoogleLocation {
-    var coordinate: CLLocationCoordinate2D?
+struct Location {
+    var latitude: Double?
+    var longitude: Double?
     var address: String?
     var placeName: String?
+}
+
+
+protocol MapsViewControllerDelegate: AnyObject {
+    func selectedLocation(location: Location?, pickUp: Bool)
 }
 
 class MapsViewController: UIViewController {
@@ -30,6 +36,9 @@ class MapsViewController: UIViewController {
     let token = GMSAutocompleteSessionToken.init()
     let filter = GMSAutocompleteFilter()
     var destinationMarker: GMSMarker?
+    var pickUp: Bool = true
+    
+    weak var delegate: MapsViewControllerDelegate?
     
 
     override func viewDidLoad() {
@@ -72,15 +81,17 @@ class MapsViewController: UIViewController {
         }
     }
     
-    func setAddress(coordinates: CLLocationCoordinate2D?) {
+    func setAddress(coordinates: CLLocationCoordinate2D?, _ completion: @escaping ((String?, String?) -> ())) {
         if let coordinates = coordinates {
             let location = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
             CLGeocoder().reverseGeocodeLocation(location, completionHandler:{ [weak self] (placemarks, error) in
-                guard let self = self else { return }
+//                guard let self = self else {
+//                    completion(nil, "Something went wrong")
+//                    return
+//                }
                 
                 if error != nil {
-                    self.searchtextfield.text = "Error fetching address"
-                    self.cancelbutton.isHidden = false
+                    completion(nil, "Error fetching address")
                 }else {
                     let p = CLPlacemark(placemark: (placemarks?[0] as CLPlacemark?)!)
                     var subThoroughfare:String = ""
@@ -109,13 +120,11 @@ class MapsViewController: UIViewController {
                         country = p.country!
                     }
                     
-                    self.searchtextfield.text = "\(subThoroughfare) \(thoroughfare) \(subLocality) \(subAdministrativeArea) \(postalCode) \(country)"
-                    self.cancelbutton.isHidden = false
+                    completion("\(subThoroughfare) \(thoroughfare) \(subLocality) \(subAdministrativeArea) \(postalCode) \(country)", nil)
                 }
             })
         }else {
-            self.searchtextfield.text = "Unable to fetch address"
-            self.cancelbutton.isHidden = false
+            completion(nil, "Unable to fetch address")
         }
     }
     
@@ -156,7 +165,17 @@ class MapsViewController: UIViewController {
     }
     
     @IBAction func confirmTapped() {
-        
+        if let latitude = destinationMarker?.position.latitude, let longitude = destinationMarker?.position.longitude {
+            setAddress(coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude)) { [weak self] address, error in
+                guard let self = self else { return }
+                
+                self.delegate?.selectedLocation(location: Location(latitude: latitude, longitude: longitude, address: address), pickUp: self.pickUp)
+                
+                self.navigationController?.popViewController(animated: true)
+            }
+        }else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
 
@@ -208,7 +227,16 @@ extension MapsViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         print("idleAt position - \(position.target)")
         searchtextfield.isEnabled = true
-        setAddress(coordinates: CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude))
+        
+        setAddress(coordinates: CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude)) { address, error in
+            if let address = address {
+                self.searchtextfield.text = address
+                self.cancelbutton.isHidden = false
+            }else if let error = error {
+                self.searchtextfield.text = error
+                self.cancelbutton.isHidden = false
+            }
+        }
     }
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         searchtextfield.isEnabled = false

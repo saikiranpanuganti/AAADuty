@@ -14,6 +14,7 @@ class FlatTyreViewController: BaseViewController {
     var subCategories: SubCategoryModel?
     var selectedSubCategory: SubCategory?
     var complaintType: ComplaintType?
+    var selectedLocation: Location?
     var address: String?
     var pincode: Int = 530002
     var count: Int = 0
@@ -169,6 +170,8 @@ extension FlatTyreViewController: UITableViewDataSource {
             }
         }else if indexPath.section == 3 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSelectionTableViewCell", for: indexPath) as? LocationSelectionTableViewCell {
+                cell.delegate = self
+                cell.configureUI(title: "Location", address: selectedLocation?.address)
                 return cell
             }
         }else if indexPath.section == 4 {
@@ -233,5 +236,28 @@ extension FlatTyreViewController: SubServicesTableViewCellDelegate {
 extension FlatTyreViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
         checkAvailability()
+    }
+}
+
+
+extension FlatTyreViewController: LocationSelectionTableViewCellDelegate {
+    func locationTapped(isFromPickUp: Bool) {
+        if let mapsVc = Controllers.maps.getController() as? MapsViewController {
+            mapsVc.pickUp = isFromPickUp
+            mapsVc.delegate = self
+            navigationController?.pushViewController(mapsVc, animated: true)
+        }
+    }
+}
+
+
+extension FlatTyreViewController: MapsViewControllerDelegate {
+    func selectedLocation(location: Location?, pickUp: Bool) {
+        if let location = location {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? LocationSelectionTableViewCell {
+                selectedLocation = location
+                cell.updateAddress(address: location.address)
+            }
+        }
     }
 }
