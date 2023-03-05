@@ -14,6 +14,7 @@ struct Location {
     var longitude: Double?
     var address: String?
     var placeName: String?
+    var postalCode: String?
 }
 
 
@@ -81,7 +82,7 @@ class MapsViewController: UIViewController {
         }
     }
     
-    func setAddress(coordinates: CLLocationCoordinate2D?, _ completion: @escaping ((String?, String?) -> ())) {
+    func setAddress(coordinates: CLLocationCoordinate2D?, _ completion: @escaping ((String?, String?, String?) -> ())) {
         if let coordinates = coordinates {
             let location = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
             CLGeocoder().reverseGeocodeLocation(location, completionHandler:{ [weak self] (placemarks, error) in
@@ -91,7 +92,7 @@ class MapsViewController: UIViewController {
 //                }
                 
                 if error != nil {
-                    completion(nil, "Error fetching address")
+                    completion(nil, "Error fetching address", nil)
                 }else {
                     let p = CLPlacemark(placemark: (placemarks?[0] as CLPlacemark?)!)
                     var subThoroughfare:String = ""
@@ -120,11 +121,11 @@ class MapsViewController: UIViewController {
                         country = p.country!
                     }
                     
-                    completion("\(subThoroughfare) \(thoroughfare) \(subLocality) \(subAdministrativeArea) \(postalCode) \(country)", nil)
+                    completion("\(subThoroughfare) \(thoroughfare) \(subLocality) \(subAdministrativeArea) \(postalCode) \(country)", nil, "\(postalCode)")
                 }
             })
         }else {
-            completion(nil, "Unable to fetch address")
+            completion(nil, "Unable to fetch address", nil)
         }
     }
     
@@ -166,10 +167,10 @@ class MapsViewController: UIViewController {
     
     @IBAction func confirmTapped() {
         if let latitude = destinationMarker?.position.latitude, let longitude = destinationMarker?.position.longitude {
-            setAddress(coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude)) { [weak self] address, error in
+            setAddress(coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude)) { [weak self] address, error, pincode in
                 guard let self = self else { return }
                 
-                self.delegate?.selectedLocation(location: Location(latitude: latitude, longitude: longitude, address: address), pickUp: self.pickUp)
+                self.delegate?.selectedLocation(location: Location(latitude: latitude, longitude: longitude, address: address, postalCode: pincode), pickUp: self.pickUp)
                 
                 self.navigationController?.popViewController(animated: true)
             }
@@ -228,7 +229,7 @@ extension MapsViewController: GMSMapViewDelegate {
         print("idleAt position - \(position.target)")
         searchtextfield.isEnabled = true
         
-        setAddress(coordinates: CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude)) { address, error in
+        setAddress(coordinates: CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude)) { address, error, postalCode in
             if let address = address {
                 self.searchtextfield.text = address
                 self.cancelbutton.isHidden = false

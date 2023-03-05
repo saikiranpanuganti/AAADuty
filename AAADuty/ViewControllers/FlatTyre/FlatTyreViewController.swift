@@ -15,8 +15,6 @@ class FlatTyreViewController: BaseViewController {
     var selectedSubCategory: SubCategory?
     var complaintType: ComplaintType?
     var selectedLocation: Location?
-    var address: String?
-    var pincode: Int = 530002
     var count: Int = 0
     var price: Int {
         return complaintType?.price ?? 0
@@ -64,7 +62,7 @@ class FlatTyreViewController: BaseViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
-                controller.orderDetails = OrderDetails(category: self.category, totalAmount: Int(self.amount), address: self.address, serviceDetails: self.complaintType?.complaint)
+                controller.orderDetails = OrderDetails(category: self.category, totalAmount: Int(self.amount), address: self.selectedLocation, serviceDetails: self.complaintType?.complaint)
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
@@ -114,10 +112,10 @@ class FlatTyreViewController: BaseViewController {
     }
     
     func checkAvailability() {
-        if let categoryId = selectedSubCategory?.categoryID {
+        if let categoryId = selectedSubCategory?.categoryID, let postalCodeStr = selectedLocation?.postalCode, let postalCode = Int(postalCodeStr) {
             showLoader()
             
-            let bodyParams: [String: Any] = ["pinCode": pincode, "CategoryID": categoryId]
+            let bodyParams: [String: Any] = ["pinCode": postalCode, "CategoryID": categoryId]
             NetworkAdaptor.requestWithHeaders(urlString: Url.checkRequestAvailability.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
@@ -235,6 +233,13 @@ extension FlatTyreViewController: SubServicesTableViewCellDelegate {
 
 extension FlatTyreViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
+        if amount == 0 {
+            showAlert(title: "Error", message: "Select a service")
+            return
+        }else if selectedLocation == nil {
+            showAlert(title: "Error", message: "Please select the location")
+            return
+        }
         checkAvailability()
     }
 }

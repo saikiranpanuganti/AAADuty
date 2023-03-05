@@ -10,10 +10,10 @@ import UIKit
 struct OrderDetails {
     var category: Category?
     var totalAmount: Int?
-    var address: String? = ""
+    var address: Location?
     var serviceDetails: String?
-    var pickUpAddress: String? = ""
-    var dropAddress: String? = ""
+    var pickUpAddress: Location?
+    var dropAddress: Location?
 }
 
 class OrderConfirmationViewController: UIViewController {

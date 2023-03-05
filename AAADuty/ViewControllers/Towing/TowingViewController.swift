@@ -14,7 +14,6 @@ class TowingViewController: BaseViewController {
     var subCategories: SubCategoryModel?
     var selectedSubCategory: SubCategory?
     var complaintType: ComplaintType?
-    var pincode: Int = 530002
     var pickUpLocation: Location?
     var dropLocation: Location?
     
@@ -48,7 +47,7 @@ class TowingViewController: BaseViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
-                controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.price, serviceDetails: self.complaintType?.complaint, pickUpAddress: self.pickUpLocation?.address, dropAddress: self.dropLocation?.address)
+                controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.price, serviceDetails: self.complaintType?.complaint, pickUpAddress: self.pickUpLocation, dropAddress: self.dropLocation)
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
@@ -98,13 +97,10 @@ class TowingViewController: BaseViewController {
     }
     
     func checkAvailability() {
-        if let categoryId = selectedSubCategory?.categoryID {
-            if !areAllFieldsFilled() {
-                return
-            }
+        if let categoryId = selectedSubCategory?.categoryID, let postalCodeStr = pickUpLocation?.postalCode, let postalCode = Int(postalCodeStr) {
             showLoader()
             
-            let bodyParams: [String: Any] = ["pinCode": pincode, "CategoryID": categoryId]
+            let bodyParams: [String: Any] = ["pinCode": postalCodeStr, "CategoryID": categoryId]
             NetworkAdaptor.requestWithHeaders(urlString: Url.checkRequestAvailability.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
@@ -129,10 +125,6 @@ class TowingViewController: BaseViewController {
         }else {
             self.showAlert(title: "Error", message: "Please selected type of towing")
         }
-    }
-    
-    func areAllFieldsFilled() -> Bool {
-        return true
     }
 }
 
@@ -212,6 +204,19 @@ extension TowingViewController: SubServicesTableViewCellDelegate {
 
 extension TowingViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
+        if price == 0 {
+            showAlert(title: "Error", message: "Please select a service")
+            return
+        }else if pickUpLocation == nil {
+            showAlert(title: "Error", message: "Please select the pickup location")
+            return
+        }else if dropLocation == nil {
+            showAlert(title: "Error", message: "Please select the drop location")
+            return
+        }else if pickUpLocation?.address == dropLocation?.address {
+            showAlert(title: "Error", message: "Pickup location and drop location cannot be same")
+            return
+        }
         checkAvailability()
     }
 }

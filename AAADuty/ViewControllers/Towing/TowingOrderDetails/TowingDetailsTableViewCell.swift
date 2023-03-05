@@ -36,8 +36,8 @@ class TowingDetailsTableViewCell: UITableViewCell {
         if let orderDetails = orderDetails {
             serviceName.text = orderDetails.category?.category
             serviceIcon.sd_setImage(with: URL(string: orderDetails.category?.requestImageURL ?? ""))
-            pickUpAddress.text = orderDetails.pickUpAddress ?? "Pick Up address not available"
-            dropAddress.text = orderDetails.dropAddress ?? "Drop address not available"
+            pickUpAddress.text = orderDetails.pickUpAddress?.address ?? "Pick Up address not available"
+            dropAddress.text = orderDetails.dropAddress?.address ?? "Drop address not available"
             serviceDetails.text = orderDetails.serviceDetails
             priceOutlet.text = "\(orderDetails.totalAmount ?? 0)"
         }
