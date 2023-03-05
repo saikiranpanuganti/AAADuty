@@ -21,6 +21,7 @@ class MapsViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var cancelbutton : UIButton!
     @IBOutlet weak var searchtextfield : UITextField!
+    @IBOutlet weak var searchResultsView: UIView!
     @IBOutlet weak var searchResultsTableView: UITableView!
     @IBOutlet weak var confirmButton: UIButton!
     
@@ -28,7 +29,6 @@ class MapsViewController: UIViewController {
     
     let token = GMSAutocompleteSessionToken.init()
     let filter = GMSAutocompleteFilter()
-    
     var destinationMarker: GMSMarker?
     
 
@@ -44,6 +44,7 @@ class MapsViewController: UIViewController {
         backButton.tintColor = .black
         
         cancelbutton.isHidden = true
+        searchResultsView.isHidden = true
 
         searchResultsTableView.dataSource = self
         searchResultsTableView.delegate = self
@@ -56,8 +57,6 @@ class MapsViewController: UIViewController {
             destinationMarker = GMSMarker(position: location.coordinate)
             destinationMarker?.map = mapView
         }
-        
-        mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
     }
     
     func findAutoPredictPlaces(searchText: String) {
@@ -73,14 +72,58 @@ class MapsViewController: UIViewController {
         }
     }
     
-    func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutableRawPointer) {
-        print("Change location: \(change)")
+    func setAddress(coordinates: CLLocationCoordinate2D?) {
+        if let coordinates = coordinates {
+            let location = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+            CLGeocoder().reverseGeocodeLocation(location, completionHandler:{ [weak self] (placemarks, error) in
+                guard let self = self else { return }
+                
+                if error != nil {
+                    self.searchtextfield.text = "Error fetching address"
+                    self.cancelbutton.isHidden = false
+                }else {
+                    let p = CLPlacemark(placemark: (placemarks?[0] as CLPlacemark?)!)
+                    var subThoroughfare:String = ""
+                    var thoroughfare:String = ""
+                    var subLocality:String = ""
+                    var subAdministrativeArea:String = ""
+                    var postalCode:String = ""
+                    var country:String = ""
+                            
+                    if ((p.subThoroughfare) != nil) {
+                        subThoroughfare = (p.subThoroughfare)!
+                    }
+                    if ((p.thoroughfare) != nil) {
+                        thoroughfare = p.thoroughfare!
+                    }
+                    if ((p.subAdministrativeArea) != nil) {
+                        subAdministrativeArea = p.subAdministrativeArea!
+                    }
+                    if ((p.subLocality) != nil) {
+                        subLocality = p.subLocality!
+                    }
+                    if ((p.postalCode) != nil) {
+                        postalCode = p.postalCode!
+                    }
+                    if ((p.country) != nil) {
+                        country = p.country!
+                    }
+                    
+                    self.searchtextfield.text = "\(subThoroughfare) \(thoroughfare) \(subLocality) \(subAdministrativeArea) \(postalCode) \(country)"
+                    self.cancelbutton.isHidden = false
+                }
+            })
+        }else {
+            self.searchtextfield.text = "Unable to fetch address"
+            self.cancelbutton.isHidden = false
+        }
     }
     
     @IBAction func cancelTapped(){
         searchtextfield.text = ""
         searchtextfield.resignFirstResponder()
         cancelbutton.isHidden = true
+        searchResultsView.isHidden = true
         searchResults = []
         DispatchQueue.main.async {
             self.searchResultsTableView.reloadData()
@@ -90,6 +133,7 @@ class MapsViewController: UIViewController {
     @IBAction func textfieldIsEditing(_ textfield: UITextField){
         if textfield.text?.count == 0 {
             cancelbutton.isHidden = true
+            searchResultsView.isHidden = true
             
             searchResults = []
             DispatchQueue.main.async {
@@ -97,6 +141,7 @@ class MapsViewController: UIViewController {
             }
         }else if let searchText  = textfield.text {
             cancelbutton.isHidden = false
+            searchResultsView.isHidden = false
             
             findAutoPredictPlaces(searchText: searchText)
         }
@@ -142,6 +187,8 @@ extension MapsViewController: UITableViewDelegate {
                     
                     self.searchtextfield.text = place.formattedAddress
                     self.searchResults = []
+                    self.searchResultsView.isHidden = true
+                    self.searchtextfield.resignFirstResponder()
                     self.searchResultsTableView.reloadData()
                     
                     self.mapView.camera = GMSCameraPosition(target: place.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
@@ -158,10 +205,19 @@ extension MapsViewController: UITableViewDelegate {
 
 
 extension MapsViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        print("idleAt position - \(position.target)")
+        searchtextfield.isEnabled = true
+        setAddress(coordinates: CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude))
+    }
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        searchtextfield.isEnabled = false
         let destinationLocation = CLLocation(latitude: position.target.latitude,  longitude: position.target.longitude)
         updateLocationoordinates(coordinates: destinationLocation.coordinate)
-     }
+        if searchtextfield.isFirstResponder {
+            searchtextfield.resignFirstResponder()
+        }
+    }
     
     func updateLocationoordinates(coordinates:CLLocationCoordinate2D) {
         if destinationMarker == nil {

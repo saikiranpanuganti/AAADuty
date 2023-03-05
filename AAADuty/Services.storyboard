@@ -249,6 +249,7 @@
                         <outlet property="confirmButton" destination="seQ-Ch-QPV" id="a6b-mr-bak"/>
                         <outlet property="mapView" destination="V3D-r1-r8L" id="X6B-hj-oAp"/>
                         <outlet property="searchResultsTableView" destination="8Ze-iE-ckZ" id="f57-sv-MpX"/>
+                        <outlet property="searchResultsView" destination="uqA-Mc-b7q" id="ap1-50-N4q"/>
                         <outlet property="searchView" destination="Is4-XZ-m4E" id="Pmt-lO-F0c"/>
                         <outlet property="searchtextfield" destination="8GJ-LT-63A" id="S98-8n-2CJ"/>
                     </connections>
