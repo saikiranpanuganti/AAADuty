@@ -194,6 +194,31 @@
                                     <constraint firstAttribute="bottom" secondItem="8Ze-iE-ckZ" secondAttribute="bottom" id="qY2-lo-ZGI"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThV-Zc-5FX">
+                                <rect key="frame" x="55" y="741.33333333333337" width="283" height="56.666666666666629"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-Ch-QPV">
+                                        <rect key="frame" x="0.0" y="0.0" width="283" height="56.666666666666664"/>
+                                        <color key="backgroundColor" name="orangeAppColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Confirm Location">
+                                            <fontDescription key="titleFontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="18"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="confirmTapped" destination="2Pu-nK-SoS" eventType="touchUpInside" id="hvd-RI-1mr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="seQ-Ch-QPV" firstAttribute="leading" secondItem="ThV-Zc-5FX" secondAttribute="leading" id="0KV-Rs-F99"/>
+                                    <constraint firstAttribute="width" secondItem="ThV-Zc-5FX" secondAttribute="height" multiplier="5:1" id="52S-mT-wac"/>
+                                    <constraint firstAttribute="trailing" secondItem="seQ-Ch-QPV" secondAttribute="trailing" id="EBM-tt-RoP"/>
+                                    <constraint firstAttribute="bottom" secondItem="seQ-Ch-QPV" secondAttribute="bottom" id="LqD-HI-XOo"/>
+                                    <constraint firstItem="seQ-Ch-QPV" firstAttribute="top" secondItem="ThV-Zc-5FX" secondAttribute="top" id="UPr-Xh-iDM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bOt-ec-23C"/>
                         <color key="backgroundColor" name="navigationBarColor"/>
@@ -202,13 +227,16 @@
                             <constraint firstItem="Is4-XZ-m4E" firstAttribute="top" secondItem="EUu-qS-t60" secondAttribute="bottom" constant="5" id="326-gA-OfO"/>
                             <constraint firstItem="gVE-pv-4WZ" firstAttribute="top" secondItem="bOt-ec-23C" secondAttribute="top" constant="10" id="3Wh-T6-5DH"/>
                             <constraint firstAttribute="bottom" secondItem="V3D-r1-r8L" secondAttribute="bottom" id="Edn-wa-Oep"/>
+                            <constraint firstItem="bOt-ec-23C" firstAttribute="trailing" secondItem="ThV-Zc-5FX" secondAttribute="trailing" constant="55" id="IPn-Le-OuE"/>
                             <constraint firstItem="bOt-ec-23C" firstAttribute="trailing" secondItem="uqA-Mc-b7q" secondAttribute="trailing" constant="30" id="L44-TM-eAT"/>
                             <constraint firstItem="gVE-pv-4WZ" firstAttribute="leading" secondItem="bOt-ec-23C" secondAttribute="leading" constant="10" id="LgY-76-l2r"/>
                             <constraint firstItem="bOt-ec-23C" firstAttribute="trailing" secondItem="EUu-qS-t60" secondAttribute="trailing" constant="10" id="NQY-MW-eyR"/>
                             <constraint firstItem="V3D-r1-r8L" firstAttribute="leading" secondItem="dQI-Ec-ceA" secondAttribute="leading" id="PD7-bH-W3R"/>
+                            <constraint firstItem="ThV-Zc-5FX" firstAttribute="leading" secondItem="bOt-ec-23C" secondAttribute="leading" constant="55" id="T7s-Yj-xsW"/>
                             <constraint firstItem="bOt-ec-23C" firstAttribute="trailing" secondItem="Is4-XZ-m4E" secondAttribute="trailing" constant="30" id="XfT-hI-7cd"/>
                             <constraint firstItem="uqA-Mc-b7q" firstAttribute="top" secondItem="Is4-XZ-m4E" secondAttribute="bottom" id="YU8-10-SEM"/>
                             <constraint firstAttribute="trailing" secondItem="V3D-r1-r8L" secondAttribute="trailing" id="Zrd-Wz-ymN"/>
+                            <constraint firstItem="bOt-ec-23C" firstAttribute="bottom" secondItem="ThV-Zc-5FX" secondAttribute="bottom" constant="20" id="dVP-gl-aa0"/>
                             <constraint firstItem="V3D-r1-r8L" firstAttribute="top" secondItem="dQI-Ec-ceA" secondAttribute="top" id="hS1-82-CBs"/>
                             <constraint firstItem="EUu-qS-t60" firstAttribute="centerY" secondItem="gVE-pv-4WZ" secondAttribute="centerY" id="sIZ-Q4-dKB"/>
                             <constraint firstItem="uqA-Mc-b7q" firstAttribute="leading" secondItem="bOt-ec-23C" secondAttribute="leading" constant="30" id="uGH-Nx-8ga"/>
@@ -218,6 +246,7 @@
                     <connections>
                         <outlet property="backButton" destination="gVE-pv-4WZ" id="a2X-9z-5id"/>
                         <outlet property="cancelbutton" destination="vwg-Kh-m8P" id="WIG-57-e69"/>
+                        <outlet property="confirmButton" destination="seQ-Ch-QPV" id="a6b-mr-bak"/>
                         <outlet property="mapView" destination="V3D-r1-r8L" id="X6B-hj-oAp"/>
                         <outlet property="searchResultsTableView" destination="8Ze-iE-ckZ" id="f57-sv-MpX"/>
                         <outlet property="searchView" destination="Is4-XZ-m4E" id="Pmt-lO-F0c"/>
@@ -351,6 +380,9 @@
         <image name="xmark" width="22" height="22"/>
         <namedColor name="navigationBarColor">
             <color red="0.070588235294117646" green="0.27058823529411763" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orangeAppColor">
+            <color red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

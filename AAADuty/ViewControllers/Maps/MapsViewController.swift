@@ -9,6 +9,12 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
+struct GoogleLocation {
+    var coordinate: CLLocationCoordinate2D?
+    var address: String?
+    var placeName: String?
+}
+
 class MapsViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var searchView: UIView!
@@ -16,17 +22,21 @@ class MapsViewController: UIViewController {
     @IBOutlet weak var cancelbutton : UIButton!
     @IBOutlet weak var searchtextfield : UITextField!
     @IBOutlet weak var searchResultsTableView: UITableView!
+    @IBOutlet weak var confirmButton: UIButton!
     
     var searchResults: [GMSAutocompletePrediction] = []
     
     let token = GMSAutocompleteSessionToken.init()
     let filter = GMSAutocompleteFilter()
     
+    var destinationMarker: GMSMarker?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchView.layer.cornerRadius = 20.0
+        confirmButton.layer.cornerRadius = 10.0
         
         let origImage = UIImage(named: "leftArrow")
         let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
@@ -41,9 +51,13 @@ class MapsViewController: UIViewController {
         if let location = LocationManager.shared.getLocation() {
             mapView.clear()
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-            let marker = GMSMarker(position: location.coordinate)
-            marker.map = mapView
+            mapView.delegate = self
+            
+            destinationMarker = GMSMarker(position: location.coordinate)
+            destinationMarker?.map = mapView
         }
+        
+        mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
     }
     
     func findAutoPredictPlaces(searchText: String) {
@@ -57,6 +71,10 @@ class MapsViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutableRawPointer) {
+        print("Change location: \(change)")
     }
     
     @IBAction func cancelTapped(){
@@ -91,6 +109,10 @@ class MapsViewController: UIViewController {
     @IBAction func notificationTapped() {
         
     }
+    
+    @IBAction func confirmTapped() {
+        
+    }
 }
 
 
@@ -115,19 +137,43 @@ extension MapsViewController: UITableViewDelegate {
         
         GMSPlacesClient().lookUpPlaceID(place.placeID) { place, error in
             if let place = place {
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    
+                    self.searchtextfield.text = place.formattedAddress
                     self.searchResults = []
                     self.searchResultsTableView.reloadData()
-                    print("Selected Place: Name - \(place.name) Co-ordiante - \(place.coordinate)")
                     
                     self.mapView.camera = GMSCameraPosition(target: place.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-                    let marker = GMSMarker(position: place.coordinate)
-                    marker.map = self.mapView
+                    self.destinationMarker = GMSMarker(position: place.coordinate)
+                    self.destinationMarker?.map = self.mapView
                 }
             }
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+
+extension MapsViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        let destinationLocation = CLLocation(latitude: position.target.latitude,  longitude: position.target.longitude)
+        updateLocationoordinates(coordinates: destinationLocation.coordinate)
+     }
+    
+    func updateLocationoordinates(coordinates:CLLocationCoordinate2D) {
+        if destinationMarker == nil {
+            destinationMarker = GMSMarker()
+            destinationMarker?.position = coordinates
+            destinationMarker?.map = mapView
+            destinationMarker?.appearAnimation = GMSMarkerAnimation.pop
+        }else {
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(0)
+            destinationMarker?.position =  coordinates
+            CATransaction.commit()
+        }
     }
 }
