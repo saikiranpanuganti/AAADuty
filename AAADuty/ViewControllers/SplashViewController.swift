@@ -17,10 +17,21 @@ class SplashViewController: UIViewController {
 //        if AppData.shared.isLogged {
 //            getCategories()
 //        }else {
-            navigationController?.pushViewController(Controllers.maps.getController(), animated: true)
+//            navigationController?.pushViewController(Controllers.maps.getController(), animated: true)
 //        }
         
 //        getCategories()
+        
+        LocationManager.shared.setUpLocationManager()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+5) {
+            self.navigationController?.pushViewController(Controllers.maps.getController(), animated: true)
+        }
+        
     }
     
     override func viewSafeAreaInsetsDidChange() {

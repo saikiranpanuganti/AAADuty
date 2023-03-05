@@ -60,7 +60,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3D-r1-r8L">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3D-r1-r8L" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -150,20 +150,68 @@
                                     <constraint firstItem="Iae-xc-HcE" firstAttribute="leading" secondItem="NNF-Kb-YRf" secondAttribute="trailing" constant="5" id="z4i-3R-1FZ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uqA-Mc-b7q">
+                                <rect key="frame" x="30" y="169" width="333" height="683"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Ze-iE-ckZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="683"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MapResultTableViewCell" id="nHS-O3-syw" customClass="MapResultTableViewCell" customModule="AAADuty" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="333" height="36.666667938232422"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nHS-O3-syw" id="tfh-NK-KwJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="36.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmv-2q-a41">
+                                                            <rect key="frame" x="8" y="8.0000000000000018" width="317" height="20.666666666666671"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="zmv-2q-a41" secondAttribute="bottom" constant="8" id="NRh-gL-tlr"/>
+                                                        <constraint firstAttribute="trailing" secondItem="zmv-2q-a41" secondAttribute="trailing" constant="8" id="PgO-Fm-Ie6"/>
+                                                        <constraint firstItem="zmv-2q-a41" firstAttribute="leading" secondItem="tfh-NK-KwJ" secondAttribute="leading" constant="8" id="eW7-BX-yr2"/>
+                                                        <constraint firstItem="zmv-2q-a41" firstAttribute="top" secondItem="tfh-NK-KwJ" secondAttribute="top" constant="8" id="q5c-C4-O5N"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="address" destination="zmv-2q-a41" id="bnY-9M-gIC"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8Ze-iE-ckZ" secondAttribute="trailing" id="Upg-oW-GhF"/>
+                                    <constraint firstItem="8Ze-iE-ckZ" firstAttribute="leading" secondItem="uqA-Mc-b7q" secondAttribute="leading" id="cKV-S5-Vok"/>
+                                    <constraint firstItem="8Ze-iE-ckZ" firstAttribute="top" secondItem="uqA-Mc-b7q" secondAttribute="top" id="fGA-Ej-6Ln"/>
+                                    <constraint firstAttribute="bottom" secondItem="8Ze-iE-ckZ" secondAttribute="bottom" id="qY2-lo-ZGI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bOt-ec-23C"/>
                         <color key="backgroundColor" name="navigationBarColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="uqA-Mc-b7q" secondAttribute="bottom" id="2aD-oX-n1F"/>
                             <constraint firstItem="Is4-XZ-m4E" firstAttribute="top" secondItem="EUu-qS-t60" secondAttribute="bottom" constant="5" id="326-gA-OfO"/>
                             <constraint firstItem="gVE-pv-4WZ" firstAttribute="top" secondItem="bOt-ec-23C" secondAttribute="top" constant="10" id="3Wh-T6-5DH"/>
                             <constraint firstAttribute="bottom" secondItem="V3D-r1-r8L" secondAttribute="bottom" id="Edn-wa-Oep"/>
+                            <constraint firstItem="bOt-ec-23C" firstAttribute="trailing" secondItem="uqA-Mc-b7q" secondAttribute="trailing" constant="30" id="L44-TM-eAT"/>
                             <constraint firstItem="gVE-pv-4WZ" firstAttribute="leading" secondItem="bOt-ec-23C" secondAttribute="leading" constant="10" id="LgY-76-l2r"/>
                             <constraint firstItem="bOt-ec-23C" firstAttribute="trailing" secondItem="EUu-qS-t60" secondAttribute="trailing" constant="10" id="NQY-MW-eyR"/>
                             <constraint firstItem="V3D-r1-r8L" firstAttribute="leading" secondItem="dQI-Ec-ceA" secondAttribute="leading" id="PD7-bH-W3R"/>
                             <constraint firstItem="bOt-ec-23C" firstAttribute="trailing" secondItem="Is4-XZ-m4E" secondAttribute="trailing" constant="30" id="XfT-hI-7cd"/>
+                            <constraint firstItem="uqA-Mc-b7q" firstAttribute="top" secondItem="Is4-XZ-m4E" secondAttribute="bottom" id="YU8-10-SEM"/>
                             <constraint firstAttribute="trailing" secondItem="V3D-r1-r8L" secondAttribute="trailing" id="Zrd-Wz-ymN"/>
                             <constraint firstItem="V3D-r1-r8L" firstAttribute="top" secondItem="dQI-Ec-ceA" secondAttribute="top" id="hS1-82-CBs"/>
                             <constraint firstItem="EUu-qS-t60" firstAttribute="centerY" secondItem="gVE-pv-4WZ" secondAttribute="centerY" id="sIZ-Q4-dKB"/>
+                            <constraint firstItem="uqA-Mc-b7q" firstAttribute="leading" secondItem="bOt-ec-23C" secondAttribute="leading" constant="30" id="uGH-Nx-8ga"/>
                             <constraint firstItem="Is4-XZ-m4E" firstAttribute="leading" secondItem="bOt-ec-23C" secondAttribute="leading" constant="30" id="vqY-EX-6wj"/>
                         </constraints>
                     </view>
@@ -171,6 +219,7 @@
                         <outlet property="backButton" destination="gVE-pv-4WZ" id="a2X-9z-5id"/>
                         <outlet property="cancelbutton" destination="vwg-Kh-m8P" id="WIG-57-e69"/>
                         <outlet property="mapView" destination="V3D-r1-r8L" id="X6B-hj-oAp"/>
+                        <outlet property="searchResultsTableView" destination="8Ze-iE-ckZ" id="f57-sv-MpX"/>
                         <outlet property="searchView" destination="Is4-XZ-m4E" id="Pmt-lO-F0c"/>
                         <outlet property="searchtextfield" destination="8GJ-LT-63A" id="S98-8n-2CJ"/>
                     </connections>
