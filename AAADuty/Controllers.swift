@@ -21,6 +21,7 @@ enum Controllers {
     case paymentModes
     case towing
     case maps
+    case requestAccepted
     
     func getController() -> UIViewController {
         switch self {
@@ -50,8 +51,8 @@ enum Controllers {
             return UIStoryboard(name: "Services", bundle: nil).instantiateViewController(withIdentifier: "TowingViewController")
         case .maps:
             return UIStoryboard(name: "Services", bundle: nil).instantiateViewController(withIdentifier: "MapsViewController")
-//        case .account:
-//            return UIStoryboard(name: "TabBar", bundle: nil).instantiateViewController(withIdentifier: "AccountViewController")
+        case .requestAccepted:
+            return UIStoryboard(name: "Services", bundle: nil).instantiateViewController(withIdentifier: "RequestAcceptedViewController")
 //        case .settings:
 //            return UIStoryboard(name: "TabBar", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController")
 //        case .player:

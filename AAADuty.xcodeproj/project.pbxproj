@@ -63,6 +63,8 @@
 		7F37C6FB29B1CE41001212E1 /* CommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6F929B1CE41001212E1 /* CommentsTableViewCell.xib */; };
 		7F37C6FF29B1D641001212E1 /* ContinueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37C6FD29B1D641001212E1 /* ContinueTableViewCell.swift */; };
 		7F37C70029B1D641001212E1 /* ContinueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6FE29B1D641001212E1 /* ContinueTableViewCell.xib */; };
+		7F5A412129B7577B00BEE0FB /* RequestAcceptedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */; };
+		7F5A412329B7A23C00BEE0FB /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */; };
 		7FA5CBBA29B4517E00E242A4 /* MapResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5CBB929B4517E00E242A4 /* MapResultTableViewCell.swift */; };
 		7FB7B54429B2298B0006E206 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */; };
 		7FB7B54829B24E6C0006E206 /* OrderAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54629B24E6C0006E206 /* OrderAddressTableViewCell.swift */; };
@@ -158,6 +160,8 @@
 		7F37C6F929B1CE41001212E1 /* CommentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsTableViewCell.xib; sourceTree = "<group>"; };
 		7F37C6FD29B1D641001212E1 /* ContinueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueTableViewCell.swift; sourceTree = "<group>"; };
 		7F37C6FE29B1D641001212E1 /* ContinueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContinueTableViewCell.xib; sourceTree = "<group>"; };
+		7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAcceptedViewController.swift; sourceTree = "<group>"; };
+		7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		7FA5CBB929B4517E00E242A4 /* MapResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResultTableViewCell.swift; sourceTree = "<group>"; };
 		7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		7FB7B54629B24E6C0006E206 /* OrderAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -496,6 +500,8 @@
 				7FD0BEBF29A9E96E0049662D /* BookingsTabViewController.swift */,
 				7FD0BEC129A9E97C0049662D /* WalletTabViewController.swift */,
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
+				7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */,
+				7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */,
 				7F1D5C0229B2FB7B00B8C6DD /* Maps */,
 				7F08778A29B29393004CB905 /* Towing */,
 				7F08777E29B28A12004CB905 /* PaymentModes */,
@@ -783,6 +789,7 @@
 				7F13C2D529B0E07300EFFE7E /* SubServicesTableViewCell.swift in Sources */,
 				7F02F0C329AE70F100E4B775 /* FlatTyreViewController.swift in Sources */,
 				7FD0BEB029A908E20049662D /* AAAButton.swift in Sources */,
+				7F5A412129B7577B00BEE0FB /* RequestAcceptedViewController.swift in Sources */,
 				7F1A487829AB797600C432DF /* UIColor+Extension.swift in Sources */,
 				7F08777B29B27FC7004CB905 /* MakePaymentView.swift in Sources */,
 				7FD0BECD29AA672A0049662D /* ProfileTableViewCell.swift in Sources */,
@@ -790,6 +797,7 @@
 				7FD0BEB829A931F50049662D /* TabBarViewController.swift in Sources */,
 				7F08778829B28C2B004CB905 /* PaymentModeTableViewCell.swift in Sources */,
 				7F1A487329AB6F6300C432DF /* CategoriesModel.swift in Sources */,
+				7F5A412329B7A23C00BEE0FB /* StatusViewController.swift in Sources */,
 				7F02F0BD29AE1B2500E4B775 /* LocationManager.swift in Sources */,
 				7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */,
 				7FB7B54429B2298B0006E206 /* OrderConfirmationViewController.swift in Sources */,
