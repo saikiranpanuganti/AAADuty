@@ -91,6 +91,7 @@ class OrderConfirmationViewController: BaseViewController {
                         let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
                         self.orderRequest = orderRequestModel.requestData
                         
+                        // Check for success and navigate only after that
                         DispatchQueue.main.async { [weak self] in
                             guard let self = self else { return }
                             if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {

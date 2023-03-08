@@ -20,28 +20,28 @@ struct OrderDetails: Codable {
     func getRequestParams() -> [String: Any]? {
         var orderRequestParams: [String: Any] = [:]
         orderRequestParams["AddTip"] = 0
-        orderRequestParams["CategoryID"] = category?.id
-        orderRequestParams["CategoryName"] = category?.category
-        orderRequestParams["ComplaintTypeID"] = complaintType?.id
-        orderRequestParams["ComplaintTypeName"] = complaintType?.complaint
+        orderRequestParams["CategoryID"] = category?.id ?? ""
+        orderRequestParams["CategoryName"] = category?.category ?? ""
+        orderRequestParams["ComplaintTypeID"] = complaintType?.id ?? ""
+        orderRequestParams["ComplaintTypeName"] = complaintType?.complaint ?? ""
         orderRequestParams["typeID"] = complaintType?.typeID ?? ""
         orderRequestParams["typeName"] = complaintType?.typeName ?? ""
         orderRequestParams["GST"] = category?.gst ?? 0
-        orderRequestParams["Price"] = totalAmount
+        orderRequestParams["Price"] = totalAmount ?? 0
         orderRequestParams["Tax"] = complaintType?.pgServiceTax ?? 0
         orderRequestParams["pinCode"] = address?.postalCode ?? 0
         
         // CHeck this
-        orderRequestParams["CustomerAddress"] = AppData.shared.user?.address
-        orderRequestParams["CustomerID"] = AppData.shared.user?.id
-        orderRequestParams["CustomerName"] = AppData.shared.user?.customerName
-        orderRequestParams["CustomerPhoneNumber"] = AppData.shared.user?.mobileNumber
-        orderRequestParams["CustomerLocation"] = "\(String(describing: userAddress?.longitude)),\(String(describing: userAddress?.latitude))"
+        orderRequestParams["CustomerAddress"] = AppData.shared.user?.address?.first?.address ?? ""
+        orderRequestParams["CustomerID"] = AppData.shared.user?.id ?? ""
+        orderRequestParams["CustomerName"] = AppData.shared.user?.customerName ?? ""
+        orderRequestParams["CustomerPhoneNumber"] = AppData.shared.user?.mobileNumber ?? ""
+        orderRequestParams["CustomerLocation"] = "\(userAddress?.longitude ?? 0),\(userAddress?.latitude ?? 0)"
         
         orderRequestParams["DesinationAddress"] = address?.address
-        orderRequestParams["DestinationLat"] = "\(String(describing: address?.latitude))"
-        orderRequestParams["DestinationLocation"] = "\(String(describing: address?.longitude)),\(String(describing: address?.latitude))"
-        orderRequestParams["DestinationLong"] = "\(String(describing: address?.longitude))"
+        orderRequestParams["DestinationLat"] = "\(address?.latitude ?? 0)"
+        orderRequestParams["DestinationLocation"] = "\(address?.longitude ?? 0),\(address?.latitude ?? 0)"
+        orderRequestParams["DestinationLong"] = "\(address?.longitude ?? 0)"
         
         var serviceParams: [String: Any] = [:]
         serviceParams["CategoryID"] = category?.id ?? ""
@@ -57,7 +57,7 @@ struct OrderDetails: Codable {
         // Check this
         orderRequestParams["Distance"] = 6
         orderRequestParams["Note"] = ""
-        orderRequestParams["Problems"] = []
+        orderRequestParams["Problems"] = [""]
         orderRequestParams["Remarks"] = ""
         
         orderRequestParams["EndTime"] = ""
