@@ -64,7 +64,7 @@ enum AAAFontFamily {
             if isPoppinsFont {
                 self.font = UIFont(name: "Poppins-Bold", size: fontSize)
             }else {
-                self.font = UIFont(name: "Segoe-UI-Bold", size: fontSize)
+                self.font = UIFont(name: "Segoe-UI-SemiBold", size: fontSize)
             }
         default:
             if isPoppinsFont {

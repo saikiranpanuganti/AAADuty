@@ -55,6 +55,9 @@
 		7F30A54129B11828002F802F /* Segoe-UI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A54029B11828002F802F /* Segoe-UI-Bold.ttf */; };
 		7F3347D929B857370083CC79 /* OrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3347D829B857370083CC79 /* OrderDetails.swift */; };
 		7F3347DB29B858F80083CC79 /* OrderRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3347DA29B858F80083CC79 /* OrderRequestModel.swift */; };
+		7F3347DE29B887A60083CC79 /* VechicleTechnicianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3347DD29B887A60083CC79 /* VechicleTechnicianViewController.swift */; };
+		7F3347E229B8D9120083CC79 /* TransitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3347E029B8D9120083CC79 /* TransitionTableViewCell.swift */; };
+		7F3347E329B8D9120083CC79 /* TransitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3347E129B8D9120083CC79 /* TransitionTableViewCell.xib */; };
 		7F37C6EA29B1B183001212E1 /* CountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37C6E829B1B183001212E1 /* CountTableViewCell.swift */; };
 		7F37C6EB29B1B183001212E1 /* CountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6E929B1B183001212E1 /* CountTableViewCell.xib */; };
 		7F37C6ED29B1BC31001212E1 /* Segoe-UI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6EC29B1BC31001212E1 /* Segoe-UI.TTF */; };
@@ -154,6 +157,9 @@
 		7F30A54029B11828002F802F /* Segoe-UI-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe-UI-Bold.ttf"; sourceTree = "<group>"; };
 		7F3347D829B857370083CC79 /* OrderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetails.swift; sourceTree = "<group>"; };
 		7F3347DA29B858F80083CC79 /* OrderRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRequestModel.swift; sourceTree = "<group>"; };
+		7F3347DD29B887A60083CC79 /* VechicleTechnicianViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VechicleTechnicianViewController.swift; sourceTree = "<group>"; };
+		7F3347E029B8D9120083CC79 /* TransitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionTableViewCell.swift; sourceTree = "<group>"; };
+		7F3347E129B8D9120083CC79 /* TransitionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransitionTableViewCell.xib; sourceTree = "<group>"; };
 		7F37C6E829B1B183001212E1 /* CountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTableViewCell.swift; sourceTree = "<group>"; };
 		7F37C6E929B1B183001212E1 /* CountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountTableViewCell.xib; sourceTree = "<group>"; };
 		7F37C6EC29B1BC31001212E1 /* Segoe-UI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe-UI.TTF"; sourceTree = "<group>"; };
@@ -421,6 +427,24 @@
 			path = SegoeUI;
 			sourceTree = "<group>";
 		};
+		7F3347DC29B887910083CC79 /* VechicleTech */ = {
+			isa = PBXGroup;
+			children = (
+				7F3347DD29B887A60083CC79 /* VechicleTechnicianViewController.swift */,
+				7F3347DF29B8D8F10083CC79 /* VechTransition */,
+			);
+			path = VechicleTech;
+			sourceTree = "<group>";
+		};
+		7F3347DF29B8D8F10083CC79 /* VechTransition */ = {
+			isa = PBXGroup;
+			children = (
+				7F3347E029B8D9120083CC79 /* TransitionTableViewCell.swift */,
+				7F3347E129B8D9120083CC79 /* TransitionTableViewCell.xib */,
+			);
+			path = VechTransition;
+			sourceTree = "<group>";
+		};
 		7F37C6E729B1B141001212E1 /* CountCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +532,7 @@
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
 				7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */,
 				7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */,
+				7F3347DC29B887910083CC79 /* VechicleTech */,
 				7F1D5C0229B2FB7B00B8C6DD /* Maps */,
 				7F08778A29B29393004CB905 /* Towing */,
 				7F08777E29B28A12004CB905 /* PaymentModes */,
@@ -687,6 +712,7 @@
 				7FD0BEA029A8F77B0049662D /* LaunchScreen.storyboard in Resources */,
 				7F30A54129B11828002F802F /* Segoe-UI-Bold.ttf in Resources */,
 				7F30A53529B1175E002F802F /* Poppins-Light.otf in Resources */,
+				7F3347E329B8D9120083CC79 /* TransitionTableViewCell.xib in Resources */,
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
 				7FB7B54E29B257DB0006E206 /* BillDetailsTableViewCell.xib in Resources */,
 				7F30A53829B11765002F802F /* Poppins-Bold.otf in Resources */,
@@ -815,6 +841,7 @@
 				7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */,
 				7FA5CBBA29B4517E00E242A4 /* MapResultTableViewCell.swift in Sources */,
 				7F1A486E29AB6D0800C432DF /* NetworkAdaptor.swift in Sources */,
+				7F3347E229B8D9120083CC79 /* TransitionTableViewCell.swift in Sources */,
 				7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */,
 				7F1D5C0029B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift in Sources */,
 				7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */,
@@ -837,6 +864,7 @@
 				7F37C6EA29B1B183001212E1 /* CountTableViewCell.swift in Sources */,
 				7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */,
 				7FD0BEA829A8F7950049662D /* SplashViewController.swift in Sources */,
+				7F3347DE29B887A60083CC79 /* VechicleTechnicianViewController.swift in Sources */,
 				7F37C6FA29B1CE41001212E1 /* CommentsTableViewCell.swift in Sources */,
 				7F3347D929B857370083CC79 /* OrderDetails.swift in Sources */,
 			);

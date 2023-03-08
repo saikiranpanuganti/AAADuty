@@ -101,7 +101,38 @@ struct Category: Codable {
             case "61234e0fa782e16a6fc4fc58":
                 return "Select your towing type"
             case "61234e46ea21b46a7d44739c":
+                return "Select type of Vehicle"
+            case "61c198214ee3da924a153d48":
                 return ""
+            case "6251428b4ee3da924a25afa3":
+                return ""
+            case "61234f4006bb5c6ac41d6240":
+                return ""
+            case "61234ee6392a246aaa1496e1":
+                return ""
+            case "61234f785ef8506acf1f8c40":
+                return ""
+            case "61234e74008f776a8a6b9b8e":
+                return ""
+            case "61234ec88f93136aa08b31b7":
+                return ""
+            case "61234f1234668a6aba7391ee":
+                return ""
+            case "61234ead8e8da36a95580a86":
+                return ""
+            default:
+                return ""
+            }
+        }else {
+            return ""
+        }
+    }
+    
+    var subCategorySectionMessage: String {
+        if let id = id {
+            switch id {
+            case "61234e46ea21b46a7d44739c":
+                return "Select type of CAR"
             case "61c198214ee3da924a153d48":
                 return ""
             case "6251428b4ee3da924a25afa3":

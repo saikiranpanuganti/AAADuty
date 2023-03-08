@@ -15,6 +15,22 @@ class ContinueTableViewCell: UITableViewCell {
     @IBOutlet weak var continueButton: UIButton!
     
     weak var delegate: ContinueTableViewCellDelegate?
+    
+    var title: String? {
+        didSet {
+            if let title = title {
+                continueButton.setTitle(title, for: .normal)
+            }
+        }
+    }
+    
+    var font: UIFont? {
+        didSet {
+            if let font = font {
+                continueButton.titleLabel?.font = font
+            }
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

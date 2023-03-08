@@ -80,3 +80,42 @@ struct ComplaintType: Codable {
         case gst = "GST"
     }
 }
+
+
+
+
+
+// MARK: - VechicleTypeModel
+struct VechicleTypeModel: Codable {
+    let status, statusCode, message: String?
+    var response: [VechicleType]?
+
+    enum CodingKeys: String, CodingKey {
+        case status = "Status"
+        case statusCode = "StatusCode"
+        case message = "Message"
+        case response
+    }
+}
+
+// MARK: - Response
+struct VechicleType: Codable {
+    let id, vehileType, typeID, typeName: String?
+    let categoryID, categoryName: String?
+    let imageURL: String?
+    let isActive: Bool?
+    let v: Int?
+    var isSelected: Bool = false
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case vehileType = "VehileType"
+        case typeID = "TypeID"
+        case typeName = "TypeName"
+        case categoryID = "CategoryID"
+        case categoryName = "CategoryName"
+        case imageURL = "ImageURL"
+        case isActive = "IsActive"
+        case v = "__v"
+    }
+}

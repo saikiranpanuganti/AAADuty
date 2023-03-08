@@ -45,7 +45,7 @@
                             <constraint firstAttribute="trailing" secondItem="36x-Vb-nzc" secondAttribute="trailing" constant="10" id="YFO-B7-vC6"/>
                             <constraint firstItem="q92-ue-8FF" firstAttribute="leading" secondItem="ya1-yf-weo" secondAttribute="leading" constant="20" id="dEe-tN-Q7C"/>
                             <constraint firstItem="q92-ue-8FF" firstAttribute="top" secondItem="ya1-yf-weo" secondAttribute="top" constant="20" id="h2G-8g-P4c"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="36x-Vb-nzc" secondAttribute="bottom" constant="10" id="mOW-mu-TV0"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="36x-Vb-nzc" secondAttribute="bottom" constant="5" id="mOW-mu-TV0"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -72,9 +72,6 @@
             <point key="canvasLocation" x="227.48091603053433" y="95.774647887323951"/>
         </collectionViewCell>
     </objects>
-    <designables>
-        <designable name="36x-Vb-nzc"/>
-    </designables>
     <resources>
         <image name="2Wheeler" width="61" height="47.666667938232422"/>
     </resources>

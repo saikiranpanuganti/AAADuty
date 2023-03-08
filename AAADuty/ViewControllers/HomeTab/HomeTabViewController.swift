@@ -109,6 +109,12 @@ extension HomeTabViewController: CategoriesCollectionViewCellDelegate {
                 towingVC.category = category
                 navigationController?.pushViewController(towingVC, animated: true)
             }
+        }else if category.serviceType == .vechicletech {
+            if let vechTechVC = Controllers.vechicleTech.getController() as? VechicleTechnicianViewController {
+                vechTechVC.category = category
+                vechTechVC.vechicleTypeSelection = true
+                navigationController?.pushViewController(vechTechVC, animated: true)
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ class SubCategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var subCategoryName: AAALabel!
     
     var subCat: SubCategory?
+    var vehType: VechicleType?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,9 +32,20 @@ class SubCategoryCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func configureUI(vehicleType: VechicleType?) {
+        vehType = vehicleType
+        subCategoryName.text = vehicleType?.vehileType
+        subCategoryImage.sd_setImage(with: URL(string: vehicleType?.imageURL ?? ""))
+        if vehicleType?.isSelected ?? false {
+            subCategorySelected()
+        }else {
+            subCategoryUnSelected()
+        }
+    }
+    
     func subCategorySelected() {
         roundedView.layer.borderColor = UIColor(red: 1, green: 127/255, blue: 0, alpha: 1).cgColor
-        roundedView.layer.borderWidth = 1
+        roundedView.layer.borderWidth = 2
     }
     
     func subCategoryUnSelected() {
