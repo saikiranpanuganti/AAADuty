@@ -25,7 +25,7 @@ class LocationTableViewCell: UITableViewCell {
         notificationButton.setImage(UIImage(named: "bellIcon")?.withRenderingMode(.alwaysTemplate), for: .normal)
         notificationButton.tintColor = UIColor.white
         
-        LocationManager.shared.getAddress(asString: true) { [weak self] address, area in
+        LocationManager.shared.getAddress(asString: true) { [weak self] address, area, postalCode in
             guard let self = self else { return }
             
             self.areaOutlet.text = area

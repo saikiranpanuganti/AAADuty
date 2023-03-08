@@ -11,6 +11,7 @@ class RequestAcceptedViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
     
     var orderDetails: OrderDetails?
+    var orderRequest: OrderRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class RequestAcceptedViewController: UIViewController {
     @IBAction func doneTapped() {
         if let controller = Controllers.requestStatus.getController() as? StatusViewController {
             controller.orderDetails = orderDetails
+            controller.orderRequest = orderRequest
             navigationController?.pushViewController(controller, animated: true)
         }
     }

@@ -11,6 +11,7 @@ class PaymentModesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var orderDetails: OrderDetails?
+    var orderRequest: OrderRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,7 @@ extension PaymentModesViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
         if let controller = Controllers.requestAccepted.getController() as? RequestAcceptedViewController {
             controller.orderDetails = orderDetails
+            controller.orderRequest = orderRequest
             navigationController?.pushViewController(controller, animated: true)
         }
     }

@@ -19,6 +19,7 @@ class StatusViewController: UIViewController {
     @IBOutlet weak var areaOutlet: UILabel!
     
     var orderDetails: OrderDetails?
+    var orderRequest: OrderRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class StatusViewController: UIViewController {
         cancelButton.layer.borderWidth = 1
         cancelButton.layer.masksToBounds = true
         
-        LocationManager.shared.getAddress(asString: true) { [weak self] address, area in
+        LocationManager.shared.getAddress(asString: true) { [weak self] address, area, postalCode in
             guard let self = self else { return }
             
             self.areaOutlet.text = area

@@ -33,7 +33,7 @@ class OrderAddressTableViewCell: UITableViewCell {
             serviceName.text = orderDetails.category?.category
             serviceIcon.sd_setImage(with: URL(string: orderDetails.category?.requestImageURL ?? ""))
             addressOutlet.text = orderDetails.address?.address ?? "No address available"
-            serviceDetails.text = orderDetails.serviceDetails
+            serviceDetails.text = orderDetails.complaintType?.complaint ?? ""
         }
     }
     

@@ -53,6 +53,8 @@
 		7F30A53829B11765002F802F /* Poppins-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53129B11720002F802F /* Poppins-Bold.otf */; };
 		7F30A53A29B1176E002F802F /* Poppins-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A53929B1176E002F802F /* Poppins-SemiBold.otf */; };
 		7F30A54129B11828002F802F /* Segoe-UI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F30A54029B11828002F802F /* Segoe-UI-Bold.ttf */; };
+		7F3347D929B857370083CC79 /* OrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3347D829B857370083CC79 /* OrderDetails.swift */; };
+		7F3347DB29B858F80083CC79 /* OrderRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3347DA29B858F80083CC79 /* OrderRequestModel.swift */; };
 		7F37C6EA29B1B183001212E1 /* CountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37C6E829B1B183001212E1 /* CountTableViewCell.swift */; };
 		7F37C6EB29B1B183001212E1 /* CountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6E929B1B183001212E1 /* CountTableViewCell.xib */; };
 		7F37C6ED29B1BC31001212E1 /* Segoe-UI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6EC29B1BC31001212E1 /* Segoe-UI.TTF */; };
@@ -150,6 +152,8 @@
 		7F30A53429B11758002F802F /* Poppins-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.otf"; sourceTree = "<group>"; };
 		7F30A53929B1176E002F802F /* Poppins-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.otf"; sourceTree = "<group>"; };
 		7F30A54029B11828002F802F /* Segoe-UI-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe-UI-Bold.ttf"; sourceTree = "<group>"; };
+		7F3347D829B857370083CC79 /* OrderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetails.swift; sourceTree = "<group>"; };
+		7F3347DA29B858F80083CC79 /* OrderRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRequestModel.swift; sourceTree = "<group>"; };
 		7F37C6E829B1B183001212E1 /* CountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTableViewCell.swift; sourceTree = "<group>"; };
 		7F37C6E929B1B183001212E1 /* CountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountTableViewCell.xib; sourceTree = "<group>"; };
 		7F37C6EC29B1BC31001212E1 /* Segoe-UI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe-UI.TTF"; sourceTree = "<group>"; };
@@ -362,6 +366,8 @@
 				7F1A487229AB6F6300C432DF /* CategoriesModel.swift */,
 				7F13C2D729B0FEEB00EFFE7E /* SubCategoryModel.swift */,
 				7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */,
+				7F3347D829B857370083CC79 /* OrderDetails.swift */,
+				7F3347DA29B858F80083CC79 /* OrderRequestModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -781,6 +787,7 @@
 				7FB8C40929AB949A005B6B4E /* BaseViewController.swift in Sources */,
 				7F13C2D129B0DF7500EFFE7E /* ServiceType.swift in Sources */,
 				7F1A487029AB6E2600C432DF /* UrlHandler.swift in Sources */,
+				7F3347DB29B858F80083CC79 /* OrderRequestModel.swift in Sources */,
 				7FD0BEAC29A8FE930049662D /* AAALabel.swift in Sources */,
 				7FD0BEB229A90ED60049662D /* AAAView.swift in Sources */,
 				7F1D5C0429B2FB8900B8C6DD /* MapsViewController.swift in Sources */,
@@ -831,6 +838,7 @@
 				7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */,
 				7FD0BEA829A8F7950049662D /* SplashViewController.swift in Sources */,
 				7F37C6FA29B1CE41001212E1 /* CommentsTableViewCell.swift in Sources */,
+				7F3347D929B857370083CC79 /* OrderDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -52,11 +52,22 @@ class LocationManager: NSObject {
         return locationManager?.location
     }
     
-    func getAddress(asString: Bool, _ completion: @escaping ((String, String) -> ())) {
+    func getLocationAndAddress(_ completion: @escaping ((Location?) -> ())) {
+        if let location = getLocation() {
+            getAddress(asString: true) { address, area, postalCode in
+                completion(Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, address: address, placeName: area, postalCode: postalCode))
+            }
+        }else {
+            completion(nil)
+        }
+    }
+    
+    
+    func getAddress(asString: Bool, _ completion: @escaping ((String, String, String) -> ())) {
         if let myLocation = locationManager?.location {
             CLGeocoder().reverseGeocodeLocation(myLocation, completionHandler:{(placemarks, error) in
                 if error != nil {
-                    completion(error.debugDescription, "")
+                    completion(error.debugDescription, "", "")
                 }else {
                     let p = CLPlacemark(placemark: (placemarks?[0] as CLPlacemark?)!)
                     var subThoroughfare:String = ""
@@ -96,11 +107,11 @@ class LocationManager: NSObject {
                     }else {
                         address =  "\(subThoroughfare) \(thoroughfare)\n\(subLocality) \(subAdministrativeArea) \(postalCode)\n\(country)"
                     }
-                    completion(address, area)
+                    completion(address, area, postalCode)
                 }
             })
         }else {
-            completion("No location available", "Location not available")
+            completion("No location available", "Location not available", "")
         }
     }
 }

@@ -7,22 +7,14 @@
 
 import UIKit
 
-struct OrderDetails: Codable {
-    var category: Category?
-    var totalAmount: Int?
-    var address: Location?
-    var serviceDetails: String?
-    var pickUpAddress: Location?
-    var dropAddress: Location?
-}
-
-class OrderConfirmationViewController: UIViewController {
+class OrderConfirmationViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var makePaymentView: MakePaymentView = MakePaymentView.instanceFromNib()
     var makePaymentViewTopAnchor: NSLayoutConstraint?
     
     var orderDetails: OrderDetails?
+    var orderRequest: OrderRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +44,6 @@ class OrderConfirmationViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognised))
         tapGesture.numberOfTapsRequired = 1
         view.addGestureRecognizer(tapGesture)
-        
-        saveOrderInUD()
     }
     
     func updateUI() {
@@ -83,6 +73,35 @@ class OrderConfirmationViewController: UIViewController {
                     self.view.layoutIfNeeded()
                 } completion: { bool in
                     self.makePaymentView.isHidden = true
+                }
+            }
+        }
+    }
+    
+    func createOrderRequest() {
+        if let orderRequestParams = orderDetails?.getRequestParams() {
+            showLoader()
+            print("Body params - \(orderRequestParams)")
+            NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: orderRequestParams) { [weak self] data, response, error in
+                guard let self = self else { return }
+                self.stopLoader()
+                
+                if let data = data {
+                    do {
+                        let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
+                        self.orderRequest = orderRequestModel.requestData
+                        
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else { return }
+                            if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {
+                                controller.orderDetails = self.orderDetails
+                                controller.orderRequest = self.orderRequest
+                                self.navigationController?.pushViewController(controller, animated: true)
+                            }
+                        }
+                    }catch {
+                        print("Error: FlatTyreViewController getSubCategories - \(error.localizedDescription)")
+                    }
                 }
             }
         }
@@ -169,13 +188,7 @@ extension OrderConfirmationViewController: OrderReviewTableViewCellDelegate {
 
 extension OrderConfirmationViewController: MakePaymentViewDelegate {
     func navigateToPaymentModes() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {
-                controller.orderDetails = self.orderDetails
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-        }
+        createOrderRequest()
     }
 }
 

@@ -47,8 +47,10 @@ class TowingViewController: BaseViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
-                controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.price, serviceDetails: self.complaintType?.complaint, pickUpAddress: self.pickUpLocation, dropAddress: self.dropLocation)
-                self.navigationController?.pushViewController(controller, animated: true)
+                LocationManager.shared.getLocationAndAddress { location in
+                    controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.price, pickUpAddress: self.pickUpLocation, dropAddress: self.dropLocation, complaintType: self.complaintType, userAddress: location, count: 0)
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
             }
         }
     }
