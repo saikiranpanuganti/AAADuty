@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct OrderDetails {
+struct OrderDetails: Codable {
     var category: Category?
     var totalAmount: Int?
     var address: Location?
@@ -52,6 +52,8 @@ class OrderConfirmationViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognised))
         tapGesture.numberOfTapsRequired = 1
         view.addGestureRecognizer(tapGesture)
+        
+        saveOrderInUD()
     }
     
     func updateUI() {

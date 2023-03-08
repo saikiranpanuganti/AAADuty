@@ -9,7 +9,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-struct Location {
+struct Location: Codable {
     var latitude: Double?
     var longitude: Double?
     var address: String?

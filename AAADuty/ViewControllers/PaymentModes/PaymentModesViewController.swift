@@ -73,6 +73,9 @@ extension PaymentModesViewController: LocationTableViewCellDelegate {
 
 extension PaymentModesViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
-        
+        if let controller = Controllers.requestAccepted.getController() as? RequestAcceptedViewController {
+            controller.orderDetails = orderDetails
+            navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
