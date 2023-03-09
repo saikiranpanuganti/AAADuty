@@ -27,6 +27,8 @@ class VehicleBrandsViewController: BaseViewController {
     var vehicles: VechiclesModel?
     var selectedVehicle: Vechicle?
     
+    var vehicleProblems: VechicleProblemModel?
+    
     var searchResults: [Vechicle] = []
     
     override func viewDidLoad() {
@@ -45,12 +47,12 @@ class VehicleBrandsViewController: BaseViewController {
         searchTableView.dataSource = self
         searchTableView.delegate = self
         
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognised))
-//        tapGesture.numberOfTapsRequired = 1
-//        searchView.addGestureRecognizer(tapGesture)
-        
+        searchView.layer.cornerRadius = 5
+        searchView.layer.masksToBounds = true
         searchView.isHidden = true
         
+        continueButton.layer.cornerRadius = 22
+        continueButton.layer.masksToBounds = true
     }
     
     func updateUI() {
@@ -83,6 +85,44 @@ class VehicleBrandsViewController: BaseViewController {
                         self.searchResults = vechiclesModel.response ?? []
                         self.selectedVehicle = nil
                         self.updateSearchSection()
+                    }catch {
+                        print("Error: VehicleBrandsViewController getVechicles - \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+    }
+    
+    func getVehicleProblems(categoryId: String?, typeID: String?, vehicleTypeID: String?) {
+        if let categoryId = categoryId, let typeID = typeID, let vehicleTypeID = vehicleTypeID {
+            showLoader()
+            let bodyParams: [String: Any] = ["CategoryID": categoryId, "typeID": typeID, "VehicleTypeID": vehicleTypeID]
+            print("bodyParams - \(bodyParams)")
+            NetworkAdaptor.requestWithHeaders(urlString: Url.getVehicleProblems.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+                guard let self = self else { return }
+                self.stopLoader()
+                
+                if let data = data {
+                    do {
+                        let vechicleProblemsModel = try JSONDecoder().decode(VechicleProblemModel.self, from: data)
+                        self.vehicleProblems = vechicleProblemsModel
+                        
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else { return }
+                            if let controller = Controllers.vehicleComplaint.getController() as? VehicleComplaintViewController {
+                                controller.category = self.category
+                                controller.subCategories = self.subCategories
+                                controller.selectedSubCategory = self.selectedSubCategory
+                                controller.vechicleTypes = self.vechicleTypes
+                                controller.selectedVehicleType = self.selectedVehicleType
+                                controller.vehicleBrands = self.vehicleBrands
+                                controller.selectedVehicleBrand = self.selectedVehicleBrand
+                                controller.vehicles = self.vehicles
+                                controller.selectedVehicle = self.selectedVehicle
+                                controller.vehicleProblems = self.vehicleProblems
+                                self.navigationController?.pushViewController(controller, animated: true)
+                            }
+                        }
                     }catch {
                         print("Error: VehicleBrandsViewController getVechicles - \(error.localizedDescription)")
                     }
@@ -219,7 +259,13 @@ extension VehicleBrandsViewController: SubServicesTableViewCellDelegate {
 
 extension VehicleBrandsViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
-        
+        if selectedVehicleBrand == nil {
+            showAlert(title: "Error", message: "Select a brand")
+        }else if selectedVehicle == nil {
+            showAlert(title: "Error", message: "Select a vehicle")
+        }else {
+            getVehicleProblems(categoryId: selectedVehicleType?.categoryID, typeID: selectedVehicleType?.typeID, vehicleTypeID: selectedVehicleType?.id)
+        }
     }
 }
 

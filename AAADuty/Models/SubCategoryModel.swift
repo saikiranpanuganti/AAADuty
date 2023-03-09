@@ -197,3 +197,49 @@ struct Vechicle: Codable {
         case v = "__v"
     }
 }
+
+
+
+// MARK: - VechicleProblemModel
+struct VechicleProblemModel: Codable {
+    let status, statusCode, message: String?
+    let response: [VechicleProblem]?
+
+    enum CodingKeys: String, CodingKey {
+        case status = "Status"
+        case statusCode = "StatusCode"
+        case message = "Message"
+        case response
+    }
+}
+
+// MARK: - Response
+struct VechicleProblem: Codable {
+    let id, problem: String?
+    let vehicleTypeID: String?
+    let vehicleType: String?
+    let typeID: String?
+    let typeName: String?
+    let categoryID: String?
+    let categoryName: String?
+    let price, pgServiceTax, gst: Int?
+    let isActive: Bool?
+    let v: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case problem = "Problem"
+        case vehicleTypeID = "VehicleTypeID"
+        case vehicleType = "VehicleType"
+        case typeID = "TypeID"
+        case typeName = "TypeName"
+        case categoryID = "CategoryID"
+        case categoryName = "CategoryName"
+        case price = "Price"
+        case pgServiceTax = "PGServiceTax"
+        case gst = "GST"
+        case isActive = "IsActive"
+        case v = "__v"
+    }
+}
+

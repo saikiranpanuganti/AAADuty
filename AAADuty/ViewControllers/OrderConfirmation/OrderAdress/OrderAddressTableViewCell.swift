@@ -18,6 +18,7 @@ class OrderAddressTableViewCell: UITableViewCell {
     @IBOutlet weak var greenView2: UIView!
     @IBOutlet weak var addressOutlet: UILabel!
     @IBOutlet weak var serviceDetails: UILabel!
+    @IBOutlet weak var serviceAmount: UILabel!
     
     weak var delegate: OrderAddressTableViewCellDelegate?
 
@@ -26,6 +27,7 @@ class OrderAddressTableViewCell: UITableViewCell {
         
         greenView1.layer.cornerRadius = 7
         greenView2.layer.cornerRadius = 7
+        serviceAmount.isHidden = true
     }
     
     func configureUI(orderDetails: OrderDetails?) {
@@ -34,6 +36,18 @@ class OrderAddressTableViewCell: UITableViewCell {
             serviceIcon.sd_setImage(with: URL(string: orderDetails.category?.requestImageURL ?? ""))
             addressOutlet.text = orderDetails.address?.address ?? "No address available"
             serviceDetails.text = orderDetails.complaintType?.complaint ?? ""
+            serviceAmount.text = "\(orderDetails.totalAmount ?? 0)"
+        }
+    }
+    
+    func configureUI(orderDetails_VT: OrderDetails?) {
+        if let orderDetails = orderDetails_VT {
+            serviceName.text = orderDetails.category?.category
+            serviceIcon.sd_setImage(with: URL(string: orderDetails.category?.requestImageURL ?? ""))
+            addressOutlet.text = orderDetails.address?.address ?? "No address available"
+            serviceDetails.text = orderDetails.vehicleProblem?.problem
+            serviceAmount.isHidden = false
+            serviceAmount.text = "\(orderDetails.totalAmount ?? 0)"
         }
     }
     

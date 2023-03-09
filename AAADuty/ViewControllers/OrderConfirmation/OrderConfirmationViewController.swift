@@ -36,7 +36,7 @@ class OrderConfirmationViewController: BaseViewController {
         makePaymentViewTopAnchor?.isActive = true
         makePaymentView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         makePaymentView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-//        makePaymentView.heightAnchor.constraint(equalToConstant: 95+((screenWidth-110)*2)/5).isActive = true
+
         makePaymentView.heightAnchor.constraint(equalToConstant: screenHeight).isActive = true
         
         makePaymentView.isHidden = true
@@ -131,10 +131,16 @@ extension OrderConfirmationViewController: UITableViewDataSource {
                     cell.configureUI(orderDetails: orderDetails)
                     return cell
                 }
-            }else {
+            }else if orderDetails?.category?.serviceType == .flatTyre {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "OrderAddressTableViewCell", for: indexPath) as? OrderAddressTableViewCell {
                     cell.delegate = self
                     cell.configureUI(orderDetails: orderDetails)
+                    return cell
+                }
+            }else {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "OrderAddressTableViewCell", for: indexPath) as? OrderAddressTableViewCell {
+                    cell.delegate = self
+                    cell.configureUI(orderDetails_VT: orderDetails)
                     return cell
                 }
             }

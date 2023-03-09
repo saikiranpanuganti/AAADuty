@@ -11,6 +11,7 @@ class LabelTableViewCell: UITableViewCell {
     @IBOutlet weak var labelOutlet: UILabel!
     
     var vehicle: Vechicle?
+    var vehicleProblem: VechicleProblem?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +21,11 @@ class LabelTableViewCell: UITableViewCell {
     func configureUI(vechicle: Vechicle?) {
         vehicle = vechicle
         labelOutlet.text = vehicle?.vehicleName
+    }
+    
+    func configureUI(vechicleProblem: VechicleProblem?) {
+        vehicleProblem = vechicleProblem
+        labelOutlet.text = vechicleProblem?.problem
     }
     
 }

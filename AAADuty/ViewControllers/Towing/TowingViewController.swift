@@ -102,7 +102,7 @@ class TowingViewController: BaseViewController {
         if let categoryId = selectedSubCategory?.categoryID, let postalCodeStr = pickUpLocation?.postalCode, let postalCode = Int(postalCodeStr) {
             showLoader()
             
-            let bodyParams: [String: Any] = ["pinCode": postalCodeStr, "CategoryID": categoryId]
+            let bodyParams: [String: Any] = ["pinCode": postalCode, "CategoryID": categoryId]
             NetworkAdaptor.requestWithHeaders(urlString: Url.checkRequestAvailability.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()

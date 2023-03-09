@@ -72,7 +72,7 @@
                                             <action selector="editTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rpL-UT-4bV"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS9-7z-FXm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS9-7z-FXm">
                                         <rect key="frame" x="64" y="121.99999999999999" width="192" height="21.333333333333329"/>
                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
                                         <color key="textColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,7 +102,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auE-FU-vgk">
-                                        <rect key="frame" x="64" y="163.33333333333334" width="192" height="21.333333333333343"/>
+                                        <rect key="frame" x="64" y="163.33333333333334" width="38.666666666666657" height="21.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZ3-TU-aHz">
+                                        <rect key="frame" x="271.33333333333331" y="163.33333333333334" width="38.666666666666686" height="21.333333333333343"/>
                                         <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -113,15 +119,17 @@
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3e3-vZ-73c" secondAttribute="bottom" id="0d5-m1-KEj"/>
                                     <constraint firstItem="dsI-Ng-D90" firstAttribute="top" secondItem="uPf-iM-Ihy" secondAttribute="bottom" constant="15" id="2z9-JG-x8P"/>
                                     <constraint firstItem="t3H-0r-QQu" firstAttribute="centerY" secondItem="uPf-iM-Ihy" secondAttribute="centerY" id="48u-cL-Z5m"/>
+                                    <constraint firstAttribute="trailing" secondItem="DZ3-TU-aHz" secondAttribute="trailing" constant="10" id="4HP-VZ-0ml"/>
                                     <constraint firstItem="t3H-0r-QQu" firstAttribute="leading" secondItem="uPf-iM-Ihy" secondAttribute="trailing" constant="15" id="4rg-Sn-com"/>
                                     <constraint firstItem="dsI-Ng-D90" firstAttribute="leading" secondItem="5cv-bU-LQZ" secondAttribute="leading" constant="30" id="8Yh-bs-8nP"/>
-                                    <constraint firstItem="auE-FU-vgk" firstAttribute="centerX" secondItem="5cv-bU-LQZ" secondAttribute="centerX" id="DZY-c3-RhU"/>
+                                    <constraint firstItem="DZ3-TU-aHz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="auE-FU-vgk" secondAttribute="trailing" constant="20" id="Jrv-dE-gFU"/>
                                     <constraint firstItem="uPf-iM-Ihy" firstAttribute="leading" secondItem="5cv-bU-LQZ" secondAttribute="leading" constant="20" id="NMi-rT-JPY"/>
                                     <constraint firstItem="auE-FU-vgk" firstAttribute="top" secondItem="DS9-7z-FXm" secondAttribute="bottom" constant="20" id="Opq-Us-OJK"/>
                                     <constraint firstItem="Ie4-2W-9th" firstAttribute="leading" secondItem="5cv-bU-LQZ" secondAttribute="leading" constant="30" id="RNa-rr-1yF"/>
                                     <constraint firstItem="hlH-4J-4fn" firstAttribute="centerY" secondItem="dsI-Ng-D90" secondAttribute="centerY" id="SI2-tp-yDt"/>
                                     <constraint firstItem="3e3-vZ-73c" firstAttribute="top" secondItem="auE-FU-vgk" secondAttribute="bottom" constant="20" id="SxK-5p-ESa"/>
                                     <constraint firstItem="auE-FU-vgk" firstAttribute="leading" secondItem="DS9-7z-FXm" secondAttribute="leading" id="THj-G1-KKJ"/>
+                                    <constraint firstItem="DZ3-TU-aHz" firstAttribute="centerY" secondItem="auE-FU-vgk" secondAttribute="centerY" id="TUS-Ri-haO"/>
                                     <constraint firstItem="DS9-7z-FXm" firstAttribute="centerX" secondItem="5cv-bU-LQZ" secondAttribute="centerX" id="VcL-wZ-mfl"/>
                                     <constraint firstItem="Ie4-2W-9th" firstAttribute="top" secondItem="auE-FU-vgk" secondAttribute="top" constant="5" id="XMD-a8-Yct"/>
                                     <constraint firstItem="uPf-iM-Ihy" firstAttribute="top" secondItem="5cv-bU-LQZ" secondAttribute="top" constant="20" id="Xa6-bt-a4U"/>
@@ -162,6 +170,7 @@
                 <outlet property="addressOutlet" destination="DS9-7z-FXm" id="seS-Ti-eLE"/>
                 <outlet property="greenView1" destination="s4m-Ah-VEx" id="e0y-fk-5nc"/>
                 <outlet property="greenView2" destination="Ie4-2W-9th" id="Yys-EE-SYZ"/>
+                <outlet property="serviceAmount" destination="DZ3-TU-aHz" id="Aym-yU-WCQ"/>
                 <outlet property="serviceDetails" destination="auE-FU-vgk" id="1lV-cL-XUc"/>
                 <outlet property="serviceIcon" destination="uPf-iM-Ihy" id="AdG-7K-Hfs"/>
                 <outlet property="serviceName" destination="t3H-0r-QQu" id="82C-TT-ulE"/>

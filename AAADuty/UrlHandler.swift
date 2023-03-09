@@ -23,6 +23,7 @@ enum Url {
     case getVechicleType
     case getVehicleBrands
     case getVehicles
+    case getVehicleProblems
     
     func getUrl() -> String {
         switch self {
@@ -48,6 +49,8 @@ enum Url {
             return baseUrl + "/V1/getvehiclebrands"
         case .getVehicles:
             return baseUrl + "/V1/getvehicles"
+        case .getVehicleProblems:
+            return baseUrl + "/V1/getvehiclesproblems"
         }
     }
 }

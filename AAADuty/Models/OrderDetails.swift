@@ -14,6 +14,7 @@ struct OrderDetails: Codable {
     var pickUpAddress: Location?
     var dropAddress: Location?
     var complaintType: ComplaintType?
+    var vehicleProblem: VechicleProblem?
     var userAddress: Location?
     var count: Int = 0
     

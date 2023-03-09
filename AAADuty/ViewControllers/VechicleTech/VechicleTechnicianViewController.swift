@@ -230,14 +230,12 @@ extension VechicleTechnicianViewController: SubServicesTableViewCellDelegate {
     func vehicleTypeTapped(vehicleType: VechicleType?) {
         if selectedVehicleType?.id != vehicleType?.id {
             selectedVehicleType = vehicleType
-            selectedSubCategory = nil
         }
     }
     
     func subServiceTapped(subCategory: SubCategory?) {
         if selectedSubCategory?.id != subCategory?.id {
             selectedSubCategory = subCategory
-            selectedVehicleType = nil
         }
     }
 }
@@ -261,7 +259,7 @@ extension VechicleTechnicianViewController: ContinueTableViewCellDelegate {
                 }
                 return
             }else if isManualTransition == nil && vechicleTypes?.response?.first?.typeID != "62bacecf4ee3da924a2d4eac" {
-                showAlert(title: "Error", message: "Select a transmission type")
+                showAlert(title: "Error", message: "Select the transmission type")
             }else {
                 getVechicleBrands(categoryId: selectedVehicleType?.categoryID, typeID: selectedVehicleType?.typeID, vehicleTypeID: selectedVehicleType?.id)
             }

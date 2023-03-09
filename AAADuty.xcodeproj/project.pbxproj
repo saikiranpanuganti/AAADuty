@@ -21,6 +21,11 @@
 		7F06A0B729B983B400D9E5A4 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F06A0B529B983B400D9E5A4 /* SearchTableViewCell.xib */; };
 		7F06A0BB29B98B7500D9E5A4 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06A0B929B98B7500D9E5A4 /* LabelTableViewCell.swift */; };
 		7F06A0BC29B98B7500D9E5A4 /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F06A0BA29B98B7500D9E5A4 /* LabelTableViewCell.xib */; };
+		7F06A0BF29BA37B000D9E5A4 /* VehicleComplaintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06A0BE29BA37B000D9E5A4 /* VehicleComplaintViewController.swift */; };
+		7F06A0C329BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06A0C129BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.swift */; };
+		7F06A0C429BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F06A0C229BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.xib */; };
+		7F06A0C829BA52D600D9E5A4 /* OrderDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06A0C629BA52D600D9E5A4 /* OrderDetailsTableViewCell.swift */; };
+		7F06A0C929BA52D600D9E5A4 /* OrderDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F06A0C729BA52D600D9E5A4 /* OrderDetailsTableViewCell.xib */; };
 		7F08777B29B27FC7004CB905 /* MakePaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F08777A29B27FC7004CB905 /* MakePaymentView.swift */; };
 		7F08777D29B27FCF004CB905 /* MakePaymentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F08777C29B27FCF004CB905 /* MakePaymentView.xib */; };
 		7F08778029B28A48004CB905 /* PaymentModesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F08777F29B28A48004CB905 /* PaymentModesViewController.swift */; };
@@ -130,6 +135,11 @@
 		7F06A0B529B983B400D9E5A4 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		7F06A0B929B98B7500D9E5A4 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
 		7F06A0BA29B98B7500D9E5A4 /* LabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTableViewCell.xib; sourceTree = "<group>"; };
+		7F06A0BE29BA37B000D9E5A4 /* VehicleComplaintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleComplaintViewController.swift; sourceTree = "<group>"; };
+		7F06A0C129BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleProblemsTableViewCell.swift; sourceTree = "<group>"; };
+		7F06A0C229BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleProblemsTableViewCell.xib; sourceTree = "<group>"; };
+		7F06A0C629BA52D600D9E5A4 /* OrderDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		7F06A0C729BA52D600D9E5A4 /* OrderDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		7F08777A29B27FC7004CB905 /* MakePaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePaymentView.swift; sourceTree = "<group>"; };
 		7F08777C29B27FCF004CB905 /* MakePaymentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MakePaymentView.xib; sourceTree = "<group>"; };
 		7F08777F29B28A48004CB905 /* PaymentModesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModesViewController.swift; sourceTree = "<group>"; };
@@ -299,6 +309,33 @@
 				7F06A0BA29B98B7500D9E5A4 /* LabelTableViewCell.xib */,
 			);
 			path = LabelCell;
+			sourceTree = "<group>";
+		};
+		7F06A0BD29BA379B00D9E5A4 /* VehicleComplaint */ = {
+			isa = PBXGroup;
+			children = (
+				7F06A0BE29BA37B000D9E5A4 /* VehicleComplaintViewController.swift */,
+				7F06A0C029BA3DFD00D9E5A4 /* VehicleProblems */,
+			);
+			path = VehicleComplaint;
+			sourceTree = "<group>";
+		};
+		7F06A0C029BA3DFD00D9E5A4 /* VehicleProblems */ = {
+			isa = PBXGroup;
+			children = (
+				7F06A0C129BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.swift */,
+				7F06A0C229BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.xib */,
+			);
+			path = VehicleProblems;
+			sourceTree = "<group>";
+		};
+		7F06A0C529BA52C100D9E5A4 /* OrderDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7F06A0C629BA52D600D9E5A4 /* OrderDetailsTableViewCell.swift */,
+				7F06A0C729BA52D600D9E5A4 /* OrderDetailsTableViewCell.xib */,
+			);
+			path = OrderDetails;
 			sourceTree = "<group>";
 		};
 		7F08777929B27FB0004CB905 /* MakePaymentView */ = {
@@ -537,6 +574,7 @@
 			isa = PBXGroup;
 			children = (
 				7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */,
+				7F06A0C529BA52C100D9E5A4 /* OrderDetails */,
 				7FB7B54F29B25CA70006E206 /* OrderReview */,
 				7FB7B54A29B257C90006E206 /* BillDetails */,
 				7FB7B54529B24E480006E206 /* OrderAdress */,
@@ -584,6 +622,7 @@
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
 				7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */,
 				7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */,
+				7F06A0BD29BA379B00D9E5A4 /* VehicleComplaint */,
 				7F06A0AB29B9724E00D9E5A4 /* VehicleBrands */,
 				7F3347DC29B887910083CC79 /* VechicleTech */,
 				7F1D5C0229B2FB7B00B8C6DD /* Maps */,
@@ -769,6 +808,7 @@
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
 				7F06A0B229B97FA800D9E5A4 /* BrandCollectionViewCell.xib in Resources */,
 				7FB7B54E29B257DB0006E206 /* BillDetailsTableViewCell.xib in Resources */,
+				7F06A0C929BA52D600D9E5A4 /* OrderDetailsTableViewCell.xib in Resources */,
 				7F30A53829B11765002F802F /* Poppins-Bold.otf in Resources */,
 				7F30A53729B11762002F802F /* Poppins-Medium.otf in Resources */,
 				7FD0BE9B29A8F77A0049662D /* Main.storyboard in Resources */,
@@ -785,6 +825,7 @@
 				7F37C6F129B1BF2A001212E1 /* Segoe-UI-SemiBold.ttf in Resources */,
 				7F37C6EB29B1B183001212E1 /* CountTableViewCell.xib in Resources */,
 				7F06A0B729B983B400D9E5A4 /* SearchTableViewCell.xib in Resources */,
+				7F06A0C429BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.xib in Resources */,
 				7F06A0BC29B98B7500D9E5A4 /* LabelTableViewCell.xib in Resources */,
 				7FB7B54929B24E6C0006E206 /* OrderAddressTableViewCell.xib in Resources */,
 				7F1A486C29AB515300C432DF /* CategoryCollectionViewCell.xib in Resources */,
@@ -866,12 +907,15 @@
 				7F08778C29B293A9004CB905 /* TowingViewController.swift in Sources */,
 				7FD0BEC429A9E9880049662D /* ProfileTabViewController.swift in Sources */,
 				7F1A485529AA827D00C432DF /* MenuTableViewCell.swift in Sources */,
+				7F06A0C829BA52D600D9E5A4 /* OrderDetailsTableViewCell.swift in Sources */,
 				7FB8C40929AB949A005B6B4E /* BaseViewController.swift in Sources */,
 				7F06A0B129B97FA800D9E5A4 /* BrandCollectionViewCell.swift in Sources */,
+				7F06A0BF29BA37B000D9E5A4 /* VehicleComplaintViewController.swift in Sources */,
 				7F13C2D129B0DF7500EFFE7E /* ServiceType.swift in Sources */,
 				7F1A487029AB6E2600C432DF /* UrlHandler.swift in Sources */,
 				7F3347DB29B858F80083CC79 /* OrderRequestModel.swift in Sources */,
 				7FD0BEAC29A8FE930049662D /* AAALabel.swift in Sources */,
+				7F06A0C329BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.swift in Sources */,
 				7FD0BEB229A90ED60049662D /* AAAView.swift in Sources */,
 				7F1D5C0429B2FB8900B8C6DD /* MapsViewController.swift in Sources */,
 				7F13C2D829B0FEEB00EFFE7E /* SubCategoryModel.swift in Sources */,
