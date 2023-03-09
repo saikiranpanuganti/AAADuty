@@ -718,14 +718,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upDownArrow" translatesAutoresizingMaskIntoConstraints="NO" id="IF6-yw-3Al">
-                                                        <rect key="frame" x="10" y="19" width="12" height="17"/>
+                                                        <rect key="frame" x="20" y="19" width="12" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="VJP-k4-pYm"/>
                                                             <constraint firstAttribute="width" constant="12" id="wQd-HG-YRm"/>
                                                         </constraints>
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qlh-XT-Gan">
-                                                        <rect key="frame" x="42" y="17" width="238" height="21.333333333333329"/>
+                                                        <rect key="frame" x="52" y="17" width="228" height="21.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
@@ -760,7 +760,7 @@
                                                     <constraint firstItem="QyZ-G9-U0f" firstAttribute="leading" secondItem="Qlh-XT-Gan" secondAttribute="trailing" constant="20" id="daG-gZ-W1D"/>
                                                     <constraint firstItem="Qlh-XT-Gan" firstAttribute="centerY" secondItem="QyZ-G9-U0f" secondAttribute="centerY" id="h01-ge-gAL"/>
                                                     <constraint firstItem="IF6-yw-3Al" firstAttribute="centerY" secondItem="QyZ-G9-U0f" secondAttribute="centerY" id="sYs-6e-epw"/>
-                                                    <constraint firstItem="IF6-yw-3Al" firstAttribute="leading" secondItem="P4K-0C-L3Q" secondAttribute="leading" constant="10" id="u1m-98-1t3"/>
+                                                    <constraint firstItem="IF6-yw-3Al" firstAttribute="leading" secondItem="P4K-0C-L3Q" secondAttribute="leading" constant="20" id="u1m-98-1t3"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEO-Yi-oFV">
@@ -831,6 +831,7 @@
                     <connections>
                         <outlet property="continueButton" destination="EEO-Yi-oFV" id="60E-gn-9Ia"/>
                         <outlet property="searchTableView" destination="4MS-gC-hXh" id="eoY-ah-HvZ"/>
+                        <outlet property="searchTableViewBackground" destination="sd7-SL-6xR" id="kUk-n7-1Tk"/>
                         <outlet property="searchTextfield" destination="Qlh-XT-Gan" id="q2K-aY-aJc"/>
                         <outlet property="searchView" destination="qyf-qO-RPY" id="BbS-lC-oDY"/>
                         <outlet property="tableView" destination="GKX-gA-inC" id="r3O-Lq-QGf"/>
@@ -987,6 +988,7 @@
                     <connections>
                         <outlet property="continueButton" destination="eCk-mi-8RJ" id="R7k-bS-4mA"/>
                         <outlet property="searchTableView" destination="KZg-hP-CuR" id="s8g-qc-pYd"/>
+                        <outlet property="searchTableViewBackground" destination="Zja-6h-5n5" id="k0J-yC-4Nb"/>
                         <outlet property="searchTextfield" destination="flJ-H2-spj" id="ZvL-3s-nlc"/>
                         <outlet property="searchView" destination="KwU-Gv-LzI" id="Jbg-51-lLC"/>
                         <outlet property="tableView" destination="aFz-sy-FpF" id="HFR-8Y-9Eh"/>

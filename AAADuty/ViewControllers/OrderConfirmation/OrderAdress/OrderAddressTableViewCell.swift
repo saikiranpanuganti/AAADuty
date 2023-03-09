@@ -36,7 +36,7 @@ class OrderAddressTableViewCell: UITableViewCell {
             serviceIcon.sd_setImage(with: URL(string: orderDetails.category?.requestImageURL ?? ""))
             addressOutlet.text = orderDetails.address?.address ?? "No address available"
             serviceDetails.text = orderDetails.complaintType?.complaint ?? ""
-            serviceAmount.text = "\(orderDetails.totalAmount ?? 0)"
+            serviceAmount.text = ""
         }
     }
     
@@ -47,7 +47,7 @@ class OrderAddressTableViewCell: UITableViewCell {
             addressOutlet.text = orderDetails.address?.address ?? "No address available"
             serviceDetails.text = orderDetails.vehicleProblem?.problem
             serviceAmount.isHidden = false
-            serviceAmount.text = "\(orderDetails.totalAmount ?? 0)"
+            serviceAmount.text = "₹\(orderDetails.totalAmount ?? 0)"
         }
     }
     

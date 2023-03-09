@@ -10,6 +10,7 @@ import UIKit
 class VehicleComplaintViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchTableViewBackground: UIView!
     @IBOutlet weak var searchTextfield: UITextField!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var searchTableView: UITableView!
@@ -50,8 +51,8 @@ class VehicleComplaintViewController: BaseViewController {
         searchTableView.dataSource = self
         searchTableView.delegate = self
         
-        searchView.layer.cornerRadius = 5
-        searchView.layer.masksToBounds = true
+        searchTableViewBackground.layer.cornerRadius = 8
+        searchTableViewBackground.layer.masksToBounds = true
         searchView.isHidden = true
         
         continueButton.layer.cornerRadius = 22
@@ -66,7 +67,16 @@ class VehicleComplaintViewController: BaseViewController {
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
                 LocationManager.shared.getLocationAndAddress { location in
                     controller.orderDetails = OrderDetails(category: self.category, totalAmount: Int(self.selectedVehicleProblem?.price ?? 0), address: self.selectedLocation, vehicleProblem: self.selectedVehicleProblem, userAddress: location, count: 1)
-                    self.navigationController?.pushViewController(controller, animated: true)
+                    
+                    guard let coordinator = self.transitionCoordinator else {
+                        self.navigationController?.pushViewController(controller, animated: true)
+                        return
+                    }
+
+                    coordinator.animate(alongsideTransition: nil) { _ in
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    }
+                    
                 }
             }
         }

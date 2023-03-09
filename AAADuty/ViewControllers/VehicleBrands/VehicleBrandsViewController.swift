@@ -10,6 +10,7 @@ import UIKit
 class VehicleBrandsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchTableViewBackground: UIView!
     @IBOutlet weak var searchTextfield: UITextField!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var searchTableView: UITableView!
@@ -47,8 +48,8 @@ class VehicleBrandsViewController: BaseViewController {
         searchTableView.dataSource = self
         searchTableView.delegate = self
         
-        searchView.layer.cornerRadius = 5
-        searchView.layer.masksToBounds = true
+        searchTableViewBackground.layer.cornerRadius = 8
+        searchTableViewBackground.layer.masksToBounds = true
         searchView.isHidden = true
         
         continueButton.layer.cornerRadius = 22
