@@ -9,6 +9,10 @@ import UIKit
 
 class VehicleBrandsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchTextfield: UITextField!
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var searchTableView: UITableView!
     
     var category: Category?
     var subCategories: SubCategoryModel?
@@ -23,6 +27,8 @@ class VehicleBrandsViewController: BaseViewController {
     var vehicles: VechiclesModel?
     var selectedVehicle: Vechicle?
     
+    var searchResults: [Vechicle] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,8 +37,20 @@ class VehicleBrandsViewController: BaseViewController {
         tableView.register(UINib(nibName: "ContinueTableViewCell", bundle: nil), forCellReuseIdentifier: "ContinueTableViewCell")
         tableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTableViewCell")
         
+        searchTableView.register(UINib(nibName: "LabelTableViewCell", bundle: nil), forCellReuseIdentifier: "LabelTableViewCell")
+        
         tableView.dataSource = self
         tableView.delegate = self
+        
+        searchTableView.dataSource = self
+        searchTableView.delegate = self
+        
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognised))
+//        tapGesture.numberOfTapsRequired = 1
+//        searchView.addGestureRecognizer(tapGesture)
+        
+        searchView.isHidden = true
+        
     }
     
     func updateUI() {
@@ -62,6 +80,8 @@ class VehicleBrandsViewController: BaseViewController {
                     do {
                         let vechiclesModel = try JSONDecoder().decode(VechiclesModel.self, from: data)
                         self.vehicles = vechiclesModel
+                        self.searchResults = vechiclesModel.response ?? []
+                        self.selectedVehicle = nil
                         self.updateSearchSection()
                     }catch {
                         print("Error: VehicleBrandsViewController getVechicles - \(error.localizedDescription)")
@@ -70,16 +90,57 @@ class VehicleBrandsViewController: BaseViewController {
             }
         }
     }
+    
+    func hideSearchView() {
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            guard let self = self else { return }
+            self.searchView.alpha = 0
+        } completion: { [weak self] bool in
+            guard let self = self else { return }
+            self.searchView.isHidden = true
+        }
+    }
+    
+    @IBAction func closeSearchView() {
+        hideSearchView()
+    }
+    
+    @IBAction func textfieldIsEditing(_ textfield: UITextField){
+        if textfield.text?.count == 0 {
+            searchResults = vehicles?.response ?? []
+            searchTableView.reloadData()
+        }else if let searchText  = textfield.text?.lowercased() {
+            searchResults = vehicles?.response?.filter({ $0.vehicleName?.lowercased().contains(searchText) ?? false }) ?? []
+            searchTableView.reloadData()
+        }
+    }
+    
+    @IBAction func searchContinue() {
+        hideSearchView()
+    }
 }
 
 extension VehicleBrandsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        if tableView == searchTableView {
+            return 1
+        }
         return 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == searchTableView {
+            return searchResults.count
+        }
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == searchTableView {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "LabelTableViewCell", for: indexPath) as? LabelTableViewCell {
+                cell.configureUI(vechicle: searchResults[indexPath.row])
+                return cell
+            }
+            return UITableViewCell()
+        }
         if indexPath.section == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as? LocationTableViewCell {
                 cell.delegate = self
@@ -111,15 +172,30 @@ extension VehicleBrandsViewController: UITableViewDataSource {
 }
 extension VehicleBrandsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == searchTableView {
+            return 40
+        }
         if indexPath.section == 0 {
             return 120
         }else if indexPath.section == 1 {
             let rows: Int = (((vehicleBrands?.response?.count ?? 0)/3) + ((((vehicleBrands?.response?.count ?? 0) % 3) == 0) ? 0 : 1))
             return 170 + (((tableView.frame.width - 50)/3)*CGFloat(rows))
         }else if indexPath.section == 2 {
-            return CGFloat(125 + (35*(vehicles?.response?.count ?? 0)))
+            return CGFloat(125 + (40*(vehicles?.response?.count ?? 0)))
         }
         return UITableView.automaticDimension
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == searchTableView {
+            selectedVehicle = searchResults[indexPath.row]
+            searchTextfield.text = searchResults[indexPath.row].vehicleName
+            
+            if let cell = self.tableView.cellForRow(at: IndexPath(item: 0, section: 2)) as? SearchTableViewCell {
+                cell.updateText(text: searchResults[indexPath.row].vehicleName)
+            }
+            
+            hideSearchView()
+        }
     }
 }
 
@@ -150,7 +226,14 @@ extension VehicleBrandsViewController: ContinueTableViewCellDelegate {
 
 extension VehicleBrandsViewController: SearchTableViewCellDelegate {
     func searchTapped() {
+        searchView.alpha = 0
+        searchView.isHidden = false
+        searchTableView.reloadData()
         
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            guard let self = self else { return }
+            self.searchView.alpha = 1
+        }
     }
     func vehicleSelected(vehicle: Vechicle?) {
         if selectedVehicle?.id != vehicle?.id {

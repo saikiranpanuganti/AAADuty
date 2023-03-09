@@ -31,6 +31,7 @@ class SearchTableViewCell: UITableViewCell {
     }
     
     func configureUI(vehicles: VechiclesModel?) {
+        updateText(text: "")
         self.vehicles = vehicles
         tableView.reloadData()
     }
@@ -63,6 +64,6 @@ extension SearchTableViewCell: UITableViewDelegate {
         delegate?.vehicleSelected(vehicle: vehicles?.response?[indexPath.row])
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 35
+        return 40
     }
 }
