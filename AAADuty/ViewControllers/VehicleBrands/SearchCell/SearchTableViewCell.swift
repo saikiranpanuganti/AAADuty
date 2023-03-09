@@ -25,6 +25,7 @@ class SearchTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         tableView.register(UINib(nibName: "LabelTableViewCell", bundle: nil), forCellReuseIdentifier: "LabelTableViewCell")
+        
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -32,6 +33,10 @@ class SearchTableViewCell: UITableViewCell {
     func configureUI(vehicles: VechiclesModel?) {
         self.vehicles = vehicles
         tableView.reloadData()
+    }
+    
+    func updateText(text: String?) {
+        textfieldOutlet.text = text
     }
     
     @IBAction func searchTapped() {
@@ -47,13 +52,14 @@ extension SearchTableViewCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "LabelTableViewCell", for: indexPath) as? LabelTableViewCell {
             cell.configureUI(vechicle: vehicles?.response?[indexPath.row])
+            return cell
         }
         return UITableViewCell()
     }
 }
 extension SearchTableViewCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        textfieldOutlet.text = vehicles?.response?[indexPath.row].vehicleName
+        updateText(text: vehicles?.response?[indexPath.row].vehicleName)
         delegate?.vehicleSelected(vehicle: vehicles?.response?[indexPath.row])
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
