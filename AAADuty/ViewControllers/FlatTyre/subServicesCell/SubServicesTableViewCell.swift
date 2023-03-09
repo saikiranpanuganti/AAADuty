@@ -11,10 +11,13 @@ import SDWebImage
 protocol SubServicesTableViewCellDelegate: AnyObject {
     func subServiceTapped(subCategory: SubCategory?)
     func vehicleTypeTapped(vehicleType: VechicleType?)
+    func vehicleBrandTapped(vehicleBrand: VechicleBrand?)
 }
 
 extension SubServicesTableViewCellDelegate {
+    func subServiceTapped(subCategory: SubCategory?) {  }
     func vehicleTypeTapped(vehicleType: VechicleType?) {  }
+    func vehicleBrandTapped(vehicleBrand: VechicleBrand?) {  }
 }
 
 class SubServicesTableViewCell: UITableViewCell {
@@ -28,11 +31,13 @@ class SubServicesTableViewCell: UITableViewCell {
     var category: Category?
     var subCategory: SubCategoryModel?
     var vehicleType: VechicleTypeModel?
+    var vehicleBrand: VechicleBrandsModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         subServiceCollectionView.register(UINib(nibName: "SubCategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SubCategoryCollectionViewCell")
+        subServiceCollectionView.register(UINib(nibName: "BrandCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BrandCollectionViewCell")
         subServiceCollectionView.dataSource = self
         subServiceCollectionView.delegate = self
     }
@@ -69,6 +74,24 @@ class SubServicesTableViewCell: UITableViewCell {
         }
     }
     
+    func configureUI(category: Category?, vehicleBrand: VechicleBrandsModel?) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.vehicleBrand = vehicleBrand
+            self.servicename.text = category?.category
+            self.serviceIcon.sd_setImage(with: URL(string: category?.requestImageURL ?? ""))
+            
+            if vehicleBrand?.response?.first?.typeID == "62bacecf4ee3da924a2d4eac" {
+                self.subServiceDescription.text = "Select your Bike Brand"
+            }else {
+                self.subServiceDescription.text = "Select your Car Brand"
+            }
+            
+            self.subServiceCollectionView.reloadData()
+        }
+    }
+    
     func setSelectedSubCategory(indexPath: IndexPath) {
         for index in 0..<(subCategory?.categories?.count ?? 0) {
             if index == indexPath.row {
@@ -88,6 +111,16 @@ class SubServicesTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    func setSelectedVehicleBrand(indexPath: IndexPath) {
+        for index in 0..<(vehicleBrand?.response?.count ?? 0) {
+            if index == indexPath.row {
+                vehicleBrand?.response?[index].isSelected = true
+            }else {
+                vehicleBrand?.response?[index].isSelected = false
+            }
+        }
+    }
 }
 
 
@@ -97,18 +130,27 @@ extension SubServicesTableViewCell: UICollectionViewDataSource {
             return subCategory?.categories?.count ?? 0
         }else if vehicleType != nil {
             return vehicleType?.response?.count ?? 0
+        }else if vehicleBrand != nil {
+            return vehicleBrand?.response?.count ?? 0
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = subServiceCollectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewCell", for: indexPath) as? SubCategoryCollectionViewCell {
-            if subCategory != nil {
-                cell.configureUI(subCategory: subCategory?.categories?[indexPath.row])
-            }else if vehicleType != nil {
-                cell.configureUI(vehicleType: vehicleType?.response?[indexPath.row])
+        if vehicleBrand != nil {
+            if let cell = subServiceCollectionView.dequeueReusableCell(withReuseIdentifier: "BrandCollectionViewCell", for: indexPath) as? BrandCollectionViewCell {
+                cell.configureUI(vehicleBrand: vehicleBrand?.response?[indexPath.row])
+                return cell
             }
-            return cell
+        }else {
+            if let cell = subServiceCollectionView.dequeueReusableCell(withReuseIdentifier: "SubCategoryCollectionViewCell", for: indexPath) as? SubCategoryCollectionViewCell {
+                if subCategory != nil {
+                    cell.configureUI(subCategory: subCategory?.categories?[indexPath.row])
+                }else if vehicleType != nil {
+                    cell.configureUI(vehicleType: vehicleType?.response?[indexPath.row])
+                }
+                return cell
+            }
         }
         return UICollectionViewCell()
     }
@@ -116,20 +158,29 @@ extension SubServicesTableViewCell: UICollectionViewDataSource {
 
 extension SubServicesTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if subCategory != nil {
-            setSelectedSubCategory(indexPath: indexPath)
+        if vehicleBrand != nil {
+            setSelectedVehicleBrand(indexPath: indexPath)
             updateCollectionView()
-            delegate?.subServiceTapped(subCategory: subCategory?.categories?[indexPath.row])
-        }else if vehicleType != nil {
-            setSelectedVehicleType(indexPath: indexPath)
-            updateCollectionView()
-            delegate?.vehicleTypeTapped(vehicleType: vehicleType?.response?[indexPath.row])
+            delegate?.vehicleBrandTapped(vehicleBrand: vehicleBrand?.response?[indexPath.row])
+        }else {
+            if subCategory != nil {
+                setSelectedSubCategory(indexPath: indexPath)
+                updateCollectionView()
+                delegate?.subServiceTapped(subCategory: subCategory?.categories?[indexPath.row])
+            }else if vehicleType != nil {
+                setSelectedVehicleType(indexPath: indexPath)
+                updateCollectionView()
+                delegate?.vehicleTypeTapped(vehicleType: vehicleType?.response?[indexPath.row])
+            }
         }
     }
 }
 
 extension SubServicesTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if vehicleBrand != nil {
+            return CGSize(width: (subServiceCollectionView.frame.width - 40)/3, height: (subServiceCollectionView.frame.width - 40)/3)
+        }
         return CGSize(width: (subServiceCollectionView.frame.width - 40)/3, height: (screenWidth)/3)
     }
     

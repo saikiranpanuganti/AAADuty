@@ -684,6 +684,44 @@
             </objects>
             <point key="canvasLocation" x="2497" y="4"/>
         </scene>
+        <!--Vehicle Brands View Controller-->
+        <scene sceneID="rYW-pF-s29">
+            <objects>
+                <viewController storyboardIdentifier="VehicleBrandsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jxJ-Lp-ihv" customClass="VehicleBrandsViewController" customModule="AAADuty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cPr-i6-Img">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLK-Zf-ahA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
+                                <color key="backgroundColor" name="navigationBarColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GKX-gA-inC">
+                                <rect key="frame" x="0.0" y="47" width="375" height="765"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QrX-QR-Y5l"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hLK-Zf-ahA" firstAttribute="leading" secondItem="cPr-i6-Img" secondAttribute="leading" id="FUR-zE-GDS"/>
+                            <constraint firstAttribute="bottom" secondItem="GKX-gA-inC" secondAttribute="bottom" id="Rk5-76-drK"/>
+                            <constraint firstItem="GKX-gA-inC" firstAttribute="leading" secondItem="cPr-i6-Img" secondAttribute="leading" id="boF-ag-p84"/>
+                            <constraint firstItem="GKX-gA-inC" firstAttribute="top" secondItem="QrX-QR-Y5l" secondAttribute="top" id="dQU-YY-sA9"/>
+                            <constraint firstAttribute="trailing" secondItem="GKX-gA-inC" secondAttribute="trailing" id="j7i-wV-d1J"/>
+                            <constraint firstItem="hLK-Zf-ahA" firstAttribute="top" secondItem="cPr-i6-Img" secondAttribute="top" id="pER-Vk-Jig"/>
+                            <constraint firstAttribute="trailing" secondItem="hLK-Zf-ahA" secondAttribute="trailing" id="saf-zG-2Sp"/>
+                            <constraint firstItem="hLK-Zf-ahA" firstAttribute="height" secondItem="cPr-i6-Img" secondAttribute="height" multiplier="0.5" id="uiZ-b7-eoT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="GKX-gA-inC" id="r3O-Lq-QGf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mYC-Nd-FCK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3359" y="768"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bellIcon" width="26" height="28"/>

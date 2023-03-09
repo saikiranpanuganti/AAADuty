@@ -19,6 +19,8 @@ class VechicleTechnicianViewController: BaseViewController {
     
     var vechicleTypeSelection: Bool = false
     var vechicleSubTypeSelection: Bool = false
+    
+    var isManualTransition: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +90,38 @@ class VechicleTechnicianViewController: BaseViewController {
                                 controller.vechicleTypes = self.vechicleTypes
                                 controller.selectedVehicleType = self.selectedVehicleType
                                 controller.vechicleSubTypeSelection = true
+                                
+                                self.navigationController?.pushViewController(controller, animated: false)
+                            }
+                        }
+                    }catch {
+                        print("Error: FlatTyreViewController getSubCategories - \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+    }
+    
+    func getVechicleBrands(categoryId: String?, typeID: String?, vehicleTypeID: String?) {
+        if let categoryId = categoryId, let typeID = typeID, let vehicleTypeID = vehicleTypeID {
+            showLoader()
+            let bodyParams: [String: Any] = ["CategoryID": categoryId, "typeID": typeID, "VehicleTypeID": vehicleTypeID]
+            print("bodyParams - \(bodyParams)")
+            NetworkAdaptor.requestWithHeaders(urlString: Url.getVehicleBrands.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+                guard let self = self else { return }
+                self.stopLoader()
+                
+                if let data = data {
+                    do {
+                        let vechicleBrandsModel = try JSONDecoder().decode(VechicleBrandsModel.self, from: data)
+                        DispatchQueue.main.async {
+                            if let controller = Controllers.vehicleBrands.getController() as? VehicleBrandsViewController {
+                                controller.category = self.category
+                                controller.subCategories = self.subCategories
+                                controller.selectedSubCategory = self.selectedSubCategory
+                                controller.vechicleTypes = self.vechicleTypes
+                                controller.selectedVehicleType = self.selectedVehicleType
+                                controller.vehicleBrands = vechicleBrandsModel
                                 
                                 self.navigationController?.pushViewController(controller, animated: false)
                             }
@@ -196,12 +230,14 @@ extension VechicleTechnicianViewController: SubServicesTableViewCellDelegate {
     func vehicleTypeTapped(vehicleType: VechicleType?) {
         if selectedVehicleType?.id != vehicleType?.id {
             selectedVehicleType = vehicleType
+            selectedSubCategory = nil
         }
     }
     
     func subServiceTapped(subCategory: SubCategory?) {
         if selectedSubCategory?.id != subCategory?.id {
             selectedSubCategory = subCategory
+            selectedVehicleType = nil
         }
     }
 }
@@ -217,12 +253,18 @@ extension VechicleTechnicianViewController: ContinueTableViewCellDelegate {
                 getVechicleTypes(categoryId: selectedSubCategory?.categoryID, typeID: selectedSubCategory?.id)
             }
         }else if vechicleSubTypeSelection {
-//            if selectedSubCategory == nil {
-//                showAlert(title: "Error", message: "Select a vechicle type")
-//                return
-//            }else {
-//                getVechicleTypes(categoryId: <#String?#>, typeID: <#String?#>)
-//            }
+            if selectedVehicleType == nil {
+                if vechicleTypes?.response?.first?.typeID == "62bacecf4ee3da924a2d4eac" {
+                    showAlert(title: "Error", message: "Select a Bike type")
+                }else {
+                    showAlert(title: "Error", message: "Select a Car type")
+                }
+                return
+            }else if isManualTransition == nil && vechicleTypes?.response?.first?.typeID != "62bacecf4ee3da924a2d4eac" {
+                showAlert(title: "Error", message: "Select a transmission type")
+            }else {
+                getVechicleBrands(categoryId: selectedVehicleType?.categoryID, typeID: selectedVehicleType?.typeID, vehicleTypeID: selectedVehicleType?.id)
+            }
         }
     }
 }
@@ -230,9 +272,9 @@ extension VechicleTechnicianViewController: ContinueTableViewCellDelegate {
 
 extension VechicleTechnicianViewController: TransitionTableViewCellDelegate {
     func manualTapped() {
-        
+        isManualTransition = true
     }
     func automaticTapped() {
-        
+        isManualTransition = false
     }
 }
