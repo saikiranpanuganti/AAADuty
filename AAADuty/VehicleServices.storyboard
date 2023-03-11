@@ -85,6 +85,44 @@
             </objects>
             <point key="canvasLocation" x="96.946564885496173" y="717.6056338028169"/>
         </scene>
+        <!--Wooz Trip View Controller-->
+        <scene sceneID="ewj-Ft-R6E">
+            <objects>
+                <viewController storyboardIdentifier="WoozTripViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1gi-aj-8QP" customClass="WoozTripViewController" customModule="AAADuty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hOg-eC-C3X">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N04-rf-s9r">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
+                                <color key="backgroundColor" name="navigationBarColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="USw-RY-Mls">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0ES-HP-uxz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="N04-rf-s9r" firstAttribute="trailing" secondItem="hOg-eC-C3X" secondAttribute="trailing" id="ExJ-4n-ELu"/>
+                            <constraint firstItem="USw-RY-Mls" firstAttribute="top" secondItem="0ES-HP-uxz" secondAttribute="top" id="GxT-Mw-I8p"/>
+                            <constraint firstItem="N04-rf-s9r" firstAttribute="top" secondItem="hOg-eC-C3X" secondAttribute="top" id="JGt-bh-rGL"/>
+                            <constraint firstAttribute="bottom" secondItem="USw-RY-Mls" secondAttribute="bottom" id="PNb-di-nXj"/>
+                            <constraint firstAttribute="trailing" secondItem="USw-RY-Mls" secondAttribute="trailing" id="YO3-Jj-SLl"/>
+                            <constraint firstItem="USw-RY-Mls" firstAttribute="leading" secondItem="hOg-eC-C3X" secondAttribute="leading" id="ZiO-MS-1pu"/>
+                            <constraint firstItem="N04-rf-s9r" firstAttribute="height" secondItem="hOg-eC-C3X" secondAttribute="height" multiplier="0.5" id="ff1-Yb-pJ5"/>
+                            <constraint firstItem="N04-rf-s9r" firstAttribute="leading" secondItem="hOg-eC-C3X" secondAttribute="leading" id="y2d-HX-N5m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="USw-RY-Mls" id="PU9-eE-xc6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xIJ-Et-l73" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="896.94656488549617" y="716.90140845070425"/>
+        </scene>
         <!--Car Wash Details View Controller-->
         <scene sceneID="uSU-kB-wDy">
             <objects>

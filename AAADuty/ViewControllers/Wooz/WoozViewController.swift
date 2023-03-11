@@ -173,7 +173,17 @@ extension WoozViewController: SubServicesTableViewCellDelegate {
 
 extension WoozViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
-        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if let controller = Controllers.woozTrip.getController() as? WoozTripViewController {
+                controller.category = self.category
+                controller.subCategories = self.subCategories
+                controller.selectedSubCategory = self.selectedSubCategory
+                controller.complaintTypes = self.complaintTypes
+                controller.selectedComplaintType = self.selectedComplaintType
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
     }
 }
 

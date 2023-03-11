@@ -15,6 +15,7 @@ class SubCategoryCollectionViewCell: UICollectionViewCell {
     
     var subCat: SubCategory?
     var vehType: VechicleType?
+    var tripType: TripType?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +38,17 @@ class SubCategoryCollectionViewCell: UICollectionViewCell {
         subCategoryName.text = vehicleType?.vehileType
         subCategoryImage.sd_setImage(with: URL(string: vehicleType?.imageURL ?? ""))
         if vehicleType?.isSelected ?? false {
+            subCategorySelected()
+        }else {
+            subCategoryUnSelected()
+        }
+    }
+    
+    func configureUI(tripType: TripType?) {
+        self.tripType = tripType
+        subCategoryName.text = tripType?.name
+        subCategoryImage.image = UIImage(named: tripType?.image ?? "")
+        if tripType?.isSelected ?? false {
             subCategorySelected()
         }else {
             subCategoryUnSelected()

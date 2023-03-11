@@ -12,12 +12,14 @@ protocol SubServicesTableViewCellDelegate: AnyObject {
     func subServiceTapped(subCategory: SubCategory?)
     func vehicleTypeTapped(vehicleType: VechicleType?)
     func vehicleBrandTapped(vehicleBrand: VechicleBrand?)
+    func tripTypeTapped(tripType: TripType?)
 }
 
 extension SubServicesTableViewCellDelegate {
     func subServiceTapped(subCategory: SubCategory?) {  }
     func vehicleTypeTapped(vehicleType: VechicleType?) {  }
     func vehicleBrandTapped(vehicleBrand: VechicleBrand?) {  }
+    func tripTypeTapped(tripType: TripType?) {  }
 }
 
 class SubServicesTableViewCell: UITableViewCell {
@@ -32,6 +34,7 @@ class SubServicesTableViewCell: UITableViewCell {
     var subCategory: SubCategoryModel?
     var vehicleType: VechicleTypeModel?
     var vehicleBrand: VechicleBrandsModel?
+    var trips: [TripType]?
     var isServiceSelectable: Bool = true
     
     override func awakeFromNib() {
@@ -76,6 +79,18 @@ class SubServicesTableViewCell: UITableViewCell {
         }
     }
     
+    func configureUI(category: Category?, trips: [TripType]) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.trips = trips
+            self.servicename.text = category?.category
+            self.serviceIcon.sd_setImage(with: URL(string: category?.requestImageURL ?? ""))
+            self.subServiceDescription.text = "Select Trip Route"
+            self.subServiceCollectionView.reloadData()
+        }
+    }
+    
     func configureUI(category: Category?, vehicleBrand: VechicleBrandsModel?) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -91,6 +106,16 @@ class SubServicesTableViewCell: UITableViewCell {
             }
             
             self.subServiceCollectionView.reloadData()
+        }
+    }
+    
+    func setSelectedTripType(indexPath: IndexPath) {
+        for index in 0..<(trips?.count ?? 0) {
+            if index == indexPath.row {
+                trips?[index].isSelected = true
+            }else {
+                trips?[index].isSelected = false
+            }
         }
     }
     
@@ -134,6 +159,8 @@ extension SubServicesTableViewCell: UICollectionViewDataSource {
             return vehicleType?.response?.count ?? 0
         }else if vehicleBrand != nil {
             return vehicleBrand?.response?.count ?? 0
+        }else if trips != nil {
+            return trips?.count ?? 0
         }
         return 0
     }
@@ -150,6 +177,8 @@ extension SubServicesTableViewCell: UICollectionViewDataSource {
                     cell.configureUI(subCategory: subCategory?.categories?[indexPath.row])
                 }else if vehicleType != nil {
                     cell.configureUI(vehicleType: vehicleType?.response?[indexPath.row])
+                }else if trips != nil {
+                    cell.configureUI(tripType: trips?[indexPath.row])
                 }
                 return cell
             }
@@ -176,6 +205,10 @@ extension SubServicesTableViewCell: UICollectionViewDelegate {
                 setSelectedVehicleType(indexPath: indexPath)
                 updateCollectionView()
                 delegate?.vehicleTypeTapped(vehicleType: vehicleType?.response?[indexPath.row])
+            }else if trips != nil {
+                setSelectedTripType(indexPath: indexPath)
+                updateCollectionView()
+                delegate?.tripTypeTapped(tripType: trips?[indexPath.row])
             }
         }
     }
