@@ -117,6 +117,7 @@
 		7FD0BED029AA6FA10049662D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BECF29AA6FA10049662D /* Constants.swift */; };
 		7FD6941F29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD6941D29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.swift */; };
 		7FD6942029BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD6941E29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib */; };
+		7FD6942329BCA2D8005AE54B /* WoozViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD6942229BCA2D8005AE54B /* WoozViewController.swift */; };
 		7FE322BE29BB31B900E3B597 /* CarWashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE322BD29BB31B900E3B597 /* CarWashModel.swift */; };
 		7FE322C129BB3CDB00E3B597 /* CarWashVendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE322C029BB3CDB00E3B597 /* CarWashVendorsViewController.swift */; };
 		7FE322C429BB3E3700E3B597 /* VehicleServices.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE322C329BB3E3700E3B597 /* VehicleServices.storyboard */; };
@@ -243,6 +244,7 @@
 		7FD0BECF29AA6FA10049662D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7FD6941D29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashServiceTypeTableViewCell.swift; sourceTree = "<group>"; };
 		7FD6941E29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarWashServiceTypeTableViewCell.xib; sourceTree = "<group>"; };
+		7FD6942229BCA2D8005AE54B /* WoozViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoozViewController.swift; sourceTree = "<group>"; };
 		7FE322BD29BB31B900E3B597 /* CarWashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashModel.swift; sourceTree = "<group>"; };
 		7FE322C029BB3CDB00E3B597 /* CarWashVendorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashVendorsViewController.swift; sourceTree = "<group>"; };
 		7FE322C329BB3E3700E3B597 /* VehicleServices.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VehicleServices.storyboard; sourceTree = "<group>"; };
@@ -643,6 +645,7 @@
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
 				7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */,
 				7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */,
+				7FD6942129BCA236005AE54B /* Wooz */,
 				7FE322D229BBAC5F00E3B597 /* CarWashDetails */,
 				7FE322BF29BB3CBE00E3B597 /* CarWashVendors */,
 				7F06A0BD29BA379B00D9E5A4 /* VehicleComplaint */,
@@ -756,6 +759,14 @@
 				7FD6941E29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib */,
 			);
 			path = CarWashServiceType;
+			sourceTree = "<group>";
+		};
+		7FD6942129BCA236005AE54B /* Wooz */ = {
+			isa = PBXGroup;
+			children = (
+				7FD6942229BCA2D8005AE54B /* WoozViewController.swift */,
+			);
+			path = Wooz;
 			sourceTree = "<group>";
 		};
 		7FE322BF29BB3CBE00E3B597 /* CarWashVendors */ = {
@@ -1025,6 +1036,7 @@
 				7FD6941F29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.swift in Sources */,
 				7F1D5C0029B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift in Sources */,
 				7F06A0AD29B972A700D9E5A4 /* VehicleBrandsViewController.swift in Sources */,
+				7FD6942329BCA2D8005AE54B /* WoozViewController.swift in Sources */,
 				7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */,
 				7FE322CD29BB454B00E3B597 /* CarVendorTableViewCell.swift in Sources */,
 				7F37C6F529B1C058001212E1 /* LocationSelectionTableViewCell.swift in Sources */,

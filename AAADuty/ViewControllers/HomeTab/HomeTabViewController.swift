@@ -115,6 +115,11 @@ extension HomeTabViewController: CategoriesCollectionViewCellDelegate {
                 vechTechVC.vechicleTypeSelection = true
                 navigationController?.pushViewController(vechTechVC, animated: true)
             }
+        }else if category.serviceType == .wrooz {
+            if let woozVC = Controllers.wooz.getController() as? WoozViewController {
+                woozVC.category = category
+                navigationController?.pushViewController(woozVC, animated: true)
+            }
         }
     }
 }

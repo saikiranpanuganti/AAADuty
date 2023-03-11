@@ -105,7 +105,7 @@ struct Category: Codable {
             case "61c198214ee3da924a153d48":
                 return "CAR WASH"
             case "6251428b4ee3da924a25afa3":
-                return "WROOZ"
+                return "WOOZ"
             case "61234f4006bb5c6ac41d6240":
                 return "ServiceType.cleaning"
             case "61234ee6392a246aaa1496e1":
@@ -140,7 +140,7 @@ struct Category: Codable {
             case "61c198214ee3da924a153d48":
                 return "Select type of Vehicle"
             case "6251428b4ee3da924a25afa3":
-                return ""
+                return "Select type of CAR"
             case "61234f4006bb5c6ac41d6240":
                 return ""
             case "61234ee6392a246aaa1496e1":

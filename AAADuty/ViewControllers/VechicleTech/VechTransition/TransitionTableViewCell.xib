@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -40,10 +41,22 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9d-Hd-Lpb">
                                 <rect key="frame" x="316" y="26.333333333333336" width="36" height="36"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PX2-pN-l5X">
+                                        <rect key="frame" x="8" y="8" width="20" height="20"/>
+                                        <color key="backgroundColor" name="orangeAppColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="PX2-pN-l5X" secondAttribute="height" multiplier="1:1" id="3ks-kb-utZ"/>
+                                            <constraint firstAttribute="width" constant="20" id="9eM-0F-1Oz"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="PX2-pN-l5X" firstAttribute="centerY" secondItem="t9d-Hd-Lpb" secondAttribute="centerY" id="4H4-0q-Gd4"/>
                                     <constraint firstAttribute="width" secondItem="t9d-Hd-Lpb" secondAttribute="height" multiplier="1:1" id="HxO-Li-6JJ"/>
                                     <constraint firstAttribute="height" constant="36" id="TOf-tQ-ovg"/>
+                                    <constraint firstItem="PX2-pN-l5X" firstAttribute="centerX" secondItem="t9d-Hd-Lpb" secondAttribute="centerX" id="kEf-fE-32k"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOX-OH-An0">
@@ -88,9 +101,21 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayg-t6-2hl">
                                 <rect key="frame" x="316" y="26.333333333333343" width="36" height="36"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLr-97-YCW">
+                                        <rect key="frame" x="8" y="8" width="20" height="20"/>
+                                        <color key="backgroundColor" name="orangeAppColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="8zA-Pj-Qiv"/>
+                                            <constraint firstAttribute="width" secondItem="sLr-97-YCW" secondAttribute="height" multiplier="1:1" id="9BL-df-3ki"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="BX0-g8-R8A"/>
+                                    <constraint firstItem="sLr-97-YCW" firstAttribute="centerY" secondItem="ayg-t6-2hl" secondAttribute="centerY" id="NmW-wN-Ojd"/>
+                                    <constraint firstItem="sLr-97-YCW" firstAttribute="centerX" secondItem="ayg-t6-2hl" secondAttribute="centerX" id="kvN-Ec-Q9d"/>
                                     <constraint firstAttribute="width" secondItem="ayg-t6-2hl" secondAttribute="height" multiplier="1:1" id="vA2-Bj-pfa"/>
                                 </constraints>
                             </view>
@@ -132,8 +157,14 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="automaticCircleView" destination="ayg-t6-2hl" id="5GJ-uC-wkv"/>
+                <outlet property="automaticImage" destination="1ck-fK-OWw" id="jvZ-li-OyV"/>
+                <outlet property="automaticInnerCircleView" destination="sLr-97-YCW" id="grb-B9-Cl9"/>
+                <outlet property="automaticLabel" destination="XwY-da-mxb" id="2R5-If-QrV"/>
                 <outlet property="automaticView" destination="COl-3a-fE1" id="0xk-xd-xfD"/>
                 <outlet property="manualCircleView" destination="t9d-Hd-Lpb" id="Qqx-pi-owe"/>
+                <outlet property="manualImage" destination="sZ1-Ql-WHD" id="BAI-qh-mYn"/>
+                <outlet property="manualInnerCircleView" destination="PX2-pN-l5X" id="Kcq-5B-wjh"/>
+                <outlet property="manualLabel" destination="h0N-Tk-EG6" id="a0c-Fi-tGb"/>
                 <outlet property="manualView" destination="RH6-eL-gef" id="rBX-hJ-lYb"/>
             </connections>
             <point key="canvasLocation" x="5" y="100"/>
@@ -142,6 +173,9 @@
     <resources>
         <image name="automatic" width="34" height="34"/>
         <image name="manual" width="40" height="40"/>
+        <namedColor name="orangeAppColor">
+            <color red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
