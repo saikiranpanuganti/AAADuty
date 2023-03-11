@@ -33,7 +33,7 @@ class LocationTableViewCell: UITableViewCell {
         }
     }
     
-    func configureUI(title: String) {
+    func configureUI(title: String?) {
         titleOutlet.text = title
     }
 

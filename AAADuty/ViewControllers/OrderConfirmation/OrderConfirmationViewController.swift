@@ -81,7 +81,7 @@ class OrderConfirmationViewController: BaseViewController {
     func createOrderRequest() {
         if let orderRequestParams = orderDetails?.getRequestParams() {
             showLoader()
-            print("Body params - \(orderRequestParams)")
+            
             NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: orderRequestParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
@@ -121,6 +121,7 @@ extension OrderConfirmationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as? LocationTableViewCell {
+                cell.configureUI(title: orderDetails?.category?.categoryTitle)
                 cell.delegate = self
                 return cell
             }
@@ -131,16 +132,14 @@ extension OrderConfirmationViewController: UITableViewDataSource {
                     cell.configureUI(orderDetails: orderDetails)
                     return cell
                 }
-            }else if orderDetails?.category?.serviceType == .flatTyre {
+            }else if orderDetails?.category?.serviceType == .flatTyre || orderDetails?.category?.serviceType == .vechicletech {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "OrderAddressTableViewCell", for: indexPath) as? OrderAddressTableViewCell {
                     cell.delegate = self
-                    cell.configureUI(orderDetails: orderDetails)
-                    return cell
-                }
-            }else {
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "OrderAddressTableViewCell", for: indexPath) as? OrderAddressTableViewCell {
-                    cell.delegate = self
-                    cell.configureUI(orderDetails_VT: orderDetails)
+                    if orderDetails?.category?.serviceType == .flatTyre {
+                        cell.configureUI(orderDetails: orderDetails)
+                    }else if orderDetails?.category?.serviceType == .vechicletech {
+                        cell.configureUI(orderDetails_VT: orderDetails)
+                    }
                     return cell
                 }
             }

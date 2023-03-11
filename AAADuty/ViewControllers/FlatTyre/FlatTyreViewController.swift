@@ -153,6 +153,7 @@ extension FlatTyreViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as? LocationTableViewCell {
+                cell.configureUI(title: category?.categoryTitle)
                 cell.delegate = self
                 return cell
             }

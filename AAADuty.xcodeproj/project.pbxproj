@@ -115,6 +115,16 @@
 		7FD0BECD29AA672A0049662D /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BECB29AA672A0049662D /* ProfileTableViewCell.swift */; };
 		7FD0BECE29AA672A0049662D /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD0BECC29AA672A0049662D /* ProfileTableViewCell.xib */; };
 		7FD0BED029AA6FA10049662D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BECF29AA6FA10049662D /* Constants.swift */; };
+		7FD6941F29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD6941D29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.swift */; };
+		7FD6942029BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD6941E29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib */; };
+		7FE322BE29BB31B900E3B597 /* CarWashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE322BD29BB31B900E3B597 /* CarWashModel.swift */; };
+		7FE322C129BB3CDB00E3B597 /* CarWashVendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE322C029BB3CDB00E3B597 /* CarWashVendorsViewController.swift */; };
+		7FE322C429BB3E3700E3B597 /* VehicleServices.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE322C329BB3E3700E3B597 /* VehicleServices.storyboard */; };
+		7FE322C829BB419E00E3B597 /* ServiceDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE322C629BB419E00E3B597 /* ServiceDetailsTableViewCell.swift */; };
+		7FE322C929BB419E00E3B597 /* ServiceDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FE322C729BB419E00E3B597 /* ServiceDetailsTableViewCell.xib */; };
+		7FE322CD29BB454B00E3B597 /* CarVendorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE322CB29BB454B00E3B597 /* CarVendorTableViewCell.swift */; };
+		7FE322CE29BB454B00E3B597 /* CarVendorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FE322CC29BB454B00E3B597 /* CarVendorTableViewCell.xib */; };
+		7FE322D429BBAC7600E3B597 /* CarWashDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE322D329BBAC7600E3B597 /* CarWashDetailsViewController.swift */; };
 		ECAF29D3E7222490E3D52D28 /* Pods_AAADuty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D345A99F1A8F0CD9AECA32D /* Pods_AAADuty.framework */; };
 /* End PBXBuildFile section */
 
@@ -231,6 +241,16 @@
 		7FD0BECB29AA672A0049662D /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		7FD0BECC29AA672A0049662D /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		7FD0BECF29AA6FA10049662D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7FD6941D29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashServiceTypeTableViewCell.swift; sourceTree = "<group>"; };
+		7FD6941E29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarWashServiceTypeTableViewCell.xib; sourceTree = "<group>"; };
+		7FE322BD29BB31B900E3B597 /* CarWashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashModel.swift; sourceTree = "<group>"; };
+		7FE322C029BB3CDB00E3B597 /* CarWashVendorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashVendorsViewController.swift; sourceTree = "<group>"; };
+		7FE322C329BB3E3700E3B597 /* VehicleServices.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VehicleServices.storyboard; sourceTree = "<group>"; };
+		7FE322C629BB419E00E3B597 /* ServiceDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		7FE322C729BB419E00E3B597 /* ServiceDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		7FE322CB29BB454B00E3B597 /* CarVendorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarVendorTableViewCell.swift; sourceTree = "<group>"; };
+		7FE322CC29BB454B00E3B597 /* CarVendorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarVendorTableViewCell.xib; sourceTree = "<group>"; };
+		7FE322D329BBAC7600E3B597 /* CarWashDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashDetailsViewController.swift; sourceTree = "<group>"; };
 		EACC6E468B20FE4A7D5C4931 /* Pods-AAADuty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AAADuty.debug.xcconfig"; path = "Target Support Files/Pods-AAADuty/Pods-AAADuty.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -460,6 +480,7 @@
 			children = (
 				7F1A487229AB6F6300C432DF /* CategoriesModel.swift */,
 				7F13C2D729B0FEEB00EFFE7E /* SubCategoryModel.swift */,
+				7FE322BD29BB31B900E3B597 /* CarWashModel.swift */,
 				7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */,
 				7F3347D829B857370083CC79 /* OrderDetails.swift */,
 				7F3347DA29B858F80083CC79 /* OrderRequestModel.swift */,
@@ -622,6 +643,8 @@
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
 				7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */,
 				7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */,
+				7FE322D229BBAC5F00E3B597 /* CarWashDetails */,
+				7FE322BF29BB3CBE00E3B597 /* CarWashVendors */,
 				7F06A0BD29BA379B00D9E5A4 /* VehicleComplaint */,
 				7F06A0AB29B9724E00D9E5A4 /* VehicleBrands */,
 				7F3347DC29B887910083CC79 /* VechicleTech */,
@@ -690,6 +713,7 @@
 				7FD0BE9929A8F77A0049662D /* Main.storyboard */,
 				7FD0BEB929A9320F0049662D /* TabBar.storyboard */,
 				7F02F0C429AE724500E4B775 /* Services.storyboard */,
+				7FE322C329BB3E3700E3B597 /* VehicleServices.storyboard */,
 				7FD0BE9C29A8F77B0049662D /* Assets.xcassets */,
 				7FD0BE9E29A8F77B0049662D /* LaunchScreen.storyboard */,
 				7FD0BEA129A8F77B0049662D /* Info.plist */,
@@ -723,6 +747,52 @@
 				7F1A484E29AA802200C432DF /* SideMenuView.xib */,
 			);
 			path = SideMenuView;
+			sourceTree = "<group>";
+		};
+		7FD6941C29BC8AAC005AE54B /* CarWashServiceType */ = {
+			isa = PBXGroup;
+			children = (
+				7FD6941D29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.swift */,
+				7FD6941E29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib */,
+			);
+			path = CarWashServiceType;
+			sourceTree = "<group>";
+		};
+		7FE322BF29BB3CBE00E3B597 /* CarWashVendors */ = {
+			isa = PBXGroup;
+			children = (
+				7FE322C029BB3CDB00E3B597 /* CarWashVendorsViewController.swift */,
+				7FE322CA29BB453700E3B597 /* CarVendor */,
+				7FE322C529BB415400E3B597 /* ServiceDetails */,
+			);
+			path = CarWashVendors;
+			sourceTree = "<group>";
+		};
+		7FE322C529BB415400E3B597 /* ServiceDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7FE322C629BB419E00E3B597 /* ServiceDetailsTableViewCell.swift */,
+				7FE322C729BB419E00E3B597 /* ServiceDetailsTableViewCell.xib */,
+			);
+			path = ServiceDetails;
+			sourceTree = "<group>";
+		};
+		7FE322CA29BB453700E3B597 /* CarVendor */ = {
+			isa = PBXGroup;
+			children = (
+				7FE322CB29BB454B00E3B597 /* CarVendorTableViewCell.swift */,
+				7FE322CC29BB454B00E3B597 /* CarVendorTableViewCell.xib */,
+			);
+			path = CarVendor;
+			sourceTree = "<group>";
+		};
+		7FE322D229BBAC5F00E3B597 /* CarWashDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7FE322D329BBAC7600E3B597 /* CarWashDetailsViewController.swift */,
+				7FD6941C29BC8AAC005AE54B /* CarWashServiceType */,
+			);
+			path = CarWashDetails;
 			sourceTree = "<group>";
 		};
 		E96DB312EB579D5758F47087 /* Frameworks */ = {
@@ -799,10 +869,12 @@
 				7F1A485629AA827D00C432DF /* MenuTableViewCell.xib in Resources */,
 				7F02F0CE29AE79B500E4B775 /* LocationTableViewCell.xib in Resources */,
 				7F37C70029B1D641001212E1 /* ContinueTableViewCell.xib in Resources */,
+				7FE322C429BB3E3700E3B597 /* VehicleServices.storyboard in Resources */,
 				7F30A52E29B112EB002F802F /* SubCategoryCollectionViewCell.xib in Resources */,
 				7F1A485029AA802200C432DF /* SideMenuView.xib in Resources */,
 				7FD0BEA029A8F77B0049662D /* LaunchScreen.storyboard in Resources */,
 				7F30A54129B11828002F802F /* Segoe-UI-Bold.ttf in Resources */,
+				7FE322C929BB419E00E3B597 /* ServiceDetailsTableViewCell.xib in Resources */,
 				7F30A53529B1175E002F802F /* Poppins-Light.otf in Resources */,
 				7F3347E329B8D9120083CC79 /* TransitionTableViewCell.xib in Resources */,
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
@@ -818,8 +890,10 @@
 				7F13C2D629B0E07300EFFE7E /* SubServicesTableViewCell.xib in Resources */,
 				7F08778929B28C2B004CB905 /* PaymentModeTableViewCell.xib in Resources */,
 				7F30A53629B11760002F802F /* Poppins-Regular.otf in Resources */,
+				7FD6942029BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib in Resources */,
 				7F1D5C0129B2F3AC00B8C6DD /* TowingDetailsTableViewCell.xib in Resources */,
 				7F1A486229AB448600C432DF /* ImageCollectionViewCell.xib in Resources */,
+				7FE322CE29BB454B00E3B597 /* CarVendorTableViewCell.xib in Resources */,
 				7F37C6FB29B1CE41001212E1 /* CommentsTableViewCell.xib in Resources */,
 				7FB7B55329B25CBC0006E206 /* OrderReviewTableViewCell.xib in Resources */,
 				7F37C6F129B1BF2A001212E1 /* Segoe-UI-SemiBold.ttf in Resources */,
@@ -907,12 +981,14 @@
 				7F08778C29B293A9004CB905 /* TowingViewController.swift in Sources */,
 				7FD0BEC429A9E9880049662D /* ProfileTabViewController.swift in Sources */,
 				7F1A485529AA827D00C432DF /* MenuTableViewCell.swift in Sources */,
+				7FE322D429BBAC7600E3B597 /* CarWashDetailsViewController.swift in Sources */,
 				7F06A0C829BA52D600D9E5A4 /* OrderDetailsTableViewCell.swift in Sources */,
 				7FB8C40929AB949A005B6B4E /* BaseViewController.swift in Sources */,
 				7F06A0B129B97FA800D9E5A4 /* BrandCollectionViewCell.swift in Sources */,
 				7F06A0BF29BA37B000D9E5A4 /* VehicleComplaintViewController.swift in Sources */,
 				7F13C2D129B0DF7500EFFE7E /* ServiceType.swift in Sources */,
 				7F1A487029AB6E2600C432DF /* UrlHandler.swift in Sources */,
+				7FE322BE29BB31B900E3B597 /* CarWashModel.swift in Sources */,
 				7F3347DB29B858F80083CC79 /* OrderRequestModel.swift in Sources */,
 				7FD0BEAC29A8FE930049662D /* AAALabel.swift in Sources */,
 				7F06A0C329BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.swift in Sources */,
@@ -946,18 +1022,22 @@
 				7F06A0BB29B98B7500D9E5A4 /* LabelTableViewCell.swift in Sources */,
 				7F3347E229B8D9120083CC79 /* TransitionTableViewCell.swift in Sources */,
 				7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */,
+				7FD6941F29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.swift in Sources */,
 				7F1D5C0029B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift in Sources */,
 				7F06A0AD29B972A700D9E5A4 /* VehicleBrandsViewController.swift in Sources */,
 				7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */,
+				7FE322CD29BB454B00E3B597 /* CarVendorTableViewCell.swift in Sources */,
 				7F37C6F529B1C058001212E1 /* LocationSelectionTableViewCell.swift in Sources */,
 				7F30A53029B112EF002F802F /* SubCategoryCollectionViewCell.swift in Sources */,
 				7F1A485129AA802200C432DF /* SideMenuView.swift in Sources */,
 				7F1A486129AB448600C432DF /* ImageCollectionViewCell.swift in Sources */,
 				7F37C6FF29B1D641001212E1 /* ContinueTableViewCell.swift in Sources */,
+				7FE322C129BB3CDB00E3B597 /* CarWashVendorsViewController.swift in Sources */,
 				7FD0BED029AA6FA10049662D /* Constants.swift in Sources */,
 				7F1A486629AB513700C432DF /* CategoriesCollectionViewCell.swift in Sources */,
 				7FB7B54D29B257DB0006E206 /* BillDetailsTableViewCell.swift in Sources */,
 				7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */,
+				7FE322C829BB419E00E3B597 /* ServiceDetailsTableViewCell.swift in Sources */,
 				7FD0BEB629A922FB0049662D /* OTPStackView.swift in Sources */,
 				7F02F0CD29AE79B500E4B775 /* LocationTableViewCell.swift in Sources */,
 				7FD0BEC029A9E96E0049662D /* BookingsTabViewController.swift in Sources */,

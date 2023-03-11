@@ -15,6 +15,13 @@ struct Location: Codable {
     var address: String?
     var placeName: String?
     var postalCode: String?
+    
+    func getCoordinatesString() -> String? {
+        if let latitude = latitude, let longitude = longitude {
+            return "\(latitude),\(longitude)"
+        }
+        return nil
+    }
 }
 
 

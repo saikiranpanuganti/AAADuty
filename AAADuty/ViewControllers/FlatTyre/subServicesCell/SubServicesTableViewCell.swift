@@ -32,6 +32,7 @@ class SubServicesTableViewCell: UITableViewCell {
     var subCategory: SubCategoryModel?
     var vehicleType: VechicleTypeModel?
     var vehicleBrand: VechicleBrandsModel?
+    var isServiceSelectable: Bool = true
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,10 +51,11 @@ class SubServicesTableViewCell: UITableViewCell {
         }
     }
 
-    func configureUI(category: Category?, subCategory: SubCategoryModel?) {
+    func configureUI(category: Category?, subCategory: SubCategoryModel?, isServiceSelectable: Bool = true) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
+            self.isServiceSelectable = isServiceSelectable
             self.subCategory = subCategory
             self.servicename.text = category?.category
             self.serviceIcon.sd_setImage(with: URL(string: category?.requestImageURL ?? ""))
@@ -158,6 +160,9 @@ extension SubServicesTableViewCell: UICollectionViewDataSource {
 
 extension SubServicesTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if !isServiceSelectable {
+            return
+        }
         if vehicleBrand != nil {
             setSelectedVehicleBrand(indexPath: indexPath)
             updateCollectionView()

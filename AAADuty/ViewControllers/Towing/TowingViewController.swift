@@ -16,6 +16,7 @@ class TowingViewController: BaseViewController {
     var complaintType: ComplaintType?
     var pickUpLocation: Location?
     var dropLocation: Location?
+    var carWashVendors: CarWashVendorsModel?
     
     var price: Int {
         return complaintType?.price ?? 0
@@ -54,12 +55,26 @@ class TowingViewController: BaseViewController {
             }
         }
     }
+    
+    func navigateToCarWashVendorsVC() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if let controller = Controllers.carWashVendors.getController() as? CarWashVendorsViewController {
+                controller.category = self.category
+                controller.subCategories = self.subCategories
+                controller.selectedSubCategory = self.selectedSubCategory
+                controller.complaintType = self.complaintType
+                controller.pickUpLocation = self.pickUpLocation
+                controller.carWashVendors = self.carWashVendors
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
+    }
 
     func getSubCategories() {
         if let categoryId = category?.id {
             showLoader()
             let bodyParams: [String: Any] = ["CategoryID": categoryId]
-            print("Body params - \(bodyParams)")
             NetworkAdaptor.requestWithHeaders(urlString: Url.getTypes.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
@@ -128,6 +143,31 @@ class TowingViewController: BaseViewController {
             self.showAlert(title: "Error", message: "Please selected type of towing")
         }
     }
+    
+    func getCarVendors() {
+        if let coordinates = pickUpLocation?.getCoordinatesString(), let postalCodeStr = pickUpLocation?.postalCode {
+            showLoader()
+            
+            let bodyParams: [String: Any] = ["pinCode": postalCodeStr, "coordinates": coordinates]
+            print("bodyParams - \(bodyParams)")
+            NetworkAdaptor.requestWithHeaders(urlString: Url.getCarWashVendors.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+                guard let self = self else { return }
+                self.stopLoader()
+                
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data)
+                        print("Json: \(json)")
+                        let carWashVendorsModel = try JSONDecoder().decode(CarWashVendorsModel.self, from: data)
+                        self.carWashVendors = carWashVendorsModel
+                        self.navigateToCarWashVendorsVC()
+                    }catch {
+                        print("Error: TowingViewController CarWash checkAvailability - \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+    }
 }
 
 extension TowingViewController: UITableViewDataSource {
@@ -141,7 +181,7 @@ extension TowingViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as? LocationTableViewCell {
                 cell.delegate = self
-                cell.configureUI(title: "TOWING")
+                cell.configureUI(title: category?.categoryTitle)
                 return cell
             }
         }else if indexPath.row == 1 {
@@ -153,7 +193,12 @@ extension TowingViewController: UITableViewDataSource {
         }else if indexPath.row == 2 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSelectionTableViewCell", for: indexPath) as? LocationSelectionTableViewCell {
                 cell.delegate = self
-                cell.configureUI(title: "Pickup Location", address: pickUpLocation?.address, pickUp: true)
+                if category?.serviceType == .carWash {
+                    cell.configureUI(title: "Service Location", address: pickUpLocation?.address, pickUp: true)
+                }else {
+                    cell.configureUI(title: "Pickup Location", address: pickUpLocation?.address, pickUp: true)
+                }
+                
                 return cell
             }
         }else if indexPath.row == 3 {
@@ -206,20 +251,35 @@ extension TowingViewController: SubServicesTableViewCellDelegate {
 
 extension TowingViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
-        if price == 0 {
-            showAlert(title: "Error", message: "Please select a service")
-            return
-        }else if pickUpLocation == nil {
-            showAlert(title: "Error", message: "Please select the pickup location")
-            return
-        }else if dropLocation == nil {
-            showAlert(title: "Error", message: "Please select the drop location")
-            return
-        }else if pickUpLocation?.address == dropLocation?.address {
-            showAlert(title: "Error", message: "Pickup location and drop location cannot be same")
-            return
+        if category?.serviceType == .towing {
+            if price == 0 {
+                showAlert(title: "Error", message: "Please select a service")
+                return
+            }else if pickUpLocation == nil {
+                showAlert(title: "Error", message: "Please select the pickup location")
+                return
+            }else if dropLocation == nil {
+                showAlert(title: "Error", message: "Please select the drop location")
+                return
+            }else if pickUpLocation?.address == dropLocation?.address {
+                showAlert(title: "Error", message: "Pickup location and drop location cannot be same")
+                return
+            }else {
+                checkAvailability()
+            }
+        }else if category?.serviceType == .carWash {
+            if selectedSubCategory == nil {
+                showAlert(title: "Error", message: "Please select a vehicle type")
+            }else if pickUpLocation == nil {
+                showAlert(title: "Error", message: "Please select the pickup location")
+                return
+            }else if dropLocation == nil {
+                showAlert(title: "Error", message: "Please select the drop location")
+                return
+            }else {
+                getCarVendors()
+            }
         }
-        checkAvailability()
     }
 }
 

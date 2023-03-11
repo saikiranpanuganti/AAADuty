@@ -74,7 +74,7 @@ class VehicleBrandsViewController: BaseViewController {
         if let categoryId = categoryId, let typeID = typeID, let vehicleTypeID = vehicleTypeID, let brandID = brandID {
             showLoader()
             let bodyParams: [String: Any] = ["CategoryID": categoryId, "typeID": typeID, "VehicleTypeID": vehicleTypeID, "BrandID": brandID]
-            print("bodyParams - \(bodyParams)")
+            
             NetworkAdaptor.requestWithHeaders(urlString: Url.getVehicles.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
@@ -98,7 +98,7 @@ class VehicleBrandsViewController: BaseViewController {
         if let categoryId = categoryId, let typeID = typeID, let vehicleTypeID = vehicleTypeID {
             showLoader()
             let bodyParams: [String: Any] = ["CategoryID": categoryId, "typeID": typeID, "VehicleTypeID": vehicleTypeID]
-            print("bodyParams - \(bodyParams)")
+            
             NetworkAdaptor.requestWithHeaders(urlString: Url.getVehicleProblems.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
@@ -185,6 +185,7 @@ extension VehicleBrandsViewController: UITableViewDataSource {
         if indexPath.section == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as? LocationTableViewCell {
                 cell.delegate = self
+                cell.configureUI(title: category?.categoryTitle)
                 return cell
             }
         }else if indexPath.section == 1 {

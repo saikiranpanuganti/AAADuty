@@ -104,7 +104,7 @@ extension HomeTabViewController: CategoriesCollectionViewCellDelegate {
                 flatTyreVC.category = category
                 navigationController?.pushViewController(flatTyreVC, animated: true)
             }
-        }else if category.serviceType == .towing {
+        }else if category.serviceType == .towing || category.serviceType == .carWash {
             if let towingVC = Controllers.towing.getController() as? TowingViewController {
                 towingVC.category = category
                 navigationController?.pushViewController(towingVC, animated: true)

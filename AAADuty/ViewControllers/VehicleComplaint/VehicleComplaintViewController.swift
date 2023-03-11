@@ -87,7 +87,7 @@ class VehicleComplaintViewController: BaseViewController {
             showLoader()
             
             let bodyParams: [String: Any] = ["pinCode": postalCode, "CategoryID": categoryId]
-            print("VehicleComplaintViewController Body Parama: \(bodyParams)")
+            
             NetworkAdaptor.requestWithHeaders(urlString: Url.checkRequestAvailability.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
@@ -166,6 +166,7 @@ extension VehicleComplaintViewController: UITableViewDataSource {
         if indexPath.section == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell", for: indexPath) as? LocationTableViewCell {
                 cell.delegate = self
+                cell.configureUI(title: category?.categoryTitle)
                 return cell
             }
         }else if indexPath.section == 1 {
