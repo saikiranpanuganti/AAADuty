@@ -24,23 +24,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RH6-eL-gef">
-                        <rect key="frame" x="20" y="15" width="372" height="88.666666666666671"/>
+                        <rect key="frame" x="20" y="15" width="372" height="90"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manual" translatesAutoresizingMaskIntoConstraints="NO" id="sZ1-Ql-WHD">
-                                <rect key="frame" x="35" y="24.333333333333336" width="40" height="40.000000000000007"/>
+                                <rect key="frame" x="35" y="25" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="sZ1-Ql-WHD" secondAttribute="height" multiplier="1:1" id="5Zl-je-QaJ"/>
                                     <constraint firstAttribute="width" constant="40" id="gm5-eO-6ls"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0N-Tk-EG6">
-                                <rect key="frame" x="95" y="30.333333333333336" width="76.333333333333314" height="28"/>
+                                <rect key="frame" x="95" y="31" width="76.333333333333314" height="28"/>
                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9d-Hd-Lpb">
-                                <rect key="frame" x="316" y="26.333333333333336" width="36" height="36"/>
+                                <rect key="frame" x="316" y="27" width="36" height="36"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PX2-pN-l5X">
                                         <rect key="frame" x="8" y="8" width="20" height="20"/>
@@ -60,7 +60,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOX-OH-An0">
-                                <rect key="frame" x="0.0" y="0.0" width="372" height="88.666666666666671"/>
+                                <rect key="frame" x="0.0" y="0.0" width="372" height="90"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
@@ -71,6 +71,7 @@
                         <color key="backgroundColor" red="0.90980392156862744" green="0.95294117647058818" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="t9d-Hd-Lpb" secondAttribute="trailing" constant="20" id="40w-tv-AJn"/>
+                            <constraint firstAttribute="height" constant="90" id="AcU-BB-T9K"/>
                             <constraint firstItem="pOX-OH-An0" firstAttribute="centerX" secondItem="RH6-eL-gef" secondAttribute="centerX" id="HVC-Lu-T96"/>
                             <constraint firstItem="pOX-OH-An0" firstAttribute="height" secondItem="RH6-eL-gef" secondAttribute="height" id="OBM-JC-2dx"/>
                             <constraint firstItem="h0N-Tk-EG6" firstAttribute="leading" secondItem="sZ1-Ql-WHD" secondAttribute="trailing" constant="20" id="WGW-G6-6QB"/>
@@ -80,27 +81,26 @@
                             <constraint firstItem="h0N-Tk-EG6" firstAttribute="centerY" secondItem="RH6-eL-gef" secondAttribute="centerY" id="i4S-UH-cmw"/>
                             <constraint firstItem="t9d-Hd-Lpb" firstAttribute="centerY" secondItem="RH6-eL-gef" secondAttribute="centerY" id="nth-hB-8kj"/>
                             <constraint firstItem="sZ1-Ql-WHD" firstAttribute="leading" secondItem="RH6-eL-gef" secondAttribute="leading" constant="35" id="sv1-Kl-r2p"/>
-                            <constraint firstAttribute="width" secondItem="RH6-eL-gef" secondAttribute="height" multiplier="4.2:1" id="way-cH-S8W"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COl-3a-fE1">
-                        <rect key="frame" x="20" y="128.66666666666666" width="372" height="88.333333333333343"/>
+                        <rect key="frame" x="20" y="130" width="372" height="90"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="automatic" translatesAutoresizingMaskIntoConstraints="NO" id="1ck-fK-OWw">
-                                <rect key="frame" x="35" y="24.333333333333343" width="40" height="40"/>
+                                <rect key="frame" x="35" y="25" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="00J-Pk-F1C"/>
                                     <constraint firstAttribute="width" secondItem="1ck-fK-OWw" secondAttribute="height" multiplier="1:1" id="n8K-KV-kk6"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Gear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwY-da-mxb">
-                                <rect key="frame" x="95" y="30.333333333333343" width="101.66666666666669" height="28"/>
+                                <rect key="frame" x="95" y="31" width="101.66666666666669" height="28"/>
                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayg-t6-2hl">
-                                <rect key="frame" x="316" y="26.333333333333343" width="36" height="36"/>
+                                <rect key="frame" x="316" y="27" width="36" height="36"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLr-97-YCW">
                                         <rect key="frame" x="8" y="8" width="20" height="20"/>
@@ -120,7 +120,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVi-iP-V3S">
-                                <rect key="frame" x="0.0" y="0.0" width="372" height="88.333333333333329"/>
+                                <rect key="frame" x="0.0" y="0.0" width="372" height="90"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
@@ -134,6 +134,7 @@
                             <constraint firstItem="XwY-da-mxb" firstAttribute="centerY" secondItem="COl-3a-fE1" secondAttribute="centerY" id="GKJ-rc-t9m"/>
                             <constraint firstItem="XwY-da-mxb" firstAttribute="leading" secondItem="1ck-fK-OWw" secondAttribute="trailing" constant="20" id="JDC-cl-ux7"/>
                             <constraint firstAttribute="trailing" secondItem="ayg-t6-2hl" secondAttribute="trailing" constant="20" id="Obv-IO-6d7"/>
+                            <constraint firstAttribute="height" constant="90" id="Ptn-Yx-7gU"/>
                             <constraint firstItem="aVi-iP-V3S" firstAttribute="centerY" secondItem="COl-3a-fE1" secondAttribute="centerY" id="She-KQ-SIF"/>
                             <constraint firstItem="1ck-fK-OWw" firstAttribute="leading" secondItem="COl-3a-fE1" secondAttribute="leading" constant="35" id="VNC-sV-Y90"/>
                             <constraint firstItem="aVi-iP-V3S" firstAttribute="height" secondItem="COl-3a-fE1" secondAttribute="height" id="ffq-Qk-Rek"/>
@@ -148,7 +149,6 @@
                     <constraint firstItem="COl-3a-fE1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="6Nv-Sc-gVH"/>
                     <constraint firstItem="COl-3a-fE1" firstAttribute="leading" secondItem="RH6-eL-gef" secondAttribute="leading" id="S9a-aE-pl9"/>
                     <constraint firstItem="RH6-eL-gef" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="TfW-KN-nxO"/>
-                    <constraint firstItem="COl-3a-fE1" firstAttribute="width" secondItem="COl-3a-fE1" secondAttribute="height" multiplier="4.2:1" id="Ubq-SG-mf6"/>
                     <constraint firstItem="COl-3a-fE1" firstAttribute="top" secondItem="RH6-eL-gef" secondAttribute="bottom" constant="25" id="bax-lB-UIm"/>
                     <constraint firstItem="RH6-eL-gef" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="hLn-6K-qvQ"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="COl-3a-fE1" secondAttribute="bottom" constant="25" id="kf5-Ik-ehu"/>

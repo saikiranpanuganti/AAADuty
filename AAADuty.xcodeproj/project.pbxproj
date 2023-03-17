@@ -82,6 +82,15 @@
 		7F37C70029B1D641001212E1 /* ContinueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F37C6FE29B1D641001212E1 /* ContinueTableViewCell.xib */; };
 		7F5A412129B7577B00BEE0FB /* RequestAcceptedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */; };
 		7F5A412329B7A23C00BEE0FB /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */; };
+		7F75B6E529C46449005871B2 /* WaitingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F75B6E329C46449005871B2 /* WaitingTableViewCell.swift */; };
+		7F75B6E629C46449005871B2 /* WaitingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F75B6E429C46449005871B2 /* WaitingTableViewCell.xib */; };
+		7F75B6E929C4708A005871B2 /* WoozModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F75B6E829C4708A005871B2 /* WoozModels.swift */; };
+		7F75B6ED29C47372005871B2 /* WaitingTimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F75B6EB29C47372005871B2 /* WaitingTimeCollectionViewCell.swift */; };
+		7F75B6EE29C47372005871B2 /* WaitingTimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F75B6EC29C47372005871B2 /* WaitingTimeCollectionViewCell.xib */; };
+		7F75B6F229C4A35B005871B2 /* InstructionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F75B6F029C4A35B005871B2 /* InstructionsTableViewCell.swift */; };
+		7F75B6F329C4A35B005871B2 /* InstructionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F75B6F129C4A35B005871B2 /* InstructionsTableViewCell.xib */; };
+		7F75B6F729C4BEDF005871B2 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F75B6F529C4BEDF005871B2 /* NoteTableViewCell.swift */; };
+		7F75B6F829C4BEDF005871B2 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F75B6F629C4BEDF005871B2 /* NoteTableViewCell.xib */; };
 		7FA5CBBA29B4517E00E242A4 /* MapResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5CBB929B4517E00E242A4 /* MapResultTableViewCell.swift */; };
 		7FB7B54429B2298B0006E206 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */; };
 		7FB7B54829B24E6C0006E206 /* OrderAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54629B24E6C0006E206 /* OrderAddressTableViewCell.swift */; };
@@ -208,6 +217,15 @@
 		7F37C6FE29B1D641001212E1 /* ContinueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContinueTableViewCell.xib; sourceTree = "<group>"; };
 		7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAcceptedViewController.swift; sourceTree = "<group>"; };
 		7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		7F75B6E329C46449005871B2 /* WaitingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingTableViewCell.swift; sourceTree = "<group>"; };
+		7F75B6E429C46449005871B2 /* WaitingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaitingTableViewCell.xib; sourceTree = "<group>"; };
+		7F75B6E829C4708A005871B2 /* WoozModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoozModels.swift; sourceTree = "<group>"; };
+		7F75B6EB29C47372005871B2 /* WaitingTimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingTimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		7F75B6EC29C47372005871B2 /* WaitingTimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaitingTimeCollectionViewCell.xib; sourceTree = "<group>"; };
+		7F75B6F029C4A35B005871B2 /* InstructionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTableViewCell.swift; sourceTree = "<group>"; };
+		7F75B6F129C4A35B005871B2 /* InstructionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsTableViewCell.xib; sourceTree = "<group>"; };
+		7F75B6F529C4BEDF005871B2 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		7F75B6F629C4BEDF005871B2 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		7FA5CBB929B4517E00E242A4 /* MapResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResultTableViewCell.swift; sourceTree = "<group>"; };
 		7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		7FB7B54629B24E6C0006E206 /* OrderAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -488,6 +506,7 @@
 				7F0DEE3D29ABAD35000BADA7 /* UserModel.swift */,
 				7F3347D829B857370083CC79 /* OrderDetails.swift */,
 				7F3347DA29B858F80083CC79 /* OrderRequestModel.swift */,
+				7F75B6E829C4708A005871B2 /* WoozModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -593,6 +612,42 @@
 				7F37C6FE29B1D641001212E1 /* ContinueTableViewCell.xib */,
 			);
 			path = ContinueCell;
+			sourceTree = "<group>";
+		};
+		7F75B6E229C4642B005871B2 /* Waiting */ = {
+			isa = PBXGroup;
+			children = (
+				7F75B6E329C46449005871B2 /* WaitingTableViewCell.swift */,
+				7F75B6E429C46449005871B2 /* WaitingTableViewCell.xib */,
+			);
+			path = Waiting;
+			sourceTree = "<group>";
+		};
+		7F75B6EA29C472E8005871B2 /* WaitingTime */ = {
+			isa = PBXGroup;
+			children = (
+				7F75B6EB29C47372005871B2 /* WaitingTimeCollectionViewCell.swift */,
+				7F75B6EC29C47372005871B2 /* WaitingTimeCollectionViewCell.xib */,
+			);
+			path = WaitingTime;
+			sourceTree = "<group>";
+		};
+		7F75B6EF29C4A330005871B2 /* SpecialInstructions */ = {
+			isa = PBXGroup;
+			children = (
+				7F75B6F029C4A35B005871B2 /* InstructionsTableViewCell.swift */,
+				7F75B6F129C4A35B005871B2 /* InstructionsTableViewCell.xib */,
+			);
+			path = SpecialInstructions;
+			sourceTree = "<group>";
+		};
+		7F75B6F429C4BE06005871B2 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				7F75B6F529C4BEDF005871B2 /* NoteTableViewCell.swift */,
+				7F75B6F629C4BEDF005871B2 /* NoteTableViewCell.xib */,
+			);
+			path = Note;
 			sourceTree = "<group>";
 		};
 		7FB7B54229B229640006E206 /* OrderConfirmation */ = {
@@ -776,6 +831,10 @@
 			isa = PBXGroup;
 			children = (
 				7FD6942529BCF1D6005AE54B /* WoozTripViewController.swift */,
+				7F75B6F429C4BE06005871B2 /* Note */,
+				7F75B6EF29C4A330005871B2 /* SpecialInstructions */,
+				7F75B6EA29C472E8005871B2 /* WaitingTime */,
+				7F75B6E229C4642B005871B2 /* Waiting */,
 			);
 			path = WoozTrip;
 			sourceTree = "<group>";
@@ -898,6 +957,7 @@
 				7F30A54129B11828002F802F /* Segoe-UI-Bold.ttf in Resources */,
 				7FE322C929BB419E00E3B597 /* ServiceDetailsTableViewCell.xib in Resources */,
 				7F30A53529B1175E002F802F /* Poppins-Light.otf in Resources */,
+				7F75B6F329C4A35B005871B2 /* InstructionsTableViewCell.xib in Resources */,
 				7F3347E329B8D9120083CC79 /* TransitionTableViewCell.xib in Resources */,
 				7FD0BE9D29A8F77B0049662D /* Assets.xcassets in Resources */,
 				7F06A0B229B97FA800D9E5A4 /* BrandCollectionViewCell.xib in Resources */,
@@ -905,9 +965,11 @@
 				7F06A0C929BA52D600D9E5A4 /* OrderDetailsTableViewCell.xib in Resources */,
 				7F30A53829B11765002F802F /* Poppins-Bold.otf in Resources */,
 				7F30A53729B11762002F802F /* Poppins-Medium.otf in Resources */,
+				7F75B6E629C46449005871B2 /* WaitingTableViewCell.xib in Resources */,
 				7FD0BE9B29A8F77A0049662D /* Main.storyboard in Resources */,
 				7F37C6ED29B1BC31001212E1 /* Segoe-UI.TTF in Resources */,
 				7F1A486729AB513700C432DF /* CategoriesCollectionViewCell.xib in Resources */,
+				7F75B6F829C4BEDF005871B2 /* NoteTableViewCell.xib in Resources */,
 				7F0DEE3C29AB96B9000BADA7 /* PromotionCollectionViewCell.xib in Resources */,
 				7F13C2D629B0E07300EFFE7E /* SubServicesTableViewCell.xib in Resources */,
 				7F08778929B28C2B004CB905 /* PaymentModeTableViewCell.xib in Resources */,
@@ -929,6 +991,7 @@
 				7F37C6F629B1C058001212E1 /* LocationSelectionTableViewCell.xib in Resources */,
 				7F02F0C529AE724500E4B775 /* Services.storyboard in Resources */,
 				7FD0BECE29AA672A0049662D /* ProfileTableViewCell.xib in Resources */,
+				7F75B6EE29C47372005871B2 /* WaitingTimeCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1010,7 +1073,9 @@
 				7F06A0BF29BA37B000D9E5A4 /* VehicleComplaintViewController.swift in Sources */,
 				7F13C2D129B0DF7500EFFE7E /* ServiceType.swift in Sources */,
 				7F1A487029AB6E2600C432DF /* UrlHandler.swift in Sources */,
+				7F75B6E929C4708A005871B2 /* WoozModels.swift in Sources */,
 				7FE322BE29BB31B900E3B597 /* CarWashModel.swift in Sources */,
+				7F75B6E529C46449005871B2 /* WaitingTableViewCell.swift in Sources */,
 				7F3347DB29B858F80083CC79 /* OrderRequestModel.swift in Sources */,
 				7FD0BEAC29A8FE930049662D /* AAALabel.swift in Sources */,
 				7F06A0C329BA3E1900D9E5A4 /* VehicleProblemsTableViewCell.swift in Sources */,
@@ -1027,6 +1092,7 @@
 				7FD0BECD29AA672A0049662D /* ProfileTableViewCell.swift in Sources */,
 				7FB7B54829B24E6C0006E206 /* OrderAddressTableViewCell.swift in Sources */,
 				7FD0BEB829A931F50049662D /* TabBarViewController.swift in Sources */,
+				7F75B6ED29C47372005871B2 /* WaitingTimeCollectionViewCell.swift in Sources */,
 				7F08778829B28C2B004CB905 /* PaymentModeTableViewCell.swift in Sources */,
 				7F1A487329AB6F6300C432DF /* CategoriesModel.swift in Sources */,
 				7F5A412329B7A23C00BEE0FB /* StatusViewController.swift in Sources */,
@@ -1046,6 +1112,7 @@
 				7FD0BEAA29A8FC950049662D /* WelcomeViewController.swift in Sources */,
 				7FD6941F29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.swift in Sources */,
 				7F1D5C0029B2F3AC00B8C6DD /* TowingDetailsTableViewCell.swift in Sources */,
+				7F75B6F229C4A35B005871B2 /* InstructionsTableViewCell.swift in Sources */,
 				7F06A0AD29B972A700D9E5A4 /* VehicleBrandsViewController.swift in Sources */,
 				7FD6942329BCA2D8005AE54B /* WoozViewController.swift in Sources */,
 				7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */,
@@ -1057,6 +1124,7 @@
 				7F37C6FF29B1D641001212E1 /* ContinueTableViewCell.swift in Sources */,
 				7FE322C129BB3CDB00E3B597 /* CarWashVendorsViewController.swift in Sources */,
 				7FD0BED029AA6FA10049662D /* Constants.swift in Sources */,
+				7F75B6F729C4BEDF005871B2 /* NoteTableViewCell.swift in Sources */,
 				7F1A486629AB513700C432DF /* CategoriesCollectionViewCell.swift in Sources */,
 				7FB7B54D29B257DB0006E206 /* BillDetailsTableViewCell.swift in Sources */,
 				7F0DEE3E29ABAD35000BADA7 /* UserModel.swift in Sources */,
