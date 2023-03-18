@@ -25,6 +25,8 @@ class WoozTripViewController: BaseViewController {
     var trips: [TripType] = [TripType(id: "dptp", image: "dropTrip", name: "Drop Trip", isSelected: true), TripType(id: "pptp", image: "pickUpTrip", name: "Pickup Trip", isSelected: false), TripType(id: "rptp", image: "roundTrip", name: "Round Trip", isSelected: false)]
     var selectedPickUpLocation: Location?
     var selectedDropLocation: Location?
+    var selectedPeoplePickUpLocation: Location?
+    var selectedDestinationLocation: Location?
     var waitingTimesModel: WaitingTimesModel?
     var selectedTripType: TripType?
     var selectedWaitingTime: WaitingTime?
@@ -45,6 +47,7 @@ class WoozTripViewController: BaseViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
         selectedTripType = trips[0]
         getWaitingTimes()
     }
@@ -99,19 +102,19 @@ extension WoozTripViewController: UITableViewDataSource {
         }else if indexPath.section == 2 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSelectionTableViewCell", for: indexPath) as? LocationSelectionTableViewCell {
                 cell.delegate = self
-                cell.configureUI(title: "Car Pickup Location", address: selectedPickUpLocation?.address)
+                cell.configureUI(title: "Car Pickup Location", address: selectedPickUpLocation?.address, locationType: "cpl")
                 return cell
             }
         }else if indexPath.section == 3 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSelectionTableViewCell", for: indexPath) as? LocationSelectionTableViewCell {
                 cell.delegate = self
-                cell.configureUI(title: "Pick People", address: selectedPickUpLocation?.address)
+                cell.configureUI(title: "Pick People", address: selectedPeoplePickUpLocation?.address, locationType: "ppl")
                 return cell
             }
         }else if indexPath.section == 4 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSelectionTableViewCell", for: indexPath) as? LocationSelectionTableViewCell {
                 cell.delegate = self
-                cell.configureUI(title: "Drop Location", address: selectedDropLocation?.address)
+                cell.configureUI(title: "Drop Location", address: selectedDropLocation?.address, locationType: "dpl")
                 return cell
             }
         }else if indexPath.section == 5 {
@@ -123,7 +126,7 @@ extension WoozTripViewController: UITableViewDataSource {
         }else if indexPath.section == 6 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSelectionTableViewCell", for: indexPath) as? LocationSelectionTableViewCell {
                 cell.delegate = self
-                cell.configureUI(title: "Destination Location", address: selectedDropLocation?.address)
+                cell.configureUI(title: "Destination Location", address: selectedDestinationLocation?.address, locationType: "dtl")
                 return cell
             }
         }else if indexPath.section == 7 {
@@ -173,7 +176,7 @@ extension WoozTripViewController: UITableViewDelegate {
             if selectedTripType?.id != "rptp" {
                 return 0
             }
-        }else if indexPath.section == 8 {
+        }else if indexPath.section == 9 {
             if hideNote {
                 return 0
             }
@@ -212,8 +215,9 @@ extension WoozTripViewController: SubServicesTableViewCellDelegate {
 
 
 extension WoozTripViewController: LocationSelectionTableViewCellDelegate {
-    func locationTapped(isFromPickUp: Bool) {
+    func locationTapped(isFromPickUp: Bool, locationTypeId: String) {
         if let mapsVc = Controllers.maps.getController() as? MapsViewController {
+            mapsVc.locationTypeId = locationTypeId
             mapsVc.delegate = self
             navigationController?.pushViewController(mapsVc, animated: true)
         }
@@ -222,11 +226,28 @@ extension WoozTripViewController: LocationSelectionTableViewCellDelegate {
 
 
 extension WoozTripViewController: MapsViewControllerDelegate {
-    func selectedLocation(location: Location?, pickUp: Bool) {
+    func selectedLocation(location: Location?, pickUp: Bool, locationTypeId: String) {
         if let location = location {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? LocationSelectionTableViewCell {
-//                selectedLocation = location
-                cell.updateAddress(address: location.address)
+            if locationTypeId == "cpl" {
+                if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? LocationSelectionTableViewCell {
+                    selectedPickUpLocation = location
+                    cell.updateAddress(address: location.address)
+                }
+            }else if locationTypeId == "ppl" {
+                if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? LocationSelectionTableViewCell {
+                    selectedPeoplePickUpLocation = location
+                    cell.updateAddress(address: location.address)
+                }
+            }else if locationTypeId == "dpl" {
+                if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 4)) as? LocationSelectionTableViewCell {
+                    selectedDropLocation = location
+                    cell.updateAddress(address: location.address)
+                }
+            }else if locationTypeId == "dtl" {
+                if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 6)) as? LocationSelectionTableViewCell {
+                    selectedDestinationLocation = location
+                    cell.updateAddress(address: location.address)
+                }
             }
         }
     }
@@ -237,7 +258,19 @@ extension WoozTripViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            
+            if let controller = Controllers.woozTripDetails.getController() as? WoozTripDetailsViewController {
+                controller.category = self.category
+                controller.subCategories = self.subCategories
+                controller.selectedSubCategory = self.selectedSubCategory
+                controller.selectedComplaintType = self.selectedComplaintType
+                controller.selectedPickUpLocation = self.selectedPickUpLocation
+                controller.selectedDropLocation = self.selectedDropLocation
+                controller.selectedPeoplePickUpLocation = self.selectedPeoplePickUpLocation
+                controller.selectedDestinationLocation = self.selectedDestinationLocation
+                controller.selectedTripType = self.selectedTripType
+                controller.selectedWaitingTime = self.selectedWaitingTime
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
         }
     }
 }

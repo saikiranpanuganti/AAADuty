@@ -285,7 +285,7 @@ extension TowingViewController: ContinueTableViewCellDelegate {
 
 
 extension TowingViewController: LocationSelectionTableViewCellDelegate {
-    func locationTapped(isFromPickUp: Bool) {
+    func locationTapped(isFromPickUp: Bool, locationTypeId: String) {
         if let mapsVc = Controllers.maps.getController() as? MapsViewController {
             mapsVc.pickUp = isFromPickUp
             mapsVc.delegate = self
@@ -296,7 +296,7 @@ extension TowingViewController: LocationSelectionTableViewCellDelegate {
 
 
 extension TowingViewController: MapsViewControllerDelegate {
-    func selectedLocation(location: Location?, pickUp: Bool) {
+    func selectedLocation(location: Location?, pickUp: Bool, locationTypeId: String) {
         if pickUp {
             if let location = location {
                 if let cell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? LocationSelectionTableViewCell {

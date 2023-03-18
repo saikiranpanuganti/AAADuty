@@ -30,6 +30,8 @@ enum Controllers {
     case carWashDetails
     case wooz
     case woozTrip
+    case woozTripDetails
+    case cleaning
     
     func getController() -> UIViewController {
         switch self {
@@ -77,6 +79,10 @@ enum Controllers {
             return UIStoryboard(name: "VehicleServices", bundle: nil).instantiateViewController(withIdentifier: "WoozViewController")
         case .woozTrip:
             return UIStoryboard(name: "VehicleServices", bundle: nil).instantiateViewController(withIdentifier: "WoozTripViewController")
+        case .woozTripDetails:
+            return UIStoryboard(name: "VehicleServices", bundle: nil).instantiateViewController(withIdentifier: "WoozTripDetailsViewController")
+        case .cleaning:
+            return UIStoryboard(name: "Cleaning", bundle: nil).instantiateViewController(withIdentifier: "CleaningViewController")
 //        case .player:
 //            return UIStoryboard(name: "Others", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController")
 //        case .player:
@@ -85,7 +91,14 @@ enum Controllers {
 //            return UIStoryboard(name: "Others", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController")
 //        case .player:
 //            return UIStoryboard(name: "Others", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController")
-            
+//        case .player:
+//            return UIStoryboard(name: "Others", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController")
+//        case .player:
+//            return UIStoryboard(name: "Others", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController")
+//        case .player:
+//            return UIStoryboard(name: "Others", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController")
+//        case .player:
+//            return UIStoryboard(name: "Others", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController")
         }
     }
 }

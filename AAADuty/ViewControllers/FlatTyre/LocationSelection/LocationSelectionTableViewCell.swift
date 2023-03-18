@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LocationSelectionTableViewCellDelegate: AnyObject {
-    func locationTapped(isFromPickUp: Bool)
+    func locationTapped(isFromPickUp: Bool, locationTypeId: String)
 }
 
 class LocationSelectionTableViewCell: UITableViewCell {
@@ -18,16 +18,18 @@ class LocationSelectionTableViewCell: UITableViewCell {
     weak var delegate: LocationSelectionTableViewCellDelegate?
     
     var isFromPickUp: Bool = true
+    var loctionTypeId: String = ""
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    func configureUI(title: String, address: String?, pickUp: Bool = true) {
+    func configureUI(title: String, address: String?, pickUp: Bool = true, locationType: String = "") {
         isFromPickUp = pickUp
         locationTitle.text = title
         addressTextfield.text = address
+        loctionTypeId = locationType
     }
     
     func updateAddress(address: String?) {
@@ -35,7 +37,7 @@ class LocationSelectionTableViewCell: UITableViewCell {
     }
 
     @IBAction func locationTapped() {
-        delegate?.locationTapped(isFromPickUp: isFromPickUp)
+        delegate?.locationTapped(isFromPickUp: isFromPickUp, locationTypeId: loctionTypeId)
     }
     
 }

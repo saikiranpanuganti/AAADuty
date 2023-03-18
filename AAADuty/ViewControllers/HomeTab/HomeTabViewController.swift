@@ -120,6 +120,11 @@ extension HomeTabViewController: CategoriesCollectionViewCellDelegate {
                 woozVC.category = category
                 navigationController?.pushViewController(woozVC, animated: true)
             }
+        }else if category.serviceType == .cleaning {
+            if let woozVC = Controllers.cleaning.getController() as? CleaningViewController {
+                woozVC.category = category
+                navigationController?.pushViewController(woozVC, animated: true)
+            }
         }
     }
 }

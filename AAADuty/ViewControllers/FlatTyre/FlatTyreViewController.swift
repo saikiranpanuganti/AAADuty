@@ -249,7 +249,7 @@ extension FlatTyreViewController: ContinueTableViewCellDelegate {
 
 
 extension FlatTyreViewController: LocationSelectionTableViewCellDelegate {
-    func locationTapped(isFromPickUp: Bool) {
+    func locationTapped(isFromPickUp: Bool, locationTypeId: String) {
         if let mapsVc = Controllers.maps.getController() as? MapsViewController {
             mapsVc.pickUp = isFromPickUp
             mapsVc.delegate = self
@@ -260,7 +260,7 @@ extension FlatTyreViewController: LocationSelectionTableViewCellDelegate {
 
 
 extension FlatTyreViewController: MapsViewControllerDelegate {
-    func selectedLocation(location: Location?, pickUp: Bool) {
+    func selectedLocation(location: Location?, pickUp: Bool, locationTypeId: String) {
         if let location = location {
             if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? LocationSelectionTableViewCell {
                 selectedLocation = location

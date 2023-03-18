@@ -34,3 +34,43 @@ struct WaitingTime: Codable {
         case v = "__v"
     }
 }
+
+
+
+
+// MARK: - WoozPriceModel
+struct WoozPriceModel: Codable {
+    let status: String?
+    let data: [WoozPrice]?
+
+    enum CodingKeys: String, CodingKey {
+        case status
+        case data = "Data"
+    }
+}
+
+// MARK: - WoozPrice
+struct WoozPrice: Codable {
+    let id, serviceName, categoryID, categoryName: String?
+    let perKM, waitingPeriod, waitingPeriodPrice, serviceCharge: Int?
+    let imageURL: String?
+    let isActive: Bool?
+    let v, pgServiceTax, gst: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case serviceName = "ServiceName"
+        case categoryID = "CategoryID"
+        case categoryName = "CategoryName"
+        case perKM = "PerKM"
+        case waitingPeriod = "WaitingPeriod"
+        case waitingPeriodPrice = "WaitingPeriodPrice"
+        case serviceCharge = "ServiceCharge"
+        case imageURL = "ImageURL"
+        case isActive = "IsActive"
+        case v = "__v"
+        case pgServiceTax = "PGServiceTax"
+        case gst = "GST"
+    }
+}
+

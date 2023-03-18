@@ -26,7 +26,7 @@ struct Location: Codable {
 
 
 protocol MapsViewControllerDelegate: AnyObject {
-    func selectedLocation(location: Location?, pickUp: Bool)
+    func selectedLocation(location: Location?, pickUp: Bool, locationTypeId: String)
 }
 
 class MapsViewController: UIViewController {
@@ -45,6 +45,7 @@ class MapsViewController: UIViewController {
     let filter = GMSAutocompleteFilter()
     var destinationMarker: GMSMarker?
     var pickUp: Bool = true
+    var locationTypeId: String = ""
     
     weak var delegate: MapsViewControllerDelegate?
     
@@ -177,7 +178,7 @@ class MapsViewController: UIViewController {
             setAddress(coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude)) { [weak self] address, error, pincode in
                 guard let self = self else { return }
                 
-                self.delegate?.selectedLocation(location: Location(latitude: latitude, longitude: longitude, address: address, postalCode: pincode), pickUp: self.pickUp)
+                self.delegate?.selectedLocation(location: Location(latitude: latitude, longitude: longitude, address: address, postalCode: pincode), pickUp: self.pickUp, locationTypeId: self.locationTypeId)
                 
                 self.navigationController?.popViewController(animated: true)
             }

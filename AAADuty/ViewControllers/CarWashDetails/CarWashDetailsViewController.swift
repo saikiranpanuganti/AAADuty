@@ -134,7 +134,7 @@ extension CarWashDetailsViewController: ContinueTableViewCellDelegate {
 
 
 extension CarWashDetailsViewController: LocationSelectionTableViewCellDelegate {
-    func locationTapped(isFromPickUp: Bool) {
+    func locationTapped(isFromPickUp: Bool, locationTypeId: String) {
         
     }
 }

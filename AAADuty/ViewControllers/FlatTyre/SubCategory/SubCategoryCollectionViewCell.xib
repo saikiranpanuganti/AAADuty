@@ -31,7 +31,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36x-Vb-nzc">
-                                <rect key="frame" x="10" y="85" width="80" height="0.0"/>
+                                <rect key="frame" x="2" y="85" width="96" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                 <color key="textColor" red="0.070588235294117646" green="0.27058823529411763" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -39,10 +39,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.91764706370000004" green="0.9529411793" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="36x-Vb-nzc" firstAttribute="leading" secondItem="ya1-yf-weo" secondAttribute="leading" constant="10" id="2bb-FG-Pmo"/>
+                            <constraint firstItem="36x-Vb-nzc" firstAttribute="leading" secondItem="ya1-yf-weo" secondAttribute="leading" constant="2" id="2bb-FG-Pmo"/>
                             <constraint firstAttribute="trailing" secondItem="q92-ue-8FF" secondAttribute="trailing" constant="20" id="6li-I2-CFB"/>
                             <constraint firstItem="36x-Vb-nzc" firstAttribute="top" secondItem="q92-ue-8FF" secondAttribute="bottom" constant="5" id="HYK-fQ-GRY"/>
-                            <constraint firstAttribute="trailing" secondItem="36x-Vb-nzc" secondAttribute="trailing" constant="10" id="YFO-B7-vC6"/>
+                            <constraint firstAttribute="trailing" secondItem="36x-Vb-nzc" secondAttribute="trailing" constant="2" id="YFO-B7-vC6"/>
                             <constraint firstItem="q92-ue-8FF" firstAttribute="leading" secondItem="ya1-yf-weo" secondAttribute="leading" constant="20" id="dEe-tN-Q7C"/>
                             <constraint firstItem="q92-ue-8FF" firstAttribute="top" secondItem="ya1-yf-weo" secondAttribute="top" constant="20" id="h2G-8g-P4c"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="36x-Vb-nzc" secondAttribute="bottom" constant="5" id="mOW-mu-TV0"/>

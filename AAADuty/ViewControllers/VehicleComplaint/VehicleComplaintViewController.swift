@@ -244,9 +244,10 @@ extension VehicleComplaintViewController: ContinueTableViewCellDelegate {
 
 
 extension VehicleComplaintViewController: LocationSelectionTableViewCellDelegate {
-    func locationTapped(isFromPickUp: Bool) {
+    func locationTapped(isFromPickUp: Bool, locationTypeId: String) {
         if let mapsVc = Controllers.maps.getController() as? MapsViewController {
             mapsVc.pickUp = isFromPickUp
+            mapsVc.locationTypeId = locationTypeId
             mapsVc.delegate = self
             navigationController?.pushViewController(mapsVc, animated: true)
         }
@@ -255,7 +256,7 @@ extension VehicleComplaintViewController: LocationSelectionTableViewCellDelegate
 
 
 extension VehicleComplaintViewController: MapsViewControllerDelegate {
-    func selectedLocation(location: Location?, pickUp: Bool) {
+    func selectedLocation(location: Location?, pickUp: Bool, locationTypeId: String) {
         if let location = location {
             if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? LocationSelectionTableViewCell {
                 selectedLocation = location
