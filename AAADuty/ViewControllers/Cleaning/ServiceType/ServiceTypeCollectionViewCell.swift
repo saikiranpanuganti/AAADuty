@@ -12,13 +12,15 @@ class ServiceTypeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var imageOutlet: UIImageView!
     @IBOutlet weak var nameOutlet: UILabel!
+    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var tickView: UIView!
 
     var subCategoryType: SubCategoryType?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
+        tickView.isHidden = true
     }
 
     func configureUI(subCategoryType: SubCategoryType?) {
@@ -28,13 +30,15 @@ class ServiceTypeCollectionViewCell: UICollectionViewCell {
         nameOutlet.text = subCategoryType?.subCategoryName
         
         if subCategoryType?.isSelected ?? false {
-            backView.layer.borderColor = UIColor(named: "orangeAppColor")?.cgColor
-            backView.layer.borderWidth = 2
-            backView.layer.cornerRadius = 10
-            backView.layer.masksToBounds = true
+            bottomView.isHidden = false
         }else {
-            backView.layer.borderColor = UIColor.clear.cgColor
-            backView.layer.borderWidth = 2
+            bottomView.isHidden = true
+        }
+        
+        if subCategoryType?.isAdded ?? false {
+            tickView.isHidden = false
+        }else {
+            tickView.isHidden = true
         }
     }
 }

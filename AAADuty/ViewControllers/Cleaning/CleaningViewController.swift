@@ -15,8 +15,10 @@ class CleaningViewController: BaseViewController {
     var selectedSubCategory: SubCategory?
     var subCategoryTypes: SubCategoryTypesModel?
     var selectedSubCategoryType: SubCategoryType?
+    var cleaningServicesModel: CleaningServicesModel?
+    var selectedCleaningServices: [CleaningService] = []
     var selectedLocation: Location?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,13 +28,14 @@ class CleaningViewController: BaseViewController {
         tableView.register(UINib(nibName: "LocationSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationSelectionTableViewCell")
         tableView.register(UINib(nibName: "CommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "CommentsTableViewCell")
         tableView.register(UINib(nibName: "ContinueTableViewCell", bundle: nil), forCellReuseIdentifier: "ContinueTableViewCell")
+        tableView.register(UINib(nibName: "CleaningServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "CleaningServiceTableViewCell")
         
         tableView.dataSource = self
         tableView.delegate = self
         
         getSubCategories()
     }
-
+    
     func updateUI() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -40,7 +43,25 @@ class CleaningViewController: BaseViewController {
         }
     }
     
-    func setSelectedSubCategoryType(subCategory: SubCategory?) {
+    func getSelectedCleaningServiceIndex(cleaningService: CleaningService) -> (Int?) {
+        for (index, service) in selectedCleaningServices.enumerated() {
+            if service.id == cleaningService.id {
+                return index
+            }
+        }
+        return nil
+    }
+    
+    func getCleaningServiceIndex(cleaningService: CleaningService) -> (Int?) {
+        for (index, service) in (cleaningServicesModel?.response ?? []).enumerated() {
+            if service.id == cleaningService.id {
+                return index
+            }
+        }
+        return nil
+    }
+    
+    func setSelectedSubCategory(subCategory: SubCategory?) {
         if let id = subCategory?.id {
             for index in 0..<(subCategories?.categories?.count ?? 0) {
                 if subCategories?.categories?[index].id == id {
@@ -51,7 +72,19 @@ class CleaningViewController: BaseViewController {
             }
         }
     }
-
+    
+    func setSelectedSubCategoryType(subCategoryType: SubCategoryType?) {
+        if let id = subCategoryType?.id {
+            for index in 0..<(subCategoryTypes?.response?.count ?? 0) {
+                if subCategoryTypes?.response?[index].id == id {
+                    subCategoryTypes?.response?[index].isSelected = true
+                }else {
+                    subCategoryTypes?.response?[index].isSelected = false
+                }
+            }
+        }
+    }
+    
     func getSubCategories() {
         if let categoryId = category?.id {
             showLoader()
@@ -94,14 +127,45 @@ class CleaningViewController: BaseViewController {
             }
         }
     }
+    
+    func getCleaningServices(categoryId: String?, typeID: String?, subCategoryId: String?) {
+        if let categoryId = categoryId, let typeID = typeID, let subCategoryId = subCategoryId {
+            showLoader()
+            
+            let bodyParams: [String: Any] = ["CategoryID": categoryId, "TypeID": typeID, "SubCategoryID": subCategoryId]
+            NetworkAdaptor.requestWithHeaders(urlString: Url.getCleaningServices.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+                guard let self = self else { return }
+                self.stopLoader()
+                
+                if let data = data {
+                    do {
+                        let cleaningServicesModel = try JSONDecoder().decode(CleaningServicesModel.self, from: data)
+                        self.cleaningServicesModel = cleaningServicesModel
+                        for (index, service) in (cleaningServicesModel.response ?? []).enumerated() {
+                            let selectedServices = self.selectedCleaningServices.filter { $0.id == service.id }
+                            if selectedServices.count > 0 {
+                                self.cleaningServicesModel?.response?[index].count = selectedServices.first?.count ?? 0
+                            }
+                        }
+                        self.updateUI()
+                    }catch {
+                        print("Error: CleaningViewController getCleaningServices - \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+    }
 }
 
 
 extension CleaningViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return 7
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 3 {
+            return cleaningServicesModel?.response?.count ?? 0
+        }
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -124,16 +188,22 @@ extension CleaningViewController: UITableViewDataSource {
                 return cell
             }
         }else if indexPath.section == 3 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CleaningServiceTableViewCell", for: indexPath) as? CleaningServiceTableViewCell {
+                cell.delegate = self
+                cell.configureUI(cleaningService: cleaningServicesModel?.response?[indexPath.row])
+                return cell
+            }
+        }else if indexPath.section == 4 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSelectionTableViewCell", for: indexPath) as? LocationSelectionTableViewCell {
                 cell.delegate = self
                 cell.configureUI(title: "Service Location", address: selectedLocation?.address)
                 return cell
             }
-        }else if indexPath.section == 4 {
+        }else if indexPath.section == 5 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as? CommentsTableViewCell {
                 return cell
             }
-        }else if indexPath.section == 5 {
+        }else if indexPath.section == 6 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ContinueTableViewCell", for: indexPath) as? ContinueTableViewCell {
                 cell.delegate = self
                 return cell
@@ -155,6 +225,8 @@ extension CleaningViewController: UITableViewDelegate {
                 let rows: Int = (((subCategoryTypes?.response?.count ?? 0)/3) + ((((subCategoryTypes?.response?.count ?? 0) % 3) == 0) ? 0 : 1))
                 return CGFloat(50 + rows*130)
             }
+        }else if indexPath.section == 3 {
+            return 120
         }
         return UITableView.automaticDimension
     }
@@ -172,7 +244,7 @@ extension CleaningViewController: SubServicesTableViewCellDelegate {
     func subServiceTapped(subCategory: SubCategory?) {
         if selectedSubCategory?.id != subCategory?.id {
             selectedSubCategory = subCategory
-            setSelectedSubCategoryType(subCategory: subCategory)
+            setSelectedSubCategory(subCategory: subCategory)
             selectedSubCategoryType = nil
             getSubCategoryTypes(categoryId: subCategory?.categoryID, typeID: subCategory?.id)
         }
@@ -214,6 +286,55 @@ extension CleaningViewController: ServiceTypesTableViewCellDelegate {
     func subCategoryTypeTapped(subCategoryType: SubCategoryType?) {
         if selectedSubCategoryType?.id != subCategoryType?.id {
             selectedSubCategoryType = subCategoryType
+            setSelectedSubCategoryType(subCategoryType: subCategoryType)
+            getCleaningServices(categoryId: subCategoryType?.categoryID, typeID: subCategoryType?.typeID, subCategoryId: subCategoryType?.id)
+        }
+    }
+}
+
+
+extension CleaningViewController: CleaningServiceTableViewCellDelegate {
+    func countChanged(cleaningService: CleaningService?, count: Int) {
+        if let cleaningService = cleaningService {
+            if let index = getSelectedCleaningServiceIndex(cleaningService: cleaningService) {
+                if (selectedCleaningServices[index].id ?? "") == cleaningService.id {
+                    selectedCleaningServices[index].count = count
+                }
+            }else {
+                var clService = cleaningService
+                clService.count = count
+                selectedCleaningServices.append(clService)
+            }
+            
+            selectedCleaningServices.removeAll { $0.count <= 0 }
+            
+            if let index = getCleaningServiceIndex(cleaningService: cleaningService) {
+                if (cleaningServicesModel?.response?[index].id ?? "") == cleaningService.id {
+                    cleaningServicesModel?.response?[index].count = count
+                }
+            }
+            
+            for (index, subCat) in (subCategoryTypes?.response ?? []).enumerated() {
+                if subCat.id == cleaningService.subCateogryID {
+                    if count > 0 {
+                        if !(subCategoryTypes?.response?[index].isAdded ?? false) {
+                            subCategoryTypes?.response?[index].isAdded = true
+                            tableView.reloadSections(IndexSet(integer: 2), with: .none)
+                        }
+                    }else {
+                        if (subCategoryTypes?.response?[index].isAdded ?? false) {
+                            for selectedCleaning in selectedCleaningServices {
+                                if selectedCleaning.subCateogryID == subCat.id {
+                                    return
+                                }
+                            }
+                            subCategoryTypes?.response?[index].isAdded = false
+                            tableView.reloadSections(IndexSet(integer: 2), with: .none)
+                        }
+                    }
+                    break
+                }
+            }
         }
     }
 }

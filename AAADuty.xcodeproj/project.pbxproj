@@ -104,6 +104,8 @@
 		7F75B71529C5DC37005871B2 /* ServiceTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F75B71329C5DC37005871B2 /* ServiceTypeCollectionViewCell.swift */; };
 		7F75B71629C5DC38005871B2 /* ServiceTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F75B71429C5DC37005871B2 /* ServiceTypeCollectionViewCell.xib */; };
 		7F75B71829C5EA80005871B2 /* CleaningModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F75B71729C5EA80005871B2 /* CleaningModels.swift */; };
+		7F75B71C29C61707005871B2 /* CleaningServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F75B71A29C61707005871B2 /* CleaningServiceTableViewCell.swift */; };
+		7F75B71D29C61707005871B2 /* CleaningServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F75B71B29C61707005871B2 /* CleaningServiceTableViewCell.xib */; };
 		7FA5CBBA29B4517E00E242A4 /* MapResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5CBB929B4517E00E242A4 /* MapResultTableViewCell.swift */; };
 		7FB7B54429B2298B0006E206 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */; };
 		7FB7B54829B24E6C0006E206 /* OrderAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54629B24E6C0006E206 /* OrderAddressTableViewCell.swift */; };
@@ -252,6 +254,8 @@
 		7F75B71329C5DC37005871B2 /* ServiceTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F75B71429C5DC37005871B2 /* ServiceTypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceTypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F75B71729C5EA80005871B2 /* CleaningModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningModels.swift; sourceTree = "<group>"; };
+		7F75B71A29C61707005871B2 /* CleaningServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningServiceTableViewCell.swift; sourceTree = "<group>"; };
+		7F75B71B29C61707005871B2 /* CleaningServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CleaningServiceTableViewCell.xib; sourceTree = "<group>"; };
 		7FA5CBB929B4517E00E242A4 /* MapResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResultTableViewCell.swift; sourceTree = "<group>"; };
 		7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		7FB7B54629B24E6C0006E206 /* OrderAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -710,6 +714,7 @@
 			children = (
 				7F75B70929C5CD19005871B2 /* CleaningViewController.swift */,
 				7F75B70A29C5CD19005871B2 /* CleaningViewController.xib */,
+				7F75B71929C616E7005871B2 /* CleaningService */,
 				7F75B71229C5DC23005871B2 /* ServiceType */,
 				7F75B70D29C5DB29005871B2 /* ServiceTypes */,
 			);
@@ -732,6 +737,15 @@
 				7F75B71429C5DC37005871B2 /* ServiceTypeCollectionViewCell.xib */,
 			);
 			path = ServiceType;
+			sourceTree = "<group>";
+		};
+		7F75B71929C616E7005871B2 /* CleaningService */ = {
+			isa = PBXGroup;
+			children = (
+				7F75B71A29C61707005871B2 /* CleaningServiceTableViewCell.swift */,
+				7F75B71B29C61707005871B2 /* CleaningServiceTableViewCell.xib */,
+			);
+			path = CleaningService;
 			sourceTree = "<group>";
 		};
 		7FB7B54229B229640006E206 /* OrderConfirmation */ = {
@@ -1068,6 +1082,7 @@
 				7F30A53629B11760002F802F /* Poppins-Regular.otf in Resources */,
 				7FD6942029BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib in Resources */,
 				7F1D5C0129B2F3AC00B8C6DD /* TowingDetailsTableViewCell.xib in Resources */,
+				7F75B71D29C61707005871B2 /* CleaningServiceTableViewCell.xib in Resources */,
 				7F1A486229AB448600C432DF /* ImageCollectionViewCell.xib in Resources */,
 				7FE322CE29BB454B00E3B597 /* CarVendorTableViewCell.xib in Resources */,
 				7F75B70729C5CCFB005871B2 /* Cleaning.storyboard in Resources */,
@@ -1164,6 +1179,7 @@
 				7F06A0C829BA52D600D9E5A4 /* OrderDetailsTableViewCell.swift in Sources */,
 				7FB8C40929AB949A005B6B4E /* BaseViewController.swift in Sources */,
 				7F06A0B129B97FA800D9E5A4 /* BrandCollectionViewCell.swift in Sources */,
+				7F75B71C29C61707005871B2 /* CleaningServiceTableViewCell.swift in Sources */,
 				7F06A0BF29BA37B000D9E5A4 /* VehicleComplaintViewController.swift in Sources */,
 				7F13C2D129B0DF7500EFFE7E /* ServiceType.swift in Sources */,
 				7F1A487029AB6E2600C432DF /* UrlHandler.swift in Sources */,
