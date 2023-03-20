@@ -39,6 +39,11 @@ class CleaningServiceTableViewCell: UITableViewCell {
         plusMinusView.layer.shadowOpacity = 1
         plusMinusView.layer.shadowOffset = .zero
         plusMinusView.layer.shadowRadius = 5
+        
+        imageOutlet.layer.borderColor = UIColor(red: 18/255, green: 69/255, blue: 115/255, alpha: 1).cgColor
+        imageOutlet.layer.borderWidth = 1
+        imageOutlet.layer.cornerRadius = 20
+        imageOutlet.layer.masksToBounds = true
     }
     
     func configureUI(cleaningService: CleaningService?) {

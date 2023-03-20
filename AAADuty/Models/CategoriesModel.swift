@@ -109,7 +109,7 @@ struct Category: Codable {
             case "61234f4006bb5c6ac41d6240":
                 return "CLEANING"
             case "61234ee6392a246aaa1496e1":
-                return "ServiceType.sanitization"
+                return "SANITISATION"
             case "61234f785ef8506acf1f8c40":
                 return "ServiceType.plumbing"
             case "61234e74008f776a8a6b9b8e":
@@ -144,7 +144,7 @@ struct Category: Codable {
             case "61234f4006bb5c6ac41d6240":
                 return "Property Type"
             case "61234ee6392a246aaa1496e1":
-                return ""
+                return "Property Type"
             case "61234f785ef8506acf1f8c40":
                 return ""
             case "61234e74008f776a8a6b9b8e":
