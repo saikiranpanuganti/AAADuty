@@ -51,6 +51,7 @@ class CleaningServiceTableViewCell: UITableViewCell {
         imageOutlet.sd_setImage(with: URL(string: cleaningService?.imageURL ?? ""))
         titleOutlet.text = cleaningService?.serviceName
         descriptionOutlet.text = cleaningService?.description
+        priceOutlet.text = "\(cleaningService?.price ?? 0)"
         if (cleaningService?.count ?? 0) > 0 {
             plusMinusView.isHidden = false
         }else {
