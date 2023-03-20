@@ -56,7 +56,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePF-Z5-zbF">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="213"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="298.33333333333331"/>
                                 <color key="backgroundColor" name="navigationBarColor"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0ow-AK-Hsd">
@@ -74,7 +74,7 @@
                             <constraint firstItem="0ow-AK-Hsd" firstAttribute="leading" secondItem="Jwh-kb-JGZ" secondAttribute="leading" id="cgC-vs-uBO"/>
                             <constraint firstItem="0ow-AK-Hsd" firstAttribute="top" secondItem="ju8-xe-cgv" secondAttribute="top" id="fvK-Jk-fvb"/>
                             <constraint firstAttribute="bottom" secondItem="0ow-AK-Hsd" secondAttribute="bottom" id="qkI-13-GWX"/>
-                            <constraint firstItem="ePF-Z5-zbF" firstAttribute="height" secondItem="Jwh-kb-JGZ" secondAttribute="height" multiplier="0.25" id="yNZ-Sn-iCC"/>
+                            <constraint firstItem="ePF-Z5-zbF" firstAttribute="height" secondItem="Jwh-kb-JGZ" secondAttribute="height" multiplier="0.35" id="yNZ-Sn-iCC"/>
                         </constraints>
                     </view>
                     <connections>
