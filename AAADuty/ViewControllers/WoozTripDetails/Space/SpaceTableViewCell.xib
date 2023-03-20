@@ -19,24 +19,28 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DzI-l5-9ph">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FUv-hn-jTz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="DfW-ns-oPS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FUv-hn-jTz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="10" id="DfW-ns-oPS"/>
+                            <constraint firstItem="FUv-hn-jTz" firstAttribute="top" secondItem="DzI-l5-9ph" secondAttribute="top" id="DIs-Ca-AZ3"/>
+                            <constraint firstAttribute="bottom" secondItem="FUv-hn-jTz" secondAttribute="bottom" id="MJ7-by-Xwp"/>
+                            <constraint firstAttribute="trailing" secondItem="FUv-hn-jTz" secondAttribute="trailing" id="RnU-de-8GQ"/>
+                            <constraint firstItem="FUv-hn-jTz" firstAttribute="leading" secondItem="DzI-l5-9ph" secondAttribute="leading" id="dwd-rH-bgt"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="DzI-l5-9ph" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2y2-H4-Ee4"/>
-                    <constraint firstAttribute="bottom" secondItem="FUv-hn-jTz" secondAttribute="bottom" id="6uC-3E-TI7"/>
                     <constraint firstAttribute="trailing" secondItem="DzI-l5-9ph" secondAttribute="trailing" id="8NP-6h-Ohv"/>
                     <constraint firstItem="DzI-l5-9ph" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Zjw-4g-9mO"/>
-                    <constraint firstItem="FUv-hn-jTz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eUz-4M-7nW"/>
-                    <constraint firstAttribute="trailing" secondItem="FUv-hn-jTz" secondAttribute="trailing" id="hBa-Vl-vMz"/>
-                    <constraint firstItem="FUv-hn-jTz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="izC-AJ-kLu"/>
                     <constraint firstAttribute="bottom" secondItem="DzI-l5-9ph" secondAttribute="bottom" id="rv7-XZ-vUW"/>
                 </constraints>
             </tableViewCellContentView>

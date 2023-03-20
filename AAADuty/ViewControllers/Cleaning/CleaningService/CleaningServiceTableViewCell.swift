@@ -18,6 +18,7 @@ class CleaningServiceTableViewCell: UITableViewCell {
     @IBOutlet weak var priceOutlet: UILabel!
     @IBOutlet weak var plusMinusView: UIView!
     @IBOutlet weak var countOutlet: UILabel!
+    @IBOutlet weak var addView: UIView!
 
     weak var delegate: CleaningServiceTableViewCellDelegate?
     var cleaningService: CleaningService?
@@ -26,6 +27,18 @@ class CleaningServiceTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         plusMinusView.isHidden = true
+        
+        addView.layer.cornerRadius = 18
+        addView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.16).cgColor
+        addView.layer.shadowOpacity = 1
+        addView.layer.shadowOffset = .zero
+        addView.layer.shadowRadius = 5
+        
+        plusMinusView.layer.cornerRadius = 18
+        plusMinusView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.16).cgColor
+        plusMinusView.layer.shadowOpacity = 1
+        plusMinusView.layer.shadowOffset = .zero
+        plusMinusView.layer.shadowRadius = 5
     }
     
     func configureUI(cleaningService: CleaningService?) {

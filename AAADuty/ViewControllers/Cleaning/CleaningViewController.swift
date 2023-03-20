@@ -18,6 +18,7 @@ class CleaningViewController: BaseViewController {
     var cleaningServicesModel: CleaningServicesModel?
     var selectedCleaningServices: [CleaningService] = []
     var selectedLocation: Location?
+    var comments: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -201,6 +202,7 @@ extension CleaningViewController: UITableViewDataSource {
             }
         }else if indexPath.section == 5 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as? CommentsTableViewCell {
+                cell.delegate = self
                 return cell
             }
         }else if indexPath.section == 6 {
@@ -226,7 +228,7 @@ extension CleaningViewController: UITableViewDelegate {
                 return CGFloat(50 + rows*130)
             }
         }else if indexPath.section == 3 {
-            return 120
+            return 135
         }
         return UITableView.automaticDimension
     }
@@ -266,7 +268,7 @@ extension CleaningViewController: LocationSelectionTableViewCellDelegate {
 extension CleaningViewController: MapsViewControllerDelegate {
     func selectedLocation(location: Location?, pickUp: Bool, locationTypeId: String) {
         if let location = location {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? LocationSelectionTableViewCell {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 4)) as? LocationSelectionTableViewCell {
                 selectedLocation = location
                 cell.updateAddress(address: location.address)
             }
@@ -275,9 +277,37 @@ extension CleaningViewController: MapsViewControllerDelegate {
 }
 
 
+extension CleaningViewController: CommentsTableViewCellDelegate {
+    func commentsEntered(comments: String?) {
+        self.comments = comments
+    }
+}
+
+
 extension CleaningViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
+        selectedCleaningServices.removeAll { $0.count <= 0 }
         
+        if selectedCleaningServices.count > 0 {
+            if selectedLocation != nil {
+                if let controller = Controllers.cleaningSelection.getController() as? CleaningSelectionViewController {
+                    controller.category = self.category
+                    controller.subCategories = self.subCategories
+                    controller.selectedSubCategory = self.selectedSubCategory
+                    controller.subCategoryTypes = self.subCategoryTypes
+                    controller.selectedSubCategoryType = self.selectedSubCategoryType
+                    controller.cleaningServicesModel = self.cleaningServicesModel
+                    controller.selectedCleaningServices = self.selectedCleaningServices
+                    controller.selectedLocation = self.selectedLocation
+                    controller.comments = self.comments
+                    navigationController?.pushViewController(controller, animated: true)
+                }
+            }else {
+                showAlert(title: "Error", message: "Please select service location")
+            }
+        }else {
+            showAlert(title: "Error", message: "Please add a service")
+        }
     }
 }
 

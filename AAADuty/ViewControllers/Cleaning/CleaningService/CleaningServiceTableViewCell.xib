@@ -156,12 +156,6 @@
                                     <constraint firstAttribute="bottom" secondItem="JXq-ir-WpE" secondAttribute="bottom" id="eyb-8D-lOr"/>
                                     <constraint firstItem="JXq-ir-WpE" firstAttribute="leading" secondItem="qfP-7X-kPP" secondAttribute="leading" id="uZ9-uz-TFN"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="18"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -183,6 +177,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addView" destination="qfP-7X-kPP" id="13x-iU-DS0"/>
                 <outlet property="countOutlet" destination="0Fd-xD-nwV" id="lTw-ii-rFd"/>
                 <outlet property="descriptionOutlet" destination="Sxp-cf-M0z" id="c4d-gn-10C"/>
                 <outlet property="imageOutlet" destination="XfD-5r-52Z" id="oCD-5R-Q8e"/>
