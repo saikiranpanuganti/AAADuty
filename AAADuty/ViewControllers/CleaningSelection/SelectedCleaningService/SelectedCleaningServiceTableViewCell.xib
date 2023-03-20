@@ -26,13 +26,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MO-ma-ByW">
-                                <rect key="frame" x="30" y="18.666666666666664" width="58" height="18.666666666666664"/>
+                                <rect key="frame" x="30" y="8.0000000000000018" width="58" height="18.666666666666671"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QJ-jR-BFg">
-                                <rect key="frame" x="248" y="18" width="10" height="20"/>
+                                <rect key="frame" x="248" y="7.3333333333333321" width="10" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="10" id="fpD-Gn-MB1"/>
                                 </constraints>
@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efs-BA-JFw">
-                                <rect key="frame" x="260" y="18" width="50" height="20"/>
+                                <rect key="frame" x="260" y="7.3333333333333321" width="50" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="ldT-fw-fcK"/>
                                 </constraints>
@@ -50,7 +50,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bw5-rj-x7g">
-                                <rect key="frame" x="108" y="10" width="120" height="36"/>
+                                <rect key="frame" x="108" y="-0.66666666666666785" width="120" height="36"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZeK-yn-Lqz">
                                         <rect key="frame" x="5" y="0.0" width="110" height="36"/>
@@ -105,10 +105,10 @@
                             <constraint firstItem="0MO-ma-ByW" firstAttribute="leading" secondItem="DkC-eF-Ldl" secondAttribute="leading" constant="30" id="Lf0-vh-THs"/>
                             <constraint firstItem="efs-BA-JFw" firstAttribute="leading" secondItem="7QJ-jR-BFg" secondAttribute="trailing" constant="2" id="M1i-xT-DKh"/>
                             <constraint firstItem="efs-BA-JFw" firstAttribute="centerY" secondItem="0MO-ma-ByW" secondAttribute="centerY" id="RSm-aB-x71"/>
-                            <constraint firstItem="bw5-rj-x7g" firstAttribute="top" secondItem="DkC-eF-Ldl" secondAttribute="top" constant="10" id="TA8-JE-jdc"/>
                             <constraint firstAttribute="trailing" secondItem="efs-BA-JFw" secondAttribute="trailing" constant="10" id="XaG-2c-Rue"/>
                             <constraint firstItem="bw5-rj-x7g" firstAttribute="leading" secondItem="0MO-ma-ByW" secondAttribute="trailing" constant="20" id="aee-uh-olZ"/>
                             <constraint firstItem="7QJ-jR-BFg" firstAttribute="leading" secondItem="bw5-rj-x7g" secondAttribute="trailing" constant="20" id="cWA-yh-aNd"/>
+                            <constraint firstItem="0MO-ma-ByW" firstAttribute="top" secondItem="DkC-eF-Ldl" secondAttribute="top" constant="8" id="ifN-bw-iaJ"/>
                             <constraint firstItem="bw5-rj-x7g" firstAttribute="centerY" secondItem="0MO-ma-ByW" secondAttribute="centerY" id="xWZ-ug-U8o"/>
                         </constraints>
                     </view>

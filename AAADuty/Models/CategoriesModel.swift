@@ -115,7 +115,7 @@ struct Category: Codable {
             case "61234e74008f776a8a6b9b8e":
                 return "AC TECHNICIAN"
             case "61234ec88f93136aa08b31b7":
-                return "ServiceType.electrician"
+                return "ELECTRICAL"
             case "61234f1234668a6aba7391ee":
                 return "ServiceType.pestControl"
             case "61234ead8e8da36a95580a86":
@@ -150,7 +150,7 @@ struct Category: Codable {
             case "61234e74008f776a8a6b9b8e":
                 return "select your Air-Conditioner type"
             case "61234ec88f93136aa08b31b7":
-                return ""
+                return "Property Type"
             case "61234f1234668a6aba7391ee":
                 return ""
             case "61234ead8e8da36a95580a86":
