@@ -151,6 +151,8 @@
 		7FD6942029BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD6941E29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib */; };
 		7FD6942329BCA2D8005AE54B /* WoozViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD6942229BCA2D8005AE54B /* WoozViewController.swift */; };
 		7FD6942629BCF1D6005AE54B /* WoozTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD6942529BCF1D6005AE54B /* WoozTripViewController.swift */; };
+		7FDF855629C8B99E00BC30A3 /* GasTechnician.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FDF855529C8B99E00BC30A3 /* GasTechnician.storyboard */; };
+		7FDF855929C8B9F300BC30A3 /* GasTechnicianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF855829C8B9F300BC30A3 /* GasTechnicianViewController.swift */; };
 		7FE322BE29BB31B900E3B597 /* CarWashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE322BD29BB31B900E3B597 /* CarWashModel.swift */; };
 		7FE322C129BB3CDB00E3B597 /* CarWashVendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE322C029BB3CDB00E3B597 /* CarWashVendorsViewController.swift */; };
 		7FE322C429BB3E3700E3B597 /* VehicleServices.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE322C329BB3E3700E3B597 /* VehicleServices.storyboard */; };
@@ -311,6 +313,8 @@
 		7FD6941E29BC8BA1005AE54B /* CarWashServiceTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarWashServiceTypeTableViewCell.xib; sourceTree = "<group>"; };
 		7FD6942229BCA2D8005AE54B /* WoozViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoozViewController.swift; sourceTree = "<group>"; };
 		7FD6942529BCF1D6005AE54B /* WoozTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoozTripViewController.swift; sourceTree = "<group>"; };
+		7FDF855529C8B99E00BC30A3 /* GasTechnician.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GasTechnician.storyboard; sourceTree = "<group>"; };
+		7FDF855829C8B9F300BC30A3 /* GasTechnicianViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasTechnicianViewController.swift; sourceTree = "<group>"; };
 		7FE322BD29BB31B900E3B597 /* CarWashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashModel.swift; sourceTree = "<group>"; };
 		7FE322C029BB3CDB00E3B597 /* CarWashVendorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashVendorsViewController.swift; sourceTree = "<group>"; };
 		7FE322C329BB3E3700E3B597 /* VehicleServices.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VehicleServices.storyboard; sourceTree = "<group>"; };
@@ -862,6 +866,8 @@
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
 				7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */,
 				7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */,
+				7FDF855A29C8CB9A00BC30A3 /* New Group */,
+				7FDF855729C8B9CE00BC30A3 /* GasTechnician */,
 				7F75B72829C7729B005871B2 /* CleaningOrderDetails */,
 				7F75B71E29C74917005871B2 /* CleaningSelection */,
 				7F75B70829C5CD05005871B2 /* Cleaning */,
@@ -940,6 +946,7 @@
 				7F02F0C429AE724500E4B775 /* Services.storyboard */,
 				7FE322C329BB3E3700E3B597 /* VehicleServices.storyboard */,
 				7F75B70629C5CCFB005871B2 /* Cleaning.storyboard */,
+				7FDF855529C8B99E00BC30A3 /* GasTechnician.storyboard */,
 				7FD0BE9C29A8F77B0049662D /* Assets.xcassets */,
 				7FD0BE9E29A8F77B0049662D /* LaunchScreen.storyboard */,
 				7FD0BEA129A8F77B0049662D /* Info.plist */,
@@ -1002,6 +1009,21 @@
 				7F75B6E229C4642B005871B2 /* Waiting */,
 			);
 			path = WoozTrip;
+			sourceTree = "<group>";
+		};
+		7FDF855729C8B9CE00BC30A3 /* GasTechnician */ = {
+			isa = PBXGroup;
+			children = (
+				7FDF855829C8B9F300BC30A3 /* GasTechnicianViewController.swift */,
+			);
+			path = GasTechnician;
+			sourceTree = "<group>";
+		};
+		7FDF855A29C8CB9A00BC30A3 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		7FE322BF29BB3CBE00E3B597 /* CarWashVendors */ = {
@@ -1140,6 +1162,7 @@
 				7FD0BE9B29A8F77A0049662D /* Main.storyboard in Resources */,
 				7F37C6ED29B1BC31001212E1 /* Segoe-UI.TTF in Resources */,
 				7F75B73329C77592005871B2 /* OrderDetailsHeaderTableViewCell.xib in Resources */,
+				7FDF855629C8B99E00BC30A3 /* GasTechnician.storyboard in Resources */,
 				7F1A486729AB513700C432DF /* CategoriesCollectionViewCell.xib in Resources */,
 				7F75B70529C5AA94005871B2 /* SpaceTableViewCell.xib in Resources */,
 				7F75B6F829C4BEDF005871B2 /* NoteTableViewCell.xib in Resources */,
@@ -1304,6 +1327,7 @@
 				7F37C6F529B1C058001212E1 /* LocationSelectionTableViewCell.swift in Sources */,
 				7F30A53029B112EF002F802F /* SubCategoryCollectionViewCell.swift in Sources */,
 				7F1A485129AA802200C432DF /* SideMenuView.swift in Sources */,
+				7FDF855929C8B9F300BC30A3 /* GasTechnicianViewController.swift in Sources */,
 				7F1A486129AB448600C432DF /* ImageCollectionViewCell.swift in Sources */,
 				7F37C6FF29B1D641001212E1 /* ContinueTableViewCell.swift in Sources */,
 				7FE322C129BB3CDB00E3B597 /* CarWashVendorsViewController.swift in Sources */,

@@ -125,6 +125,11 @@ extension HomeTabViewController: CategoriesCollectionViewCellDelegate {
                 cleaningVC.category = category
                 navigationController?.pushViewController(cleaningVC, animated: true)
             }
+        }else if category.serviceType == .gasTech {
+            if let gasTechVC = Controllers.gasTechnician.getController() as? GasTechnicianViewController {
+                gasTechVC.category = category
+                navigationController?.pushViewController(gasTechVC, animated: true)
+            }
         }
     }
 }

@@ -5,7 +5,7 @@
 //  Created by Saikiran Panuganti on 02/03/23.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - SubCategoryModel
 struct SubCategoryModel: Codable {
@@ -63,6 +63,8 @@ struct ComplaintType: Codable {
     let price, serviceCharge: Int?
     let noOfItemsButton, isActive: Bool?
     let pgServiceTax, gst: Int?
+    var color: UIColor = UIColor.random
+    var isSelected: Bool = false
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"

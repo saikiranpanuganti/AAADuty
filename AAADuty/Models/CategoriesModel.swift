@@ -119,7 +119,7 @@ struct Category: Codable {
             case "61234f1234668a6aba7391ee":
                 return "PEST CONTROL"
             case "61234ead8e8da36a95580a86":
-                return "ServiceType.gasTech"
+                return "GAS REPAIR"
             default:
                 return ""
             }
@@ -154,7 +154,7 @@ struct Category: Codable {
             case "61234f1234668a6aba7391ee":
                 return "Property Type"
             case "61234ead8e8da36a95580a86":
-                return ""
+                return "Property Type"
             default:
                 return ""
             }

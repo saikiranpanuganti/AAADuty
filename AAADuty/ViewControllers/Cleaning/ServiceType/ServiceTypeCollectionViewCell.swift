@@ -16,6 +16,7 @@ class ServiceTypeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tickView: UIView!
 
     var subCategoryType: SubCategoryType?
+    var complaintType: ComplaintType?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +37,20 @@ class ServiceTypeCollectionViewCell: UICollectionViewCell {
         }
         
         if subCategoryType?.isAdded ?? false {
+            tickView.isHidden = false
+        }else {
+            tickView.isHidden = true
+        }
+    }
+    
+    func configureUI(complaintType: ComplaintType?) {
+        self.complaintType = complaintType
+        colorView.backgroundColor = complaintType?.color
+        imageOutlet.sd_setImage(with: URL(string: complaintType?.imageURL ?? ""))
+        nameOutlet.text = complaintType?.complaint
+        bottomView.isHidden = true
+        
+        if complaintType?.isSelected ?? false {
             tickView.isHidden = false
         }else {
             tickView.isHidden = true

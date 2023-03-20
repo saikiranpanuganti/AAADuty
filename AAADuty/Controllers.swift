@@ -34,6 +34,7 @@ enum Controllers {
     case cleaning
     case cleaningSelection
     case cleaningOrderDetails
+    case gasTechnician
     
     func getController() -> UIViewController {
         switch self {
@@ -89,8 +90,8 @@ enum Controllers {
             return UIStoryboard(name: "Cleaning", bundle: nil).instantiateViewController(withIdentifier: "CleaningSelectionViewController")
         case .cleaningOrderDetails:
             return UIStoryboard(name: "Cleaning", bundle: nil).instantiateViewController(withIdentifier: "CleaningOrderDetailsViewController")
-//        case .player:
-//            return UIStoryboard(name: "Others", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController")
+        case .gasTechnician:
+            return UIStoryboard(name: "GasTechnician", bundle: nil).instantiateViewController(withIdentifier: "GasTechnicianViewController")
 //        case .player:
 //            return UIStoryboard(name: "Others", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController")
 //        case .player:

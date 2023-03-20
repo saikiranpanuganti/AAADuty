@@ -22,6 +22,8 @@ class CleaningOrderDetailsViewController: UIViewController {
     var selectedCleaningServices: [CleaningService] = []
     var selectedLocation: Location?
     var comments: String?
+    var complaintTypes: [ComplaintType]?
+    var selectedComplaintTypes: [ComplaintType?] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
