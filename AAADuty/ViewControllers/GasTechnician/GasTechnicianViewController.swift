@@ -123,7 +123,7 @@ extension GasTechnicianViewController: UITableViewDataSource {
         }else if indexPath.section == 2 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceTypesTableViewCell", for: indexPath) as? ServiceTypesTableViewCell {
                 cell.delegate = self
-                cell.configureUI(complaintTypes: complaintTypes, title: "Select Service Type")
+                cell.configureUI(complaintTypes: complaintTypes, title: "Select Service Type", height: 110)
                 return cell
             }
         }else if indexPath.section == 3 {
@@ -157,7 +157,7 @@ extension GasTechnicianViewController: UITableViewDelegate {
                 return 0
             }else {
                 let rows: Int = (((complaintTypes?.count ?? 0)/3) + ((((complaintTypes?.count ?? 0) % 3) == 0) ? 0 : 1))
-                return CGFloat(50 + rows*130)
+                return CGFloat(50 + rows*120)
             }
         }
         

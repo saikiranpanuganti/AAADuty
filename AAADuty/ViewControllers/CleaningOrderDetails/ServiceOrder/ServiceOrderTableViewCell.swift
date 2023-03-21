@@ -12,6 +12,7 @@ class ServiceOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var labelOutlet: UILabel!
     
     var cleaningService: CleaningService?
+    var complaintType: ComplaintType?
     var location: Location?
 
     override func awakeFromNib() {
@@ -24,6 +25,12 @@ class ServiceOrderTableViewCell: UITableViewCell {
     func configureUI(cleaningService: CleaningService?) {
         self.cleaningService = cleaningService
         labelOutlet.text = cleaningService?.serviceName
+        labelOutlet.textColor = UIColor.black
+    }
+    
+    func configureUI(complaintType: ComplaintType?) {
+        self.complaintType = complaintType
+        labelOutlet.text = complaintType?.complaint
         labelOutlet.textColor = UIColor.black
     }
     

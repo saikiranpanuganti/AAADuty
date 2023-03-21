@@ -119,9 +119,16 @@ class CleaningOrderDetailsViewController: UIViewController {
 
     func getTotalAmount() -> Int {
         var total = 0
-        for selectedCleaningService in selectedCleaningServices {
-            total += ((selectedCleaningService.price ?? 0)*selectedCleaningService.count)
+        if selectedComplaintTypes.count > 0 {
+            for complaint in selectedComplaintTypes {
+                total += complaint?.price ?? 0
+            }
+        }else {
+            for selectedCleaningService in selectedCleaningServices {
+                total += ((selectedCleaningService.price ?? 0)*selectedCleaningService.count)
+            }
         }
+        
         return total
     }
 }
@@ -133,7 +140,11 @@ extension CleaningOrderDetailsViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 2 {
-            return (selectedCleaningServices.count + 1)
+            if selectedComplaintTypes.count > 0 {
+                return (selectedComplaintTypes.count + 1)
+            }else {
+                return (selectedCleaningServices.count + 1)
+            }
         }
         return 1
         
@@ -156,7 +167,11 @@ extension CleaningOrderDetailsViewController: UITableViewDataSource {
                 if indexPath.row == 0 {
                     cell.configureUI(location: selectedLocation)
                 }else {
-                    cell.configureUI(cleaningService: selectedCleaningServices[indexPath.row - 1])
+                    if selectedComplaintTypes.count > 0 {
+                        cell.configureUI(complaintType: selectedComplaintTypes[indexPath.row - 1])
+                    }else {
+                        cell.configureUI(cleaningService: selectedCleaningServices[indexPath.row - 1])
+                    }
                 }
                 
                 return cell

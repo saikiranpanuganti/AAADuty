@@ -22,6 +22,7 @@ class ServiceTypesTableViewCell: UITableViewCell {
     weak var delegate: ServiceTypesTableViewCellDelegate?
     var subCategoryTypes: [SubCategoryType]?
     var complaintTypes: [ComplaintType]?
+    var cellHeight: CGFloat = 120
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,8 +46,9 @@ class ServiceTypesTableViewCell: UITableViewCell {
         updateUI()
     }
     
-    func configureUI(complaintTypes: [ComplaintType]?, title: String) {
+    func configureUI(complaintTypes: [ComplaintType]?, title: String, height: CGFloat) {
         self.complaintTypes = complaintTypes
+        self.cellHeight = height
         titleOutlet.text = title
         updateUI()
     }
@@ -101,7 +103,7 @@ extension ServiceTypesTableViewCell: UICollectionViewDelegate {
 }
 extension ServiceTypesTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 120)
+        return CGSize(width: 100, height: cellHeight)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
