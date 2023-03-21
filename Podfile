@@ -12,5 +12,6 @@ target 'AAADuty' do
   pod 'IQKeyboardManagerSwift', '6.5.0'
   pod 'GoogleMaps', '7.4.0'
   pod 'GooglePlaces', '7.4.0'
+  pod 'razorpay-pod', '1.3.0'
 
 end

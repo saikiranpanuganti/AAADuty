@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import Razorpay
 
-class PaymentModesViewController: UIViewController {
+class PaymentModesViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var orderDetails: OrderDetails?
     var orderRequest: OrderRequest?
+    
+    var razorpay: RazorpayCheckout!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +25,25 @@ class PaymentModesViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        razorpay = RazorpayCheckout.initWithKey("rzp_test_Dwua9vi5c5V4jd", andDelegateWithData: self)
     }
     
+    func showPaymentForm() {
+        let options: [String:Any] = [
+                    "amount": "100",
+                    "currency": "INR",
+                    "description": "purchase description",
+//                    "order_id": "order_DBJOWzybf0sJaa",
+                    "image": "https://source.unsplash.com/user/c_v_r/800x800",
+                    "name": "Aaaduty",
+                    "prefill": ["contact": "7799333467", "email": "vamci@aaaduty.com"],
+                    "theme": ["color": "#FF0000"],
+                    "config": ["display": ["hide": [["method": "card"], ["method": "wallet"], ["method": "netbanking"], ["method": "paylater"], ["method": "emi"]]]]
+        ]
+
+        self.razorpay.open(options)
+    }
 }
 
 
@@ -74,10 +94,19 @@ extension PaymentModesViewController: LocationTableViewCellDelegate {
 
 extension PaymentModesViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
-        if let controller = Controllers.requestAccepted.getController() as? RequestAcceptedViewController {
-            controller.orderDetails = orderDetails
-            controller.orderRequest = orderRequest
-            navigationController?.pushViewController(controller, animated: true)
-        }
+        showPaymentForm()
+    }
+}
+
+
+extension PaymentModesViewController: RazorpayPaymentCompletionProtocolWithData {
+    func onPaymentError(_ code: Int32, description str: String, andData response: [AnyHashable : Any]?) {
+        print("error: ", response ?? [:], code)
+        showAlert(title: "Alert", message: str)
+    }
+
+    func onPaymentSuccess(_ payment_id: String, andData response: [AnyHashable : Any]?) {
+        print("success: ", payment_id)
+        showAlert(title: "Success", message: "Payment Succeeded")
     }
 }
