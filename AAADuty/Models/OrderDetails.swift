@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct OrderDetails: Codable {
     var category: Category?
@@ -17,6 +18,7 @@ struct OrderDetails: Codable {
     var vehicleProblem: VechicleProblem?
     var userAddress: Location?
     var count: Int = 0
+    var comments: String?
     
     func getRequestParams() -> [String: Any]? {
         var orderRequestParams: [String: Any] = [:]
@@ -27,17 +29,18 @@ struct OrderDetails: Codable {
         orderRequestParams["ComplaintTypeName"] = complaintType?.complaint ?? ""
         orderRequestParams["typeID"] = complaintType?.typeID ?? ""
         orderRequestParams["typeName"] = complaintType?.typeName ?? ""
-        orderRequestParams["GST"] = category?.gst ?? 0
-        orderRequestParams["Price"] = totalAmount ?? 0
+        orderRequestParams["GST"] = complaintType?.gst ?? 0
+        let amount = (count*(complaintType?.price ?? 0)) + (complaintType?.serviceCharge ?? 0) + (complaintType?.pgServiceTax ?? 0)
+        orderRequestParams["Price"] = amount
         orderRequestParams["Tax"] = complaintType?.pgServiceTax ?? 0
-        orderRequestParams["pinCode"] = address?.postalCode ?? 0
+        orderRequestParams["pinCode"] = Int(address?.postalCode ?? "0")
         
         // CHeck this
-        orderRequestParams["CustomerAddress"] = AppData.shared.user?.address?.first?.address ?? ""
+        orderRequestParams["CustomerAddress"] = address?.address
         orderRequestParams["CustomerID"] = AppData.shared.user?.id ?? ""
         orderRequestParams["CustomerName"] = AppData.shared.user?.customerName ?? ""
         orderRequestParams["CustomerPhoneNumber"] = AppData.shared.user?.mobileNumber ?? ""
-        orderRequestParams["CustomerLocation"] = "\(userAddress?.longitude ?? 0),\(userAddress?.latitude ?? 0)"
+        orderRequestParams["CustomerLocation"] = "\(address?.longitude ?? 0),\(address?.latitude ?? 0)"
         
         orderRequestParams["DesinationAddress"] = address?.address
         orderRequestParams["DestinationLat"] = "\(address?.latitude ?? 0)"
@@ -53,13 +56,19 @@ struct OrderDetails: Codable {
         serviceParams["TypeID"] = complaintType?.typeID ?? ""
         serviceParams["TypeName"] = complaintType?.typeName ?? ""
         serviceParams["isActive"] = complaintType?.isActive ?? false
-        orderRequestParams["Services"] = serviceParams
+        orderRequestParams["Services"] = [serviceParams]
         
         // Check this
-        orderRequestParams["Distance"] = 6
+        if let userLatitude = userAddress?.latitude, let userLongitude = userAddress?.longitude, let destLatitude = address?.latitude, let destLongitude = address?.longitude {
+            let userLocation = CLLocation(latitude: userLatitude, longitude: userLongitude)
+            let destLocation = CLLocation(latitude: destLatitude, longitude: destLongitude)
+            let distance = userLocation.distance(from: destLocation)/1000
+            orderRequestParams["Distance"] = distance
+        }else {
+            orderRequestParams["Distance"] = 0
+        }
         orderRequestParams["Note"] = ""
-        orderRequestParams["Problems"] = [""]
-        orderRequestParams["Remarks"] = ""
+        orderRequestParams["Remarks"] = comments
         
         orderRequestParams["EndTime"] = ""
         orderRequestParams["SlotId"] = ""

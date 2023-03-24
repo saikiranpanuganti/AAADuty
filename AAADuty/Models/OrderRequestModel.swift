@@ -22,39 +22,36 @@ struct OrderRequestModel: Codable {
     }
 }
 
-// MARK: - RequestData
+// MARK: - OrderRequest
 struct OrderRequest: Codable {
-    let id, customerID, customerName: String?
+    let id, customerID, customerName, customerPhoneNumber: String?
+    let desinationAddress: String?
     let destinationLocation: DestinationLocation?
     let destinationLat, destinationLong: Double?
     let services: [Service]?
-//    let problems: [JSONAny]?
-    let distance: Int?
+    let distance: Double?
     let note, categoryID, categoryName, paymentStatus: String?
     let typeID, typeName, date, notificationStatus: String?
     let franchiseNote, assignedFranchiseID, assignedFranchiseName, assignedFranchsiePhoneNumber: String?
     let assignedFranchiseStateID, assignedFranchiseState, assignedFranchiseDistrictID, assignedFranchiseDistrictName: String?
     let assignedFranchiseStoreAddress: String?
-//    let assignedFranchiseArea: JSONNull?
     let assignedFranchisePinCode, assignedFranchiseCode: String?
-//    let statusTracking: [JSONAny]?
     let assignedTechinicianID, assignedTechnicianName: String?
-//    let assignedTechnicianPhoneNumber: JSONNull?
     let requestStatus, orderID: String?
     let serviceImageURL, requestImageURL: String?
     let price, gst, serviceTax, totalAmount: Int?
-//    let beforePics, afterPics, woozInstructions, ticketStatus: [JSONAny]?
     let v: Int?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case customerID = "CustomerID"
         case customerName = "CustomerName"
+        case customerPhoneNumber = "CustomerPhoneNumber"
+        case desinationAddress = "DesinationAddress"
         case destinationLocation = "DestinationLocation"
         case destinationLat = "DestinationLat"
         case destinationLong = "DestinationLong"
         case services = "Services"
-//        case problems = "Problems"
         case distance = "Distance"
         case note = "Note"
         case categoryID = "CategoryID"
@@ -72,13 +69,10 @@ struct OrderRequest: Codable {
         case assignedFranchiseDistrictID = "AssignedFranchiseDistrictID"
         case assignedFranchiseDistrictName = "AssignedFranchiseDistrictName"
         case assignedFranchiseStoreAddress = "AssignedFranchiseStoreAddress"
-//        case assignedFranchiseArea = "AssignedFranchiseArea"
         case assignedFranchisePinCode = "AssignedFranchisePinCode"
         case assignedFranchiseCode = "AssignedFranchiseCode"
-//        case statusTracking = "StatusTracking"
         case assignedTechinicianID = "AssignedTechinicianID"
         case assignedTechnicianName = "AssignedTechnicianName"
-//        case assignedTechnicianPhoneNumber = "AssignedTechnicianPhoneNumber"
         case requestStatus = "RequestStatus"
         case orderID = "OrderID"
         case serviceImageURL = "ServiceImageURL"
@@ -87,10 +81,6 @@ struct OrderRequest: Codable {
         case gst = "GST"
         case serviceTax = "ServiceTax"
         case totalAmount = "TotalAmount"
-//        case beforePics = "BeforePics"
-//        case afterPics = "AfterPics"
-//        case woozInstructions = "WoozInstructions"
-//        case ticketStatus = "TicketStatus"
         case v = "__v"
     }
 }
@@ -103,20 +93,22 @@ struct DestinationLocation: Codable {
 
 // MARK: - Service
 struct Service: Codable {
-    let id, categoryID, categoryName, complaint: String?
-    let noOfCount: String?
+    let id, typeName, noOfCount, isActive: String?
+    let complaint, categoryName, typeID, categoryID: String?
     let price: Int?
-    let typeID, typeName, isActive: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case categoryID = "CategoryID"
-        case categoryName = "CategoryName"
-        case complaint = "Complaint"
-        case noOfCount = "NoOfCount"
-        case price = "Price"
-        case typeID = "TypeID"
         case typeName = "TypeName"
+        case noOfCount = "NoOfCount"
         case isActive
+        case complaint = "Complaint"
+        case categoryName = "CategoryName"
+        case typeID = "TypeID"
+        case categoryID = "CategoryID"
+        case price = "Price"
     }
 }
+
+
+

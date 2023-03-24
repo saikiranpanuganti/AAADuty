@@ -15,6 +15,7 @@ class FlatTyreViewController: BaseViewController {
     var selectedSubCategory: SubCategory?
     var complaintType: ComplaintType?
     var selectedLocation: Location?
+    var comments: String?
     var count: Int = 0
     var price: Int {
         return complaintType?.price ?? 0
@@ -46,6 +47,12 @@ class FlatTyreViewController: BaseViewController {
         }
     }
     
+    func resignTextFieldAsResponder() {
+        if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 4)) as? CommentsTableViewCell {
+            cell.textfieldOutlet.resignFirstResponder()
+        }
+    }
+    
     func updateCountCell(withZero: Bool) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -59,11 +66,11 @@ class FlatTyreViewController: BaseViewController {
     }
     
     func navigateToOrderConfirmationVC() {
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             guard let self = self else { return }
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
                 LocationManager.shared.getLocationAndAddress { location in
-                    controller.orderDetails = OrderDetails(category: self.category, totalAmount: Int(self.amount), address: self.selectedLocation, complaintType: self.complaintType, userAddress: location, count: self.count)
+                    controller.orderDetails = OrderDetails(category: self.category, totalAmount: Int(self.amount), address: self.selectedLocation, complaintType: self.complaintType, userAddress: location, count: self.count, comments: self.comments)
                     self.navigationController?.pushViewController(controller, animated: true)
                 }
             }
@@ -114,6 +121,8 @@ class FlatTyreViewController: BaseViewController {
     }
     
     func checkAvailability() {
+        resignTextFieldAsResponder()
+        
         if let categoryId = selectedSubCategory?.categoryID, let postalCodeStr = selectedLocation?.postalCode, let postalCode = Int(postalCodeStr) {
             showLoader()
             
@@ -177,6 +186,7 @@ extension FlatTyreViewController: UITableViewDataSource {
             }
         }else if indexPath.section == 4 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as? CommentsTableViewCell {
+                cell.delegate = self
                 return cell
             }
         }else if indexPath.section == 5 {
@@ -242,8 +252,9 @@ extension FlatTyreViewController: ContinueTableViewCellDelegate {
         }else if selectedLocation == nil {
             showAlert(title: "Error", message: "Please select the location")
             return
+        }else {
+            checkAvailability()
         }
-        checkAvailability()
     }
 }
 
@@ -267,5 +278,12 @@ extension FlatTyreViewController: MapsViewControllerDelegate {
                 cell.updateAddress(address: location.address)
             }
         }
+    }
+}
+
+
+extension FlatTyreViewController: CommentsTableViewCellDelegate {
+    func commentsEntered(comments: String?) {
+        self.comments = comments
     }
 }

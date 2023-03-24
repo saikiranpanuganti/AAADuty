@@ -91,19 +91,20 @@ class OrderConfirmationViewController: BaseViewController {
                         let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
                         self.orderRequest = orderRequestModel.requestData
                         
-                        // Check for success and navigate only after that
-//                        if self.orderRequest?.requestStatus == something
-                        
-                        DispatchQueue.main.async { [weak self] in
-                            guard let self = self else { return }
-                            if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {
-                                controller.orderDetails = self.orderDetails
-                                controller.orderRequest = self.orderRequest
-                                self.navigationController?.pushViewController(controller, animated: true)
+                        if orderRequestModel.message == "Data Saved Sucessfully" {
+                            DispatchQueue.main.async { [weak self] in
+                                guard let self = self else { return }
+                                if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {
+                                    controller.orderDetails = self.orderDetails
+                                    controller.orderRequest = self.orderRequest
+                                    self.navigationController?.pushViewController(controller, animated: true)
+                                }
                             }
+                        }else {
+                            self.showAlert(title: "Error", message: orderRequestModel.message ?? "Error saving the order request")
                         }
                     }catch {
-                        print("Error: FlatTyreViewController getSubCategories - \(error.localizedDescription)")
+                        print("Error: OrderConfirmationViewController createOrderRequest - \(error.localizedDescription)")
                     }
                 }
             }

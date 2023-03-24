@@ -87,6 +87,13 @@ class BaseViewController: UIViewController {
         }
     }
     
+    func stopLoader(_ completion: @escaping (() -> ())) {
+        DispatchQueue.main.async { [weak self] in
+            self?.loader?.dismiss(animated: true, completion: completion)
+            self?.loader = nil
+        }
+    }
+    
     func showAlert(title: String, message: String) { //, completion: (() -> ())
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
