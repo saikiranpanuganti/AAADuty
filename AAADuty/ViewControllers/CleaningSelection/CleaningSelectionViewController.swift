@@ -24,7 +24,7 @@ class CleaningSelectionViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "LocationTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationTableViewCell")
-        tableView.register(UINib(nibName: "ServiceDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceDetailsTableViewCell")
+        tableView.register(UINib(nibName: "ServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceTableViewCell")
         tableView.register(UINib(nibName: "SelectedCleaningServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectedCleaningServiceTableViewCell")
         tableView.register(UINib(nibName: "ContinueTableViewCell", bundle: nil), forCellReuseIdentifier: "ContinueTableViewCell")
         
@@ -53,8 +53,8 @@ extension CleaningSelectionViewController: UITableViewDataSource {
                 return cell
             }
         }else if indexPath.section == 1 {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceDetailsTableViewCell", for: indexPath) as? ServiceDetailsTableViewCell {
-                cell.configureUI(category: category, subCategory: subCategories, subTitle: "")
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceTableViewCell", for: indexPath) as? ServiceTableViewCell {
+                cell.configureUI(category: category)
                 return cell
             }
         }else if indexPath.section == 2 {

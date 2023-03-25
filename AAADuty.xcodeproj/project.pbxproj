@@ -128,6 +128,8 @@
 		7FCC42EF29CE8B4500768A76 /* CancelReasonsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC42EE29CE8B4500768A76 /* CancelReasonsModel.swift */; };
 		7FCC42F329CF4A9800768A76 /* GasServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC42F129CF4A9800768A76 /* GasServiceTableViewCell.swift */; };
 		7FCC42F429CF4A9800768A76 /* GasServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC42F229CF4A9800768A76 /* GasServiceTableViewCell.xib */; };
+		7FCC42F829CF537100768A76 /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC42F629CF537100768A76 /* ServiceTableViewCell.swift */; };
+		7FCC42F929CF537100768A76 /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC42F729CF537100768A76 /* ServiceTableViewCell.xib */; };
 		7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9329A8F77A0049662D /* AppDelegate.swift */; };
 		7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */; };
 		7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9729A8F77A0049662D /* ViewController.swift */; };
@@ -293,6 +295,8 @@
 		7FCC42EE29CE8B4500768A76 /* CancelReasonsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasonsModel.swift; sourceTree = "<group>"; };
 		7FCC42F129CF4A9800768A76 /* GasServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasServiceTableViewCell.swift; sourceTree = "<group>"; };
 		7FCC42F229CF4A9800768A76 /* GasServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GasServiceTableViewCell.xib; sourceTree = "<group>"; };
+		7FCC42F629CF537100768A76 /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		7FCC42F729CF537100768A76 /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
 		7FD0BE9029A8F77A0049662D /* AAADuty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAADuty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD0BE9329A8F77A0049662D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -782,6 +786,7 @@
 		7F75B71E29C74917005871B2 /* CleaningSelection */ = {
 			isa = PBXGroup;
 			children = (
+				7FCC42F529CF536200768A76 /* Service */,
 				7F75B71F29C749A2005871B2 /* CleaningSelectionViewController.swift */,
 				7F75B72329C7510F005871B2 /* SelectedCleaningService */,
 			);
@@ -917,6 +922,15 @@
 				7FCC42F229CF4A9800768A76 /* GasServiceTableViewCell.xib */,
 			);
 			path = GasService;
+			sourceTree = "<group>";
+		};
+		7FCC42F529CF536200768A76 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7FCC42F629CF537100768A76 /* ServiceTableViewCell.swift */,
+				7FCC42F729CF537100768A76 /* ServiceTableViewCell.xib */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		7FD0BE8729A8F77A0049662D = {
@@ -1161,6 +1175,7 @@
 				7F1A485629AA827D00C432DF /* MenuTableViewCell.xib in Resources */,
 				7F02F0CE29AE79B500E4B775 /* LocationTableViewCell.xib in Resources */,
 				7F37C70029B1D641001212E1 /* ContinueTableViewCell.xib in Resources */,
+				7FCC42F929CF537100768A76 /* ServiceTableViewCell.xib in Resources */,
 				7FE322C429BB3E3700E3B597 /* VehicleServices.storyboard in Resources */,
 				7F30A52E29B112EB002F802F /* SubCategoryCollectionViewCell.xib in Resources */,
 				7F1A485029AA802200C432DF /* SideMenuView.xib in Resources */,
@@ -1361,6 +1376,7 @@
 				7F75B72A29C772CB005871B2 /* CleaningOrderDetailsViewController.swift in Sources */,
 				7F75B72129C749A2005871B2 /* CleaningSelectionViewController.swift in Sources */,
 				7F75B6F729C4BEDF005871B2 /* NoteTableViewCell.swift in Sources */,
+				7FCC42F829CF537100768A76 /* ServiceTableViewCell.swift in Sources */,
 				7F1A486629AB513700C432DF /* CategoriesCollectionViewCell.swift in Sources */,
 				7F75B6FB29C573BE005871B2 /* WoozTripDetailsViewController.swift in Sources */,
 				7FB7B54D29B257DB0006E206 /* BillDetailsTableViewCell.swift in Sources */,
