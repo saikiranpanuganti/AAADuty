@@ -122,6 +122,7 @@ class VechicleTechnicianViewController: BaseViewController {
                                 controller.vechicleTypes = self.vechicleTypes
                                 controller.selectedVehicleType = self.selectedVehicleType
                                 controller.vehicleBrands = vechicleBrandsModel
+                                controller.isManualTransition = self.isManualTransition
                                 
                                 self.navigationController?.pushViewController(controller, animated: false)
                             }

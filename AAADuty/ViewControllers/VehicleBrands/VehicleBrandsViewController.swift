@@ -25,6 +25,8 @@ class VehicleBrandsViewController: BaseViewController {
     var vehicleBrands: VechicleBrandsModel?
     var selectedVehicleBrand: VechicleBrand?
     
+    var isManualTransition: Bool?
+    
     var vehicles: VechiclesModel?
     var selectedVehicle: Vechicle?
     
@@ -121,6 +123,7 @@ class VehicleBrandsViewController: BaseViewController {
                                 controller.vehicles = self.vehicles
                                 controller.selectedVehicle = self.selectedVehicle
                                 controller.vehicleProblems = self.vehicleProblems
+                                controller.isManualTransition = self.isManualTransition
                                 self.navigationController?.pushViewController(controller, animated: true)
                             }
                         }

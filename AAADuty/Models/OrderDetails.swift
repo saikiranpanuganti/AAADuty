@@ -19,12 +19,18 @@ struct OrderDetails: Codable {
     var userAddress: Location?
     var count: Int = 0
     var comments: String?
+    var isManualTransmission: Bool?
+    var vehicleType: VechicleType?
+    var subCategory: SubCategory?
+    var vehicle: Vechicle?
     
     func getRequestParams() -> [String: Any]? {
         if category?.serviceType == .flatTyre {
             return getFlatTyreParams()
         }else if category?.serviceType == .towing {
             return getTowingParams()
+        }else if category?.serviceType == .vechicletech {
+            return getVehicleTechParams()
         }
         return nil
     }
@@ -165,6 +171,48 @@ struct OrderDetails: Codable {
         orderRequestParams["VendorPhoneNumber"] = ""
         orderRequestParams["VendorSlotID"] = ""
         orderRequestParams["VenodrName"] = ""
+        
+        return orderRequestParams
+    }
+    
+    func getVehicleTechParams() -> [String: Any]? {
+        var orderRequestParams: [String: Any] = [:]
+        
+        orderRequestParams["CategoryID"] = category?.id ?? ""
+        orderRequestParams["CategoryName"] = category?.category ?? ""
+        orderRequestParams["CustomerAddress"] = userAddress?.address
+        orderRequestParams["CustomerID"] = AppData.shared.user?.id ?? ""
+        orderRequestParams["CustomerLocation"] = "\(userAddress?.longitude ?? 0),\(userAddress?.latitude ?? 0)"
+        orderRequestParams["CustomerPhoneNumber"] = AppData.shared.user?.mobileNumber ?? ""
+        orderRequestParams["DesinationAddress"] = address?.address
+        orderRequestParams["DestinationLat"] = "\(address?.latitude ?? 0)"
+        orderRequestParams["DestinationLocation"] = "\(address?.longitude ?? 0),\(address?.latitude ?? 0)"
+        orderRequestParams["DestinationLong"] = "\(address?.longitude ?? 0)"
+        orderRequestParams["typeID"] = subCategory?.id ?? ""
+        orderRequestParams["typeName"] = subCategory?.typeName ?? ""
+        orderRequestParams["VehicleTypeID"] = vehicleType?.id ?? ""
+        orderRequestParams["VehicleTypeName"] = vehicleType?.vehileType ?? ""
+        orderRequestParams["ComplaintTypeID"] = vehicleProblem?.id ?? ""
+        if let manual = isManualTransmission {
+            if manual {
+                orderRequestParams["ComplaintTypeName"] = "Manual"
+            }else {
+                orderRequestParams["ComplaintTypeName"] = "Automatic"
+            }
+        }
+        orderRequestParams["BrandID"] = vehicle?.brandID
+        orderRequestParams["BrandName"] = vehicle?.brand
+        orderRequestParams["VehicleName"] = vehicle?.vehicleName
+        orderRequestParams["Problem"] = vehicleProblem?.problem
+        let amount = (vehicleProblem?.price ?? 0) + (vehicleProblem?.gst ?? 0) + (vehicleProblem?.pgServiceTax ?? 0)
+        orderRequestParams["Price"] = amount
+        orderRequestParams["PGServiceTax"] = vehicleProblem?.pgServiceTax
+        orderRequestParams["GST"] = vehicleProblem?.gst
+        orderRequestParams["TransactionAmount"] = ""
+         orderRequestParams["TransactionDoneBy"] = ""
+        orderRequestParams["TransactionID"] = ""
+        orderRequestParams["TransactionMode"] = ""
+        orderRequestParams["pinCode"] = Int(address?.postalCode ?? "0")
         
         return orderRequestParams
     }

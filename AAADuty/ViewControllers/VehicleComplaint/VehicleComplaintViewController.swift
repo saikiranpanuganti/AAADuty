@@ -31,6 +31,8 @@ class VehicleComplaintViewController: BaseViewController {
     var vehicleProblems: VechicleProblemModel?
     var selectedVehicleProblem: VechicleProblem?
     
+    var isManualTransition: Bool?
+    
     var selectedLocation: Location?
     var searchResults: [VechicleProblem] = []
     
@@ -66,17 +68,8 @@ class VehicleComplaintViewController: BaseViewController {
             guard let self = self else { return }
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
                 LocationManager.shared.getLocationAndAddress { location in
-                    controller.orderDetails = OrderDetails(category: self.category, totalAmount: Int(self.selectedVehicleProblem?.price ?? 0), address: self.selectedLocation, vehicleProblem: self.selectedVehicleProblem, userAddress: location, count: 1)
-                    
-                    guard let coordinator = self.transitionCoordinator else {
-                        self.navigationController?.pushViewController(controller, animated: true)
-                        return
-                    }
-
-                    coordinator.animate(alongsideTransition: nil) { _ in
-                        self.navigationController?.pushViewController(controller, animated: true)
-                    }
-                    
+                    controller.orderDetails = OrderDetails(category: self.category, totalAmount: Int(self.selectedVehicleProblem?.price ?? 0), address: self.selectedLocation, vehicleProblem: self.selectedVehicleProblem, userAddress: location, count: 1, isManualTransmission: self.isManualTransition, vehicleType: self.selectedVehicleType, subCategory: self.selectedSubCategory, vehicle: self.selectedVehicle)
+                    self.navigationController?.pushViewController(controller, animated: true)
                 }
             }
         }
@@ -90,22 +83,22 @@ class VehicleComplaintViewController: BaseViewController {
             
             NetworkAdaptor.requestWithHeaders(urlString: Url.checkRequestAvailability.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
-                self.stopLoader()
-                
-                if let data = data {
-                    do {
-                        if let responseJson = try JSONSerialization.jsonObject(with: data) as? [String: Any], let message = responseJson["Message"] as? String {
-                            if message == "Please Take A Request For Today" {
-                                self.navigateToOrderConfirmationVC()
+                self.stopLoader {
+                    if let data = data {
+                        do {
+                            if let responseJson = try JSONSerialization.jsonObject(with: data) as? [String: Any], let message = responseJson["Message"] as? String {
+                                if message == "Please Take A Request For Today" {
+                                    self.navigateToOrderConfirmationVC()
+                                }else {
+                                    self.showAlert(title: "Error", message: message)
+                                }
                             }else {
-                                self.showAlert(title: "Error", message: message)
+                                self.showAlert(title: "Error", message: "Something went wrong")
                             }
-                        }else {
-                            self.showAlert(title: "Error", message: "Something went wrong")
+                        }catch {
+                            print("Error: VehicleComplaintViewController checkAvailability - \(error.localizedDescription)")
+                            self.showAlert(title: "Error", message: error.localizedDescription)
                         }
-                    }catch {
-                        print("Error: VehicleComplaintViewController checkAvailability - \(error.localizedDescription)")
-                        self.showAlert(title: "Error", message: error.localizedDescription)
                     }
                 }
             }
