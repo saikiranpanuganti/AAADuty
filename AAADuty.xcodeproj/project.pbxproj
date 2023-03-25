@@ -123,6 +123,9 @@
 		7FB7B55229B25CBC0006E206 /* OrderReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B55029B25CBC0006E206 /* OrderReviewTableViewCell.swift */; };
 		7FB7B55329B25CBC0006E206 /* OrderReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB7B55129B25CBC0006E206 /* OrderReviewTableViewCell.xib */; };
 		7FB8C40929AB949A005B6B4E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C40829AB949A005B6B4E /* BaseViewController.swift */; };
+		7FCC42EB29CE84CB00768A76 /* AfterPayment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC42EA29CE84CB00768A76 /* AfterPayment.storyboard */; };
+		7FCC42ED29CE84F300768A76 /* CancelRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC42EC29CE84F300768A76 /* CancelRequestViewController.swift */; };
+		7FCC42EF29CE8B4500768A76 /* CancelReasonsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC42EE29CE8B4500768A76 /* CancelReasonsModel.swift */; };
 		7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9329A8F77A0049662D /* AppDelegate.swift */; };
 		7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */; };
 		7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9729A8F77A0049662D /* ViewController.swift */; };
@@ -283,6 +286,9 @@
 		7FB7B55029B25CBC0006E206 /* OrderReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderReviewTableViewCell.swift; sourceTree = "<group>"; };
 		7FB7B55129B25CBC0006E206 /* OrderReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderReviewTableViewCell.xib; sourceTree = "<group>"; };
 		7FB8C40829AB949A005B6B4E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		7FCC42EA29CE84CB00768A76 /* AfterPayment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AfterPayment.storyboard; sourceTree = "<group>"; };
+		7FCC42EC29CE84F300768A76 /* CancelRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRequestViewController.swift; sourceTree = "<group>"; };
+		7FCC42EE29CE8B4500768A76 /* CancelReasonsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasonsModel.swift; sourceTree = "<group>"; };
 		7FD0BE9029A8F77A0049662D /* AAADuty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAADuty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD0BE9329A8F77A0049662D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -558,6 +564,7 @@
 				7F3347DA29B858F80083CC79 /* OrderRequestModel.swift */,
 				7F75B6E829C4708A005871B2 /* WoozModels.swift */,
 				7F75B71729C5EA80005871B2 /* CleaningModels.swift */,
+				7FCC42EE29CE8B4500768A76 /* CancelReasonsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -866,7 +873,6 @@
 				7FD0BEC329A9E9880049662D /* ProfileTabViewController.swift */,
 				7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */,
 				7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */,
-				7FDF855A29C8CB9A00BC30A3 /* New Group */,
 				7FDF855729C8B9CE00BC30A3 /* GasTechnician */,
 				7F75B72829C7729B005871B2 /* CleaningOrderDetails */,
 				7F75B71E29C74917005871B2 /* CleaningSelection */,
@@ -883,6 +889,7 @@
 				7F08778A29B29393004CB905 /* Towing */,
 				7F08777E29B28A12004CB905 /* PaymentModes */,
 				7FB7B54229B229640006E206 /* OrderConfirmation */,
+				7FDF855A29C8CB9A00BC30A3 /* CancelReuest */,
 				7F13C2DE29B1124F00EFFE7E /* FlatTyre */,
 				7F1A485729AB3F1800C432DF /* HomeTab */,
 				7FB8C40829AB949A005B6B4E /* BaseViewController.swift */,
@@ -947,6 +954,7 @@
 				7FE322C329BB3E3700E3B597 /* VehicleServices.storyboard */,
 				7F75B70629C5CCFB005871B2 /* Cleaning.storyboard */,
 				7FDF855529C8B99E00BC30A3 /* GasTechnician.storyboard */,
+				7FCC42EA29CE84CB00768A76 /* AfterPayment.storyboard */,
 				7FD0BE9C29A8F77B0049662D /* Assets.xcassets */,
 				7FD0BE9E29A8F77B0049662D /* LaunchScreen.storyboard */,
 				7FD0BEA129A8F77B0049662D /* Info.plist */,
@@ -1019,11 +1027,12 @@
 			path = GasTechnician;
 			sourceTree = "<group>";
 		};
-		7FDF855A29C8CB9A00BC30A3 /* New Group */ = {
+		7FDF855A29C8CB9A00BC30A3 /* CancelReuest */ = {
 			isa = PBXGroup;
 			children = (
+				7FCC42EC29CE84F300768A76 /* CancelRequestViewController.swift */,
 			);
-			path = "New Group";
+			path = CancelReuest;
 			sourceTree = "<group>";
 		};
 		7FE322BF29BB3CBE00E3B597 /* CarWashVendors */ = {
@@ -1178,6 +1187,7 @@
 				7F75B70729C5CCFB005871B2 /* Cleaning.storyboard in Resources */,
 				7F37C6FB29B1CE41001212E1 /* CommentsTableViewCell.xib in Resources */,
 				7FB7B55329B25CBC0006E206 /* OrderReviewTableViewCell.xib in Resources */,
+				7FCC42EB29CE84CB00768A76 /* AfterPayment.storyboard in Resources */,
 				7F37C6F129B1BF2A001212E1 /* Segoe-UI-SemiBold.ttf in Resources */,
 				7F37C6EB29B1B183001212E1 /* CountTableViewCell.xib in Resources */,
 				7F06A0B729B983B400D9E5A4 /* SearchTableViewCell.xib in Resources */,
@@ -1343,10 +1353,12 @@
 				7FD0BEB629A922FB0049662D /* OTPStackView.swift in Sources */,
 				7F02F0CD29AE79B500E4B775 /* LocationTableViewCell.swift in Sources */,
 				7FD0BEC029A9E96E0049662D /* BookingsTabViewController.swift in Sources */,
+				7FCC42ED29CE84F300768A76 /* CancelRequestViewController.swift in Sources */,
 				7FD6942629BCF1D6005AE54B /* WoozTripViewController.swift in Sources */,
 				7FB7B55229B25CBC0006E206 /* OrderReviewTableViewCell.swift in Sources */,
 				7F08778029B28A48004CB905 /* PaymentModesViewController.swift in Sources */,
 				7F02F0C129AE4A1E00E4B775 /* String+Extension.swift in Sources */,
+				7FCC42EF29CE8B4500768A76 /* CancelReasonsModel.swift in Sources */,
 				7F1A487529AB708B00C432DF /* AppData.swift in Sources */,
 				7F37C6EA29B1B183001212E1 /* CountTableViewCell.swift in Sources */,
 				7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */,

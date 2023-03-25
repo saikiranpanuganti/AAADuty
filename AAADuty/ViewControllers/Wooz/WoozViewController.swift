@@ -56,8 +56,7 @@ class WoozViewController: BaseViewController {
         if let categoryId = category?.id {
             showLoader()
             let bodyParams: [String: Any] = ["CategoryID": categoryId]
-            print("Url - \(Url.getTypes.getUrl())")
-            print("Body Params - \(bodyParams)")
+            
             NetworkAdaptor.requestWithHeaders(urlString: Url.getTypes.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
@@ -80,7 +79,7 @@ class WoozViewController: BaseViewController {
             showLoader()
             
             let bodyParams: [String: Any] = ["CategoryID": categoryId, "TypeID": typeID]
-            print("Body Params - \(bodyParams)")
+            
             NetworkAdaptor.requestWithHeaders(urlString: Url.getComplaintTypes.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()

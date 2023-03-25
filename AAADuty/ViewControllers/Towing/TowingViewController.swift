@@ -149,7 +149,7 @@ class TowingViewController: BaseViewController {
             showLoader()
             
             let bodyParams: [String: Any] = ["pinCode": postalCodeStr, "coordinates": coordinates]
-            print("bodyParams - \(bodyParams)")
+            
             NetworkAdaptor.requestWithHeaders(urlString: Url.getCarWashVendors.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
@@ -157,7 +157,6 @@ class TowingViewController: BaseViewController {
                 if let data = data {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data)
-                        print("Json: \(json)")
                         let carWashVendorsModel = try JSONDecoder().decode(CarWashVendorsModel.self, from: data)
                         self.carWashVendors = carWashVendorsModel
                         self.navigateToCarWashVendorsVC()

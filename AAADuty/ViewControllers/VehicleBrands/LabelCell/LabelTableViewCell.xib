@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -21,25 +22,48 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTH-HD-0WZ">
-                        <rect key="frame" x="2" y="2" width="316" height="40"/>
-                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BdX-1C-edz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTH-HD-0WZ">
+                                <rect key="frame" x="2" y="2" width="316" height="40"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gTH-HD-0WZ" secondAttribute="trailing" constant="2" id="Iwc-kp-zOk"/>
+                            <constraint firstItem="gTH-HD-0WZ" firstAttribute="leading" secondItem="BdX-1C-edz" secondAttribute="leading" constant="2" id="NIU-TG-tbK"/>
+                            <constraint firstAttribute="bottom" secondItem="gTH-HD-0WZ" secondAttribute="bottom" constant="2" id="g8f-CJ-U7O"/>
+                            <constraint firstItem="gTH-HD-0WZ" firstAttribute="top" secondItem="BdX-1C-edz" secondAttribute="top" constant="2" id="zg5-1Z-LC9"/>
+                        </constraints>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="gTH-HD-0WZ" secondAttribute="trailing" constant="2" id="Aoz-gt-gS9"/>
-                    <constraint firstItem="gTH-HD-0WZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="Ym1-Sf-bsM"/>
-                    <constraint firstItem="gTH-HD-0WZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="bWK-TX-35p"/>
-                    <constraint firstAttribute="bottom" secondItem="gTH-HD-0WZ" secondAttribute="bottom" constant="2" id="wVf-NH-L0M"/>
+                    <constraint firstItem="BdX-1C-edz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2KM-IK-Mt2"/>
+                    <constraint firstAttribute="trailing" secondItem="BdX-1C-edz" secondAttribute="trailing" id="MZM-Ty-Rpf"/>
+                    <constraint firstAttribute="bottom" secondItem="BdX-1C-edz" secondAttribute="bottom" id="qly-qM-UA3"/>
+                    <constraint firstItem="BdX-1C-edz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xkm-UR-UbJ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="labelBackgroundView" destination="BdX-1C-edz" id="1Rd-Vv-Pup"/>
+                <outlet property="labelBottomAnchor" destination="g8f-CJ-U7O" id="M8c-da-01W"/>
+                <outlet property="labelLeftAnchor" destination="NIU-TG-tbK" id="qnm-ME-OuE"/>
                 <outlet property="labelOutlet" destination="gTH-HD-0WZ" id="x39-rc-qxQ"/>
+                <outlet property="labelRightAnchor" destination="Iwc-kp-zOk" id="Arg-G8-C3h"/>
+                <outlet property="labelTopAnchor" destination="zg5-1Z-LC9" id="Kx9-nW-wb9"/>
             </connections>
             <point key="canvasLocation" x="-3.0534351145038165" y="19.718309859154932"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

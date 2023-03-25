@@ -234,7 +234,6 @@ extension MapsViewController: UITableViewDelegate {
 
 extension MapsViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        print("idleAt position - \(position.target)")
         searchtextfield.isEnabled = true
         
         setAddress(coordinates: CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude)) { address, error, postalCode in

@@ -44,7 +44,7 @@ class StatusViewController: UIViewController {
             self.addressOutlet.text = address
         }
         
-        if let latitude = orderDetails?.address?.latitude, let longitude = orderDetails?.address?.longitude {
+        if let latitude = orderRequest?.destinationLocation?.coordinates?[1], let longitude = orderRequest?.destinationLocation?.coordinates?[0] {
             let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             mapView.clear()
             mapView.camera = GMSCameraPosition(target: coordinates, zoom: 15, bearing: 0, viewingAngle: 0)
@@ -63,6 +63,10 @@ class StatusViewController: UIViewController {
     }
 
     @IBAction func cancelRequestTapped() {
-        
+        if let controller = Controllers.cancelRequest.getController() as? CancelRequestViewController {
+            controller.orderRequest = orderRequest
+            controller.orderDetails = orderDetails
+            navigationController?.pushViewController(controller, animated: false)
+        }
     }
 }

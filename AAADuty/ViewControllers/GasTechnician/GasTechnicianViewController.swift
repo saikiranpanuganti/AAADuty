@@ -79,8 +79,7 @@ class GasTechnicianViewController: BaseViewController {
             showLoader()
             
             let bodyParams: [String: Any] = ["CategoryID": categoryId, "TypeID": typeID]
-            print("Url - \(Url.getComplaintTypes.getUrl())")
-            print("Body Params - \(bodyParams)")
+            
             NetworkAdaptor.requestWithHeaders(urlString: Url.getComplaintTypes.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()

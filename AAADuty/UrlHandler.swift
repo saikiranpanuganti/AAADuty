@@ -29,6 +29,9 @@ enum Url {
     case getWoozPrice
     case getSubCategoryTypes
     case getCleaningServices
+    case getCancelReasons
+    case saveTransaction
+    case cancelRequest
     
     func getUrl() -> String {
         switch self {
@@ -66,6 +69,12 @@ enum Url {
             return baseUrl + "/V1/getsubcategorydetails"
         case .getCleaningServices:
             return baseUrl + "/V1/gethomeappliancesservicesdetails"
+        case .getCancelReasons:
+            return baseUrl + "/V1/getcancelreasons"
+        case .saveTransaction:
+            return baseUrl + "/V1/savetransactions"
+        case .cancelRequest:
+            return baseUrl + "/V1/cancelrequest"
         }
     }
 }
