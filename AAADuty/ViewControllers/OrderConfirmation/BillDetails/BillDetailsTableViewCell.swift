@@ -16,8 +16,8 @@ class BillDetailsTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func configureUI(amount: Int) {
-        baseAmount.text = "\(amount)"
+    func configureUI(basePrice: Int = 0, amount: Int) {
+        baseAmount.text = "\(basePrice)"
         totalAmount.text = "\(amount)"
     }
 }

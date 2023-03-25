@@ -21,6 +21,15 @@ struct OrderDetails: Codable {
     var comments: String?
     
     func getRequestParams() -> [String: Any]? {
+        if category?.serviceType == .flatTyre {
+            return getFlatTyreParams()
+        }else if category?.serviceType == .towing {
+            return getTowingParams()
+        }
+        return nil
+    }
+    
+    func getFlatTyreParams() -> [String: Any]? {
         var orderRequestParams: [String: Any] = [:]
         orderRequestParams["AddTip"] = 0
         orderRequestParams["CategoryID"] = category?.id ?? ""
@@ -76,6 +85,76 @@ struct OrderDetails: Codable {
         orderRequestParams["SourceLocation"] = ""
         orderRequestParams["SourceLong"] = ""
         orderRequestParams["SourctLat"] = ""
+        orderRequestParams["StartTime"] = ""
+        orderRequestParams["TotalSFT"] = ""
+        orderRequestParams["TransactionAmount"] = ""
+        orderRequestParams["TransactionDoneBy"] = ""
+        orderRequestParams["TransactionID"] = ""
+        orderRequestParams["TransactionMode"] = ""
+        orderRequestParams["VendorID"] = ""
+        orderRequestParams["VendorPhoneNumber"] = ""
+        orderRequestParams["VendorSlotID"] = ""
+        orderRequestParams["VenodrName"] = ""
+        
+        return orderRequestParams
+    }
+    
+    func getTowingParams() -> [String: Any]? {
+        var orderRequestParams: [String: Any] = [:]
+        orderRequestParams["AddTip"] = 0
+        orderRequestParams["CategoryID"] = category?.id ?? ""
+        orderRequestParams["CategoryName"] = category?.category ?? ""
+        orderRequestParams["ComplaintTypeID"] = complaintType?.id ?? ""
+        orderRequestParams["ComplaintTypeName"] = complaintType?.complaint ?? ""
+        orderRequestParams["typeID"] = complaintType?.typeID ?? ""
+        orderRequestParams["typeName"] = complaintType?.typeName ?? ""
+        orderRequestParams["GST"] = complaintType?.gst ?? 0
+        let amount = (complaintType?.price ?? 0) + (complaintType?.serviceCharge ?? 0) + (complaintType?.pgServiceTax ?? 0)
+        orderRequestParams["Price"] = amount
+        orderRequestParams["Tax"] = complaintType?.pgServiceTax ?? 0
+        orderRequestParams["pinCode"] = Int(pickUpAddress?.postalCode ?? "0")
+        
+        // CHeck this
+        orderRequestParams["CustomerAddress"] = userAddress?.address
+        orderRequestParams["CustomerID"] = AppData.shared.user?.id ?? ""
+        orderRequestParams["CustomerName"] = AppData.shared.user?.customerName ?? ""
+        orderRequestParams["CustomerPhoneNumber"] = AppData.shared.user?.mobileNumber ?? ""
+        orderRequestParams["CustomerLocation"] = "\(userAddress?.longitude ?? 0),\(userAddress?.latitude ?? 0)"
+        
+        orderRequestParams["DesinationAddress"] = dropAddress?.address
+        orderRequestParams["DestinationLat"] = "\(dropAddress?.latitude ?? 0)"
+        orderRequestParams["DestinationLocation"] = "\(dropAddress?.longitude ?? 0),\(dropAddress?.latitude ?? 0)"
+        orderRequestParams["DestinationLong"] = "\(dropAddress?.longitude ?? 0)"
+        
+        orderRequestParams["SourceAddress"] = pickUpAddress?.address
+        orderRequestParams["SourceLocation"] = "\(pickUpAddress?.longitude ?? 0),\(pickUpAddress?.latitude ?? 0)"
+        orderRequestParams["SourceLong"] = "\(pickUpAddress?.longitude ?? 0)"
+        orderRequestParams["SourctLat"] = "\(pickUpAddress?.latitude ?? 0)"
+        
+        var serviceParams: [String: Any] = [:]
+        serviceParams["CategoryID"] = category?.id ?? ""
+        serviceParams["CategoryName"] = category?.category ?? ""
+        serviceParams["Complaint"] = complaintType?.complaint ?? ""
+        serviceParams["Price"] = complaintType?.price ?? 0
+        serviceParams["TypeID"] = complaintType?.typeID ?? ""
+        serviceParams["TypeName"] = complaintType?.typeName ?? ""
+        serviceParams["isActive"] = complaintType?.isActive ?? false
+        orderRequestParams["Services"] = [serviceParams]
+        
+        // Check this
+        if let userLatitude = pickUpAddress?.latitude, let userLongitude = pickUpAddress?.longitude, let destLatitude = dropAddress?.latitude, let destLongitude = dropAddress?.longitude {
+            let userLocation = CLLocation(latitude: userLatitude, longitude: userLongitude)
+            let destLocation = CLLocation(latitude: destLatitude, longitude: destLongitude)
+            let distance = userLocation.distance(from: destLocation)/1000
+            orderRequestParams["Distance"] = distance
+        }else {
+            orderRequestParams["Distance"] = 0
+        }
+        orderRequestParams["Note"] = ""
+        orderRequestParams["Remarks"] = comments
+        
+        orderRequestParams["EndTime"] = ""
+        orderRequestParams["SlotId"] = ""
         orderRequestParams["StartTime"] = ""
         orderRequestParams["TotalSFT"] = ""
         orderRequestParams["TransactionAmount"] = ""

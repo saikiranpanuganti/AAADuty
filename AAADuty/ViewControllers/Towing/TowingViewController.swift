@@ -17,6 +17,7 @@ class TowingViewController: BaseViewController {
     var pickUpLocation: Location?
     var dropLocation: Location?
     var carWashVendors: CarWashVendorsModel?
+    var comments: String?
     
     var price: Int {
         return complaintType?.price ?? 0
@@ -44,12 +45,21 @@ class TowingViewController: BaseViewController {
         }
     }
     
+    func resignCommentsTextfield() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if let cell = self.tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? CommentsTableViewCell {
+                cell.textfieldOutlet.resignFirstResponder()
+            }
+        }
+    }
+    
     func navigateToOrderConfirmationVC() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
                 LocationManager.shared.getLocationAndAddress { location in
-                    controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.price, pickUpAddress: self.pickUpLocation, dropAddress: self.dropLocation, complaintType: self.complaintType, userAddress: location, count: 0)
+                    controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.price, pickUpAddress: self.pickUpLocation, dropAddress: self.dropLocation, complaintType: self.complaintType, userAddress: location, count: 0, comments: self.comments)
                     self.navigationController?.pushViewController(controller, animated: true)
                 }
             }
@@ -85,7 +95,7 @@ class TowingViewController: BaseViewController {
                         self.subCategories = subCategoryModel
                         self.updateUI()
                     }catch {
-                        print("Error: FlatTyreViewController getSubCategories - \(error.localizedDescription)")
+                        print("Error: TowingViewController getSubCategories - \(error.localizedDescription)")
                     }
                 }
             }
@@ -106,7 +116,7 @@ class TowingViewController: BaseViewController {
                         let complaintTypeModel = try JSONDecoder().decode(ComplaintTypeModel.self, from: data)
                         self.complaintType = complaintTypeModel.complaintTypes?.first
                     }catch {
-                        print("Error: FlatTyreViewController getComplaintType - \(error.localizedDescription)")
+                        print("Error: TowingViewController getComplaintType - \(error.localizedDescription)")
                     }
                 }
             }
@@ -115,6 +125,7 @@ class TowingViewController: BaseViewController {
     
     func checkAvailability() {
         if let categoryId = selectedSubCategory?.categoryID, let postalCodeStr = pickUpLocation?.postalCode, let postalCode = Int(postalCodeStr) {
+            resignCommentsTextfield()
             showLoader()
             
             let bodyParams: [String: Any] = ["pinCode": postalCode, "CategoryID": categoryId]
@@ -134,7 +145,7 @@ class TowingViewController: BaseViewController {
                             self.showAlert(title: "Error", message: "Something went wrong")
                         }
                     }catch {
-                        print("Error: FlatTyreViewController checkAvailability - \(error.localizedDescription)")
+                        print("Error: TowingViewController checkAvailability - \(error.localizedDescription)")
                         self.showAlert(title: "Error", message: error.localizedDescription)
                     }
                 }
@@ -156,7 +167,6 @@ class TowingViewController: BaseViewController {
                 
                 if let data = data {
                     do {
-                        let json = try JSONSerialization.jsonObject(with: data)
                         let carWashVendorsModel = try JSONDecoder().decode(CarWashVendorsModel.self, from: data)
                         self.carWashVendors = carWashVendorsModel
                         self.navigateToCarWashVendorsVC()
@@ -208,6 +218,7 @@ extension TowingViewController: UITableViewDataSource {
             }
         }else if indexPath.row == 4 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as? CommentsTableViewCell {
+                cell.delegate = self
                 return cell
             }
         }else if indexPath.row == 5 {
@@ -311,5 +322,12 @@ extension TowingViewController: MapsViewControllerDelegate {
                 }
             }
         }
+    }
+}
+
+
+extension TowingViewController: CommentsTableViewCellDelegate {
+    func commentsEntered(comments: String?) {
+        self.comments = comments
     }
 }

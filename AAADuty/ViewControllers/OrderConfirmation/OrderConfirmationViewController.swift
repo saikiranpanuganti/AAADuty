@@ -55,12 +55,23 @@ class OrderConfirmationViewController: BaseViewController {
     
     func showPaymentView() {
         makePaymentView.isHidden = false
-        makePaymentView.configureUI(amount: orderDetails?.totalAmount ?? 0)
+        makePaymentView.configureUI(amount: getAmount())
         makePaymentViewTopAnchor?.constant = -screenHeight
         view.bringSubviewToFront(makePaymentView)
         UIView.animate(withDuration: 0.3, delay: 0) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func getAmount() -> Int {
+        var amount = 0
+        if orderDetails?.category?.serviceType == .flatTyre {
+            let price = ((orderDetails?.count ?? 0)*(orderDetails?.complaintType?.price ?? 0))
+            amount = price + (orderDetails?.complaintType?.serviceCharge ?? 0) + (orderDetails?.complaintType?.pgServiceTax ?? 0)
+        }else {
+            amount = (orderDetails?.complaintType?.price ?? 0) + (orderDetails?.complaintType?.serviceCharge ?? 0) + (orderDetails?.complaintType?.pgServiceTax ?? 0)
+        }
+        return amount
     }
     
     @objc func tapGestureRecognised() {
@@ -81,7 +92,7 @@ class OrderConfirmationViewController: BaseViewController {
     func createOrderRequest() {
         if let orderRequestParams = orderDetails?.getRequestParams() {
             showLoader()
-            
+            print("orderRequestParams - \(orderRequestParams)")
             NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: orderRequestParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
@@ -90,7 +101,7 @@ class OrderConfirmationViewController: BaseViewController {
                     do {
                         let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
                         self.orderRequest = orderRequestModel.requestData
-                        
+                        print("orderRequestModel - \(orderRequestModel)")
                         if orderRequestModel.message == "Data Saved Sucessfully" {
                             DispatchQueue.main.async { [weak self] in
                                 guard let self = self else { return }
@@ -146,7 +157,7 @@ extension OrderConfirmationViewController: UITableViewDataSource {
             }
         }else if indexPath.row == 2 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "BillDetailsTableViewCell", for: indexPath) as? BillDetailsTableViewCell {
-                cell.configureUI(amount: orderDetails?.totalAmount ?? 0)
+                cell.configureUI(basePrice: orderDetails?.totalAmount ?? 0, amount: getAmount())
                 return cell
             }
         }else if indexPath.row == 3 {
