@@ -45,7 +45,7 @@ struct OrderDetails: Codable {
         orderRequestParams["typeID"] = complaintType?.typeID ?? ""
         orderRequestParams["typeName"] = complaintType?.typeName ?? ""
         orderRequestParams["GST"] = complaintType?.gst ?? 0
-        let amount = (count*(complaintType?.price ?? 0)) + (complaintType?.serviceCharge ?? 0) + (complaintType?.pgServiceTax ?? 0)
+        let amount = (count*(complaintType?.price ?? 0)) //+ (complaintType?.serviceCharge ?? 0) + (complaintType?.pgServiceTax ?? 0)
         orderRequestParams["Price"] = amount
         orderRequestParams["Tax"] = complaintType?.pgServiceTax ?? 0
         orderRequestParams["pinCode"] = Int(address?.postalCode ?? "0")
@@ -115,7 +115,7 @@ struct OrderDetails: Codable {
         orderRequestParams["typeID"] = complaintType?.typeID ?? ""
         orderRequestParams["typeName"] = complaintType?.typeName ?? ""
         orderRequestParams["GST"] = complaintType?.gst ?? 0
-        let amount = (complaintType?.price ?? 0) + (complaintType?.serviceCharge ?? 0) + (complaintType?.pgServiceTax ?? 0)
+        let amount = (complaintType?.price ?? 0) //+ (complaintType?.serviceCharge ?? 0) + (complaintType?.pgServiceTax ?? 0)
         orderRequestParams["Price"] = amount
         orderRequestParams["Tax"] = complaintType?.pgServiceTax ?? 0
         orderRequestParams["pinCode"] = Int(pickUpAddress?.postalCode ?? "0")
@@ -204,7 +204,7 @@ struct OrderDetails: Codable {
         orderRequestParams["BrandName"] = vehicle?.brand
         orderRequestParams["VehicleName"] = vehicle?.vehicleName
         orderRequestParams["Problem"] = vehicleProblem?.problem
-        let amount = (vehicleProblem?.price ?? 0) + (vehicleProblem?.gst ?? 0) + (vehicleProblem?.pgServiceTax ?? 0)
+        let amount = (vehicleProblem?.price ?? 0) //+ (vehicleProblem?.gst ?? 0) + (vehicleProblem?.pgServiceTax ?? 0)
         orderRequestParams["Price"] = amount
         orderRequestParams["PGServiceTax"] = vehicleProblem?.pgServiceTax
         orderRequestParams["GST"] = vehicleProblem?.gst
