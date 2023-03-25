@@ -14,7 +14,7 @@ class GasTechnicianViewController: BaseViewController {
     var subCategories: SubCategoryModel?
     var selectedSubCategory: SubCategory?
     var complaintTypes: [ComplaintType]?
-    var selectedComplaintTypes: [ComplaintType?] = []
+    var selectedComplaintTypes: [ComplaintType] = []
     var selectedLocation: Location?
     var comments: String?
 
@@ -211,13 +211,15 @@ extension GasTechnicianViewController: ServiceTypesTableViewCellDelegate {
         
     }
     func complaintTypeTapped(complaintType: ComplaintType?) {
-        if complaintType?.isSelected ?? false {
-            let filteredComplaintTypes = selectedComplaintTypes.filter { $0?.id == complaintType?.id }
-            if filteredComplaintTypes.count <= 0 {
-                selectedComplaintTypes.append(complaintType)
+        if let complaintType = complaintType {
+            if complaintType.isSelected {
+                let filteredComplaintTypes = selectedComplaintTypes.filter { $0.id == complaintType.id }
+                if filteredComplaintTypes.count <= 0 {
+                    selectedComplaintTypes.append(complaintType)
+                }
+            }else {
+                selectedComplaintTypes.removeAll { $0.id == complaintType.id }
             }
-        }else {
-            selectedComplaintTypes.removeAll { $0?.id == complaintType?.id }
         }
     }
 }
@@ -232,7 +234,7 @@ extension GasTechnicianViewController: CommentsTableViewCellDelegate {
 
 extension GasTechnicianViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
-        selectedComplaintTypes.removeAll { $0?.isSelected == false }
+        selectedComplaintTypes.removeAll { $0.isSelected == false }
         
         if selectedSubCategory != nil {
             if selectedComplaintTypes.count > 0 {

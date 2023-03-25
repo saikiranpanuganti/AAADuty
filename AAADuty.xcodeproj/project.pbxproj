@@ -126,6 +126,8 @@
 		7FCC42EB29CE84CB00768A76 /* AfterPayment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC42EA29CE84CB00768A76 /* AfterPayment.storyboard */; };
 		7FCC42ED29CE84F300768A76 /* CancelRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC42EC29CE84F300768A76 /* CancelRequestViewController.swift */; };
 		7FCC42EF29CE8B4500768A76 /* CancelReasonsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC42EE29CE8B4500768A76 /* CancelReasonsModel.swift */; };
+		7FCC42F329CF4A9800768A76 /* GasServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC42F129CF4A9800768A76 /* GasServiceTableViewCell.swift */; };
+		7FCC42F429CF4A9800768A76 /* GasServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC42F229CF4A9800768A76 /* GasServiceTableViewCell.xib */; };
 		7FD0BE9429A8F77A0049662D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9329A8F77A0049662D /* AppDelegate.swift */; };
 		7FD0BE9629A8F77A0049662D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */; };
 		7FD0BE9829A8F77A0049662D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0BE9729A8F77A0049662D /* ViewController.swift */; };
@@ -289,6 +291,8 @@
 		7FCC42EA29CE84CB00768A76 /* AfterPayment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AfterPayment.storyboard; sourceTree = "<group>"; };
 		7FCC42EC29CE84F300768A76 /* CancelRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRequestViewController.swift; sourceTree = "<group>"; };
 		7FCC42EE29CE8B4500768A76 /* CancelReasonsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasonsModel.swift; sourceTree = "<group>"; };
+		7FCC42F129CF4A9800768A76 /* GasServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasServiceTableViewCell.swift; sourceTree = "<group>"; };
+		7FCC42F229CF4A9800768A76 /* GasServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GasServiceTableViewCell.xib; sourceTree = "<group>"; };
 		7FD0BE9029A8F77A0049662D /* AAADuty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAADuty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD0BE9329A8F77A0049662D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FD0BE9529A8F77A0049662D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -906,6 +910,15 @@
 			path = PromotionCarousal;
 			sourceTree = "<group>";
 		};
+		7FCC42F029CF4A7C00768A76 /* GasService */ = {
+			isa = PBXGroup;
+			children = (
+				7FCC42F129CF4A9800768A76 /* GasServiceTableViewCell.swift */,
+				7FCC42F229CF4A9800768A76 /* GasServiceTableViewCell.xib */,
+			);
+			path = GasService;
+			sourceTree = "<group>";
+		};
 		7FD0BE8729A8F77A0049662D = {
 			isa = PBXGroup;
 			children = (
@@ -1022,6 +1035,7 @@
 		7FDF855729C8B9CE00BC30A3 /* GasTechnician */ = {
 			isa = PBXGroup;
 			children = (
+				7FCC42F029CF4A7C00768A76 /* GasService */,
 				7FDF855829C8B9F300BC30A3 /* GasTechnicianViewController.swift */,
 			);
 			path = GasTechnician;
@@ -1184,6 +1198,7 @@
 				7F75B71D29C61707005871B2 /* CleaningServiceTableViewCell.xib in Resources */,
 				7F1A486229AB448600C432DF /* ImageCollectionViewCell.xib in Resources */,
 				7FE322CE29BB454B00E3B597 /* CarVendorTableViewCell.xib in Resources */,
+				7FCC42F429CF4A9800768A76 /* GasServiceTableViewCell.xib in Resources */,
 				7F75B70729C5CCFB005871B2 /* Cleaning.storyboard in Resources */,
 				7F37C6FB29B1CE41001212E1 /* CommentsTableViewCell.xib in Resources */,
 				7FB7B55329B25CBC0006E206 /* OrderReviewTableViewCell.xib in Resources */,
@@ -1312,6 +1327,7 @@
 				7F75B73229C77592005871B2 /* OrderDetailsHeaderTableViewCell.swift in Sources */,
 				7F1A487329AB6F6300C432DF /* CategoriesModel.swift in Sources */,
 				7F5A412329B7A23C00BEE0FB /* StatusViewController.swift in Sources */,
+				7FCC42F329CF4A9800768A76 /* GasServiceTableViewCell.swift in Sources */,
 				7F02F0BD29AE1B2500E4B775 /* LocationManager.swift in Sources */,
 				7F0DEE3B29AB96B9000BADA7 /* PromotionCollectionViewCell.swift in Sources */,
 				7FB7B54429B2298B0006E206 /* OrderConfirmationViewController.swift in Sources */,

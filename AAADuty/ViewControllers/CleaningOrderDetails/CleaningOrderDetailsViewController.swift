@@ -23,7 +23,7 @@ class CleaningOrderDetailsViewController: BaseViewController {
     var selectedLocation: Location?
     var comments: String?
     var complaintTypes: [ComplaintType]?
-    var selectedComplaintTypes: [ComplaintType?] = []
+    var selectedComplaintTypes: [ComplaintType] = []
     var orderRequest: OrderRequest?
 
     override func viewDidLoad() {
@@ -35,6 +35,7 @@ class CleaningOrderDetailsViewController: BaseViewController {
         tableView.register(UINib(nibName: "SpaceTableViewCell", bundle: nil), forCellReuseIdentifier: "SpaceTableViewCell")
         tableView.register(UINib(nibName: "BillDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "BillDetailsTableViewCell")
         tableView.register(UINib(nibName: "OrderReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderReviewTableViewCell")
+        tableView.register(UINib(nibName: "GasServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "GasServiceTableViewCell")
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -130,8 +131,57 @@ class CleaningOrderDetailsViewController: BaseViewController {
         return orderRequestParams
     }
     
+    func getGasTechOrderRequestParams() -> [String: Any] {
+        var orderRequestParams: [String: Any] = [:]
+        orderRequestParams["CustomerID"] =  AppData.shared.user?.id ?? ""
+        orderRequestParams["CustomerName"] = AppData.shared.user?.customerName ?? ""
+        orderRequestParams["CustomerPhoneNumber"] = AppData.shared.user?.mobileNumber ?? ""
+        orderRequestParams["DesinationAddress"] = selectedLocation?.address ?? ""
+        orderRequestParams["DestinationLocation"] = "\(selectedLocation?.longitude ?? 0),\(selectedLocation?.latitude ?? 0)"
+        orderRequestParams["DestinationLat"] = "\(selectedLocation?.latitude ?? 0)"
+        orderRequestParams["DestinationLong"] = "\(selectedLocation?.longitude ?? 0)"
+        orderRequestParams["CategoryID"] = category?.id ?? ""
+        orderRequestParams["CategoryName"] = category?.category ?? ""
+        orderRequestParams["typeID"] = selectedComplaintTypes.first?.typeID ?? ""
+        orderRequestParams["typeName"] = selectedComplaintTypes.first?.typeName ?? ""
+        orderRequestParams["pinCode"] = Int(selectedLocation?.postalCode ?? "0")
+        orderRequestParams["AddTip"] = 0
+        orderRequestParams["Note"] = comments ?? ""
+        
+        var amount = 0
+        var taxAmount = 0
+        var selectedServices: [[String: Any]] = []
+        
+        for service in selectedComplaintTypes {
+            var serviceParams: [String: Any] = [:]
+            serviceParams["CategoryID"] = service.categoryID ?? ""
+            serviceParams["CategoryName"] = service.categoryName ?? ""
+            serviceParams["TypeID"] = service.typeID ?? ""
+            serviceParams["TypeName"] = service.typeName ?? ""
+            serviceParams["Price"] = service.price ?? 0
+            serviceParams["Complaint"] = service.complaint ?? ""
+            serviceParams["isActive"] = service.isActive ?? false
+            selectedServices.append(serviceParams)
+            
+            amount += (service.price ?? 0) //((service.price ?? 0) + (service.pgServiceTax ?? 0))
+            taxAmount += (service.pgServiceTax ?? 0)
+        }
+        
+        orderRequestParams["Services"] = selectedServices
+        orderRequestParams["Price"] = amount
+        orderRequestParams["Tax"] = taxAmount
+        orderRequestParams["GST"] = 0
+        return orderRequestParams
+    }
+    
     func createOrderRequest() {
-        let orderRequestParams = getOrderRequestParams()
+        var orderRequestParams: [String: Any] = [:]
+        if category?.serviceType == .gasTech {
+            orderRequestParams = getGasTechOrderRequestParams()
+        }else {
+            orderRequestParams = getOrderRequestParams()
+        }
+        
         showLoader()
         print("orderRequestParams - \(orderRequestParams)")
         NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: orderRequestParams) { [weak self] data, response, error in
@@ -166,7 +216,7 @@ class CleaningOrderDetailsViewController: BaseViewController {
         var total = 0
         if selectedComplaintTypes.count > 0 {
             for complaint in selectedComplaintTypes {
-                total += complaint?.price ?? 0
+                total += complaint.price ?? 0
             }
         }else {
             for selectedCleaningService in selectedCleaningServices {
@@ -224,18 +274,23 @@ extension CleaningOrderDetailsViewController: UITableViewDataSource {
                 return cell
             }
         }else if indexPath.section == 2 {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceOrderTableViewCell", for: indexPath) as? ServiceOrderTableViewCell {
-                if indexPath.row == 0 {
+            if indexPath.row == 0 {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceOrderTableViewCell", for: indexPath) as? ServiceOrderTableViewCell {
                     cell.configureUI(location: selectedLocation)
-                }else {
-                    if selectedComplaintTypes.count > 0 {
+                    return cell
+                }
+            }else {
+                if selectedComplaintTypes.count > 0 {
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "GasServiceTableViewCell", for: indexPath) as? GasServiceTableViewCell {
                         cell.configureUI(complaintType: selectedComplaintTypes[indexPath.row - 1])
-                    }else {
+                        return cell
+                    }
+                }else {
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceOrderTableViewCell", for: indexPath) as? ServiceOrderTableViewCell {
                         cell.configureUI(cleaningService: selectedCleaningServices[indexPath.row - 1])
+                        return cell
                     }
                 }
-                
-                return cell
             }
         }else if indexPath.section == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SpaceTableViewCell", for: indexPath)
