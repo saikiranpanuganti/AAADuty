@@ -67,11 +67,11 @@ class OrderConfirmationViewController: BaseViewController {
         var amount = 0
         if orderDetails?.category?.serviceType == .flatTyre {
             let price = ((orderDetails?.count ?? 0)*(orderDetails?.complaintType?.price ?? 0))
-            amount = price + (orderDetails?.complaintType?.serviceCharge ?? 0) + (orderDetails?.complaintType?.pgServiceTax ?? 0)
+            amount = price //+ (orderDetails?.complaintType?.serviceCharge ?? 0) + (orderDetails?.complaintType?.pgServiceTax ?? 0)
         }else if orderDetails?.category?.serviceType == .vechicletech {
-            amount = (orderDetails?.vehicleProblem?.price ?? 0) + (orderDetails?.vehicleProblem?.pgServiceTax ?? 0) + (orderDetails?.vehicleProblem?.gst ?? 0)
+            amount = (orderDetails?.vehicleProblem?.price ?? 0) //+ (orderDetails?.vehicleProblem?.pgServiceTax ?? 0) + (orderDetails?.vehicleProblem?.gst ?? 0)
         }else {
-            amount = (orderDetails?.complaintType?.price ?? 0) + (orderDetails?.complaintType?.serviceCharge ?? 0) + (orderDetails?.complaintType?.pgServiceTax ?? 0)
+            amount = (orderDetails?.complaintType?.price ?? 0) //+ (orderDetails?.complaintType?.serviceCharge ?? 0) + (orderDetails?.complaintType?.pgServiceTax ?? 0)
         }
         return amount
     }

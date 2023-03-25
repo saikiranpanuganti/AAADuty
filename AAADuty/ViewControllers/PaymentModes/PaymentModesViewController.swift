@@ -13,6 +13,7 @@ class PaymentModesViewController: BaseViewController {
     
     var orderDetails: OrderDetails?
     var orderRequest: OrderRequest?
+    var allOrderDetails: (SubCategory?, SubCategoryType?, [CleaningService], Location?, String?, [ComplaintType?])?
     
     var razorpay: RazorpayCheckout!
 
@@ -104,7 +105,7 @@ extension PaymentModesViewController: UITableViewDataSource {
             }
         }else if indexPath.row == 1 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentModeTableViewCell", for: indexPath) as? PaymentModeTableViewCell {
-                cell.configureUI(amount: orderDetails?.totalAmount ?? 0)
+                cell.configureUI(amount: orderRequest?.totalAmount ?? 0)
                 return cell
             }
         }else if indexPath.row == 2 {

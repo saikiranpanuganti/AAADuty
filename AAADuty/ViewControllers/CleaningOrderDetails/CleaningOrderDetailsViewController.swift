@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CleaningOrderDetailsViewController: UIViewController {
+class CleaningOrderDetailsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var makePaymentView: MakePaymentView = MakePaymentView.instanceFromNib()
@@ -24,6 +24,7 @@ class CleaningOrderDetailsViewController: UIViewController {
     var comments: String?
     var complaintTypes: [ComplaintType]?
     var selectedComplaintTypes: [ComplaintType?] = []
+    var orderRequest: OrderRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +78,7 @@ class CleaningOrderDetailsViewController: UIViewController {
     
     func showPaymentView() {
         makePaymentView.isHidden = false
-        makePaymentView.configureUI(amount: getTotalAmount())
+        makePaymentView.configureUI(amount: getTotalBaseAmount())
         makePaymentViewTopAnchor?.constant = -screenHeight
         view.bringSubviewToFront(makePaymentView)
         UIView.animate(withDuration: 0.3, delay: 0) {
@@ -85,39 +86,83 @@ class CleaningOrderDetailsViewController: UIViewController {
         }
     }
     
+    func getOrderRequestParams() -> [String: Any] {
+        var orderRequestParams: [String: Any] = [:]
+        orderRequestParams["CustomerID"] =  AppData.shared.user?.id ?? ""
+        orderRequestParams["CustomerName"] = AppData.shared.user?.customerName ?? ""
+        orderRequestParams["CustomerPhoneNumber"] = AppData.shared.user?.mobileNumber ?? ""
+        orderRequestParams["DesinationAddress"] = selectedLocation?.address ?? ""
+        orderRequestParams["DestinationLocation"] = "\(selectedLocation?.longitude ?? 0),\(selectedLocation?.latitude ?? 0)"
+        orderRequestParams["DestinationLat"] = "\(selectedLocation?.latitude ?? 0)"
+        orderRequestParams["DestinationLong"] = "\(selectedLocation?.longitude ?? 0)"
+        orderRequestParams["CategoryID"] = category?.id ?? ""
+        orderRequestParams["CategoryName"] = category?.category ?? ""
+        orderRequestParams["typeID"] = selectedCleaningServices.first?.typeID ?? ""
+        orderRequestParams["typeName"] = selectedCleaningServices.first?.typeName ?? ""
+        orderRequestParams["pinCode"] = Int(selectedLocation?.postalCode ?? "0")
+        orderRequestParams["AddTip"] = 0
+        orderRequestParams["Note"] = comments ?? ""
+        
+        var amount = 0
+        var taxAmount = 0
+        var selectedServices: [[String: Any]] = []
+        
+        for service in selectedCleaningServices {
+            var serviceParams: [String: Any] = [:]
+            serviceParams["CategoryID"] = service.categoryID ?? ""
+            serviceParams["CategoryName"] = service.categoryName ?? ""
+            serviceParams["typeID"] = service.typeID ?? ""
+            serviceParams["typeName"] = service.typeName ?? ""
+            serviceParams["Price"] = service.price ?? 0
+            serviceParams["Complaint"] = service.serviceName ?? ""
+            serviceParams["NoOfCount"] = "\(service.count)"
+            serviceParams["isActive"] = service.isActive ?? false
+            selectedServices.append(serviceParams)
+            
+            amount += (service.price ?? 0) //((service.price ?? 0) + (service.pgServiceTax ?? 0))
+            taxAmount += (service.pgServiceTax ?? 0)
+        }
+        
+        orderRequestParams["Services"] = selectedServices
+        orderRequestParams["Price"] = amount
+        orderRequestParams["Tax"] = taxAmount
+        orderRequestParams["GST"] = 0
+        return orderRequestParams
+    }
+    
     func createOrderRequest() {
-//        if let orderRequestParams = orderDetails?.getRequestParams() {
-//            showLoader()
-//
-//            NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: orderRequestParams) { [weak self] data, response, error in
-//                guard let self = self else { return }
-//                self.stopLoader()
-//
-//                if let data = data {
-//                    do {
-//                        let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
-//                        self.orderRequest = orderRequestModel.requestData
-//
-//                        // Check for success and navigate only after that
-////                        if self.orderRequest?.requestStatus == something
-//
-//                        DispatchQueue.main.async { [weak self] in
-//                            guard let self = self else { return }
-//                            if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {
-//                                controller.orderDetails = self.orderDetails
-//                                controller.orderRequest = self.orderRequest
-//                                self.navigationController?.pushViewController(controller, animated: true)
-//                            }
-//                        }
-//                    }catch {
-//                        print("Error: WoozTripDetailsViewController createOrderRequest - \(error.localizedDescription)")
-//                    }
-//                }
-//            }
-//        }
+        let orderRequestParams = getOrderRequestParams()
+        showLoader()
+        print("orderRequestParams - \(orderRequestParams)")
+        NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: orderRequestParams) { [weak self] data, response, error in
+            guard let self = self else { return }
+            self.stopLoader()
+            
+            if let data = data {
+                do {
+                    let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
+                    self.orderRequest = orderRequestModel.requestData
+                    print("orderRequestModel - \(orderRequestModel)")
+                    if orderRequestModel.message == "Data Saved Sucessfully" {
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else { return }
+                            if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {
+                                controller.allOrderDetails = (self.selectedSubCategory, self.selectedSubCategoryType, self.selectedCleaningServices, self.selectedLocation, self.comments, self.selectedComplaintTypes)
+                                controller.orderRequest = self.orderRequest
+                                self.navigationController?.pushViewController(controller, animated: true)
+                            }
+                        }
+                    }else {
+                        self.showAlert(title: "Error", message: orderRequestModel.message ?? "Error saving the order request")
+                    }
+                }catch {
+                    print("Error: CleaningOrderDetailsViewController createOrderRequest - \(error.localizedDescription)")
+                }
+            }
+        }
     }
 
-    func getTotalAmount() -> Int {
+    func getTotalBaseAmount() -> Int {
         var total = 0
         if selectedComplaintTypes.count > 0 {
             for complaint in selectedComplaintTypes {
@@ -131,6 +176,22 @@ class CleaningOrderDetailsViewController: UIViewController {
         
         return total
     }
+    
+//    func getTotalAmount() -> Int {
+//        var total = 0
+//        if selectedComplaintTypes.count > 0 {
+//            for complaint in selectedComplaintTypes {
+//                let charges = (complaint?.pgServiceTax ?? 0) + (complaint?.gst ?? 0) + (complaint?.serviceCharge ?? 0)
+//                total += ((complaint?.price ?? 0) + charges)
+//            }
+//        }else {
+//            for selectedCleaningService in selectedCleaningServices {
+//                total += (((selectedCleaningService.price ?? 0) + (selectedCleaningService.pgServiceTax ?? 0))*selectedCleaningService.count)
+//            }
+//        }
+//
+//        return total
+//    }
 }
 
 
@@ -181,7 +242,7 @@ extension CleaningOrderDetailsViewController: UITableViewDataSource {
             return cell
         }else if indexPath.section == 4 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "BillDetailsTableViewCell", for: indexPath) as? BillDetailsTableViewCell {
-                cell.configureUI(amount: getTotalAmount())
+                cell.configureUI(basePrice: getTotalBaseAmount(), amount: getTotalBaseAmount())
                 return cell
             }
         }else if indexPath.section == 5 {
