@@ -38,8 +38,10 @@ class PastOrderTableViewCell: UITableViewCell {
         self.pastOrder = pastOrder
         statusLabel.text = pastOrder?.paymentStatus
         paymentStatusLabel.text = pastOrder?.requestStatus?.capitalized
-        dateTimeLabel.text = pastOrder?.date
         priceLabel.text = "₹ \(pastOrder?.totalAmount ?? 0)"
+        if let dateStr = pastOrder?.date {
+            dateTimeLabel.text = dateStr.toDate(.isoDateTimeMilliSec)?.getDateString(format: "MMM dd, hh:mm a")
+        }
         if pastOrder?.paymentStatus == "Failed" {
             imageBackgroundView.layer.borderColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1).cgColor
             closeImageOutlet.image = UIImage(named: "failed")

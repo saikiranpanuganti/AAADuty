@@ -85,6 +85,7 @@
 		7F62ED3329D0002F00CCB73B /* PastOrdersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F62ED3229D0002F00CCB73B /* PastOrdersModel.swift */; };
 		7F62ED3729D02E5300CCB73B /* PastOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F62ED3529D02E5300CCB73B /* PastOrderTableViewCell.swift */; };
 		7F62ED3829D02E5300CCB73B /* PastOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F62ED3629D02E5300CCB73B /* PastOrderTableViewCell.xib */; };
+		7F62ED3A29D0BB0400CCB73B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F62ED3929D0BB0400CCB73B /* Date+Extension.swift */; };
 		7F75B6E529C46449005871B2 /* WaitingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F75B6E329C46449005871B2 /* WaitingTableViewCell.swift */; };
 		7F75B6E629C46449005871B2 /* WaitingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F75B6E429C46449005871B2 /* WaitingTableViewCell.xib */; };
 		7F75B6E929C4708A005871B2 /* WoozModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F75B6E829C4708A005871B2 /* WoozModels.swift */; };
@@ -256,6 +257,7 @@
 		7F62ED3229D0002F00CCB73B /* PastOrdersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastOrdersModel.swift; sourceTree = "<group>"; };
 		7F62ED3529D02E5300CCB73B /* PastOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastOrderTableViewCell.swift; sourceTree = "<group>"; };
 		7F62ED3629D02E5300CCB73B /* PastOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PastOrderTableViewCell.xib; sourceTree = "<group>"; };
+		7F62ED3929D0BB0400CCB73B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		7F75B6E329C46449005871B2 /* WaitingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingTableViewCell.swift; sourceTree = "<group>"; };
 		7F75B6E429C46449005871B2 /* WaitingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaitingTableViewCell.xib; sourceTree = "<group>"; };
 		7F75B6E829C4708A005871B2 /* WoozModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoozModels.swift; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 			children = (
 				7F1A487729AB797600C432DF /* UIColor+Extension.swift */,
 				7F02F0C029AE4A1E00E4B775 /* String+Extension.swift */,
+				7F62ED3929D0BB0400CCB73B /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1429,6 +1432,7 @@
 				7FB7B55229B25CBC0006E206 /* OrderReviewTableViewCell.swift in Sources */,
 				7F62ED3329D0002F00CCB73B /* PastOrdersModel.swift in Sources */,
 				7F08778029B28A48004CB905 /* PaymentModesViewController.swift in Sources */,
+				7F62ED3A29D0BB0400CCB73B /* Date+Extension.swift in Sources */,
 				7F02F0C129AE4A1E00E4B775 /* String+Extension.swift in Sources */,
 				7FCC42EF29CE8B4500768A76 /* CancelReasonsModel.swift in Sources */,
 				7F1A487529AB708B00C432DF /* AppData.swift in Sources */,
