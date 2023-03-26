@@ -44,8 +44,10 @@ class ProfileTabViewController: BaseViewController {
     @IBOutlet weak var editImageButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var mobileLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     var areTextfieldsEnabled: Bool = false
+    var hideBackButton: Bool = true
     var userGender: String = "male"
     
     var userDetails: User? {
@@ -76,6 +78,10 @@ class ProfileTabViewController: BaseViewController {
         saveButton.layer.masksToBounds = true
         
         mobileLabel.attributedText = "Mobile Number*".partiallyColoredText("*", with: UIColor.red)
+        
+        if hideBackButton {
+            backButton.isHidden = true
+        }
     }
     
     func addBorderToViews() {
@@ -137,6 +143,9 @@ class ProfileTabViewController: BaseViewController {
                 maleButton.tintColor = UIColor.black
                 userGender = "female"
             }
+            if let image = userDetails.avatar {
+                profileImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "profile"))
+            }
         }
     }
     
@@ -190,5 +199,9 @@ class ProfileTabViewController: BaseViewController {
         }else {
             showAlert(title: "Error", message: "Please enter valid mobile number")
         }
+    }
+    
+    @IBAction func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 }

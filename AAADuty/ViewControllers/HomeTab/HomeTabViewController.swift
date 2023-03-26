@@ -44,6 +44,13 @@ class HomeTabViewController: BaseViewController {
         }
     }
     
+    func navigateToProfileVC() {
+        if let controller = Controllers.profileTab.getController() as? ProfileTabViewController {
+            controller.hideBackButton = false
+            navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
     override func logoutUser() {
         AppData.shared.user?.removeUser()
         AppData.shared.user = nil
@@ -55,6 +62,9 @@ class HomeTabViewController: BaseViewController {
         if menuType == .orderHistory {
             showHideSideMenu()
             navigateToBookingsVC()
+        }else if menuType == .myProfile {
+            showHideSideMenu()
+            navigateToProfileVC()
         }
     }
 }
