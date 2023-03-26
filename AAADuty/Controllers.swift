@@ -54,7 +54,7 @@ enum Controllers {
         case .walletTab:
             return UIStoryboard(name: "TabBar", bundle: nil).instantiateViewController(withIdentifier: "WalletTabViewController")
         case .bookingsTab:
-            return UIStoryboard(name: "TabBar", bundle: nil).instantiateViewController(withIdentifier: "BookingsTabViewController")
+            return UIStoryboard(name: "TabBar", bundle: nil).instantiateViewController(withIdentifier: "BookingsViewController")
         case .flatTyre:
             return UIStoryboard(name: "Services", bundle: nil).instantiateViewController(withIdentifier: "FlatTyreViewController")
         case .orderConfirmation:

@@ -37,11 +37,25 @@ class HomeTabViewController: BaseViewController {
         
     }
     
+    func navigateToBookingsVC() {
+        if let controller = Controllers.bookingsTab.getController() as? BookingsViewController {
+            controller.hideBackButton = false
+            navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
     override func logoutUser() {
         AppData.shared.user?.removeUser()
         AppData.shared.user = nil
         
         delegate?.navigateToStart()
+    }
+    
+    override func handleSideMenuTap(menuType: MenuType) {
+        if menuType == .orderHistory {
+            showHideSideMenu()
+            navigateToBookingsVC()
+        }
     }
 }
 

@@ -29,6 +29,8 @@ class CleaningOrderDetailsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
+        
         tableView.register(UINib(nibName: "LocationTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationTableViewCell")
         tableView.register(UINib(nibName: "OrderDetailsHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderDetailsHeaderTableViewCell")
         tableView.register(UINib(nibName: "ServiceOrderTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceOrderTableViewCell")

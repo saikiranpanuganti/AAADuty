@@ -18,6 +18,8 @@ class OrderConfirmationViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
 
         tableView.register(UINib(nibName: "LocationTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationTableViewCell")
         tableView.register(UINib(nibName: "TowingDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "TowingDetailsTableViewCell")

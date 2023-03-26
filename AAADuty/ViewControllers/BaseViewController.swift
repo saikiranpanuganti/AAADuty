@@ -115,6 +115,10 @@ class BaseViewController: UIViewController {
     func logoutUser() {
         
     }
+    
+    func handleSideMenuTap(menuType: MenuType) {
+        
+    }
 }
 
 
@@ -123,7 +127,11 @@ extension BaseViewController: SideMenuViewDelegate {
         showHideSideMenu()
     }
     
-    func handleLogout() {
-        logoutUser()
+    func sideMenuItemTapped(menuType: MenuType) {
+        if menuType == .logout {
+            logoutUser()
+        }else {
+            handleSideMenuTap(menuType: menuType)
+        }
     }
 }

@@ -25,6 +25,7 @@ import UIKit
 protocol SideMenuViewDelegate: AnyObject {
     func hideSideMenu()
     func handleLogout()
+    func sideMenuItemTapped(menuType: MenuType)
 }
 
 extension SideMenuViewDelegate {
@@ -129,19 +130,7 @@ extension SideMenuView: UITableViewDelegate {
         if indexPath.section == 0 {
             
         }else if indexPath.section == 1 {
-            if menu[indexPath.row].type == .orderHistory {
-                
-            }else if menu[indexPath.row].type == .transactions {
-                
-            }else if menu[indexPath.row].type == .myProfile {
-                
-            }else if menu[indexPath.row].type == .rateUs {
-                
-            }else if menu[indexPath.row].type == .contact {
-                
-            }else if menu[indexPath.row].type == .logout {
-                delegate?.handleLogout()
-            }
+            delegate?.sideMenuItemTapped(menuType: menu[indexPath.row].type)
         }
     }
 }

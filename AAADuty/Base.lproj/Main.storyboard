@@ -96,7 +96,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="056-L5-peF">
-                                        <rect key="frame" x="50" y="259" width="293" height="461.66666666666674"/>
+                                        <rect key="frame" x="50" y="259.33333333333337" width="293" height="461.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYk-H0-vM5">
                                                 <rect key="frame" x="0.0" y="0.0" width="293" height="170"/>
@@ -117,7 +117,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO AAA DUTY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YL0-4S-Jkl" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="195" width="293" height="21"/>
+                                                <rect key="frame" x="0.0" y="195" width="293" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.47843137254901957" green="0.62745098039215685" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -131,7 +131,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LET'S GO START" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g1P-fM-VJf" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="241" width="293" height="23.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="240.33333333333337" width="293" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -145,7 +145,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quickly create, interactive services with AAA Duty" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCN-4A-nGg" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="289.33333333333337" width="293" height="37.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="285.66666666666669" width="293" height="40.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                                 <color key="textColor" red="0.14901960784313725" green="0.396078431372549" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -159,7 +159,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzi-Yl-e8O">
-                                                <rect key="frame" x="0.0" y="351.66666666666663" width="293" height="110"/>
+                                                <rect key="frame" x="0.0" y="351.33333333333331" width="293" height="110"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proceed" translatesAutoresizingMaskIntoConstraints="NO" id="fWD-jn-HfI">
                                                         <rect key="frame" x="106.66666666666666" y="30" width="80" height="80"/>
@@ -413,7 +413,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zcs-hO-jnH">
-                                        <rect key="frame" x="15" y="236.66666666666666" width="363" height="463.66666666666674"/>
+                                        <rect key="frame" x="15" y="235.99999999999997" width="363" height="465.33333333333326"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQ7-yf-7NZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="363" height="105"/>
@@ -434,7 +434,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your OTP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RqP-eb-UDP" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="125.00000000000003" width="363" height="35"/>
+                                                <rect key="frame" x="0.0" y="125" width="363" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="nhr-4u-v4B"/>
                                                 </constraints>
@@ -451,7 +451,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the code we sent your mobile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tD-VD-joU" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="180.00000000000003" width="363" height="18.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="180" width="363" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.4392156862745098" green="0.63529411764705879" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -465,7 +465,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mtd-91-sMd">
-                                                <rect key="frame" x="0.0" y="218.66666666666666" width="363" height="59.999999999999972"/>
+                                                <rect key="frame" x="0.0" y="220.33333333333331" width="363" height="60"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsK-hu-lVq">
                                                         <rect key="frame" x="18" y="5" width="327" height="60"/>
@@ -489,7 +489,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="of6-bG-lQS">
-                                                <rect key="frame" x="0.0" y="298.66666666666674" width="363" height="25"/>
+                                                <rect key="frame" x="0.0" y="300.33333333333337" width="363" height="25"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXl-5f-kg1">
                                                         <rect key="frame" x="49.333333333333343" y="0.0" width="264.33333333333326" height="25"/>
@@ -543,7 +543,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVm-TU-MBY">
-                                                <rect key="frame" x="0.0" y="343.66666666666674" width="363" height="120"/>
+                                                <rect key="frame" x="0.0" y="345.33333333333337" width="363" height="120"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJU-vH-Phv" customClass="AAAButton" customModule="AAADuty" customModuleProvider="target">
                                                         <rect key="frame" x="91.666666666666686" y="65" width="180" height="55"/>
@@ -638,28 +638,28 @@
     </scenes>
     <designables>
         <designable name="3tD-VD-joU">
-            <size key="intrinsicContentSize" width="307.66666666666669" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="322.33333333333331" height="20.333333333333332"/>
         </designable>
         <designable name="Kqa-EN-hUW">
             <size key="intrinsicContentSize" width="58" height="31"/>
         </designable>
         <designable name="RqP-eb-UDP">
-            <size key="intrinsicContentSize" width="202.33333333333334" height="35"/>
+            <size key="intrinsicContentSize" width="116.33333333333333" height="20.333333333333332"/>
         </designable>
         <designable name="Xft-ot-5eC">
             <size key="intrinsicContentSize" width="109" height="37.333333333333336"/>
         </designable>
         <designable name="YL0-4S-Jkl">
-            <size key="intrinsicContentSize" width="190.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="197" height="20.333333333333332"/>
         </designable>
         <designable name="dCN-4A-nGg">
-            <size key="intrinsicContentSize" width="360.33333333333331" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="379" height="20.333333333333332"/>
         </designable>
         <designable name="foI-4M-4JI">
-            <size key="intrinsicContentSize" width="92.666666666666671" height="35"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="20.333333333333332"/>
         </designable>
         <designable name="g1P-fM-VJf">
-            <size key="intrinsicContentSize" width="138" height="23.333333333333332"/>
+            <size key="intrinsicContentSize" width="129.33333333333334" height="20.333333333333332"/>
         </designable>
         <designable name="rJU-vH-Phv">
             <size key="intrinsicContentSize" width="76.333333333333329" height="37.333333333333336"/>
