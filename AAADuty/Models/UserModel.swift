@@ -22,13 +22,13 @@ struct UserModel: Codable {
 
 // MARK: - UserData
 struct User: Codable {
-    let id, customerName, email, dob: String?
-    let avatar: String?
-    let date, mobileNumber: String?
-    let isProfileUpdated, isActive: Bool?
-    let address: [Address]?
-    let v: Int?
-    let gender: String?
+    var id, customerName, email, dob: String?
+    var avatar: String?
+    var date, mobileNumber: String?
+    var isProfileUpdated, isActive: Bool?
+    var address: [Address]?
+    var v: Int?
+    var gender: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -58,9 +58,9 @@ struct User: Codable {
 
 // MARK: - Address
 struct Address: Codable {
-    let id, address: String?
-    let latitude, longitude: Int?
-    let addressType: String?
+    var id, address: String?
+    var latitude, longitude: Int?
+    var addressType: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
