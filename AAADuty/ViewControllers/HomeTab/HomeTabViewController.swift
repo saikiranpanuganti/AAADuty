@@ -59,7 +59,7 @@ class HomeTabViewController: BaseViewController {
     }
     
     override func handleSideMenuTap(menuType: MenuType) {
-        if menuType == .orderHistory {
+        if menuType == .orderHistory || menuType == .transactions {
             showHideSideMenu()
             navigateToBookingsVC()
         }else if menuType == .myProfile {
