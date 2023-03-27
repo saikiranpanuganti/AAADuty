@@ -96,7 +96,7 @@ class WoozTripDetailsViewController: BaseViewController {
     func getWoozPrice() {
         showLoader()
         let bodyParams: [String: Any] = ["ServiceName": selectedTripType?.name ?? ""]
-        print("WoozTripDetailsViewController - bodyParams - \(bodyParams)")
+        
         NetworkAdaptor.requestWithHeaders(urlString: Url.getWoozPrice.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
             guard let self = self else { return }
             self.stopLoader()
@@ -105,7 +105,7 @@ class WoozTripDetailsViewController: BaseViewController {
                 do {
                     let woozPriceModel = try JSONDecoder().decode(WoozPriceModel.self, from: data)
                     self.woozPrice = woozPriceModel.data?.first
-                    print("WoozTripDetailsViewController - \(self.woozPrice)")
+                    
                     self.updateUI()
                 }catch {
                     print("Error: WoozTripDetailsViewController getWoozPrice - \(error.localizedDescription)")

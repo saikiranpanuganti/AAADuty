@@ -185,30 +185,29 @@ class CleaningOrderDetailsViewController: BaseViewController {
         }
         
         showLoader()
-        print("orderRequestParams - \(orderRequestParams)")
         NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: orderRequestParams) { [weak self] data, response, error in
             guard let self = self else { return }
-            self.stopLoader()
-            
-            if let data = data {
-                do {
-                    let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
-                    self.orderRequest = orderRequestModel.requestData
-                    print("orderRequestModel - \(orderRequestModel)")
-                    if orderRequestModel.message == "Data Saved Sucessfully" {
-                        DispatchQueue.main.async { [weak self] in
-                            guard let self = self else { return }
-                            if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {
-                                controller.allOrderDetails = (self.selectedSubCategory, self.selectedSubCategoryType, self.selectedCleaningServices, self.selectedLocation, self.comments, self.selectedComplaintTypes)
-                                controller.orderRequest = self.orderRequest
-                                self.navigationController?.pushViewController(controller, animated: true)
+            self.stopLoader {
+                if let data = data {
+                    do {
+                        let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
+                        self.orderRequest = orderRequestModel.requestData
+                        
+                        if orderRequestModel.message == "Data Saved Sucessfully" {
+                            DispatchQueue.main.async { [weak self] in
+                                guard let self = self else { return }
+                                if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {
+                                    controller.allOrderDetails = (self.selectedSubCategory, self.selectedSubCategoryType, self.selectedCleaningServices, self.selectedLocation, self.comments, self.selectedComplaintTypes)
+                                    controller.orderRequest = self.orderRequest
+                                    self.navigationController?.pushViewController(controller, animated: true)
+                                }
                             }
+                        }else {
+                            self.showAlert(title: "Error", message: orderRequestModel.message ?? "Error saving the order request")
                         }
-                    }else {
-                        self.showAlert(title: "Error", message: orderRequestModel.message ?? "Error saving the order request")
+                    }catch {
+                        print("Error: CleaningOrderDetailsViewController createOrderRequest - \(error.localizedDescription)")
                     }
-                }catch {
-                    print("Error: CleaningOrderDetailsViewController createOrderRequest - \(error.localizedDescription)")
                 }
             }
         }
