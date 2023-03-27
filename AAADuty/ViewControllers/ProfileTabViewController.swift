@@ -149,8 +149,39 @@ class ProfileTabViewController: BaseViewController {
         }
     }
     
-    func updateUserDetails() {
-        
+    func updateUserDetails(updatedUser: User?) {
+        if let updatedUser = updatedUser {
+            showLoader()
+            
+            do {
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(updatedUser)
+                
+                if let bodyParams = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? Dictionary<String, Any> {
+                    print("bodyParams - \(bodyParams)")
+                    
+                    NetworkAdaptor.requestWithHeaders(urlString: Url.updateUserDetails.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+                        guard let self = self else { return }
+                        self.stopLoader()
+                        
+                        if let data = data {
+                            do {
+                                let userDetail = try JSONDecoder().decode(UpdatedUserModel.self, from: data)
+                                print("userDetail - \(userDetail)")
+                                if userDetail.userData?.id != nil {
+                                    userDetail.userData?.saveUser()
+                                    AppData.shared.user = userDetail.userData
+                                }
+                            }catch {
+                                print("Error: ProfileTabViewController updateUserDetails data - \(error)")
+                            }
+                        }
+                    }
+                }
+            } catch {
+                print("Error: ProfileTabViewController updateUserDetails body - \(error) ")
+            }
+        }
     }
     
     @IBAction func maleTapped() {
@@ -195,7 +226,7 @@ class ProfileTabViewController: BaseViewController {
                 updatedUser?.address = [Address(address: addressTextfield.text ?? "")]
             }
             
-            updateUserDetails()
+            updateUserDetails(updatedUser: updatedUser)
         }else {
             showAlert(title: "Error", message: "Please enter valid mobile number")
         }

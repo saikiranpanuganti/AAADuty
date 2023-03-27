@@ -20,6 +20,20 @@ struct UserModel: Codable {
     }
 }
 
+struct UpdatedUserModel: Codable {
+    let status: String?
+    let statusCode: Int?
+    let message: String?
+    let userData: User?
+
+    enum CodingKeys: String, CodingKey {
+        case status = "Status"
+        case statusCode = "StatusCode"
+        case message = "Message"
+        case userData = "UserData"
+    }
+}
+
 // MARK: - UserData
 struct User: Codable {
     var id, customerName, email, dob: String?
@@ -29,6 +43,7 @@ struct User: Codable {
     var address: [Address]?
     var v: Int?
     var gender: String?
+    let balance: Int?
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -42,6 +57,7 @@ struct User: Codable {
         case address = "Address"
         case v = "__v"
         case gender = "Gender"
+        case balance = "Balance"
     }
     
     func saveUser() {

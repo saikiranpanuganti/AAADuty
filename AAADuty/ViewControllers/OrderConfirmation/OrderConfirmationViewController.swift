@@ -96,7 +96,7 @@ class OrderConfirmationViewController: BaseViewController {
     func createOrderRequest() {
         if let orderRequestParams = orderDetails?.getRequestParams() {
             showLoader()
-            print("orderRequestParams - \(orderRequestParams)")
+            
             NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: orderRequestParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
@@ -105,7 +105,7 @@ class OrderConfirmationViewController: BaseViewController {
                     do {
                         let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
                         self.orderRequest = orderRequestModel.requestData
-                        print("orderRequestModel - \(orderRequestModel)")
+                        
                         if orderRequestModel.message == "Data Saved Sucessfully" {
                             DispatchQueue.main.async { [weak self] in
                                 guard let self = self else { return }
