@@ -53,10 +53,13 @@ class ProfileTabViewController: BaseViewController {
     var userDetails: User? {
         return AppData.shared.user
     }
+    
+    let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        imagePicker.delegate = self
         setUpViews()
     }
 
@@ -208,7 +211,9 @@ class ProfileTabViewController: BaseViewController {
     }
     
     @IBAction func profileImageTapped() {
-        
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func saveTapped() {
@@ -234,5 +239,20 @@ class ProfileTabViewController: BaseViewController {
     
     @IBAction func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+
+extension ProfileTabViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            profileImage.image = pickedImage
+        }
+
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }
