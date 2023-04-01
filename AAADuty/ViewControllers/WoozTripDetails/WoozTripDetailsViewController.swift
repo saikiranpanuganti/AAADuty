@@ -196,7 +196,7 @@ extension WoozTripDetailsViewController: UITableViewDataSource {
             return cell
         }else if indexPath.section == 7 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "BillDetailsTableViewCell", for: indexPath) as? BillDetailsTableViewCell {
-                cell.configureUI(amount: woozPrice?.serviceCharge ?? 0)
+                cell.configureUI(basePrice: woozPrice?.serviceCharge ?? 0, amount: woozPrice?.serviceCharge ?? 0)
                 return cell
             }
         }else if indexPath.section == 8 {

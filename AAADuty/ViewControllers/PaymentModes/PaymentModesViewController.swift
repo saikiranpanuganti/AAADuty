@@ -27,6 +27,7 @@ class PaymentModesViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        // Update key as well as pass order if for prod set up
         razorpay = RazorpayCheckout.initWithKey("rzp_test_Dwua9vi5c5V4jd", andDelegateWithData: self)
     }
     

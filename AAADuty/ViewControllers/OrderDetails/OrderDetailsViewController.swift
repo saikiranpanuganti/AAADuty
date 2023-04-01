@@ -22,6 +22,7 @@ class OrderDetailsViewController: BaseViewController {
     var pastOrder: PastOrder?
     var cancelReasonsModel: CancelReasonsModel?
     var selectedCancelReason: CancelReason?
+    var takeBackToHome: Bool  = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -317,7 +318,11 @@ extension OrderDetailsViewController: UITableViewDelegate {
 
 extension OrderDetailsViewController: OrderTableViewCellDelegate {
     func backButtonTapped() {
-        navigationController?.popViewController(animated: true)
+        if takeBackToHome {
+            navigationController?.popToRootViewController(animated: true)
+        }else {
+            navigationController?.popViewController(animated: true)
+        }
     }
     func cancelOrderTapped() {
         updateCancelReasonsUI()

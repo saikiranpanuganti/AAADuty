@@ -70,6 +70,7 @@ class StatusViewController: UIViewController {
                 controller.orderDetails = self.orderDetails
                 controller.orderRequest = self.orderRequest
                 controller.allOrderDetails = self.allOrderDetails
+                controller.takeBackToHome = true
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
