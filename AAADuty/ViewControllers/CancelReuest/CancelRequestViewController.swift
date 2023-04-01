@@ -33,6 +33,7 @@ class CancelRequestViewController: BaseViewController {
         cancelReasonsView.layer.borderWidth = 1
         cancelReasonsView.layer.borderColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1).cgColor
         cancelReasonsView.layer.masksToBounds = true
+        cancelReasonsView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         submitButton.layer.cornerRadius = submitButton.frame.height/2
         submitButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
