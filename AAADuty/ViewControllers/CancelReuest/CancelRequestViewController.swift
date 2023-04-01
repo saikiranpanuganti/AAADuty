@@ -19,6 +19,7 @@ class CancelRequestViewController: BaseViewController {
     
     var orderDetails: OrderDetails?
     var orderRequest: OrderRequest?
+    var allOrderDetails: (SubCategory?, SubCategoryType?, [CleaningService], Location?, String?, [ComplaintType?])?
     var cancelReasonsModel: CancelReasonsModel?
     var selectedCancelReason: CancelReason?
 

@@ -74,6 +74,7 @@ class PaymentModesViewController: BaseViewController {
                                     if let controller = Controllers.requestAccepted.getController() as? RequestAcceptedViewController {
                                         controller.orderRequest = self.orderRequest
                                         controller.orderDetails = self.orderDetails
+                                        controller.allOrderDetails = self.allOrderDetails
                                         self.navigationController?.pushViewController(controller, animated: true)
                                     }
                                 }

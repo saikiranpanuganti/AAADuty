@@ -45,6 +45,8 @@ class BookingsViewController: BaseViewController {
         bodyParams["CustomerID"] = AppData.shared.user?.id ?? ""
         bodyParams["RequestStatus"] = "Completed"
         
+        print("bodyParams - \(bodyParams)")
+        
         NetworkAdaptor.requestWithHeaders(urlString: Url.getPastOrders.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
             guard let self = self else { return }
             self.stopLoader()
@@ -91,6 +93,12 @@ extension BookingsViewController: UITableViewDataSource {
 extension BookingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let controller = Controllers.orderDetails.getController() as? OrderDetailsViewController {
+            controller.pastOrder = pastOrdersModel?.pastorders?[indexPath.row]
+            navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
 

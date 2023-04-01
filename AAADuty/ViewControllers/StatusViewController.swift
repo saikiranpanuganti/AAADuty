@@ -20,6 +20,9 @@ class StatusViewController: UIViewController {
     
     var orderDetails: OrderDetails?
     var orderRequest: OrderRequest?
+    var allOrderDetails: (SubCategory?, SubCategoryType?, [CleaningService], Location?, String?, [ComplaintType?])?
+    
+    var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +57,24 @@ class StatusViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(timerComleted), userInfo: nil, repeats: false)
+    }
+    
+    @objc func timerComleted() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if let controller = Controllers.orderDetails.getController() as? OrderDetailsViewController {
+                controller.orderDetails = self.orderDetails
+                controller.orderRequest = self.orderRequest
+                controller.allOrderDetails = self.allOrderDetails
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
+    }
+    
     @IBAction func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
@@ -66,6 +87,7 @@ class StatusViewController: UIViewController {
         if let controller = Controllers.cancelRequest.getController() as? CancelRequestViewController {
             controller.orderRequest = orderRequest
             controller.orderDetails = orderDetails
+            controller.allOrderDetails = allOrderDetails
             navigationController?.pushViewController(controller, animated: false)
         }
     }

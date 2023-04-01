@@ -12,6 +12,7 @@ class RequestAcceptedViewController: UIViewController {
     
     var orderDetails: OrderDetails?
     var orderRequest: OrderRequest?
+    var allOrderDetails: (SubCategory?, SubCategoryType?, [CleaningService], Location?, String?, [ComplaintType?])?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class RequestAcceptedViewController: UIViewController {
         if let controller = Controllers.requestStatus.getController() as? StatusViewController {
             controller.orderDetails = orderDetails
             controller.orderRequest = orderRequest
+            controller.allOrderDetails = allOrderDetails
             navigationController?.pushViewController(controller, animated: true)
         }
     }

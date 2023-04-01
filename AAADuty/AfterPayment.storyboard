@@ -159,6 +159,58 @@
             </objects>
             <point key="canvasLocation" x="104.58015267175573" y="-2.1126760563380285"/>
         </scene>
+        <!--Order Details View Controller-->
+        <scene sceneID="pVy-RG-gBb">
+            <objects>
+                <viewController storyboardIdentifier="OrderDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fvo-0b-Rye" customClass="OrderDetailsViewController" customModule="AAADuty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Evc-YX-hia">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="960-k1-GAw">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
+                                <color key="backgroundColor" name="navigationBarColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Ldj-KR-pbN"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMW-te-B28">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3mP-qD-TXV">
+                                        <rect key="frame" x="0.0" y="10" width="393" height="783"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="3mP-qD-TXV" secondAttribute="bottom" id="2Un-lX-rex"/>
+                                    <constraint firstItem="3mP-qD-TXV" firstAttribute="leading" secondItem="FMW-te-B28" secondAttribute="leading" id="g0m-IB-TZa"/>
+                                    <constraint firstItem="3mP-qD-TXV" firstAttribute="top" secondItem="FMW-te-B28" secondAttribute="top" constant="10" id="hzb-mS-gyS"/>
+                                    <constraint firstAttribute="trailing" secondItem="3mP-qD-TXV" secondAttribute="trailing" id="mma-ek-CB8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vdj-uT-gXf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FMW-te-B28" secondAttribute="trailing" id="77I-SB-t1K"/>
+                            <constraint firstItem="vdj-uT-gXf" firstAttribute="trailing" secondItem="960-k1-GAw" secondAttribute="trailing" id="EDF-Bg-BFn"/>
+                            <constraint firstItem="960-k1-GAw" firstAttribute="leading" secondItem="vdj-uT-gXf" secondAttribute="leading" id="OmV-Jt-sto"/>
+                            <constraint firstAttribute="bottom" secondItem="FMW-te-B28" secondAttribute="bottom" id="SX7-D6-5cx"/>
+                            <constraint firstItem="960-k1-GAw" firstAttribute="top" secondItem="Evc-YX-hia" secondAttribute="top" id="jr1-vs-dNy"/>
+                            <constraint firstItem="FMW-te-B28" firstAttribute="leading" secondItem="Evc-YX-hia" secondAttribute="leading" id="pbN-TY-sar"/>
+                            <constraint firstItem="FMW-te-B28" firstAttribute="top" secondItem="vdj-uT-gXf" secondAttribute="top" id="y49-Zl-naE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="3mP-qD-TXV" id="BtB-Gp-PZE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6tb-R2-L5J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962.59541984732823" y="-2.1126760563380285"/>
+        </scene>
         <!--Bookings View Controller-->
         <scene sceneID="cZL-6O-FMe">
             <objects>
@@ -178,6 +230,9 @@
     <resources>
         <image name="bellIcon" width="26" height="28"/>
         <image name="leftArrow" width="28" height="20"/>
+        <namedColor name="navigationBarColor">
+            <color red="0.070588235294117646" green="0.27058823529411763" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="orangeAppColor">
             <color red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

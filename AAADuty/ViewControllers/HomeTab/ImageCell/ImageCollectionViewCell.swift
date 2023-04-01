@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageOutlet: UIImageView!
@@ -17,5 +18,10 @@ class ImageCollectionViewCell: UICollectionViewCell {
 
     func configureUI(imageName: String) {
         imageOutlet.image = UIImage(named: imageName)
+    }
+    
+    func configureUI(url: String?) {
+        imageOutlet.contentMode = .scaleToFill
+        imageOutlet.sd_setImage(with: URL(string: url ?? ""))
     }
 }

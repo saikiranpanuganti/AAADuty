@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-SemiBold.otf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="240" id="KGk-i7-Jjw" customClass="FTWorkPreviewTableViewCell" customModule="AAADuty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XiT-6K-K90">
+                        <rect key="frame" x="20" y="10" width="280" height="2"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="AKj-3S-td8"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EqW-OP-DcJ">
+                        <rect key="frame" x="20" y="194.66666666666666" width="280" height="2"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="oei-3D-YM5"/>
+                        </constraints>
+                    </view>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="PlE-zS-Hy4">
+                        <rect key="frame" x="20" y="84.666666666666671" width="280" height="75.000000000000014"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="75" id="GhC-2N-gBw"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tKA-NW-h1g">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Preview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uds-GH-b44">
+                        <rect key="frame" x="20" y="37" width="110" height="22.666666666666671"/>
+                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="16"/>
+                        <color key="textColor" name="navigationBarColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="EqW-OP-DcJ" secondAttribute="trailing" constant="20" id="6NU-5P-Ggj"/>
+                    <constraint firstItem="XiT-6K-K90" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="GQW-Re-h2K"/>
+                    <constraint firstAttribute="trailing" secondItem="PlE-zS-Hy4" secondAttribute="trailing" constant="20" id="HIl-2B-UGn"/>
+                    <constraint firstItem="PlE-zS-Hy4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Hgq-8X-fGS"/>
+                    <constraint firstItem="uds-GH-b44" firstAttribute="top" secondItem="XiT-6K-K90" secondAttribute="bottom" constant="25" id="LBD-eh-0MP"/>
+                    <constraint firstItem="PlE-zS-Hy4" firstAttribute="top" secondItem="uds-GH-b44" secondAttribute="bottom" constant="25" id="OAH-xj-V8E"/>
+                    <constraint firstAttribute="trailing" secondItem="XiT-6K-K90" secondAttribute="trailing" constant="20" id="aC3-wW-lPn"/>
+                    <constraint firstItem="EqW-OP-DcJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="grX-0I-SLa"/>
+                    <constraint firstItem="uds-GH-b44" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="moV-tu-igw"/>
+                    <constraint firstItem="XiT-6K-K90" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="nwT-fr-9kr"/>
+                    <constraint firstItem="EqW-OP-DcJ" firstAttribute="top" secondItem="PlE-zS-Hy4" secondAttribute="bottom" constant="35" id="rID-AU-plQ"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EqW-OP-DcJ" secondAttribute="bottom" constant="10" id="s6T-Cd-UlU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionView" destination="PlE-zS-Hy4" id="AVK-EI-wUO"/>
+            </connections>
+            <point key="canvasLocation" x="-53.435114503816791" y="71.126760563380287"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="navigationBarColor">
+            <color red="0.070588235294117646" green="0.27058823529411763" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

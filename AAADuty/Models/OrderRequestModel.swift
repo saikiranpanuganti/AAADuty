@@ -91,24 +91,6 @@ struct DestinationLocation: Codable {
     let coordinates: [Double]?
 }
 
-// MARK: - Service
-struct Service: Codable {
-    let id, typeName, noOfCount, isActive: String?
-    let complaint, categoryName, typeID, categoryID: String?
-    let price: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case id = "_id"
-        case typeName = "TypeName"
-        case noOfCount = "NoOfCount"
-        case isActive
-        case complaint = "Complaint"
-        case categoryName = "CategoryName"
-        case typeID = "TypeID"
-        case categoryID = "CategoryID"
-        case price = "Price"
-    }
-}
 
 
 
