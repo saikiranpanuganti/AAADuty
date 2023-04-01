@@ -10,6 +10,7 @@ import SDWebImage
 
 protocol OrderTableViewCellDelegate: AnyObject {
     func backButtonTapped()
+    func cancelOrderTapped()
 }
 
 class OrderTableViewCell: UITableViewCell {
@@ -46,6 +47,9 @@ class OrderTableViewCell: UITableViewCell {
         
         cancelButton.layer.cornerRadius = 24
         cancelButton.layer.masksToBounds = true
+        
+        cancelButton.tag = 0
+        trackDetailsButton.tag = 0
     }
     
     func configureUI(orderRequest: OrderRequest?) {
@@ -56,20 +60,17 @@ class OrderTableViewCell: UITableViewCell {
         categoryName.text = requestDetailsModel?.response?.first?.categoryName
         categoryImageView.sd_setImage(with: URL(string: requestDetailsModel?.response?.first?.requestImageURL ?? ""))
         orderId.text = requestDetailsModel?.response?.first?.orderID
-        currentStatus.text = requestDetailsModel?.response?.first?.requestStatus
+        currentStatus.text = requestDetailsModel?.response?.first?.requestStatus?.capitalized
         
         if let requestStatus = requestDetailsModel?.response?.first?.requestStatus {
             if requestStatus == "Completed" {
                 buttonsView.isHidden = true
-//                trackDetailsButton.isHidden = true
-//                cancelButton.isHidden = true
             }else if requestStatus == "Pending" {
                 trackDetailsButton.isHidden = true
                 cancelButton.isHidden = false
+                cancelButton.tag = 1
             }else if requestStatus == "cancelled" {
-                trackDetailsButton.isHidden = true
-                cancelButton.isHidden = false
-                cancelButton.setTitle("Cancelled", for: .normal)
+                buttonsView.isHidden = true
             }else {
                 trackDetailsButton.isHidden = false
                 cancelButton.isHidden = true
@@ -90,6 +91,8 @@ class OrderTableViewCell: UITableViewCell {
     }
     
     @IBAction func cancelOrderTapped() {
-        
+        if cancelButton.tag == 1 {
+            delegate?.cancelOrderTapped()
+        }
     }
 }

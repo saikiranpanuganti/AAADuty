@@ -190,12 +190,93 @@
                                     <constraint firstAttribute="trailing" secondItem="3mP-qD-TXV" secondAttribute="trailing" id="mma-ek-CB8"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71D-jT-oqv">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpw-lS-GXx">
+                                        <rect key="frame" x="0.0" y="383.33333333333326" width="393" height="468.66666666666674"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ReG-3I-fsu">
+                                                <rect key="frame" x="30" y="30" width="343" height="261.66666666666669"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </tableView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1um-r6-XPE">
+                                                <rect key="frame" x="53" y="371.33333333333331" width="286" height="57.333333333333314"/>
+                                                <color key="backgroundColor" name="orangeAppColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="1um-r6-XPE" secondAttribute="height" multiplier="5:1" id="gyt-Ha-vew"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="SUBMIT">
+                                                    <fontDescription key="titleFontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="18"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="submitTapped" destination="fvo-0b-Rye" eventType="touchUpInside" id="0Jz-pV-yON"/>
+                                                    <action selector="submitTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rrp-1v-xlt"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RW9-EK-qtC">
+                                                <rect key="frame" x="35" y="349.33333333333331" width="323" height="2"/>
+                                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="ecX-f6-MPx"/>
+                                                </constraints>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your Own Comments" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lYf-q4-Kpv">
+                                                <rect key="frame" x="35" y="321.66666666666669" width="323" height="22.666666666666686"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="lYf-q4-Kpv" firstAttribute="top" secondItem="ReG-3I-fsu" secondAttribute="bottom" constant="30" id="05E-71-zeK"/>
+                                            <constraint firstAttribute="trailing" secondItem="RW9-EK-qtC" secondAttribute="trailing" constant="35" id="0jw-WS-4pQ"/>
+                                            <constraint firstItem="RW9-EK-qtC" firstAttribute="top" secondItem="lYf-q4-Kpv" secondAttribute="bottom" constant="5" id="2py-m7-7Kv"/>
+                                            <constraint firstItem="1um-r6-XPE" firstAttribute="top" secondItem="RW9-EK-qtC" secondAttribute="bottom" constant="20" id="C8b-PQ-1Va"/>
+                                            <constraint firstItem="ReG-3I-fsu" firstAttribute="leading" secondItem="cpw-lS-GXx" secondAttribute="leading" constant="30" id="GIU-IY-1il"/>
+                                            <constraint firstAttribute="trailing" secondItem="1um-r6-XPE" secondAttribute="trailing" constant="54" id="KmY-hr-oGk"/>
+                                            <constraint firstItem="1um-r6-XPE" firstAttribute="leading" secondItem="cpw-lS-GXx" secondAttribute="leading" constant="53" id="PK9-hq-Bdi"/>
+                                            <constraint firstItem="lYf-q4-Kpv" firstAttribute="leading" secondItem="cpw-lS-GXx" secondAttribute="leading" constant="35" id="UOh-hZ-mbS"/>
+                                            <constraint firstItem="RW9-EK-qtC" firstAttribute="leading" secondItem="cpw-lS-GXx" secondAttribute="leading" constant="35" id="Zlx-CH-paN"/>
+                                            <constraint firstAttribute="trailing" secondItem="lYf-q4-Kpv" secondAttribute="trailing" constant="35" id="dwP-sR-rGc"/>
+                                            <constraint firstItem="ReG-3I-fsu" firstAttribute="top" secondItem="cpw-lS-GXx" secondAttribute="top" constant="30" id="lnu-Cv-SkE"/>
+                                            <constraint firstAttribute="bottom" secondItem="1um-r6-XPE" secondAttribute="bottom" constant="40" id="pwd-Ol-eMg"/>
+                                            <constraint firstAttribute="trailing" secondItem="ReG-3I-fsu" secondAttribute="trailing" constant="20" id="u7X-hw-IPu"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lq1-b6-eGv">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="383.33333333333331"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="hideCancelReasonsView" destination="fvo-0b-Rye" eventType="touchUpInside" id="3KE-dX-q2v"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.54599544701986757" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="cpw-lS-GXx" firstAttribute="leading" secondItem="71D-jT-oqv" secondAttribute="leading" id="CQQ-GH-n0v"/>
+                                    <constraint firstItem="Lq1-b6-eGv" firstAttribute="leading" secondItem="71D-jT-oqv" secondAttribute="leading" id="LGv-fo-8bx"/>
+                                    <constraint firstAttribute="trailing" secondItem="cpw-lS-GXx" secondAttribute="trailing" id="LcG-j8-FUy"/>
+                                    <constraint firstAttribute="bottom" secondItem="cpw-lS-GXx" secondAttribute="bottom" id="VB4-0f-7xv"/>
+                                    <constraint firstItem="cpw-lS-GXx" firstAttribute="height" secondItem="71D-jT-oqv" secondAttribute="height" multiplier="0.55" id="dIp-L5-hHp"/>
+                                    <constraint firstItem="cpw-lS-GXx" firstAttribute="top" secondItem="Lq1-b6-eGv" secondAttribute="bottom" id="gqS-gQ-JHB"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lq1-b6-eGv" secondAttribute="trailing" id="kIU-C6-f0D"/>
+                                    <constraint firstItem="Lq1-b6-eGv" firstAttribute="top" secondItem="71D-jT-oqv" secondAttribute="top" id="zCH-8v-TKG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vdj-uT-gXf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="71D-jT-oqv" firstAttribute="leading" secondItem="Evc-YX-hia" secondAttribute="leading" id="0YK-UJ-5X0"/>
+                            <constraint firstAttribute="bottom" secondItem="71D-jT-oqv" secondAttribute="bottom" id="48E-RP-DJf"/>
                             <constraint firstAttribute="trailing" secondItem="FMW-te-B28" secondAttribute="trailing" id="77I-SB-t1K"/>
                             <constraint firstItem="vdj-uT-gXf" firstAttribute="trailing" secondItem="960-k1-GAw" secondAttribute="trailing" id="EDF-Bg-BFn"/>
+                            <constraint firstAttribute="trailing" secondItem="71D-jT-oqv" secondAttribute="trailing" id="GTB-Og-BK1"/>
+                            <constraint firstItem="71D-jT-oqv" firstAttribute="top" secondItem="Evc-YX-hia" secondAttribute="top" id="HT0-Sk-Hxx"/>
                             <constraint firstItem="960-k1-GAw" firstAttribute="leading" secondItem="vdj-uT-gXf" secondAttribute="leading" id="OmV-Jt-sto"/>
                             <constraint firstAttribute="bottom" secondItem="FMW-te-B28" secondAttribute="bottom" id="SX7-D6-5cx"/>
                             <constraint firstItem="960-k1-GAw" firstAttribute="top" secondItem="Evc-YX-hia" secondAttribute="top" id="jr1-vs-dNy"/>
@@ -204,6 +285,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelBgView" destination="71D-jT-oqv" id="lnR-s5-G4r"/>
+                        <outlet property="cancelReasonTableView" destination="ReG-3I-fsu" id="q9Z-Pe-Gah"/>
+                        <outlet property="cancelReasonsView" destination="cpw-lS-GXx" id="BCb-9x-pds"/>
+                        <outlet property="commentsOutlet" destination="lYf-q4-Kpv" id="tWV-kK-geM"/>
+                        <outlet property="submitButton" destination="1um-r6-XPE" id="ZB0-9D-LBx"/>
                         <outlet property="tableView" destination="3mP-qD-TXV" id="BtB-Gp-PZE"/>
                     </connections>
                 </viewController>

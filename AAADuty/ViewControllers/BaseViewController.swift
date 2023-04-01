@@ -76,6 +76,8 @@ class BaseViewController: UIViewController {
     
     func showLoader() {
         DispatchQueue.main.async { [weak self] in
+            self?.loader?.dismiss(animated: false, completion: nil)
+            self?.loader = nil
             self?.loader = self?.getLoader()
         }
     }
