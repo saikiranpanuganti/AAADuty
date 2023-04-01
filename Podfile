@@ -13,5 +13,8 @@ target 'AAADuty' do
   pod 'GoogleMaps', '7.4.0'
   pod 'GooglePlaces', '7.4.0'
   pod 'razorpay-pod', '1.3.0'
+  pod 'AWSS3'
+  pod 'AWSCognito'
+  pod 'AWSCore'
 
 end

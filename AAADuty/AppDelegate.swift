@@ -9,6 +9,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import GoogleMaps
 import GooglePlaces
+import AWSS3
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         GMSServices.provideAPIKey("AIzaSyDMhxICRRGQ1OJDva3cAghaqUUMHA7htu8")
         GMSPlacesClient.provideAPIKey("AIzaSyAWZeUbHXVUQCJNgFVj7mZbzdQvRx_ShI8")
+        initializeS3()
         return true
     }
 
@@ -35,6 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    func initializeS3() {
+        let credentials = AWSStaticCredentialsProvider(accessKey: "AKIAUIUMIPY7ZXKBS67T", secretKey: "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")
+        let configuration = AWSServiceConfiguration(region: .APSouth1, credentialsProvider: credentials)
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
+    }
 }
 

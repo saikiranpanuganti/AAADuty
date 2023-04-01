@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AWSS3
 
 struct ProfileData {
     var mobile: String?
@@ -147,10 +148,46 @@ class ProfileTabViewController: BaseViewController {
                 userGender = "female"
             }
             if let image = userDetails.avatar {
-                profileImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "profile"))
+                print("userDetails.avatar: - \(image)")
+                profileImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "profile"), options: .refreshCached)
             }
         }
     }
+    
+
+    func uploadData(data: Data, imageName: String) {
+      let expression = AWSS3TransferUtilityUploadExpression()
+//      expression.progressBlock = {(task, progress) in
+//          DispatchQueue.main.async(execute: {
+//              print("AWS Progress: progress - \(progress.fractionCompleted) task - \(task) \(progress.fileURL)")
+//          })
+//      }
+
+      var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
+      completionHandler = { (task, error) -> Void in
+         DispatchQueue.main.async(execute: {
+             if error == nil {
+                 AppData.shared.user?.avatar = "https://aaadutyv1.s3.ap-south-1.amazonaws.com/" + imageName
+                 AppData.shared.user?.saveUser()
+             }
+         })
+      }
+
+      let transferUtility = AWSS3TransferUtility.default()
+      transferUtility.uploadData(data,
+           bucket: "aaadutyv1",
+           key: imageName,
+           contentType: "image/jpeg",
+           expression: expression,
+           completionHandler: completionHandler).continueWith {
+              (task) -> AnyObject? in
+                  if let error = task.error {
+                     print("AWS Error: \(error.localizedDescription)")
+                  }
+                  return nil;
+          }
+    }
+      
     
     func updateUserDetails(updatedUser: User?) {
         if let updatedUser = updatedUser {
@@ -247,6 +284,10 @@ extension ProfileTabViewController: UIImagePickerControllerDelegate, UINavigatio
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImage.image = pickedImage
+            if let jpegData = pickedImage.jpegData(compressionQuality: 0.5), let userid = AppData.shared.user?.id {
+                print("picked Image: - \(jpegData) imageName - \(userid+"/profileImage")")
+                uploadData(data: jpegData, imageName: userid+"/profileImage")
+            }
         }
 
         dismiss(animated: true, completion: nil)
