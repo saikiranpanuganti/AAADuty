@@ -35,6 +35,7 @@ class WoozTripViewController: BaseViewController {
     var kidsSelected: Bool = false
     var womenSelected: Bool = false
     var srCitizenSelected: Bool = false
+    var comments: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,12 @@ class WoozTripViewController: BaseViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.tableView.reloadData()
+        }
+    }
+    
+    func resignTextFieldAsResponder() {
+        if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 8)) as? CommentsTableViewCell {
+            cell.textfieldOutlet.resignFirstResponder()
         }
     }
     
@@ -139,6 +146,7 @@ extension WoozTripViewController: UITableViewDataSource {
             }
         }else if indexPath.section == 8 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell", for: indexPath) as? CommentsTableViewCell {
+                cell.delegate = self
                 return cell
             }
         }else if indexPath.section == 9 {
@@ -261,6 +269,8 @@ extension WoozTripViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
+            self.resignTextFieldAsResponder()
+            
             if let controller = Controllers.woozTripDetails.getController() as? WoozTripDetailsViewController {
                 controller.category = self.category
                 controller.subCategories = self.subCategories
@@ -275,6 +285,7 @@ extension WoozTripViewController: ContinueTableViewCellDelegate {
                 controller.kidsSelected = self.kidsSelected
                 controller.womenSelected = self.womenSelected
                 controller.srCitizenSelected = self.srCitizenSelected
+                controller.comments = self.comments
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
@@ -318,5 +329,12 @@ extension WoozTripViewController: InstructionsTableViewCellDelegate {
     }
     func srCitizenTapped(selected: Bool) {
         srCitizenSelected = selected
+    }
+}
+
+
+extension WoozTripViewController: CommentsTableViewCellDelegate {
+    func commentsEntered(comments: String?) {
+        self.comments = comments ?? ""
     }
 }

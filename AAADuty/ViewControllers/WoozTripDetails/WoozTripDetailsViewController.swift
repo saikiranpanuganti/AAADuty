@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WoozTripDetailsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -27,6 +28,8 @@ class WoozTripDetailsViewController: BaseViewController {
     var kidsSelected: Bool = false
     var womenSelected: Bool = false
     var srCitizenSelected: Bool = false
+    var comments: String = ""
+    var orderRequest: OrderRequest?
     var tripCharge: Int {
         let waitingCharge = (((selectedWaitingTime?.waitingTime ?? 0)*(woozPrice?.waitingPeriodPrice ?? 0))/(woozPrice?.waitingPeriod ?? 1))
         return (woozPrice?.serviceCharge ?? 0) + waitingCharge
@@ -122,42 +125,244 @@ class WoozTripDetailsViewController: BaseViewController {
         }
     }
     
-    func getOrderRequestParams() -> [String: Any] {
+    func getOrderRequestParamsDropTrip(location: Location?) -> [String: Any] {
         var orderRequestParams: [String: Any] = [:]
+        orderRequestParams["CustomerID"] = AppData.shared.user?.id ?? ""
+        orderRequestParams["CustomerName"] = AppData.shared.user?.customerName ?? ""
+        orderRequestParams["CustomerPhoneNumber"] = AppData.shared.user?.mobileNumber ?? ""
+        orderRequestParams["CategoryID"] = selectedComplaintType?.categoryID ?? ""
+        orderRequestParams["CategoryName"] = selectedComplaintType?.categoryName ?? ""
+        orderRequestParams["typeID"] = selectedComplaintType?.typeID ?? ""
+        orderRequestParams["typeName"] = selectedComplaintType?.typeName ?? ""
+        orderRequestParams["WooZComplaintID"] = selectedComplaintType?.id ?? ""
+        orderRequestParams["WooZComplaintName"] = selectedComplaintType?.complaint ?? ""
+        orderRequestParams["WooZServiceID"] = woozPrice?.id ?? ""
+        orderRequestParams["WooZService"] = woozPrice?.serviceName ?? ""
+        if let userLatitude = selectedPickUpLocation?.latitude, let userLongitude = selectedPickUpLocation?.longitude, let destLatitude = selectedDropLocation?.latitude, let destLongitude = selectedDropLocation?.longitude {
+            let userLocation = CLLocation(latitude: userLatitude, longitude: userLongitude)
+            let destLocation = CLLocation(latitude: destLatitude, longitude: destLongitude)
+            let distance = userLocation.distance(from: destLocation)/1000
+            orderRequestParams["TotalKm"] = distance
+        }else {
+            orderRequestParams["TotalKm"] = 0
+        }
+        orderRequestParams["Tax"] = woozPrice?.pgServiceTax ?? 0
+        orderRequestParams["GST"] = woozPrice?.gst ?? 0
+        orderRequestParams["AddTip"] = 0
+        orderRequestParams["Price"] = tripCharge
+        orderRequestParams["Balance"] = 0
+        orderRequestParams["Note"] = comments
+        orderRequestParams["WaitingPeriodTime"] = selectedWaitingTime?.waitingTime ?? 0
+        var woozInstructions: [String: String] = [:]
+        if kidsSelected {
+            woozInstructions["People"] = "Kids"
+        }
+        if womenSelected {
+            woozInstructions["People"] = "Senior Citizens"
+        }
+        if srCitizenSelected {
+            woozInstructions["People"] = "Women"
+        }
+        orderRequestParams["WoozInstructions"] = woozInstructions
+        orderRequestParams["pinCode"] = Int(selectedPickUpLocation?.postalCode ?? "0")
+        orderRequestParams["SourceAddress"] = selectedPickUpLocation?.address ?? ""
+        orderRequestParams["SourctLat"] = selectedPickUpLocation?.latitude ?? 0
+        orderRequestParams["SourceLong"] = selectedPickUpLocation?.longitude ?? 0
+        orderRequestParams["SourceLocation"] = "\(selectedPickUpLocation?.longitude ?? 0),\(selectedPickUpLocation?.latitude ?? 0)"
+        orderRequestParams["DesinationAddress"] = selectedDropLocation?.address ?? ""
+        orderRequestParams["DestinationLat"] = selectedDropLocation?.latitude ?? 0
+        orderRequestParams["DestinationLong"] = selectedDropLocation?.longitude ?? 0
+        orderRequestParams["DestinationLocation"] = "\(selectedDropLocation?.longitude ?? 0),\(selectedDropLocation?.latitude ?? 0)"
+        
+        return orderRequestParams
+    }
+    
+    func getOrderRequestParamsPickUpTrip(location: Location?) -> [String: Any] {
+        var orderRequestParams: [String: Any] = [:]
+        orderRequestParams["AddTip"] = 0
+        orderRequestParams["CarDeliveryLat"] = ""
+        orderRequestParams["CarDeliveryLocation"] = ""
+        orderRequestParams["CarDeliveryLocationAddress"] = ""
+        orderRequestParams["CarDeliveryLong"] = ""
+        orderRequestParams["CarPickupLat"] = "\(selectedPeoplePickUpLocation?.latitude ?? 0)"
+        orderRequestParams["CarPickupLocation"] = "\(selectedPeoplePickUpLocation?.longitude ?? 0),\(selectedPeoplePickUpLocation?.latitude ?? 0)"
+        orderRequestParams["CarPickupLocationAddress"] = selectedPeoplePickUpLocation?.address ?? ""
+        orderRequestParams["CarPickupLong"] = "\(selectedPeoplePickUpLocation?.longitude ?? 0)"
+        orderRequestParams["CategoryID"] = selectedComplaintType?.categoryID ?? ""
+        orderRequestParams["CategoryName"] = selectedComplaintType?.categoryName ?? ""
+        orderRequestParams["ComplaintTypeID"] = ""
+        orderRequestParams["ComplaintTypeName"] = ""
+        orderRequestParams["CustomerAddress"] = location?.address ?? ""
+        orderRequestParams["CustomerID"] = AppData.shared.user?.id ?? ""
+        orderRequestParams["CustomerLocation"] = "\(location?.longitude ?? 0),\(location?.latitude ?? 0)"
+        orderRequestParams["CustomerName"] = AppData.shared.user?.customerName ?? ""
+        orderRequestParams["CustomerPhoneNumber"] = AppData.shared.user?.mobileNumber ?? ""
+        orderRequestParams["DesinationAddress"] = selectedDropLocation?.address ?? ""
+        orderRequestParams["DestinationLat"] = "\(selectedDropLocation?.latitude ?? 0)"
+        orderRequestParams["DestinationLocation"] = "\(selectedDropLocation?.longitude ?? 0),\(selectedDropLocation?.latitude ?? 0)"
+        orderRequestParams["DestinationLong"] = "\(selectedDropLocation?.longitude ?? 0)"
+        orderRequestParams["End"] = 0
+        orderRequestParams["EndTime"] = ""
+        orderRequestParams["GST"] = woozPrice?.gst ?? 0
+        orderRequestParams["Note"] = comments
+        orderRequestParams["Price"] = tripCharge
+        orderRequestParams["Remarks"] = ""
+        orderRequestParams["SlotId"] = ""
+        orderRequestParams["SourceAddress"] = selectedPickUpLocation?.address ?? ""
+        orderRequestParams["SourceLocation"] = "\(selectedPickUpLocation?.longitude ?? 0),\(selectedPickUpLocation?.latitude ?? 0)"
+        orderRequestParams["SourceLong"] = selectedPickUpLocation?.longitude ?? 0
+        orderRequestParams["SourctLat"] = selectedPickUpLocation?.latitude ?? 0
+        
+        orderRequestParams["Start"] = 0
+        orderRequestParams["StartTime"] = ""
+        orderRequestParams["Tax"] = woozPrice?.pgServiceTax ?? 0
+        orderRequestParams["TotalSFT"] = 0
+        orderRequestParams["TransactionAmount"] = ""
+        orderRequestParams["TransactionDoneBy"] = ""
+        orderRequestParams["TransactionID"] = ""
+        orderRequestParams["TransactionMode"] = ""
+        orderRequestParams["VendorID"] = ""
+        orderRequestParams["VendorPhoneNumber"] = ""
+        orderRequestParams["VendorSlotID"] = ""
+        orderRequestParams["VenodrName"] = ""
+        orderRequestParams["pinCode"] = Int(selectedPickUpLocation?.postalCode ?? "0")
+        orderRequestParams["WaitingPeriodTime"] = selectedWaitingTime?.waitingTime ?? 0
+        orderRequestParams["WooZComplaintID"] = selectedComplaintType?.id ?? ""
+        orderRequestParams["WooZComplaintName"] = selectedComplaintType?.complaint ?? ""
+        orderRequestParams["WooZService"] = woozPrice?.serviceName ?? ""
+        orderRequestParams["WooZServiceID"] = woozPrice?.id ?? ""
+        
+        var woozInstructions: [String: String] = [:]
+        if kidsSelected {
+            woozInstructions["People"] = "Kids"
+        }
+        if womenSelected {
+            woozInstructions["People"] = "Senior Citizens"
+        }
+        if srCitizenSelected {
+            woozInstructions["People"] = "Women"
+        }
+        orderRequestParams["WoozInstructions"] = woozInstructions
+        
+        orderRequestParams["typeID"] = selectedComplaintType?.typeID ?? ""
+        orderRequestParams["typeName"] = selectedComplaintType?.typeName ?? ""
+        
+        if let userLatitude = selectedPickUpLocation?.latitude, let userLongitude = selectedPickUpLocation?.longitude, let destLatitude = selectedDropLocation?.latitude, let destLongitude = selectedDropLocation?.longitude {
+            let userLocation = CLLocation(latitude: userLatitude, longitude: userLongitude)
+            let destLocation = CLLocation(latitude: destLatitude, longitude: destLongitude)
+            let distance = userLocation.distance(from: destLocation)/1000
+            orderRequestParams["Distance"] = distance
+        }else {
+            orderRequestParams["Distance"] = 0
+        }
+        
+        return orderRequestParams
+    }
+    
+    func getOrderRequestParamsRoundTrip(location: Location?) -> [String: Any] {
+        var orderRequestParams: [String: Any] = [:]
+        orderRequestParams["CustomerID"] = AppData.shared.user?.id ?? ""
+        orderRequestParams["CustomerName"] = AppData.shared.user?.customerName ?? ""
+        orderRequestParams["CustomerPhoneNumber"] = AppData.shared.user?.mobileNumber ?? ""
+        orderRequestParams["CategoryID"] = selectedComplaintType?.categoryID ?? ""
+        orderRequestParams["CategoryName"] = selectedComplaintType?.categoryName ?? ""
+        orderRequestParams["typeID"] = selectedComplaintType?.typeID ?? ""
+        orderRequestParams["typeName"] = selectedComplaintType?.typeName ?? ""
+        orderRequestParams["WooZComplaintID"] = selectedComplaintType?.id ?? ""
+        orderRequestParams["WooZComplaintName"] = selectedComplaintType?.complaint ?? ""
+        orderRequestParams["WooZServiceID"] = woozPrice?.id ?? ""
+        orderRequestParams["WooZService"] = woozPrice?.serviceName ?? ""
+        
+        if let userLatitude = selectedPickUpLocation?.latitude, let userLongitude = selectedPickUpLocation?.longitude, let destLatitude = selectedDropLocation?.latitude, let destLongitude = selectedDropLocation?.longitude {
+            let userLocation = CLLocation(latitude: userLatitude, longitude: userLongitude)
+            let destLocation = CLLocation(latitude: destLatitude, longitude: destLongitude)
+            let distance = userLocation.distance(from: destLocation)/1000
+            orderRequestParams["TotalKm"] = distance
+        }else {
+            orderRequestParams["TotalKm"] = 0
+        }
+        
+        orderRequestParams["Tax"] = woozPrice?.pgServiceTax ?? 0
+        orderRequestParams["GST"] = woozPrice?.gst ?? 0
+        orderRequestParams["AddTip"] = 0
+        orderRequestParams["Price"] = tripCharge
+        orderRequestParams["Balance"] = 0
+        orderRequestParams["Note"] = comments
+        orderRequestParams["WaitingPeriodTime"] = selectedWaitingTime?.waitingTime ?? 0
+        
+        var woozInstructions: [String: String] = [:]
+        if kidsSelected {
+            woozInstructions["People"] = "Kids"
+        }
+        if womenSelected {
+            woozInstructions["People"] = "Senior Citizens"
+        }
+        if srCitizenSelected {
+            woozInstructions["People"] = "Women"
+        }
+        orderRequestParams["WoozInstructions"] = woozInstructions
+        
+        orderRequestParams["pinCode"] = Int(selectedPickUpLocation?.postalCode ?? "0")
+        orderRequestParams["SourceAddress"] = selectedPickUpLocation?.address ?? ""
+        orderRequestParams["SourctLat"] = selectedPickUpLocation?.latitude ?? 0
+        orderRequestParams["SourceLong"] = selectedPickUpLocation?.longitude ?? 0
+        orderRequestParams["SourceLocation"] = "\(selectedPickUpLocation?.longitude ?? 0),\(selectedPickUpLocation?.latitude ?? 0)"
+        orderRequestParams["DesinationAddress"] = selectedDropLocation?.address ?? ""
+        orderRequestParams["DestinationLat"] = selectedDropLocation?.latitude ?? 0
+        orderRequestParams["DestinationLong"] = selectedDropLocation?.longitude ?? 0
+        orderRequestParams["DestinationLocation"] = "\(selectedDropLocation?.longitude ?? 0),\(selectedDropLocation?.latitude ?? 0)"
+        orderRequestParams["CarPickupLocationAddress"] = selectedPeoplePickUpLocation?.address ?? ""
+        orderRequestParams["CarPickupLat"] = selectedPeoplePickUpLocation?.latitude ?? 0
+        orderRequestParams["CarPickupLong"] = selectedPeoplePickUpLocation?.longitude ?? 0
+        orderRequestParams["CarPickupLocation"] = "\(selectedPeoplePickUpLocation?.longitude ?? 0),\(selectedPeoplePickUpLocation?.latitude ?? 0)"
+        orderRequestParams["CarDeliveryLocationAddress"] = selectedDestinationLocation?.address ?? ""
+        orderRequestParams["CarDeliveryLocation"] = "\(selectedDestinationLocation?.longitude ?? 0),\(selectedDestinationLocation?.latitude ?? 0)"
+        orderRequestParams["CarDeliveryLat"] = selectedDestinationLocation?.latitude ?? 0
+        orderRequestParams["CarDeliveryLong"] = selectedDestinationLocation?.longitude ?? 0
         
         return orderRequestParams
     }
 
-    func createOrderRequest() {
-//        if let orderRequestParams = orderDetails?.getRequestParams() {
-//            showLoader()
-//
-//            NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: orderRequestParams) { [weak self] data, response, error in
-//                guard let self = self else { return }
-//                self.stopLoader()
-//
-//                if let data = data {
-//                    do {
-//                        let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
-//                        self.orderRequest = orderRequestModel.requestData
-//
-//                        // Check for success and navigate only after that
-////                        if self.orderRequest?.requestStatus == something
-//
-//                        DispatchQueue.main.async { [weak self] in
-//                            guard let self = self else { return }
-//                            if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {
+    func createOrderRequest(location: Location?) {
+        var bodyParams: [String: Any] = [:]
+        if selectedTripType?.id == "dptp" {
+            bodyParams = getOrderRequestParamsDropTrip(location: location)
+        }else if selectedTripType?.id == "pptp" {
+            bodyParams = getOrderRequestParamsPickUpTrip(location: location)
+        }else if selectedTripType?.id == "rptp" {
+            bodyParams = getOrderRequestParamsRoundTrip(location: location)
+        }
+        
+        showLoader()
+        NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+            guard let self = self else { return }
+            self.stopLoader()
+
+            if let data = data {
+                do {
+                    let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
+                    self.orderRequest = orderRequestModel.requestData
+                    
+                    if orderRequestModel.message == "Data Saved Sucessfully" {
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else { return }
+                            if let controller = Controllers.paymentModes.getController() as? PaymentModesViewController {
 //                                controller.orderDetails = self.orderDetails
-//                                controller.orderRequest = self.orderRequest
-//                                self.navigationController?.pushViewController(controller, animated: true)
-//                            }
-//                        }
-//                    }catch {
-//                        print("Error: WoozTripDetailsViewController createOrderRequest - \(error.localizedDescription)")
-//                    }
-//                }
-//            }
-//        }
+                                controller.orderRequest = self.orderRequest
+                                self.navigationController?.pushViewController(controller, animated: true)
+                            }
+                        }
+                    }else {
+                        let jsonError = try? JSONSerialization.jsonObject(with: data)
+                        print("Error: WoozTripDetailsViewController createOrderRequest error - \(error) jsonError - \(jsonError)")
+                        self.showAlert(title: "Error", message: orderRequestModel.message ?? "Error saving the order request")
+                    }
+                }catch {
+                    let jsonError = try? JSONSerialization.jsonObject(with: data)
+                    print("Error: WoozTripDetailsViewController createOrderRequest catch error - \(error) jsonError - \(jsonError)")
+                }
+            }
+        }
     }
 }
 
@@ -266,6 +471,9 @@ extension WoozTripDetailsViewController: OrderReviewTableViewCellDelegate {
 
 extension WoozTripDetailsViewController: MakePaymentViewDelegate {
     func navigateToPaymentModes() {
-        createOrderRequest()
+        LocationManager.shared.getLocationAndAddress { [weak self] location in
+            guard let self = self else { return }
+            self.createOrderRequest(location: location)
+        }
     }
 }
