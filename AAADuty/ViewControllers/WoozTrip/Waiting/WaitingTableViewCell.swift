@@ -45,13 +45,13 @@ class WaitingTableViewCell: UITableViewCell {
     
     @IBAction func selectTapped() {
         if selectButton.tag == 0 {
-            selectButton.setImage(UIImage(named: "square.fill"), for: [.normal, .selected, .highlighted])
-            delegate?.waitingSelected(selected: true)
+            selectButton.isSelected = true
             selectButton.tag = 1
+            delegate?.waitingSelected(selected: true)
         }else {
-            selectButton.setImage(UIImage(named: "square"), for: [.normal, .selected, .highlighted])
-            delegate?.waitingSelected(selected: false)
+            selectButton.isSelected = false
             selectButton.tag = 0
+            delegate?.waitingSelected(selected: false)
         }
     }
 }
