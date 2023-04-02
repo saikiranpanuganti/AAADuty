@@ -67,7 +67,7 @@ class TransitionTableViewCell: UITableViewCell {
                 manualImage.sd_setImage(with: URL(string: complaintTypes[0].imageURL ?? ""))
                 manualLabel.text = complaintTypes[0].complaint
                 automaticImage.sd_setImage(with: URL(string: complaintTypes[1].imageURL ?? ""))
-                manualLabel.text = complaintTypes[1].complaint
+                automaticLabel.text = complaintTypes[1].complaint
             }
         }
     }

@@ -24,6 +24,13 @@ class WoozTripDetailsViewController: BaseViewController {
     var selectedTripType: TripType?
     var selectedWaitingTime: WaitingTime?
     var woozPrice: WoozPrice?
+    var kidsSelected: Bool = false
+    var womenSelected: Bool = false
+    var srCitizenSelected: Bool = false
+    var tripCharge: Int {
+        let waitingCharge = (((selectedWaitingTime?.waitingTime ?? 0)*(woozPrice?.waitingPeriodPrice ?? 0))/(woozPrice?.waitingPeriod ?? 1))
+        return (woozPrice?.serviceCharge ?? 0) + waitingCharge
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +103,8 @@ class WoozTripDetailsViewController: BaseViewController {
     func getWoozPrice() {
         showLoader()
         let bodyParams: [String: Any] = ["ServiceName": selectedTripType?.name ?? ""]
-        
+        print("getWoozPrice bodyParams - \(bodyParams)")
+        print("getWoozPrice Url string - \(Url.getWoozPrice.getUrl())")
         NetworkAdaptor.requestWithHeaders(urlString: Url.getWoozPrice.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
             guard let self = self else { return }
             self.stopLoader()
@@ -112,6 +120,12 @@ class WoozTripDetailsViewController: BaseViewController {
                 }
             }
         }
+    }
+    
+    func getOrderRequestParams() -> [String: Any] {
+        var orderRequestParams: [String: Any] = [:]
+        
+        return orderRequestParams
     }
 
     func createOrderRequest() {
@@ -196,7 +210,7 @@ extension WoozTripDetailsViewController: UITableViewDataSource {
             return cell
         }else if indexPath.section == 7 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "BillDetailsTableViewCell", for: indexPath) as? BillDetailsTableViewCell {
-                cell.configureUI(basePrice: woozPrice?.serviceCharge ?? 0, amount: woozPrice?.serviceCharge ?? 0)
+                cell.configureUI(basePrice: tripCharge, amount: tripCharge)
                 return cell
             }
         }else if indexPath.section == 8 {

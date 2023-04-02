@@ -32,6 +32,9 @@ class WoozTripViewController: BaseViewController {
     var selectedWaitingTime: WaitingTime?
     var waitingSelected: Bool = false
     var hideNote: Bool = false
+    var kidsSelected: Bool = false
+    var womenSelected: Bool = false
+    var srCitizenSelected: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -269,6 +272,9 @@ extension WoozTripViewController: ContinueTableViewCellDelegate {
                 controller.selectedDestinationLocation = self.selectedDestinationLocation
                 controller.selectedTripType = self.selectedTripType
                 controller.selectedWaitingTime = self.selectedWaitingTime
+                controller.kidsSelected = self.kidsSelected
+                controller.womenSelected = self.womenSelected
+                controller.srCitizenSelected = self.srCitizenSelected
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
@@ -304,13 +310,13 @@ extension WoozTripViewController: NoteTableViewCellDelegate {
 
 
 extension WoozTripViewController: InstructionsTableViewCellDelegate {
-    func kidsTapped() {
-        
+    func kidsTapped(selected: Bool) {
+        kidsSelected = selected
     }
-    func womenTapped() {
-        
+    func womenTapped(selected: Bool) {
+        womenSelected = selected
     }
-    func srCitizenTapped() {
-        
+    func srCitizenTapped(selected: Bool) {
+        srCitizenSelected = selected
     }
 }

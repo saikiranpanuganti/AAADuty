@@ -193,8 +193,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="kidsButton" destination="yEP-Nj-o1U" id="Tfv-os-STp"/>
                 <outlet property="kidsView" destination="gJd-zT-mSf" id="L9z-Cn-M4d"/>
+                <outlet property="srCitizenButton" destination="Fjx-ob-37l" id="WTq-Dv-mBp"/>
                 <outlet property="srCitizenView" destination="jN6-F0-Aa7" id="smD-SM-vfv"/>
+                <outlet property="womenButton" destination="Vfj-ml-tDq" id="Xlq-V0-suF"/>
                 <outlet property="womenView" destination="FYU-43-lJR" id="Ltr-UX-bLj"/>
             </connections>
             <point key="canvasLocation" x="10.687022900763358" y="65.845070422535215"/>
