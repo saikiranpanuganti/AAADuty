@@ -281,7 +281,9 @@ extension WoozTripViewController: ContinueTableViewCellDelegate {
                 controller.selectedPeoplePickUpLocation = self.selectedPeoplePickUpLocation
                 controller.selectedDestinationLocation = self.selectedDestinationLocation
                 controller.selectedTripType = self.selectedTripType
-                controller.selectedWaitingTime = self.selectedWaitingTime
+                if self.waitingSelected {
+                    controller.selectedWaitingTime = self.selectedWaitingTime
+                }
                 controller.kidsSelected = self.kidsSelected
                 controller.womenSelected = self.womenSelected
                 controller.srCitizenSelected = self.srCitizenSelected

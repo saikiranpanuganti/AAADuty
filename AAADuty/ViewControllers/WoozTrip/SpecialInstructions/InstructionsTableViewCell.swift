@@ -29,6 +29,12 @@ class InstructionsTableViewCell: UITableViewCell {
         kidsButton.tag = 0
         womenButton.tag = 0
         srCitizenButton.tag = 0
+        kidsButton.layer.cornerRadius = 30
+        kidsButton.layer.masksToBounds = true
+        womenButton.layer.cornerRadius = 30
+        womenButton.layer.masksToBounds = true
+        srCitizenButton.layer.cornerRadius = 30
+        srCitizenButton.layer.masksToBounds = true
     }
     
     @IBAction func kidsTapped() {
@@ -39,7 +45,7 @@ class InstructionsTableViewCell: UITableViewCell {
             delegate?.kidsTapped(selected: true)
         }else {
             kidsButton.tag = 0
-            kidsButton.setImage(nil, for: .normal)
+            kidsButton.setImage(UIImage(named: "blank"), for: .normal)
             kidsButton.backgroundColor = UIColor.clear
             delegate?.kidsTapped(selected: false)
         }
@@ -52,7 +58,7 @@ class InstructionsTableViewCell: UITableViewCell {
             delegate?.womenTapped(selected: true)
         }else {
             womenButton.tag = 0
-            womenButton.setImage(nil, for: .normal)
+            womenButton.setImage(UIImage(named: "blank"), for: .normal)
             womenButton.backgroundColor = UIColor.clear
             delegate?.womenTapped(selected: false)
         }
@@ -65,7 +71,7 @@ class InstructionsTableViewCell: UITableViewCell {
             delegate?.srCitizenTapped(selected: true)
         }else {
             srCitizenButton.tag = 0
-            srCitizenButton.setImage(nil, for: .normal)
+            srCitizenButton.setImage(UIImage(named: "blank"), for: .normal)
             srCitizenButton.backgroundColor = UIColor.clear
             delegate?.srCitizenTapped(selected: false)
         }

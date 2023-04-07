@@ -143,8 +143,10 @@ class WoozTripDetailsViewController: BaseViewController {
             let destLocation = CLLocation(latitude: destLatitude, longitude: destLongitude)
             let distance = userLocation.distance(from: destLocation)/1000
             orderRequestParams["TotalKm"] = distance
+            orderRequestParams["Distance"] = distance
         }else {
             orderRequestParams["TotalKm"] = 0
+            orderRequestParams["Distance"] = 0
         }
         orderRequestParams["Tax"] = woozPrice?.pgServiceTax ?? 0
         orderRequestParams["GST"] = woozPrice?.gst ?? 0
@@ -153,15 +155,15 @@ class WoozTripDetailsViewController: BaseViewController {
         orderRequestParams["Balance"] = 0
         orderRequestParams["Note"] = comments
         orderRequestParams["WaitingPeriodTime"] = selectedWaitingTime?.waitingTime ?? 0
-        var woozInstructions: [String: String] = [:]
+        var woozInstructions: [[String: String]] = []
         if kidsSelected {
-            woozInstructions["People"] = "Kids"
+            woozInstructions.append(["People" : "Kids"])
         }
         if womenSelected {
-            woozInstructions["People"] = "Senior Citizens"
+            woozInstructions.append(["People" : "Senior Citizens"])
         }
         if srCitizenSelected {
-            woozInstructions["People"] = "Women"
+            woozInstructions.append(["People" : "Women"])
         }
         orderRequestParams["WoozInstructions"] = woozInstructions
         orderRequestParams["pinCode"] = Int(selectedPickUpLocation?.postalCode ?? "0")
@@ -232,15 +234,15 @@ class WoozTripDetailsViewController: BaseViewController {
         orderRequestParams["WooZService"] = woozPrice?.serviceName ?? ""
         orderRequestParams["WooZServiceID"] = woozPrice?.id ?? ""
         
-        var woozInstructions: [String: String] = [:]
+        var woozInstructions: [[String: String]] = []
         if kidsSelected {
-            woozInstructions["People"] = "Kids"
+            woozInstructions.append(["People" : "Kids"])
         }
         if womenSelected {
-            woozInstructions["People"] = "Senior Citizens"
+            woozInstructions.append(["People" : "Senior Citizens"])
         }
         if srCitizenSelected {
-            woozInstructions["People"] = "Women"
+            woozInstructions.append(["People" : "Women"])
         }
         orderRequestParams["WoozInstructions"] = woozInstructions
         
@@ -278,8 +280,10 @@ class WoozTripDetailsViewController: BaseViewController {
             let destLocation = CLLocation(latitude: destLatitude, longitude: destLongitude)
             let distance = userLocation.distance(from: destLocation)/1000
             orderRequestParams["TotalKm"] = distance
+            orderRequestParams["Distance"] = distance
         }else {
             orderRequestParams["TotalKm"] = 0
+            orderRequestParams["Distance"] = 0
         }
         
         orderRequestParams["Tax"] = woozPrice?.pgServiceTax ?? 0
@@ -290,15 +294,15 @@ class WoozTripDetailsViewController: BaseViewController {
         orderRequestParams["Note"] = comments
         orderRequestParams["WaitingPeriodTime"] = selectedWaitingTime?.waitingTime ?? 0
         
-        var woozInstructions: [String: String] = [:]
+        var woozInstructions: [[String: String]] = []
         if kidsSelected {
-            woozInstructions["People"] = "Kids"
+            woozInstructions.append(["People" : "Kids"])
         }
         if womenSelected {
-            woozInstructions["People"] = "Senior Citizens"
+            woozInstructions.append(["People" : "Senior Citizens"])
         }
         if srCitizenSelected {
-            woozInstructions["People"] = "Women"
+            woozInstructions.append(["People" : "Women"])
         }
         orderRequestParams["WoozInstructions"] = woozInstructions
         
@@ -332,7 +336,8 @@ class WoozTripDetailsViewController: BaseViewController {
         }else if selectedTripType?.id == "rptp" {
             bodyParams = getOrderRequestParamsRoundTrip(location: location)
         }
-        
+        print("Wooz createOrderRequest Body - \(bodyParams)")
+        print("Wooz createOrderRequest Url - \(Url.orderRequest.getUrl())")
         showLoader()
         NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
             guard let self = self else { return }
@@ -340,6 +345,9 @@ class WoozTripDetailsViewController: BaseViewController {
 
             if let data = data {
                 do {
+                    let jsonData = try? JSONSerialization.jsonObject(with: data)
+                    print("Wooz createOrderRequest response jsonData - \(jsonData)")
+                    
                     let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
                     self.orderRequest = orderRequestModel.requestData
                     
