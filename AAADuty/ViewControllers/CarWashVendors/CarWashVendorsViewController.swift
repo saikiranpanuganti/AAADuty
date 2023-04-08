@@ -15,8 +15,10 @@ class CarWashVendorsViewController: BaseViewController {
     var selectedSubCategory: SubCategory?
     var complaintType: ComplaintType?
     var pickUpLocation: Location?
+    var dropLocation: Location?
     var carWashVendors: CarWashVendorsModel?
     var selectedCarWashVendor: CarWashVendor?
+    var comments: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,8 +129,10 @@ extension CarWashVendorsViewController: CarVendorTableViewCellDelegate {
             controller.selectedSubCategory = self.selectedSubCategory
             controller.complaintType = self.complaintType
             controller.pickUpLocation = self.pickUpLocation
+            controller.dropLocation = self.dropLocation
             controller.carWashVendors = self.carWashVendors
             controller.selectedCarWashVendor = self.selectedCarWashVendor
+            controller.comments = self.comments
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }

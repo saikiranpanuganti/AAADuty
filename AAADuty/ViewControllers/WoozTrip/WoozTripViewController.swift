@@ -151,6 +151,7 @@ extension WoozTripViewController: UITableViewDataSource {
             }
         }else if indexPath.section == 9 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "NoteTableViewCell", for: indexPath) as? NoteTableViewCell {
+                cell.configureUI(note: "NOTE : We Offer only in City Limits upto 30 KMS")
                 cell.delegate = self
                 return cell
             }

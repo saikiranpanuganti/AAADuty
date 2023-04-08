@@ -75,7 +75,9 @@ class TowingViewController: BaseViewController {
                 controller.selectedSubCategory = self.selectedSubCategory
                 controller.complaintType = self.complaintType
                 controller.pickUpLocation = self.pickUpLocation
+                controller.dropLocation = self.dropLocation
                 controller.carWashVendors = self.carWashVendors
+                controller.comments = self.comments
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
@@ -131,22 +133,22 @@ class TowingViewController: BaseViewController {
             let bodyParams: [String: Any] = ["pinCode": postalCode, "CategoryID": categoryId]
             NetworkAdaptor.requestWithHeaders(urlString: Url.checkRequestAvailability.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
-                self.stopLoader()
-                
-                if let data = data {
-                    do {
-                        if let responseJson = try JSONSerialization.jsonObject(with: data) as? [String: Any], let message = responseJson["Message"] as? String {
-                            if message == "Please Take A Request For Today" {
-                                self.navigateToOrderConfirmationVC()
+                self.stopLoader {
+                    if let data = data {
+                        do {
+                            if let responseJson = try JSONSerialization.jsonObject(with: data) as? [String: Any], let message = responseJson["Message"] as? String {
+                                if message == "Please Take A Request For Today" {
+                                    self.navigateToOrderConfirmationVC()
+                                }else {
+                                    self.showAlert(title: "Error", message: message)
+                                }
                             }else {
-                                self.showAlert(title: "Error", message: message)
+                                self.showAlert(title: "Error", message: "Something went wrong")
                             }
-                        }else {
-                            self.showAlert(title: "Error", message: "Something went wrong")
+                        }catch {
+                            print("Error: TowingViewController checkAvailability - \(error.localizedDescription)")
+                            self.showAlert(title: "Error", message: error.localizedDescription)
                         }
-                    }catch {
-                        print("Error: TowingViewController checkAvailability - \(error.localizedDescription)")
-                        self.showAlert(title: "Error", message: error.localizedDescription)
                     }
                 }
             }
@@ -157,21 +159,22 @@ class TowingViewController: BaseViewController {
     
     func getCarVendors() {
         if let coordinates = pickUpLocation?.getCoordinatesString(), let postalCodeStr = pickUpLocation?.postalCode {
+            resignCommentsTextfield()
             showLoader()
             
             let bodyParams: [String: Any] = ["pinCode": postalCodeStr, "coordinates": coordinates]
             
             NetworkAdaptor.requestWithHeaders(urlString: Url.getCarWashVendors.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
-                self.stopLoader()
-                
-                if let data = data {
-                    do {
-                        let carWashVendorsModel = try JSONDecoder().decode(CarWashVendorsModel.self, from: data)
-                        self.carWashVendors = carWashVendorsModel
-                        self.navigateToCarWashVendorsVC()
-                    }catch {
-                        print("Error: TowingViewController CarWash checkAvailability - \(error.localizedDescription)")
+                self.stopLoader {
+                    if let data = data {
+                        do {
+                            let carWashVendorsModel = try JSONDecoder().decode(CarWashVendorsModel.self, from: data)
+                            self.carWashVendors = carWashVendorsModel
+                            self.navigateToCarWashVendorsVC()
+                        }catch {
+                            print("Error: TowingViewController CarWash checkAvailability - \(error.localizedDescription)")
+                        }
                     }
                 }
             }

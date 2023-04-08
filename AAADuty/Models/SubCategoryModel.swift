@@ -63,7 +63,6 @@ struct ComplaintType: Codable {
     let price, serviceCharge: Int?
     let noOfItemsButton, isActive: Bool?
     let pgServiceTax, gst: Int?
-    var color: UIColor = UIColor.random
     var isSelected: Bool = false
 
     enum CodingKeys: String, CodingKey {

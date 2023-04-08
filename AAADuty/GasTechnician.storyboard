@@ -47,6 +47,44 @@
             </objects>
             <point key="canvasLocation" x="434" y="-4"/>
         </scene>
+        <!--Vendor Slots View Controller-->
+        <scene sceneID="1Or-DN-Re3">
+            <objects>
+                <viewController storyboardIdentifier="VendorSlotsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bya-MA-Ddy" customClass="VendorSlotsViewController" customModule="AAADuty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V4W-xJ-pqZ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-ko-X9s">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
+                                <color key="backgroundColor" name="navigationBarColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dMT-bn-HuD">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SYP-av-MNt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dMT-bn-HuD" firstAttribute="top" secondItem="SYP-av-MNt" secondAttribute="top" id="JV6-Ri-JM8"/>
+                            <constraint firstAttribute="trailing" secondItem="dMT-bn-HuD" secondAttribute="trailing" id="LgI-Xt-l3x"/>
+                            <constraint firstItem="cOz-ko-X9s" firstAttribute="top" secondItem="V4W-xJ-pqZ" secondAttribute="top" id="baP-6D-3cN"/>
+                            <constraint firstAttribute="bottom" secondItem="dMT-bn-HuD" secondAttribute="bottom" id="fTk-qc-e32"/>
+                            <constraint firstItem="cOz-ko-X9s" firstAttribute="height" secondItem="V4W-xJ-pqZ" secondAttribute="height" multiplier="0.5" id="jVE-qB-8XL"/>
+                            <constraint firstItem="dMT-bn-HuD" firstAttribute="leading" secondItem="V4W-xJ-pqZ" secondAttribute="leading" id="kxB-17-VKd"/>
+                            <constraint firstItem="cOz-ko-X9s" firstAttribute="trailing" secondItem="V4W-xJ-pqZ" secondAttribute="trailing" id="nRw-pO-AqW"/>
+                            <constraint firstItem="cOz-ko-X9s" firstAttribute="leading" secondItem="V4W-xJ-pqZ" secondAttribute="leading" id="qVx-th-qKx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="dMT-bn-HuD" id="C4P-RC-76N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iaH-uu-efP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312" y="-4"/>
+        </scene>
     </scenes>
     <resources>
         <namedColor name="navigationBarColor">

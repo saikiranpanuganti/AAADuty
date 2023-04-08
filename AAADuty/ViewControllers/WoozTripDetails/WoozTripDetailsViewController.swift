@@ -336,8 +336,7 @@ class WoozTripDetailsViewController: BaseViewController {
         }else if selectedTripType?.id == "rptp" {
             bodyParams = getOrderRequestParamsRoundTrip(location: location)
         }
-        print("Wooz createOrderRequest Body - \(bodyParams)")
-        print("Wooz createOrderRequest Url - \(Url.orderRequest.getUrl())")
+        
         showLoader()
         NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
             guard let self = self else { return }
@@ -346,7 +345,6 @@ class WoozTripDetailsViewController: BaseViewController {
             if let data = data {
                 do {
                     let jsonData = try? JSONSerialization.jsonObject(with: data)
-                    print("Wooz createOrderRequest response jsonData - \(jsonData)")
                     
                     let orderRequestModel = try JSONDecoder().decode(OrderRequestModel.self, from: data)
                     self.orderRequest = orderRequestModel.requestData

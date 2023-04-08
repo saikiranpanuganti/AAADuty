@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CarWashDetailsViewController: UIViewController {
+class CarWashDetailsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var category: Category?
@@ -15,13 +15,18 @@ class CarWashDetailsViewController: UIViewController {
     var selectedSubCategory: SubCategory?
     var complaintType: ComplaintType?
     var pickUpLocation: Location?
+    var dropLocation: Location?
     var carWashVendors: CarWashVendorsModel?
     var selectedCarWashVendor: CarWashVendor?
+    var comments: String?
+    var carWashServices: [CarWashService] = []
+    var selectedService: CarWashService?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setSelectedSubCategory()
+        carWashServices = selectedCarWashVendor?.services?.filter({ $0.typeID == selectedSubCategory?.id }) ?? []
         
         tableView.register(UINib(nibName: "LocationTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationTableViewCell")
         tableView.register(UINib(nibName: "SubServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "SubServicesTableViewCell")
@@ -33,6 +38,28 @@ class CarWashDetailsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if carWashServices.count == 0 {
+            showNoVendorServicesError()
+        }
+    }
+    
+    func updateUI() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadData()
+        }
+    }
+    
+    func showNoVendorServicesError() {
+        self.showAlert(title: "Error", message: "No Services available for the vendor") { [weak self] in
+            guard let self = self else { return }
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
 
     func setSelectedSubCategory() {
         for (index, category) in (subCategories?.categories ?? []).enumerated() {
@@ -40,6 +67,16 @@ class CarWashDetailsViewController: UIViewController {
                 subCategories?.categories?[index].isSelected = true
             }else {
                 subCategories?.categories?[index].isSelected = false
+            }
+        }
+    }
+    
+    func setSelectedService() {
+        for (index, service) in carWashServices.enumerated() {
+            if service.id == selectedService?.id {
+                carWashServices[index].isSelected = true
+            }else {
+                carWashServices[index].isSelected = false
             }
         }
     }
@@ -80,8 +117,11 @@ extension CarWashDetailsViewController: UITableViewDataSource {
                 return cell
             }
         }else if indexPath.section == 4 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CarWashServiceTypeTableViewCell", for: indexPath)
-            return cell
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CarWashServiceTypeTableViewCell", for: indexPath) as? CarWashServiceTypeTableViewCell {
+                cell.delegate = self
+                cell.configureUI(carWashServices: carWashServices)
+                return cell
+            }
         }else if indexPath.section == 5 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ContinueTableViewCell", for: indexPath) as? ContinueTableViewCell {
                 cell.delegate = self
@@ -128,7 +168,25 @@ extension CarWashDetailsViewController: CarVendorTableViewCellDelegate {
 
 extension CarWashDetailsViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
-        
+        if selectedService != nil {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                if let controller = Controllers.vendorSlots.getController() as? VendorSlotsViewController {
+                    controller.category = self.category
+                    controller.subCategories = self.subCategories
+                    controller.selectedSubCategory = self.selectedSubCategory
+                    controller.complaintType = self.complaintType
+                    controller.pickUpLocation = self.pickUpLocation
+                    controller.dropLocation = self.dropLocation
+                    controller.carWashVendors = self.carWashVendors
+                    controller.selectedCarWashVendor = self.selectedCarWashVendor
+                    controller.comments = self.comments
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
+            }
+        }else {
+            showAlert(title: "Error", message: "Please select service type")
+        }
     }
 }
 
@@ -136,5 +194,17 @@ extension CarWashDetailsViewController: ContinueTableViewCellDelegate {
 extension CarWashDetailsViewController: LocationSelectionTableViewCellDelegate {
     func locationTapped(isFromPickUp: Bool, locationTypeId: String) {
         
+    }
+}
+
+
+extension CarWashDetailsViewController: CarWashServiceTypeTableViewCellDelegate {
+    func serviceSelected(carWashService: CarWashService) {
+        selectedService = carWashService
+        setSelectedService()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadSections(IndexSet(integer: 4), with: .none)
+        }
     }
 }

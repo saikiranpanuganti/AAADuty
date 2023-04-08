@@ -28,7 +28,7 @@
                                 <rect key="frame" x="30" y="30" width="393" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTE : We Offer only in City Limits upto 30 KMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceh-S0-2zE">
-                                        <rect key="frame" x="12" y="9.6666666666666643" width="278" height="17"/>
+                                        <rect key="frame" x="12" y="11" width="261" height="14"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -76,6 +76,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="noteLabel" destination="ceh-S0-2zE" id="pnK-Wn-ft4"/>
                 <outlet property="roundedView" destination="dSQ-M1-0xC" id="0nf-ft-aeH"/>
             </connections>
             <point key="canvasLocation" x="100" y="66.549295774647888"/>

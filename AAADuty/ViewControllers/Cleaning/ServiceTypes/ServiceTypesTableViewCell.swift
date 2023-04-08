@@ -79,9 +79,9 @@ extension ServiceTypesTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceTypeCollectionViewCell", for: indexPath) as? ServiceTypeCollectionViewCell {
             if complaintTypes != nil {
-                cell.configureUI(complaintType: complaintTypes?[indexPath.row])
+                cell.configureUI(complaintType: complaintTypes?[indexPath.row], serviceColor: UIColor().getServiceColor(index: indexPath.row))
             }else {
-                cell.configureUI(subCategoryType: subCategoryTypes?[indexPath.row])
+                cell.configureUI(subCategoryType: subCategoryTypes?[indexPath.row], serviceColor: UIColor().getServiceColor(index: indexPath.row))
             }
             return cell
         }

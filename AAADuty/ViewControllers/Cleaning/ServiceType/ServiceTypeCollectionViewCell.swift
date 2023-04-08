@@ -17,6 +17,7 @@ class ServiceTypeCollectionViewCell: UICollectionViewCell {
 
     var subCategoryType: SubCategoryType?
     var complaintType: ComplaintType?
+    var carWashService: CarWashService?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,9 +25,9 @@ class ServiceTypeCollectionViewCell: UICollectionViewCell {
         tickView.isHidden = true
     }
 
-    func configureUI(subCategoryType: SubCategoryType?) {
+    func configureUI(subCategoryType: SubCategoryType?, serviceColor: UIColor) {
         self.subCategoryType = subCategoryType
-        colorView.backgroundColor = subCategoryType?.color
+        colorView.backgroundColor = serviceColor
         imageOutlet.sd_setImage(with: URL(string: subCategoryType?.imageURL ?? ""))
         nameOutlet.text = subCategoryType?.subCategoryName
         
@@ -43,14 +44,28 @@ class ServiceTypeCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configureUI(complaintType: ComplaintType?) {
+    func configureUI(complaintType: ComplaintType?, serviceColor: UIColor) {
         self.complaintType = complaintType
-        colorView.backgroundColor = complaintType?.color
+        colorView.backgroundColor = serviceColor
         imageOutlet.sd_setImage(with: URL(string: complaintType?.imageURL ?? ""))
         nameOutlet.text = complaintType?.complaint
         bottomView.isHidden = true
         
         if complaintType?.isSelected ?? false {
+            tickView.isHidden = false
+        }else {
+            tickView.isHidden = true
+        }
+    }
+    
+    func configureUI(carWashService: CarWashService?, serviceColor: UIColor) {
+        self.carWashService = carWashService
+        colorView.backgroundColor = serviceColor
+        imageOutlet.sd_setImage(with: URL(string: carWashService?.imageURL ?? ""))
+        nameOutlet.text = carWashService?.serviceName
+        bottomView.isHidden = true
+        
+        if carWashService?.isSelected ?? false {
             tickView.isHidden = false
         }else {
             tickView.isHidden = true

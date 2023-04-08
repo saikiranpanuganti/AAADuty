@@ -5,7 +5,7 @@
 //  Created by Saikiran Panuganti on 10/03/23.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - CarWashVendorsModel
 struct CarWashVendorsModel: Codable {
@@ -140,6 +140,7 @@ struct CarWashService: Codable {
     let serviceName: String?
     let typeID: String?
     let typeName: String?
+    var isSelected: Bool = false
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -153,3 +154,64 @@ struct CarWashService: Codable {
 
 
 
+
+// MARK: - VendorSlotsModel
+struct VendorSlotsModel: Codable {
+    let status, statusCode: String?
+    var avialbleVendorslots: [AvialbleVendorslot]?
+    let message: String?
+
+    enum CodingKeys: String, CodingKey {
+        case status = "Status"
+        case statusCode = "StatusCode"
+        case avialbleVendorslots = "AvialbleVendorslots"
+        case message = "Message"
+    }
+}
+
+// MARK: - AvialbleVendorslot
+struct AvialbleVendorslot: Codable {
+    let id: String?
+    var vendorSlots: [VendorSlot]?
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case vendorSlots = "VendorSlots"
+    }
+}
+
+// MARK: - VendorSlot
+struct VendorSlot: Codable {
+    let id, date: String?
+    var slots: [Slot]?
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case date = "Date"
+        case slots = "Slots"
+    }
+}
+
+// MARK: - Slot
+struct Slot: Codable {
+    let id: String?
+    let end: Int?
+    let endTime, isAlreadyBooked, itemID: String?
+    let order: Int?
+    let slotStatus: Bool?
+    let start: Int?
+    let startTime: String?
+    var isSelected: Bool = false
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case end = "End"
+        case endTime = "EndTime"
+        case isAlreadyBooked
+        case itemID = "ItemID"
+        case order = "Order"
+        case slotStatus = "SlotStatus"
+        case start = "Start"
+        case startTime = "StartTime"
+    }
+}

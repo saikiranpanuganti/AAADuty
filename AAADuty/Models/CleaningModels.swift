@@ -29,7 +29,6 @@ struct SubCategoryType: Codable {
     let isActive: Bool?
     var isSelected: Bool = false
     var isAdded: Bool = false
-    var color: UIColor = UIColor.random
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
