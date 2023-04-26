@@ -181,6 +181,8 @@ extension CarWashDetailsViewController: ContinueTableViewCellDelegate {
                     controller.carWashVendors = self.carWashVendors
                     controller.selectedCarWashVendor = self.selectedCarWashVendor
                     controller.comments = self.comments
+                    controller.carWashServices = self.carWashServices
+                    controller.selectedService = self.selectedService
                     self.navigationController?.pushViewController(controller, animated: true)
                 }
             }

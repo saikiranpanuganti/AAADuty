@@ -122,7 +122,7 @@ extension CarWashVendorsViewController: CarVendorTableViewCellDelegate {
             }
         }
         tableView.reloadSections(IndexSet(integer: 2), with: .none)
-        
+        print("carVendorConfirmTapped carWashVendor \(carWashVendor?.id)")
         if let controller = Controllers.carWashDetails.getController() as? CarWashDetailsViewController {
             controller.category = self.category
             controller.subCategories = self.subCategories

@@ -21,9 +21,11 @@ class VendorSlotsViewController: BaseViewController {
     var vendorSlotsModel: VendorSlotsModel?
     var selectedSlot: Slot?
     var comments: String?
+    var carWashServices: [CarWashService] = []
+    var selectedService: CarWashService?
     var hideNote: Bool = false
     var amount: Int {
-        return 0
+        return Int(selectedService?.price ?? "0") ?? 0
     }
 
     override func viewDidLoad() {
@@ -61,7 +63,7 @@ class VendorSlotsViewController: BaseViewController {
             guard let self = self else { return }
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
                 LocationManager.shared.getLocationAndAddress { location in
-                    controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.amount, pickUpAddress: self.pickUpLocation, dropAddress: self.dropLocation, complaintType: self.complaintType, userAddress: location, count: 0, comments: self.comments)
+                    controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.amount, pickUpAddress: self.pickUpLocation, dropAddress: self.dropLocation, complaintType: self.complaintType, userAddress: location, count: 0, comments: self.comments, selectedService: self.selectedService)
                     self.navigationController?.pushViewController(controller, animated: true)
                 }
             }
@@ -190,7 +192,7 @@ extension VendorSlotsViewController: LocationTableViewCellDelegate {
 
 extension VendorSlotsViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
-        
+        navigateToOrderConfirmationVC()
     }
 }
 

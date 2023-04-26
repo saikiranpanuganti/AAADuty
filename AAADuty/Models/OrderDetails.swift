@@ -23,6 +23,7 @@ struct OrderDetails: Codable {
     var vehicleType: VechicleType?
     var subCategory: SubCategory?
     var vehicle: Vechicle?
+    var selectedService: CarWashService?
     
     func getRequestParams() -> [String: Any]? {
         if category?.serviceType == .flatTyre {
@@ -31,6 +32,8 @@ struct OrderDetails: Codable {
             return getTowingParams()
         }else if category?.serviceType == .vechicletech {
             return getVehicleTechParams()
+        }else if category?.serviceType == .carWash {
+            return getCarWashParams()
         }
         return nil
     }
@@ -213,6 +216,31 @@ struct OrderDetails: Codable {
         orderRequestParams["TransactionID"] = ""
         orderRequestParams["TransactionMode"] = ""
         orderRequestParams["pinCode"] = Int(address?.postalCode ?? "0")
+        
+        return orderRequestParams
+    }
+    
+    func getCarWashParams() -> [String: Any]? {
+        var orderRequestParams: [String: Any] = [:]
+        orderRequestParams["CustomerID"] = AppData.shared.user?.id ?? ""
+        orderRequestParams["CustomerName"] = AppData.shared.user?.customerName ?? ""
+        orderRequestParams["RequestID"] = ""
+        orderRequestParams["CategoryID"] = category?.id ?? ""
+        orderRequestParams["CategoryName"] = category?.category ?? ""
+        orderRequestParams["TransactionID"] = ""
+        orderRequestParams["TransactionAmount"] = "\(totalAmount ?? 0)"
+        orderRequestParams["Remarks"] = comments ?? ""
+        orderRequestParams["TransactionMode"] = ""
+        orderRequestParams["TransactionDoneBy"] = ""
+        orderRequestParams["AddTip"] = 0
+        orderRequestParams["AssignedFranchiseId"] = ""
+        orderRequestParams["SlotId"] = ""
+        orderRequestParams["VendorSlotID"] = ""
+        orderRequestParams["VendorID"] = ""
+        orderRequestParams["StartTime"] = ""
+        orderRequestParams["EndTime"] = ""
+        orderRequestParams["Order"] = ""
+        orderRequestParams["ItemID"] = ""
         
         return orderRequestParams
     }

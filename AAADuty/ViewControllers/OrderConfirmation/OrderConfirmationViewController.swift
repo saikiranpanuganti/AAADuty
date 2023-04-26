@@ -72,6 +72,8 @@ class OrderConfirmationViewController: BaseViewController {
             amount = price //+ (orderDetails?.complaintType?.serviceCharge ?? 0) + (orderDetails?.complaintType?.pgServiceTax ?? 0)
         }else if orderDetails?.category?.serviceType == .vechicletech {
             amount = (orderDetails?.vehicleProblem?.price ?? 0) //+ (orderDetails?.vehicleProblem?.pgServiceTax ?? 0) + (orderDetails?.vehicleProblem?.gst ?? 0)
+        }else if orderDetails?.category?.serviceType == .carWash {
+            amount = orderDetails?.totalAmount ?? 0
         }else {
             amount = (orderDetails?.complaintType?.price ?? 0) //+ (orderDetails?.complaintType?.serviceCharge ?? 0) + (orderDetails?.complaintType?.pgServiceTax ?? 0)
         }
@@ -156,6 +158,12 @@ extension OrderConfirmationViewController: UITableViewDataSource {
                     }else if orderDetails?.category?.serviceType == .vechicletech {
                         cell.configureUI(orderDetails_VT: orderDetails)
                     }
+                    return cell
+                }
+            }else if orderDetails?.category?.serviceType == .carWash {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "TowingDetailsTableViewCell", for: indexPath) as? TowingDetailsTableViewCell {
+                    cell.delegate = self
+                    cell.configureUI(orderDetails: orderDetails)
                     return cell
                 }
             }

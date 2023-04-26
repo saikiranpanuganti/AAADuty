@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Qp-Jl-CFL">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="340.66666666666669"/>
                                 <color key="backgroundColor" name="navigationBarColor"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dvd-Ot-l4m">
@@ -29,7 +29,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0Qp-Jl-CFL" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.5" id="7og-wZ-2x9"/>
+                            <constraint firstItem="0Qp-Jl-CFL" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.4" id="7og-wZ-2x9"/>
                             <constraint firstItem="dvd-Ot-l4m" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="PRq-nh-G8D"/>
                             <constraint firstItem="dvd-Ot-l4m" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Uwm-3h-0i7"/>
                             <constraint firstItem="dvd-Ot-l4m" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="X6k-eF-Yla"/>
