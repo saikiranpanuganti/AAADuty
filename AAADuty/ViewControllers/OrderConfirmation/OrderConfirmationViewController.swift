@@ -98,7 +98,9 @@ class OrderConfirmationViewController: BaseViewController {
     func createOrderRequest() {
         if let orderRequestParams = orderDetails?.getRequestParams() {
             showLoader()
-            
+            print("$$CW: createOrderRequest Url \(Url.orderRequest.getUrl())")
+            print("$$CW: createOrderRequest Headers \(Headers.getHeaders())")
+            print("$$CW: createOrderRequest bodyParameters - \(orderRequestParams)")
             NetworkAdaptor.requestWithHeaders(urlString: Url.orderRequest.getUrl(), method: .post, bodyParameters: orderRequestParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader {

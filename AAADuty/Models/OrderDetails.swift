@@ -24,6 +24,8 @@ struct OrderDetails: Codable {
     var subCategory: SubCategory?
     var vehicle: Vechicle?
     var selectedService: CarWashService?
+    var carWashVendor: CarWashVendor? = nil
+    var slot: Slot? = nil
     
     func getRequestParams() -> [String: Any]? {
         if category?.serviceType == .flatTyre {
@@ -222,25 +224,66 @@ struct OrderDetails: Codable {
     
     func getCarWashParams() -> [String: Any]? {
         var orderRequestParams: [String: Any] = [:]
-        orderRequestParams["CustomerID"] = AppData.shared.user?.id ?? ""
-        orderRequestParams["CustomerName"] = AppData.shared.user?.customerName ?? ""
-        orderRequestParams["RequestID"] = ""
         orderRequestParams["CategoryID"] = category?.id ?? ""
         orderRequestParams["CategoryName"] = category?.category ?? ""
-        orderRequestParams["TransactionID"] = ""
-        orderRequestParams["TransactionAmount"] = "\(totalAmount ?? 0)"
+        orderRequestParams["ComplaintTypeID"] = complaintType?.id ?? ""
+        orderRequestParams["ComplaintTypeName"] = complaintType?.complaint ?? ""
+        
+        orderRequestParams["CustomerAddress"] = userAddress?.address ?? ""
+        orderRequestParams["CustomerID"] = AppData.shared.user?.id ?? ""
+        orderRequestParams["CustomerLocation"] = "\(userAddress?.longitude ?? 0),\(userAddress?.latitude ?? 0)"
+        orderRequestParams["CustomerName"] = AppData.shared.user?.customerName ?? ""
+        orderRequestParams["CustomerPhoneNumber"] = AppData.shared.user?.mobileNumber ?? ""
+        
+        orderRequestParams["DesinationAddress"] = dropAddress?.address
+        orderRequestParams["DestinationLat"] = "\(dropAddress?.latitude ?? 0)"
+        orderRequestParams["DestinationLocation"] = "\(dropAddress?.longitude ?? 0),\(dropAddress?.latitude ?? 0)"
+        orderRequestParams["DestinationLong"] = "\(dropAddress?.longitude ?? 0)"
+        
+        orderRequestParams["SourceAddress"] = pickUpAddress?.address
+        orderRequestParams["SourceLocation"] = "\(pickUpAddress?.longitude ?? 0),\(pickUpAddress?.latitude ?? 0)"
+        orderRequestParams["SourceLong"] = "\(pickUpAddress?.longitude ?? 0)"
+        orderRequestParams["SourctLat"] = "\(pickUpAddress?.latitude ?? 0)"
+        
+        orderRequestParams["End"] = slot?.end ?? 0
+        orderRequestParams["EndTime"] = slot?.endTime ?? ""
+        orderRequestParams["GST"] = complaintType?.gst ?? 0
+        orderRequestParams["Note"] = ""
+        orderRequestParams["Price"] = totalAmount
         orderRequestParams["Remarks"] = comments ?? ""
-        orderRequestParams["TransactionMode"] = ""
-        orderRequestParams["TransactionDoneBy"] = ""
-        orderRequestParams["AddTip"] = 0
-        orderRequestParams["AssignedFranchiseId"] = ""
-        orderRequestParams["SlotId"] = ""
-        orderRequestParams["VendorSlotID"] = ""
-        orderRequestParams["VendorID"] = ""
-        orderRequestParams["StartTime"] = ""
-        orderRequestParams["EndTime"] = ""
-        orderRequestParams["Order"] = ""
-        orderRequestParams["ItemID"] = ""
+        orderRequestParams["SlotId"] = slot?.id ?? 0
+        orderRequestParams["Start"] = slot?.start ?? 0
+        orderRequestParams["StartTime"] = slot?.startTime ?? ""
+        orderRequestParams["Tax"] = complaintType?.pgServiceTax ?? 0
+        orderRequestParams["TotalSFT"] = ""
+        orderRequestParams["VendorID"] = carWashVendor?.id ?? ""
+        orderRequestParams["VendorPhoneNumber"] = carWashVendor?.primaryPhoneNumber ?? ""
+        orderRequestParams["VendorSlotID"] = slot?.id ?? ""
+        orderRequestParams["VenodrName"] = carWashVendor?.fullName ?? ""
+        orderRequestParams["pinCode"] = carWashVendor?.pinCode ?? ""
+        
+        var service: [String: Any] = [:]
+        service["CategoryID"] = category?.id ?? ""
+        service["CategoryName"] = category?.category ?? ""
+        service["Complaint"] = complaintType?.complaint ?? ""
+        service["Price"] = Int(selectedService?.price ?? "0") ?? 0
+        service["TypeID"] = selectedService?.typeID ?? ""
+        service["TypeName"] = selectedService?.typeName ?? ""
+        service["isActive"] = true
+        var services: [[String: Any]] = [service]
+        orderRequestParams["Services"] = services
+        
+        orderRequestParams["typeID"] = complaintType?.typeID ?? ""
+        orderRequestParams["typeName"] = complaintType?.typeName ?? ""
+        
+        if let userLatitude = pickUpAddress?.latitude, let userLongitude = pickUpAddress?.longitude, let destLatitude = carWashVendor?.latitude, let destLongitude = carWashVendor?.longitude {
+            let userLocation = CLLocation(latitude: userLatitude, longitude: userLongitude)
+            let destLocation = CLLocation(latitude: destLatitude, longitude: destLongitude)
+            let distance = userLocation.distance(from: destLocation)/1000
+            orderRequestParams["Distance"] = distance
+        }else {
+            orderRequestParams["Distance"] = 0
+        }
         
         return orderRequestParams
     }

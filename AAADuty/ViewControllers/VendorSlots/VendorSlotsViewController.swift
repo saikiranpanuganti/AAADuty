@@ -63,7 +63,7 @@ class VendorSlotsViewController: BaseViewController {
             guard let self = self else { return }
             if let controller = Controllers.orderConfirmation.getController() as? OrderConfirmationViewController {
                 LocationManager.shared.getLocationAndAddress { location in
-                    controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.amount, pickUpAddress: self.pickUpLocation, dropAddress: self.dropLocation, complaintType: self.complaintType, userAddress: location, count: 0, comments: self.comments, selectedService: self.selectedService)
+                    controller.orderDetails = OrderDetails(category: self.category, totalAmount: self.amount, pickUpAddress: self.pickUpLocation, dropAddress: self.dropLocation, complaintType: self.complaintType, userAddress: location, count: 0, comments: self.comments, selectedService: self.selectedService, carWashVendor: self.selectedCarWashVendor, slot: self.selectedSlot)
                     self.navigationController?.pushViewController(controller, animated: true)
                 }
             }
@@ -84,10 +84,10 @@ class VendorSlotsViewController: BaseViewController {
     }
     
     func getVendorSlots() {
-        if let vendotId = selectedCarWashVendor?.id {
+        if let vendorId = selectedCarWashVendor?.id {
             showLoader()
             
-            let bodyParams: [String: Any] = ["VendorID": vendotId]
+            let bodyParams: [String: Any] = ["VendorID": vendorId]
             NetworkAdaptor.requestWithHeaders(urlString: Url.vendorSlots.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()
