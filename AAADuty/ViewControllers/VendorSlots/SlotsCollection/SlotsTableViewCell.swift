@@ -53,7 +53,7 @@ extension SlotsTableViewCell: UICollectionViewDataSource {
 }
 extension SlotsTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let slot = slots?[indexPath.row] {
+        if let slot = slots?[indexPath.row] { // isAlreadyBooked - not handled because we are getting string instead of boolean
             delegate?.slotSelected(slot: slot)
         }
     }

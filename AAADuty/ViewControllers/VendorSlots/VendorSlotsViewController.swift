@@ -87,7 +87,7 @@ class VendorSlotsViewController: BaseViewController {
         if let vendotId = selectedCarWashVendor?.id {
             showLoader()
             
-            let bodyParams: [String: Any] = ["VendorID": "635f55ff4572c50009230765"]
+            let bodyParams: [String: Any] = ["VendorID": vendotId]
             NetworkAdaptor.requestWithHeaders(urlString: Url.vendorSlots.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
                 guard let self = self else { return }
                 self.stopLoader()

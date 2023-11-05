@@ -136,7 +136,8 @@ extension CarWashDetailsViewController: UITableViewDelegate {
         if indexPath.section == 0 {
             return 120
         }else if indexPath.section == 1 {
-            return 170 + (screenWidth - 60)/3
+            let rows: Int = (((subCategories?.categories?.count ?? 0)/3) + ((((subCategories?.categories?.count ?? 0) % 3) == 0) ? 0 : 1))
+            return 170 + (((screenWidth)/3)*CGFloat(rows))
         }else if indexPath.section == 2 {
             return 200
         }

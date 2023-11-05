@@ -238,7 +238,8 @@ extension TowingViewController: UITableViewDelegate {
         if indexPath.row == 0 {
             return 120
         }else if indexPath.row == 1 {
-            return 170 + (screenWidth - 60)/3
+            let rows: Int = (((subCategories?.categories?.count ?? 0)/3) + ((((subCategories?.categories?.count ?? 0) % 3) == 0) ? 0 : 1))
+            return 170 + (((screenWidth)/3)*CGFloat(rows))
         }
         return UITableView.automaticDimension
     }
