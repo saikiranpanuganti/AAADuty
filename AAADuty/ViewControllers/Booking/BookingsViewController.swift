@@ -95,7 +95,7 @@ extension BookingsViewController: UITableViewDelegate {
         return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let controller = Controllers.orderDetails.getController() as? OrderDetailsViewController {
+        if indexPath.section > 0, let controller = Controllers.orderDetails.getController() as? OrderDetailsViewController {
             controller.pastOrder = pastOrdersModel?.pastorders?[indexPath.row]
             navigationController?.pushViewController(controller, animated: true)
         }

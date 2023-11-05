@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +29,7 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="10" minY="8" maxX="10" maxY="10"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="menuIcon"/>
+                                <buttonConfiguration key="configuration" style="plain" image="menuIcon" title=" "/>
                                 <connections>
                                     <action selector="sideMenuAction" destination="gTV-IL-0wX" eventType="touchUpInside" id="5mN-Xg-J1D"/>
                                 </connections>
@@ -40,13 +41,13 @@
                                     <constraint firstAttribute="height" constant="48" id="KvC-mh-ZUO"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="bellIcon"/>
+                                <buttonConfiguration key="configuration" style="plain" image="bellIcon" title=" "/>
                                 <connections>
                                     <action selector="notificationAction" destination="gTV-IL-0wX" eventType="touchUpInside" id="9cV-Uh-vtY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEK-aQ-aAw" customClass="AAALabel" customModule="AAADuty" customModuleProvider="target">
-                                <rect key="frame" x="70" y="147" width="106" height="28"/>
+                                <rect key="frame" x="70" y="150.66666666666666" width="83" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -121,7 +122,7 @@
     </objects>
     <designables>
         <designable name="bEK-aQ-aAw">
-            <size key="intrinsicContentSize" width="106" height="28"/>
+            <size key="intrinsicContentSize" width="83" height="20.333333333333332"/>
         </designable>
     </designables>
     <resources>

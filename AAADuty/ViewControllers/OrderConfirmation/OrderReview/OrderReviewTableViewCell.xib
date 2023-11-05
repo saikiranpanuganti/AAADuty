@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -40,11 +41,11 @@
                             <constraint firstAttribute="width" constant="90" id="2Xj-WA-YcG"/>
                             <constraint firstAttribute="height" constant="25" id="YSf-1K-1AN"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Overview">
-                            <fontDescription key="titleFontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
-                            <color key="baseForegroundColor" red="0.29019607843137252" green="0.45098039215686275" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
-                        </buttonConfiguration>
+                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Overview">
+                            <color key="titleColor" red="0.29019607843137252" green="0.45098039215686275" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
                         <connections>
                             <action selector="overviewTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9x1-LB-3j5"/>
                         </connections>
@@ -55,11 +56,11 @@
                             <constraint firstAttribute="height" constant="25" id="Khr-Qe-1RO"/>
                             <constraint firstAttribute="width" constant="110" id="geJ-Kv-Bv1"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Read policy">
-                            <fontDescription key="titleFontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
-                            <color key="baseForegroundColor" red="0.29019607843137252" green="0.45098039215686275" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
-                        </buttonConfiguration>
+                        <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Read policy">
+                            <color key="titleColor" red="0.29019607843137252" green="0.45098039215686275" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
                         <connections>
                             <action selector="readPolicyTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zhu-g4-Z1L"/>
                         </connections>
