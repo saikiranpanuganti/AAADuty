@@ -171,7 +171,7 @@ extension WoozTripViewController: UITableViewDelegate {
         if indexPath.section == 0 {
             return 120
         }else if indexPath.section == 1 {
-            let rows: Int = (((subCategories?.categories?.count ?? 0)/3) + ((((subCategories?.categories?.count ?? 0) % 3) == 0) ? 0 : 1))
+            let rows: Int = (((trips.count)/3) + ((((trips.count) % 3) == 0) ? 0 : 1))
             return 170 + (((screenWidth)/3)*CGFloat(rows))
         }else if indexPath.section == 3 {
             if selectedTripType?.id != "pptp" && selectedTripType?.id != "rptp" {
