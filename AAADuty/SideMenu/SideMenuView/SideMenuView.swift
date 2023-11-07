@@ -26,6 +26,7 @@ protocol SideMenuViewDelegate: AnyObject {
     func hideSideMenu()
     func handleLogout()
     func sideMenuItemTapped(menuType: MenuType)
+    func profileTapped()
 }
 
 extension SideMenuViewDelegate {
@@ -128,7 +129,7 @@ extension SideMenuView: UITableViewDataSource {
 extension SideMenuView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            
+            delegate?.profileTapped()
         }else if indexPath.section == 1 {
             delegate?.sideMenuItemTapped(menuType: menu[indexPath.row].type)
         }

@@ -121,6 +121,10 @@ class BaseViewController: UIViewController {
     func handleSideMenuTap(menuType: MenuType) {
         
     }
+    
+    func profileTapped() {
+        
+    }
 }
 
 

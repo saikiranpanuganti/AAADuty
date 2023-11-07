@@ -67,6 +67,11 @@ class HomeTabViewController: BaseViewController {
             navigateToProfileVC()
         }
     }
+    
+    override func profileTapped() {
+        showHideSideMenu()
+        navigateToProfileVC()
+    }
 }
 
 extension HomeTabViewController: UICollectionViewDataSource {
