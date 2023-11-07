@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 class OTPTextField: UITextField {
-  weak var previousTextField: OTPTextField?
-  weak var nextTextField: OTPTextField?
-  override public func deleteBackward(){
-    text = ""
-    previousTextField?.becomeFirstResponder()
-   }
+    weak var previousTextField: OTPTextField?
+    weak var nextTextField: OTPTextField?
+    override public func deleteBackward(){
+        text = ""
+        previousTextField?.becomeFirstResponder()
+    }
 }
 
 
@@ -88,8 +88,8 @@ class OTPStackView: UIStackView {
         textField.layer.borderWidth = 2
         textField.layer.borderColor = inactiveFieldBorderColor.cgColor
         textField.keyboardType = .numberPad
-        textField.autocorrectionType = .yes
-        textField.textContentType = .oneTimeCode
+        //        textField.autocorrectionType = .yes
+        //        textField.textContentType = .oneTimeCode
     }
     
     //checks if all the OTPfields are filled
@@ -111,7 +111,7 @@ class OTPStackView: UIStackView {
         }
         return OTP
     }
-
+    
     //set isWarningColor true for using it as a warning color
     final func setAllFieldColor(isWarningColor: Bool = false, color: UIColor){
         for textField in textFieldsCollection{
@@ -138,7 +138,7 @@ class OTPStackView: UIStackView {
 
 //MARK: - TextField Handling
 extension OTPStackView: UITextFieldDelegate {
-        
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if showsWarningColor {
             setAllFieldColor(color: inactiveFieldBorderColor)
@@ -161,7 +161,9 @@ extension OTPStackView: UITextFieldDelegate {
             autoFillTextField(with: string)
             return false
         } else {
-            if (range.length == 0){
+            if (range.length == 0 && string == "") {
+                return false
+            } else if (range.length == 0){
                 if textField.nextTextField == nil {
                     textField.text? = string
                     textField.resignFirstResponder()
