@@ -104,6 +104,7 @@
 		7F3C672829E0389D008D7C34 /* SlotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C672629E0389D008D7C34 /* SlotCollectionViewCell.swift */; };
 		7F3C672929E0389D008D7C34 /* SlotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C672729E0389D008D7C34 /* SlotCollectionViewCell.xib */; };
 		7F58A2072B2C99BF005FA2F4 /* CreatePaymentOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58A2062B2C99BF005FA2F4 /* CreatePaymentOrder.swift */; };
+		7F58A2092B2CC6C0005FA2F4 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58A2082B2CC6C0005FA2F4 /* NotificationsViewController.swift */; };
 		7F5A412129B7577B00BEE0FB /* RequestAcceptedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */; };
 		7F5A412329B7A23C00BEE0FB /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */; };
 		7F62ED3329D0002F00CCB73B /* PastOrdersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F62ED3229D0002F00CCB73B /* PastOrdersModel.swift */; };
@@ -300,6 +301,7 @@
 		7F3C672629E0389D008D7C34 /* SlotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F3C672729E0389D008D7C34 /* SlotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlotCollectionViewCell.xib; sourceTree = "<group>"; };
 		7F58A2062B2C99BF005FA2F4 /* CreatePaymentOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePaymentOrder.swift; sourceTree = "<group>"; };
+		7F58A2082B2CC6C0005FA2F4 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		7F5A412029B7577B00BEE0FB /* RequestAcceptedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAcceptedViewController.swift; sourceTree = "<group>"; };
 		7F5A412229B7A23B00BEE0FB /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		7F62ED3229D0002F00CCB73B /* PastOrdersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastOrdersModel.swift; sourceTree = "<group>"; };
@@ -1090,6 +1092,7 @@
 				7F13C2DE29B1124F00EFFE7E /* FlatTyre */,
 				7F1A485729AB3F1800C432DF /* HomeTab */,
 				7FB8C40829AB949A005B6B4E /* BaseViewController.swift */,
+				7F58A2082B2CC6C0005FA2F4 /* NotificationsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1543,6 +1546,7 @@
 				7FD0BEB229A90ED60049662D /* AAAView.swift in Sources */,
 				7F75B71029C5DB42005871B2 /* ServiceTypesTableViewCell.swift in Sources */,
 				7F1D5C0429B2FB8900B8C6DD /* MapsViewController.swift in Sources */,
+				7F58A2092B2CC6C0005FA2F4 /* NotificationsViewController.swift in Sources */,
 				7F13C2D829B0FEEB00EFFE7E /* SubCategoryModel.swift in Sources */,
 				7FD0BEBE29A9E5D60049662D /* HomeTabViewController.swift in Sources */,
 				7F13C2D529B0E07300EFFE7E /* SubServicesTableViewCell.swift in Sources */,
