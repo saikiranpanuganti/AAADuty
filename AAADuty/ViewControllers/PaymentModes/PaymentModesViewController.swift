@@ -35,26 +35,22 @@ class PaymentModesViewController: BaseViewController {
     }
     
     func showPaymentForm() {
-        if let totalAmount = orderRequest?.totalAmount {
-            let options: [String:Any] = [
-                "amount": "\(totalAmount*100)",
-                "currency": "INR",
-                "description": "purchase description",
-                "order_id": paymentOrderId,
-                "image": "https://source.unsplash.com/user/c_v_r/800x800",
-                "name": "Aaaduty",
-                "prefill": ["contact": "7799333467", "email": "vamci@aaaduty.com"],
-                "theme": ["color": "#FF0000"],
-                "config": ["display": ["hide": [["method": "card"], ["method": "wallet"], ["method": "netbanking"], ["method": "paylater"], ["method": "emi"]]]]
-            ]
-            print("$$options - \(options)")
-            self.razorpay.open(options)
-        }
+        let options: [String:Any] = [
+            "description": "purchase description",
+            "order_id": paymentOrderId,
+            "image": "https://source.unsplash.com/user/c_v_r/800x800",
+            "name": "Aaaduty",
+            "prefill": ["contact": "7799333467", "email": "vamci@aaaduty.com"],
+            "theme": ["color": "#FF0000"],
+            "config": ["display": ["hide": [["method": "card"], ["method": "wallet"], ["method": "netbanking"], ["method": "paylater"], ["method": "emi"]]]]
+        ]
+        print("$$options - \(options)")
+        self.razorpay.open(options)
     }
     
     func createPaymentOrder() {
         var bodyParams: [String: Any] = [:]
-        bodyParams["amount"] = orderRequest?.totalAmount ?? 0
+        bodyParams["amount"] = (orderRequest?.totalAmount ?? 0)*100
         bodyParams["RequestID"] = orderRequest?.id ?? ""
         bodyParams["CategoryName"] = orderRequest?.categoryName ?? ""
         bodyParams["LiveMode"] = true
