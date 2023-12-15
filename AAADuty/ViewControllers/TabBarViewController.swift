@@ -82,6 +82,25 @@ extension TabBarViewController: HomeTabViewControllerDelegate {
             self?.navigationController?.popToRootViewController(animated: true)
         }
     }
+    
+    func logoutTapped() {
+        var logoutAlert = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+            AppData.shared.user?.removeUser()
+            AppData.shared.user = nil
+            self.navigateToStart()
+         })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { (action) -> Void in
+            print("Cancel button tapped")
+         })
+        
+        logoutAlert.addAction(ok)
+        logoutAlert.addAction(cancel)
+        
+        self.present(logoutAlert, animated: true, completion: nil)
+    }
 }
 
 

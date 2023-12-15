@@ -9,6 +9,7 @@ import UIKit
 
 protocol HomeTabViewControllerDelegate: AnyObject {
     func navigateToStart()
+    func logoutTapped()
 }
 
 class HomeTabViewController: BaseViewController {
@@ -52,10 +53,8 @@ class HomeTabViewController: BaseViewController {
     }
     
     override func logoutUser() {
-        AppData.shared.user?.removeUser()
-        AppData.shared.user = nil
-        
-        delegate?.navigateToStart()
+        showHideSideMenu()
+        delegate?.logoutTapped()
     }
     
     override func handleSideMenuTap(menuType: MenuType) {
