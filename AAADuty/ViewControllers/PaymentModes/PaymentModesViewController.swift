@@ -15,7 +15,8 @@ class PaymentModesViewController: BaseViewController {
     var orderRequest: OrderRequest?
     var allOrderDetails: (SubCategory?, SubCategoryType?, [CleaningService], Location?, String?, [ComplaintType?])?
     var razorPayTestKey = "rzp_test_Dwua9vi5c5V4jd"
-    var razorPayProdKey = "ywMSedW1UV8UkOdpGhXepfkU"
+    var razorPayProdKey = "rzp_live_gMw018BnT0g575"//"ywMSedW1UV8UkOdpGhXepfkU"
+    var paymentOrderId: String = ""
     
     var razorpay: RazorpayCheckout!
 
@@ -34,20 +35,53 @@ class PaymentModesViewController: BaseViewController {
     }
     
     func showPaymentForm() {
-        if let totalAmount = orderRequest?.totalAmount, let orderId = orderRequest?.orderID {
+        if let totalAmount = orderRequest?.totalAmount {
             let options: [String:Any] = [
                 "amount": "\(totalAmount*100)",
                 "currency": "INR",
                 "description": "purchase description",
-//                "order_id": orderId,
+                "order_id": paymentOrderId,
                 "image": "https://source.unsplash.com/user/c_v_r/800x800",
                 "name": "Aaaduty",
                 "prefill": ["contact": "7799333467", "email": "vamci@aaaduty.com"],
                 "theme": ["color": "#FF0000"],
                 "config": ["display": ["hide": [["method": "card"], ["method": "wallet"], ["method": "netbanking"], ["method": "paylater"], ["method": "emi"]]]]
             ]
-
+            print("$$options - \(options)")
             self.razorpay.open(options)
+        }
+    }
+    
+    func createPaymentOrder() {
+        var bodyParams: [String: Any] = [:]
+        bodyParams["amount"] = orderRequest?.totalAmount ?? 0
+        bodyParams["RequestID"] = orderRequest?.id ?? ""
+        bodyParams["CategoryName"] = orderRequest?.categoryName ?? ""
+        bodyParams["LiveMode"] = true
+        
+        showLoader()
+        print("$$Order: Url \(Url.createPaymentOrder.getUrl())")
+        print("$$Order: bodyParams \(bodyParams)")
+        
+        NetworkAdaptor.requestWithHeaders(urlString: Url.createPaymentOrder.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+            guard let self = self else { return }
+            self.stopLoader {
+                if let data = data {
+                    do {
+                        let paymentOrder = try JSONDecoder().decode(PaymentOrderModel.self, from: data)
+                        print("paymentOrder: \(paymentOrder.data?.id), amount - \(paymentOrder.data?.amount), \(self.orderRequest?.totalAmount)")
+                        
+                        if let orderId = paymentOrder.data?.id, orderId != "" {
+                            self.paymentOrderId = orderId
+                            self.showPaymentForm()
+                        }else {
+                            self.showAlert(title: "Error", message: "Something went wrong")
+                        }
+                    }catch {
+                        print("Error: CancelRequestViewController getCancelReasons - \(error.localizedDescription)")
+                    }
+                }
+            }
         }
     }
     
@@ -140,7 +174,7 @@ extension PaymentModesViewController: LocationTableViewCellDelegate {
 
 extension PaymentModesViewController: ContinueTableViewCellDelegate {
     func continueTapped() {
-        showPaymentForm()
+        createPaymentOrder()
     }
 }
 

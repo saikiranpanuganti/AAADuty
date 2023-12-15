@@ -36,6 +36,7 @@ enum Url {
     case updateUserDetails
     case getRequestDetailsById
     case vendorSlots
+    case createPaymentOrder
     
     func getUrl() -> String {
         switch self {
@@ -87,6 +88,8 @@ enum Url {
             return baseUrl + "/V1/getrequestdetailsbyid"
         case .vendorSlots:
             return baseUrl + "/V1/getvendorslotsnew"
+        case .createPaymentOrder:
+            return baseUrl + "/V1/createpaymentorder"
         }
     }
 }
