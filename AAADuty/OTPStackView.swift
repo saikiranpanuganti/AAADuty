@@ -134,6 +134,13 @@ class OTPStackView: UIStackView {
         remainingStrStack = []
     }
     
+    func emptyTextfields() {
+        DispatchQueue.main.async {
+            for textfield in self.textFieldsCollection {
+                textfield.text = ""
+            }
+        }
+    }
 }
 
 //MARK: - TextField Handling
