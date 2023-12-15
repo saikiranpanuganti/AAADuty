@@ -9,6 +9,7 @@ import UIKit
 
 protocol BookingsHeaderTableViewCellDelegate: AnyObject {
     func backButtonTapped()
+    func notificationsTapped()
 }
 
 class BookingsHeaderTableViewCell: UITableViewCell {
@@ -66,5 +67,9 @@ class BookingsHeaderTableViewCell: UITableViewCell {
     
     @IBAction func backButtonTapped() {
         delegate?.backButtonTapped()
+    }
+    
+    @IBAction func notificationsTapped() {
+        delegate?.notificationsTapped()
     }
 }

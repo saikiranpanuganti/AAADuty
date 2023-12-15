@@ -9,6 +9,7 @@ import UIKit
 
 protocol LocationTableViewCellDelegate: AnyObject {
     func backButtonTapped()
+    func notificationsTapped()
 }
 
 class LocationTableViewCell: UITableViewCell {
@@ -41,4 +42,7 @@ class LocationTableViewCell: UITableViewCell {
         delegate?.backButtonTapped()
     }
     
+    @IBAction func notificationsTapped() {
+        delegate?.notificationsTapped()
+    }
 }

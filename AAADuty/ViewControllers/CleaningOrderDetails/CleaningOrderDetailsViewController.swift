@@ -327,6 +327,12 @@ extension CleaningOrderDetailsViewController: LocationTableViewCellDelegate {
     func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
+    func notificationsTapped() {
+        let notificationsVC = Controllers.notificationsVC.getController()
+        notificationsVC.modalPresentationStyle = .fullScreen
+        notificationsVC.modalTransitionStyle = .crossDissolve
+        self.present(notificationsVC, animated: true)
+    }
 }
 
 
