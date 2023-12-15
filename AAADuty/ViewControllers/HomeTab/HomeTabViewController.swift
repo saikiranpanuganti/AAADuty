@@ -121,7 +121,10 @@ extension HomeTabViewController: PromotionCollectionViewCellDelegate {
         showHideSideMenu()
     }
     func notificationsTapped() {
-        
+        let notificationsVC = Controllers.notificationsVC.getController()
+        notificationsVC.modalPresentationStyle = .fullScreen
+        notificationsVC.modalTransitionStyle = .crossDissolve
+        self.present(notificationsVC, animated: true)
     }
 }
 
