@@ -14,6 +14,8 @@ class PaymentModesViewController: BaseViewController {
     var orderDetails: OrderDetails?
     var orderRequest: OrderRequest?
     var allOrderDetails: (SubCategory?, SubCategoryType?, [CleaningService], Location?, String?, [ComplaintType?])?
+    var razorPayTestKey = "rzp_test_Dwua9vi5c5V4jd"
+    var razorPayProdKey = "ywMSedW1UV8UkOdpGhXepfkU"
     
     var razorpay: RazorpayCheckout!
 
@@ -28,7 +30,7 @@ class PaymentModesViewController: BaseViewController {
         tableView.delegate = self
         
         // Update key as well as pass order if for prod set up
-        razorpay = RazorpayCheckout.initWithKey("rzp_test_Dwua9vi5c5V4jd", andDelegateWithData: self)
+        razorpay = RazorpayCheckout.initWithKey(razorPayProdKey, andDelegateWithData: self)
     }
     
     func showPaymentForm() {
