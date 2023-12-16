@@ -143,6 +143,7 @@
 		7F75B73729C77871005871B2 /* ServiceOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F75B73529C77871005871B2 /* ServiceOrderTableViewCell.swift */; };
 		7F75B73829C77871005871B2 /* ServiceOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F75B73629C77871005871B2 /* ServiceOrderTableViewCell.xib */; };
 		7FA5CBBA29B4517E00E242A4 /* MapResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA5CBB929B4517E00E242A4 /* MapResultTableViewCell.swift */; };
+		7FB265462B2DC0F000B4BB53 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB265452B2DC0F000B4BB53 /* ContactUsViewController.swift */; };
 		7FB7B54429B2298B0006E206 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */; };
 		7FB7B54829B24E6C0006E206 /* OrderAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7B54629B24E6C0006E206 /* OrderAddressTableViewCell.swift */; };
 		7FB7B54929B24E6C0006E206 /* OrderAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB7B54729B24E6C0006E206 /* OrderAddressTableViewCell.xib */; };
@@ -340,6 +341,7 @@
 		7F75B73529C77871005871B2 /* ServiceOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceOrderTableViewCell.swift; sourceTree = "<group>"; };
 		7F75B73629C77871005871B2 /* ServiceOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceOrderTableViewCell.xib; sourceTree = "<group>"; };
 		7FA5CBB929B4517E00E242A4 /* MapResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResultTableViewCell.swift; sourceTree = "<group>"; };
+		7FB265452B2DC0F000B4BB53 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		7FB7B54329B2298B0006E206 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		7FB7B54629B24E6C0006E206 /* OrderAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAddressTableViewCell.swift; sourceTree = "<group>"; };
 		7FB7B54729B24E6C0006E206 /* OrderAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderAddressTableViewCell.xib; sourceTree = "<group>"; };
@@ -1093,6 +1095,7 @@
 				7F1A485729AB3F1800C432DF /* HomeTab */,
 				7FB8C40829AB949A005B6B4E /* BaseViewController.swift */,
 				7F58A2082B2CC6C0005FA2F4 /* NotificationsViewController.swift */,
+				7FB265452B2DC0F000B4BB53 /* ContactUsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1627,6 +1630,7 @@
 				7FD6942629BCF1D6005AE54B /* WoozTripViewController.swift in Sources */,
 				7FB7B55229B25CBC0006E206 /* OrderReviewTableViewCell.swift in Sources */,
 				7F62ED3329D0002F00CCB73B /* PastOrdersModel.swift in Sources */,
+				7FB265462B2DC0F000B4BB53 /* ContactUsViewController.swift in Sources */,
 				7F08778029B28A48004CB905 /* PaymentModesViewController.swift in Sources */,
 				7F62ED3A29D0BB0400CCB73B /* Date+Extension.swift in Sources */,
 				7F02F0C129AE4A1E00E4B775 /* String+Extension.swift in Sources */,

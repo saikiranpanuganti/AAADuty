@@ -39,7 +39,8 @@ class SideMenuView: UIView {
     @IBOutlet weak var menuTableView: UITableView!
     
     weak var delegate: SideMenuViewDelegate?
-    var menu: [MenuItem] = [MenuItem(icon: "users", title: "Order History", type: .orderHistory), MenuItem(icon: "history", title: "Transactions", type: .transactions), MenuItem(icon: "recent", title: "My Profile", type: .myProfile), MenuItem(icon: "users", title: "Rate Us", type: .rateUs), MenuItem(icon: "history", title: "Contact", type: .contact), MenuItem(icon: "recent", title: "Logout", type: .logout)]
+    var menu: [MenuItem] = [MenuItem(icon: "users", title: "Order History", type: .orderHistory), MenuItem(icon: "history", title: "Transactions", type: .transactions), MenuItem(icon: "recent", title: "My Profile", type: .myProfile), MenuItem(icon: "history", title: "Contact", type: .contact), MenuItem(icon: "recent", title: "Logout", type: .logout)]
+//    MenuItem(icon: "users", title: "Rate Us", type: .rateUs)
     
     class func instanceFromNib() -> SideMenuView {
         return UINib(nibName: "SideMenuView", bundle: Bundle(for: self)).instantiate(withOwner: nil, options: nil)[0] as! SideMenuView
@@ -78,7 +79,7 @@ extension SideMenuView: UITableViewDataSource {
         if section == 0 {
             return 1
         }else if section == 1 {
-            return 6
+            return menu.count
         }
         return 0
     }

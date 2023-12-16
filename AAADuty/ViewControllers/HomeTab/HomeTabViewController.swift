@@ -67,6 +67,9 @@ class HomeTabViewController: BaseViewController {
         }else if menuType == .rateUs {
             showHideSideMenu()
             redirectToAppstore()
+        }else if menuType == .contact {
+            showHideSideMenu()
+            contactUsTapped()
         }
     }
     
@@ -79,6 +82,13 @@ class HomeTabViewController: BaseViewController {
         if let url  = URL(string: "itms-apps://apple.com/app/id6473516832"), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+    }
+    
+    func contactUsTapped() {
+        let notificationsVC = Controllers.contactUs.getController()
+        notificationsVC.modalPresentationStyle = .fullScreen
+        notificationsVC.modalTransitionStyle = .crossDissolve
+        self.present(notificationsVC, animated: true)
     }
 }
 

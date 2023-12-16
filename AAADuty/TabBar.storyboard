@@ -547,7 +547,6 @@
                     <connections>
                         <segue destination="KUC-cR-C6X" kind="relationship" relationship="viewControllers" id="PY7-FT-oi2"/>
                         <segue destination="356-X8-PWi" kind="relationship" relationship="viewControllers" id="OOR-BZ-npW"/>
-                        <segue destination="0eT-tx-BFW" kind="relationship" relationship="viewControllers" id="kvu-TZ-BDV"/>
                         <segue destination="y0l-8M-SRz" kind="relationship" relationship="viewControllers" id="ZYz-u2-rJg"/>
                     </connections>
                 </tabBarController>
