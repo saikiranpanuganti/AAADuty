@@ -39,7 +39,7 @@ class VehicleProblemsTableViewCell: UITableViewCell {
         self.category = category
         self.servicename.text = category?.category
         self.serviceIcon.sd_setImage(with: URL(string: category?.requestImageURL ?? ""))
-        self.subServiceDescription.text = category?.subCategoryMessage
+        self.subServiceDescription.text = "Select vehicle problem"//category?.subCategoryMessage
         tableView.reloadData()
     }
     

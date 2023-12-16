@@ -74,7 +74,9 @@ class SubServicesTableViewCell: UITableViewCell {
             self.vehicleType = vehicleType
             self.servicename.text = category?.category
             self.serviceIcon.sd_setImage(with: URL(string: category?.requestImageURL ?? ""))
-            self.subServiceDescription.text = category?.subCategorySectionMessage
+            if category?.subCategorySectionMessage == "Select type of CAR" {
+                self.subServiceDescription.text = "Select type of \(vehicleType?.response?.first?.typeName ?? "Vehicle")"
+            }
             self.subServiceCollectionView.reloadData()
         }
     }

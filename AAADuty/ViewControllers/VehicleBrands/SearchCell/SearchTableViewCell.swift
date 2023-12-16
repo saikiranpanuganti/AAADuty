@@ -30,8 +30,9 @@ class SearchTableViewCell: UITableViewCell {
         tableView.delegate = self
     }
     
-    func configureUI(vehicles: VechiclesModel?) {
+    func configureUI(vehicles: VechiclesModel?, vehicle: String) {
         updateText(text: "")
+        titleOutlet.text = "Select Your \(vehicle)"
         self.vehicles = vehicles
         tableView.reloadData()
     }

@@ -200,7 +200,7 @@ extension VehicleBrandsViewController: UITableViewDataSource {
         }else if indexPath.section == 2 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as? SearchTableViewCell {
                 cell.delegate = self
-                cell.configureUI(vehicles: vehicles)
+                cell.configureUI(vehicles: vehicles, vehicle: selectedVehicleType?.vehileType ?? "Vehicle")
                 return cell
             }
         }
