@@ -64,12 +64,21 @@ class HomeTabViewController: BaseViewController {
         }else if menuType == .myProfile {
             showHideSideMenu()
             navigateToProfileVC()
+        }else if menuType == .rateUs {
+            showHideSideMenu()
+            redirectToAppstore()
         }
     }
     
     override func profileTapped() {
         showHideSideMenu()
         navigateToProfileVC()
+    }
+    
+    func redirectToAppstore() {
+        if let url  = URL(string: "itms-apps://apple.com/app/id6473516832"), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
 }
 
