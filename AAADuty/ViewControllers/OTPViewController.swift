@@ -74,7 +74,8 @@ class OTPViewController: BaseViewController {
         showLoader()
         
         let bodyParams: [String: Any] = ["MobileNumber": mobileNumber, "OTP": otpStackView.getOTP()]
-        
+        print("$$Login: Url -\(Url.validateUser.getUrl())")
+        print("$$Login: bodyParams -\(bodyParams)")
         NetworkAdaptor.requestWithHeaders(urlString: Url.validateUser.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
             if let data = data {
                 do {
