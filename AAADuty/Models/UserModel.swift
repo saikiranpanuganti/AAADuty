@@ -43,7 +43,6 @@ struct User: Codable {
     var address: [Address]?
     var v: Int?
     var gender: String?
-    let balance: Int?
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -57,7 +56,6 @@ struct User: Codable {
         case address = "Address"
         case v = "__v"
         case gender = "Gender"
-        case balance = "Balance"
     }
     
     func saveUser() {
@@ -75,7 +73,7 @@ struct User: Codable {
 // MARK: - Address
 struct Address: Codable {
     var id, address: String?
-    var latitude, longitude: Int?
+    var latitude, longitude: Double?
     var addressType: String?
 
     enum CodingKeys: String, CodingKey {
