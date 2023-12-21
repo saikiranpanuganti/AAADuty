@@ -84,12 +84,10 @@ extension TabBarViewController: HomeTabViewControllerDelegate {
     }
     
     func logoutTapped() {
-        var logoutAlert = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
+        let logoutAlert = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             print("Ok button tapped")
-            AppData.shared.user?.removeUser()
-            AppData.shared.user = nil
-            self.navigateToStart()
+            self.goToStart()
          })
         
         let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { (action) -> Void in
@@ -100,6 +98,38 @@ extension TabBarViewController: HomeTabViewControllerDelegate {
         logoutAlert.addAction(cancel)
         
         self.present(logoutAlert, animated: true, completion: nil)
+    }
+    
+    func deleteAccountTapped() {
+        let deleteAlert = UIAlertController(title: "Are you sure you want to delete your account?", message: "\n All the data associated with you account will be lost", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+            self.deleteAccount()
+         })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { (action) -> Void in
+            print("Cancel button tapped")
+         })
+        
+        deleteAlert.addAction(ok)
+        deleteAlert.addAction(cancel)
+        
+        self.present(deleteAlert, animated: true, completion: nil)
+    }
+    
+    func deleteAccount() {
+        viewControllers?.forEach {
+            if let homeVC = $0 as? HomeTabViewController {
+                homeVC.deleteAccountTapped()
+                return
+            }
+        }
+    }
+    
+    func goToStart() {
+        AppData.shared.user?.removeUser()
+        AppData.shared.user = nil
+        self.navigateToStart()
     }
 }
 

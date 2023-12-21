@@ -12,6 +12,7 @@ enum MenuType {
     case rateUs
     case contact
     case logout
+    case deleteAccount
 }
 
 struct MenuItem {
@@ -39,7 +40,7 @@ class SideMenuView: UIView {
     @IBOutlet weak var menuTableView: UITableView!
     
     weak var delegate: SideMenuViewDelegate?
-    var menu: [MenuItem] = [MenuItem(icon: "users", title: "Order History", type: .orderHistory), MenuItem(icon: "history", title: "Transactions", type: .transactions), MenuItem(icon: "recent", title: "My Profile", type: .myProfile), MenuItem(icon: "history", title: "Contact", type: .contact), MenuItem(icon: "recent", title: "Logout", type: .logout)]
+    var menu: [MenuItem] = [MenuItem(icon: "users", title: "Order History", type: .orderHistory), MenuItem(icon: "history", title: "Transactions", type: .transactions), MenuItem(icon: "recent", title: "My Profile", type: .myProfile), MenuItem(icon: "history", title: "Contact", type: .contact), MenuItem(icon: "recent", title: "Logout", type: .logout), MenuItem(icon: "deleteAccount", title: "Delete Account", type: .deleteAccount)]
 //    MenuItem(icon: "users", title: "Rate Us", type: .rateUs)
     
     class func instanceFromNib() -> SideMenuView {

@@ -10,6 +10,8 @@ import UIKit
 protocol HomeTabViewControllerDelegate: AnyObject {
     func navigateToStart()
     func logoutTapped()
+    func deleteAccountTapped()
+    func goToStart()
 }
 
 class HomeTabViewController: BaseViewController {
@@ -57,6 +59,39 @@ class HomeTabViewController: BaseViewController {
         delegate?.logoutTapped()
     }
     
+    func deleteAccountTapped() {
+        guard let mobileNumer = AppData.shared.user?.mobileNumber else { return }
+        
+        showLoader()
+        
+        let bodyParams: [String: Any] = ["MobileNumber": mobileNumer]
+        print("$$Delete Account: Url -\(Url.deleteAccount.getUrl())")
+        print("$$Delete Account: bodyParams -\(bodyParams)")
+        NetworkAdaptor.requestWithHeaders(urlString: Url.deleteAccount.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+            self?.stopLoader()
+            
+            if let data = data {
+                do {
+                    if let jsonData = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                        if let status = jsonData["Status"] as? String {
+                            if status == "SUCCESS" {
+                                self?.delegate?.goToStart()
+                            }else {
+                                self?.showAlert(title: "Error", message: "Something went wrong. Please try after sometime")
+                            }
+                        }
+                    }else {
+                        self?.showAlert(title: "Error", message: "Something went wrong. Please try after sometime")
+                    }
+                }catch {
+                    self?.showAlert(title: "Error", message: error.localizedDescription)
+                }
+            }else {
+                self?.showAlert(title: "Error", message: "Something went wrong. Please try after sometime")
+            }
+        }
+    }
+    
     override func handleSideMenuTap(menuType: MenuType) {
         if menuType == .orderHistory || menuType == .transactions {
             showHideSideMenu()
@@ -70,6 +105,11 @@ class HomeTabViewController: BaseViewController {
         }else if menuType == .contact {
             showHideSideMenu()
             contactUsTapped()
+        }else if menuType == .deleteAccount {
+            showHideSideMenu()
+            if let _ = AppData.shared.user?.mobileNumber {
+                delegate?.deleteAccountTapped()
+            }
         }
     }
     
