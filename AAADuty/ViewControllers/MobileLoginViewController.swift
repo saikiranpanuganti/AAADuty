@@ -9,6 +9,8 @@ import UIKit
 
 class MobileLoginViewController: BaseViewController {
     @IBOutlet weak var mobileTextfield: UITextField!
+    
+    var closeController: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +19,14 @@ class MobileLoginViewController: BaseViewController {
         mobileTextfield.attributedPlaceholder = NSAttributedString(string: "Phone Number", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 112/255, green: 162/255, blue: 207/255, alpha: 1)])
         mobileTextfield.delegate = self
         mobileTextfield.becomeFirstResponder()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if closeController {
+            navigationController?.popViewController(animated: false)
+        }
     }
     
     func sendOTP() {
@@ -53,8 +63,9 @@ class MobileLoginViewController: BaseViewController {
     func navigateToOTPScreen() {
         DispatchQueue.main.async { [weak self] in
             if let otpVC = Controllers.otpVc.getController() as? OTPViewController {
+                otpVC.delegate = self
                 otpVC.mobileNumber = self?.mobileTextfield.text ?? ""
-                self?.navigationController?.pushViewController(otpVC, animated: true)
+                self?.navigationController?.pushViewController(otpVC, animated: false)
             }
         }
     }
@@ -62,11 +73,22 @@ class MobileLoginViewController: BaseViewController {
     @IBAction func sendOtpTapped() {
         sendOTP()
     }
+    
+    @IBAction func backTapped() {
+        navigationController?.popViewController(animated: false)
+    }
 }
 
 
 extension MobileLoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         mobileTextfield.resignFirstResponder()
+    }
+}
+
+
+extension MobileLoginViewController: OTPViewControllerDelegate {
+    func shouldCloseController() {
+        closeController = true
     }
 }

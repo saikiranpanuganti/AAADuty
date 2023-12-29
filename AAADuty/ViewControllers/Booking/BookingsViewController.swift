@@ -23,12 +23,18 @@ class BookingsViewController: BaseViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLoginSuccess), name: NSNotification.Name(loginSuccess), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         getPastOrders()
+    }
+    
+    @objc func handleLoginSuccess() {
+        sideMenuView.reloadSideMenu()
     }
 
     func updateUI() {

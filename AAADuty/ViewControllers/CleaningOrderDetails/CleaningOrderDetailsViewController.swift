@@ -80,12 +80,27 @@ class CleaningOrderDetailsViewController: BaseViewController {
     }
     
     func showPaymentView() {
-        makePaymentView.isHidden = false
-        makePaymentView.configureUI(amount: getTotalBaseAmount())
-        makePaymentViewTopAnchor?.constant = -screenHeight
-        view.bringSubviewToFront(makePaymentView)
-        UIView.animate(withDuration: 0.3, delay: 0) {
-            self.view.layoutIfNeeded()
+        if AppData.shared.isLogged {
+            makePaymentView.isHidden = false
+            makePaymentView.configureUI(amount: getTotalBaseAmount())
+            makePaymentViewTopAnchor?.constant = -screenHeight
+            view.bringSubviewToFront(makePaymentView)
+            UIView.animate(withDuration: 0.3, delay: 0) {
+                self.view.layoutIfNeeded()
+            }
+        }else {
+            // Show login pop up
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Login Alert", message: "Please login to continue", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    let loginController = Controllers.login.getController()
+//                    loginController.modalPresentationStyle = .overFullScreen
+//                    self.present(loginController, animated: true, completion: nil)
+                    self.navigationController?.pushViewController(loginController, animated: false)
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     

@@ -15,7 +15,13 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func proceedTapped() {
-        navigationController?.pushViewController(Controllers.login.getController(), animated: true)
+//        navigationController?.pushViewController(Controllers.login.getController(), animated: true)
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.navigationController?.viewControllers = [Controllers.tabBar.getController()]
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 
 }

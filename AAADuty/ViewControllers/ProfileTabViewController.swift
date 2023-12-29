@@ -62,6 +62,8 @@ class ProfileTabViewController: BaseViewController {
 
         imagePicker.delegate = self
         setUpViews()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLoginSuccess), name: NSNotification.Name(loginSuccess), object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -129,6 +131,10 @@ class ProfileTabViewController: BaseViewController {
         editButton.isHidden = false
         
         areTextfieldsEnabled = false
+    }
+    
+    @objc func handleLoginSuccess() {
+        
     }
     
     func updateUser() {

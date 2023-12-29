@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol OTPViewControllerDelegate: AnyObject {
+    func shouldCloseController()
+}
+
 class OTPViewController: BaseViewController {
     @IBOutlet weak var otpView: UIView!
 
+    weak var delegate: OTPViewControllerDelegate?
     let otpStackView = OTPStackView()
     var mobileNumber: String = ""
     
@@ -77,24 +82,31 @@ class OTPViewController: BaseViewController {
         print("$$Login: Url -\(Url.validateUser.getUrl())")
         print("$$Login: bodyParams -\(bodyParams)")
         NetworkAdaptor.requestWithHeaders(urlString: Url.validateUser.getUrl(), method: .post, bodyParameters: bodyParams) { [weak self] data, response, error in
+            guard let self = self else { return }
+            self.stopLoader()
+            
             if let data = data {
                 do {
                     let userModel = try JSONDecoder().decode(UserModel.self, from: data)
                     if let user = userModel.userData,  userModel.status == "SUCCESS" {
                         AppData.shared.user = user
                         AppData.shared.user?.saveUser()
-                        self?.getCategories()
+//                        self.getCategories()
+                        
+                        DispatchQueue.main.async {
+                            self.delegate?.shouldCloseController()
+                            NotificationCenter.default.post(name: NSNotification.Name(loginSuccess), object: nil)
+                            print("$$Self - \(self), presenting - \(self.presentingViewController)")
+                            self.navigationController?.popViewController(animated: false)
+                        }
                     }else {
-                        self?.stopLoader()
-                        self?.showAlert(title: "Error", message: "Something went wrong")
+                        self.showAlert(title: "Error", message: "Something went wrong")
                     }
                 }catch {
-                    self?.stopLoader()
-                    self?.showAlert(title: "Error", message: error.localizedDescription)
+                    self.showAlert(title: "Error", message: error.localizedDescription)
                 }
             }else {
-                self?.stopLoader()
-                self?.showAlert(title: "Error", message: "Something went wrong")
+                self.showAlert(title: "Error", message: "Something went wrong")
             }
         }
     }
@@ -105,6 +117,10 @@ class OTPViewController: BaseViewController {
     
     @IBAction func verifyOTPTapped() {
         verifyOTP()
+    }
+    
+    @IBAction func backTapped() {
+        navigationController?.popViewController(animated: false)
     }
 }
 

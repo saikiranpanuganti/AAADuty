@@ -33,11 +33,17 @@ class HomeTabViewController: BaseViewController {
         collectionView.register(UINib(nibName: "CategoriesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoriesCollectionViewCell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLoginSuccess), name: NSNotification.Name(loginSuccess), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+    }
+    
+    @objc func handleLoginSuccess() {
+        sideMenuView.reloadSideMenu()
     }
     
     func navigateToBookingsVC() {

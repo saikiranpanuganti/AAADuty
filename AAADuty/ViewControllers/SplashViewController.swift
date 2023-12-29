@@ -14,12 +14,12 @@ class SplashViewController: UIViewController {
         
         AppData.shared.user = getUser()
         
-        if AppData.shared.isLogged {
+//        if AppData.shared.isLogged {
             getCategories()
-        }else {
-            navigationController?.viewControllers = [Controllers.welcome.getController()]
-            navigationController?.popToRootViewController(animated: true)
-        }
+//        }else {
+//            navigationController?.viewControllers = [Controllers.welcome.getController()]
+//            navigationController?.popToRootViewController(animated: true)
+//        }
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -50,8 +50,13 @@ class SplashViewController: UIViewController {
                     
                     DispatchQueue.main.async { [weak self] in
                         guard let self = self else { return }
-                        self.navigationController?.viewControllers = [Controllers.tabBar.getController()]
-                        self.navigationController?.popToRootViewController(animated: true)
+                        
+                        if AppData.shared.isLogged {
+                            self.navigationController?.viewControllers = [Controllers.tabBar.getController()]
+                            self.navigationController?.popToRootViewController(animated: true)
+                        }else {
+                            navigationController?.pushViewController(Controllers.welcome.getController(), animated: true)
+                        }
                     }
                 }catch {
                     print("Error: SplashViewController getCategories - \(error.localizedDescription)")

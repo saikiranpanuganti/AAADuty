@@ -24,4 +24,5 @@ let categoryCellHeight: CGFloat = 140
 let userData_UD = "userData_UD"
 
 let retrylocationAccess = "com.aaaduty.lcoation.retry"
+let loginSuccess = "com.aaaduty.login.success"
 
