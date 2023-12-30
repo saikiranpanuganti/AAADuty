@@ -9,6 +9,8 @@ import UIKit
 
 class BookingsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var blurBackgroundView: UIView!
+    @IBOutlet weak var blurBackgroundBcakButton: UIButton!
     
     var pastOrdersModel: PastOrdersModel?
     var hideBackButton: Bool = true
@@ -25,16 +27,26 @@ class BookingsViewController: BaseViewController {
         tableView.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleLoginSuccess), name: NSNotification.Name(loginSuccess), object: nil)
+        
+        if hideBackButton {
+            blurBackgroundBcakButton.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        getPastOrders()
+        if AppData.shared.isLogged {
+            blurBackgroundView.isHidden = true
+            getPastOrders()
+        }else {
+            blurBackgroundView.isHidden = false
+        }
     }
     
     @objc func handleLoginSuccess() {
-        sideMenuView.reloadSideMenu()
+        blurBackgroundView.isHidden = false
+        getPastOrders()
     }
 
     func updateUI() {
@@ -66,6 +78,15 @@ class BookingsViewController: BaseViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func backNavigationButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func loginTapped() {
+        let loginController = Controllers.login.getController()
+        self.navigationController?.pushViewController(loginController, animated: true)
     }
 }
 

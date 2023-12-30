@@ -46,6 +46,8 @@ class ProfileTabViewController: BaseViewController {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var mobileLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var blurBackgroundView: UIView!
+    @IBOutlet weak var blurBackgroundBcakButton: UIButton!
     
     var areTextfieldsEnabled: Bool = false
     var hideBackButton: Bool = true
@@ -64,6 +66,10 @@ class ProfileTabViewController: BaseViewController {
         setUpViews()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleLoginSuccess), name: NSNotification.Name(loginSuccess), object: nil)
+        
+        if hideBackButton {
+            blurBackgroundBcakButton.isHidden = true
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +77,12 @@ class ProfileTabViewController: BaseViewController {
         
         disableTextfields()
         updateUser()
+        
+        if AppData.shared.isLogged {
+            blurBackgroundView.isHidden = true
+        }else {
+            blurBackgroundView.isHidden = false
+        }
     }
     
     func setUpViews() {
@@ -134,7 +146,8 @@ class ProfileTabViewController: BaseViewController {
     }
     
     @objc func handleLoginSuccess() {
-        
+        updateUser()
+        blurBackgroundView.isHidden = false
     }
     
     func updateUser() {
@@ -282,6 +295,15 @@ class ProfileTabViewController: BaseViewController {
     
     @IBAction func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func backNavigationButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func loginTapped() {
+        let loginController = Controllers.login.getController()
+        self.navigationController?.pushViewController(loginController, animated: true)
     }
 }
 

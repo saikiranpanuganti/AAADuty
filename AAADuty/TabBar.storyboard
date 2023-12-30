@@ -69,15 +69,69 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCO-FA-UOj">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NrA-Ro-7D7">
+                                        <rect key="frame" x="20" y="208.5" width="280" height="71.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please login to continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfh-MU-9MA">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kK-oB-O1s">
+                                                <rect key="frame" x="0.0" y="31.5" width="280" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="QRA-Se-Bzh"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Login">
+                                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="17"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="loginTapped" destination="356-X8-PWi" eventType="touchUpInside" id="wLH-92-xe7"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pq1-tu-dEj">
+                                        <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="282-Hq-s2m"/>
+                                            <constraint firstAttribute="width" constant="30" id="WU6-Sq-5ml"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="leftArrowBlue"/>
+                                        <connections>
+                                            <action selector="backNavigationButtonTapped" destination="356-X8-PWi" eventType="touchUpInside" id="hrK-un-4tS"/>
+                                            <action selector="backNavigationButtonTapped" destination="y0l-8M-SRz" eventType="touchUpInside" id="lgZ-1D-I6i"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NrA-Ro-7D7" secondAttribute="trailing" constant="20" id="MA8-c6-3PP"/>
+                                    <constraint firstItem="NrA-Ro-7D7" firstAttribute="leading" secondItem="mCO-FA-UOj" secondAttribute="leading" constant="20" id="WSo-Nz-bH5"/>
+                                    <constraint firstItem="NrA-Ro-7D7" firstAttribute="centerY" secondItem="mCO-FA-UOj" secondAttribute="centerY" constant="-30" id="alK-vX-1hR"/>
+                                    <constraint firstItem="pq1-tu-dEj" firstAttribute="top" secondItem="mCO-FA-UOj" secondAttribute="top" constant="10" id="qeM-Jr-Cfq"/>
+                                    <constraint firstItem="pq1-tu-dEj" firstAttribute="leading" secondItem="mCO-FA-UOj" secondAttribute="leading" constant="10" id="qva-5h-W8c"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mBA-x1-qaa"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mBA-x1-qaa" firstAttribute="bottom" secondItem="GsT-PT-Bed" secondAttribute="bottom" id="3ba-HC-5Tp"/>
+                            <constraint firstAttribute="bottom" secondItem="mCO-FA-UOj" secondAttribute="bottom" id="6Dz-kc-uJb"/>
+                            <constraint firstItem="mCO-FA-UOj" firstAttribute="leading" secondItem="eH2-2t-Dcd" secondAttribute="leading" id="A1E-ig-zaf"/>
                             <constraint firstAttribute="trailing" secondItem="urN-x6-tJT" secondAttribute="trailing" id="D4g-ET-VcT"/>
+                            <constraint firstItem="mCO-FA-UOj" firstAttribute="top" secondItem="mBA-x1-qaa" secondAttribute="top" id="dTK-eO-Gcq"/>
                             <constraint firstItem="urN-x6-tJT" firstAttribute="top" secondItem="eH2-2t-Dcd" secondAttribute="top" id="h9l-yF-jcq"/>
                             <constraint firstItem="urN-x6-tJT" firstAttribute="height" secondItem="eH2-2t-Dcd" secondAttribute="height" multiplier="0.25" id="ojc-Ep-w2z"/>
                             <constraint firstItem="GsT-PT-Bed" firstAttribute="top" secondItem="mBA-x1-qaa" secondAttribute="top" id="pHl-rc-QIq"/>
+                            <constraint firstItem="mCO-FA-UOj" firstAttribute="trailing" secondItem="eH2-2t-Dcd" secondAttribute="trailing" id="sPg-jg-Ctv"/>
                             <constraint firstItem="mBA-x1-qaa" firstAttribute="trailing" secondItem="GsT-PT-Bed" secondAttribute="trailing" id="vPT-yO-0lD"/>
                             <constraint firstItem="GsT-PT-Bed" firstAttribute="leading" secondItem="mBA-x1-qaa" secondAttribute="leading" id="xl8-oU-slg"/>
                             <constraint firstItem="urN-x6-tJT" firstAttribute="leading" secondItem="eH2-2t-Dcd" secondAttribute="leading" id="zeN-mi-AhF"/>
@@ -85,6 +139,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Bookings" image="bookingsTab" selectedImage="bookingsTab" id="8i3-UV-p7O"/>
                     <connections>
+                        <outlet property="blurBackgroundBcakButton" destination="pq1-tu-dEj" id="mIb-Sm-dwx"/>
+                        <outlet property="blurBackgroundView" destination="mCO-FA-UOj" id="Sjc-Ke-khs"/>
                         <outlet property="tableView" destination="GsT-PT-Bed" id="Gr4-8e-yTJ"/>
                     </connections>
                 </viewController>
@@ -176,13 +232,15 @@
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="Fc0-Qy-YvB">
                                                                 <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOn-K2-3oi">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOn-K2-3oi">
                                                                 <rect key="frame" x="63" y="63" width="32" height="32"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="32" id="8gi-Vx-RQ0"/>
                                                                     <constraint firstAttribute="height" constant="32" id="vcd-HH-wS1"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Button"/>
+                                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="edit"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="edit"/>
                                                                 <connections>
                                                                     <action selector="profileImageTapped" destination="y0l-8M-SRz" eventType="touchUpInside" id="7j2-81-if1"/>
@@ -486,18 +544,71 @@
                                     <constraint firstAttribute="trailing" secondItem="6tt-1B-AXw" secondAttribute="trailing" id="xg0-LN-422"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Dm-sw-ktO">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyE-s1-woy">
+                                        <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="H0U-mm-Hdc"/>
+                                            <constraint firstAttribute="height" constant="30" id="KjO-EO-fe4"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="leftArrowBlue"/>
+                                        <connections>
+                                            <action selector="backNavigationButtonTapped" destination="y0l-8M-SRz" eventType="touchUpInside" id="qYF-vx-okG"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Ld-F7-fiC">
+                                        <rect key="frame" x="20" y="208.5" width="280" height="71.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please login to continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7P-v1-9CP">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u87-7M-9KC">
+                                                <rect key="frame" x="0.0" y="31.5" width="280" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="tIY-gg-U8I"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Login">
+                                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="17"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="loginTapped" destination="y0l-8M-SRz" eventType="touchUpInside" id="QCo-qN-pjj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="2Ld-F7-fiC" firstAttribute="centerY" secondItem="2Dm-sw-ktO" secondAttribute="centerY" constant="-30" id="0qj-8H-FUS"/>
+                                    <constraint firstItem="2Ld-F7-fiC" firstAttribute="leading" secondItem="2Dm-sw-ktO" secondAttribute="leading" constant="20" id="7r5-Qx-tvW"/>
+                                    <constraint firstItem="eyE-s1-woy" firstAttribute="leading" secondItem="2Dm-sw-ktO" secondAttribute="leading" constant="10" id="KHS-Dz-T8o"/>
+                                    <constraint firstItem="eyE-s1-woy" firstAttribute="top" secondItem="2Dm-sw-ktO" secondAttribute="top" constant="10" id="T5M-fB-sdR"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Ld-F7-fiC" secondAttribute="trailing" constant="20" id="bOy-Wk-urh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dZI-FP-U1P"/>
                         <color key="backgroundColor" name="navigationBarColor"/>
                         <constraints>
                             <constraint firstItem="6tt-1B-AXw" firstAttribute="width" secondItem="wBR-ri-Fyc" secondAttribute="width" id="4Ty-dj-z5x"/>
+                            <constraint firstAttribute="trailing" secondItem="2Dm-sw-ktO" secondAttribute="trailing" id="9X3-xz-GTh"/>
                             <constraint firstItem="XWV-Zl-8ja" firstAttribute="top" secondItem="dZI-FP-U1P" secondAttribute="top" id="9YO-ee-CNo"/>
+                            <constraint firstAttribute="bottom" secondItem="2Dm-sw-ktO" secondAttribute="bottom" id="BKf-bb-vSL"/>
                             <constraint firstAttribute="trailing" secondItem="bGE-uA-kal" secondAttribute="trailing" id="CxE-vL-xym"/>
                             <constraint firstItem="XWV-Zl-8ja" firstAttribute="leading" secondItem="wBR-ri-Fyc" secondAttribute="leading" id="IOT-ob-XVp"/>
                             <constraint firstItem="bGE-uA-kal" firstAttribute="leading" secondItem="wBR-ri-Fyc" secondAttribute="leading" id="Kxi-EA-0NY"/>
                             <constraint firstItem="XWV-Zl-8ja" firstAttribute="trailing" secondItem="wBR-ri-Fyc" secondAttribute="trailing" id="Prq-1H-Eu8"/>
                             <constraint firstAttribute="bottom" secondItem="bGE-uA-kal" secondAttribute="bottom" id="QBA-DW-YIp"/>
                             <constraint firstItem="dZI-FP-U1P" firstAttribute="bottom" secondItem="XWV-Zl-8ja" secondAttribute="bottom" id="VuO-FD-UdR"/>
+                            <constraint firstItem="2Dm-sw-ktO" firstAttribute="top" secondItem="dZI-FP-U1P" secondAttribute="top" id="vVU-cc-xJq"/>
+                            <constraint firstItem="2Dm-sw-ktO" firstAttribute="leading" secondItem="wBR-ri-Fyc" secondAttribute="leading" id="yNA-Rv-GDi"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profileTab" selectedImage="profileTab" id="gZn-G5-sUS"/>
@@ -509,6 +620,8 @@
                         <outlet property="birthdayLabel" destination="Il9-z7-vTT" id="JGJ-5g-N7D"/>
                         <outlet property="birthdayTextfield" destination="Y9V-Vh-t99" id="bNK-bX-0Hp"/>
                         <outlet property="birthdayView" destination="YXd-Dk-6f2" id="ERn-4m-5Ky"/>
+                        <outlet property="blurBackgroundBcakButton" destination="eyE-s1-woy" id="bkG-EJ-twU"/>
+                        <outlet property="blurBackgroundView" destination="2Dm-sw-ktO" id="DKJ-Al-8sz"/>
                         <outlet property="editButton" destination="wdy-k4-yOy" id="S9w-R8-pFe"/>
                         <outlet property="editImageButton" destination="mOn-K2-3oi" id="Jea-DP-U0J"/>
                         <outlet property="emailLabel" destination="LAX-S8-szg" id="4e5-Ne-Nl9"/>
@@ -560,6 +673,7 @@
         <image name="edit" width="32" height="32"/>
         <image name="homeTab" width="26" height="26"/>
         <image name="leftArrow" width="28" height="20"/>
+        <image name="leftArrowBlue" width="28" height="20"/>
         <image name="profile" width="32" height="32"/>
         <image name="profileTab" width="26" height="26"/>
         <image name="walletTab" width="26" height="26"/>

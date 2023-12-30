@@ -63,6 +63,7 @@ class BookingsHeaderTableViewCell: UITableViewCell {
             backButton.isHidden = false
             profileViewLeading.constant = 55
         }
+        profileName.text = AppData.shared.user?.customerName ?? "Guest"
     }
     
     @IBAction func backButtonTapped() {
