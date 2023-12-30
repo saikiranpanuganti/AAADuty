@@ -13,6 +13,7 @@ enum MenuType {
     case contact
     case logout
     case deleteAccount
+    case login
 }
 
 struct MenuItem {
@@ -53,7 +54,7 @@ class SideMenuView: UIView {
         if AppData.shared.isLogged {
             menu = [MenuItem(icon: "users", title: "Order History", type: .orderHistory), MenuItem(icon: "history", title: "Transactions", type: .transactions), MenuItem(icon: "recent", title: "My Profile", type: .myProfile), MenuItem(icon: "history", title: "Contact", type: .contact), MenuItem(icon: "recent", title: "Logout", type: .logout), MenuItem(icon: "deleteAccount", title: "Delete Account", type: .deleteAccount)]
         }else {
-            menu = [MenuItem(icon: "users", title: "Order History", type: .orderHistory), MenuItem(icon: "history", title: "Transactions", type: .transactions), MenuItem(icon: "recent", title: "My Profile", type: .myProfile), MenuItem(icon: "history", title: "Contact", type: .contact)]
+            menu = [MenuItem(icon: "login", title: "Login / Sign Up", type: .login), MenuItem(icon: "users", title: "Order History", type: .orderHistory), MenuItem(icon: "history", title: "Transactions", type: .transactions), MenuItem(icon: "recent", title: "My Profile", type: .myProfile), MenuItem(icon: "history", title: "Contact", type: .contact)]
         }
         
         menuTableView.delegate = self
@@ -73,7 +74,7 @@ class SideMenuView: UIView {
         if AppData.shared.isLogged {
             menu = [MenuItem(icon: "users", title: "Order History", type: .orderHistory), MenuItem(icon: "history", title: "Transactions", type: .transactions), MenuItem(icon: "recent", title: "My Profile", type: .myProfile), MenuItem(icon: "history", title: "Contact", type: .contact), MenuItem(icon: "recent", title: "Logout", type: .logout), MenuItem(icon: "deleteAccount", title: "Delete Account", type: .deleteAccount)]
         }else {
-            menu = [MenuItem(icon: "users", title: "Order History", type: .orderHistory), MenuItem(icon: "history", title: "Transactions", type: .transactions), MenuItem(icon: "recent", title: "My Profile", type: .myProfile), MenuItem(icon: "history", title: "Contact", type: .contact)]
+            menu = [MenuItem(icon: "login", title: "Login / Sign Up", type: .login), MenuItem(icon: "users", title: "Order History", type: .orderHistory), MenuItem(icon: "history", title: "Transactions", type: .transactions), MenuItem(icon: "recent", title: "My Profile", type: .myProfile), MenuItem(icon: "history", title: "Contact", type: .contact)]
         }
         menuTableView.reloadData()
     }

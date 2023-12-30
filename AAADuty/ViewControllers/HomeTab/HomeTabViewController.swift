@@ -60,6 +60,10 @@ class HomeTabViewController: BaseViewController {
         }
     }
     
+    func navigateToLoginVC() {
+        navigationController?.pushViewController(Controllers.login.getController(), animated: true)
+    }
+    
     override func logoutUser() {
         showHideSideMenu()
         delegate?.logoutTapped()
@@ -116,6 +120,9 @@ class HomeTabViewController: BaseViewController {
             if let _ = AppData.shared.user?.mobileNumber {
                 delegate?.deleteAccountTapped()
             }
+        }else if menuType == .login {
+            showHideSideMenu()
+            navigateToLoginVC()
         }
     }
     
