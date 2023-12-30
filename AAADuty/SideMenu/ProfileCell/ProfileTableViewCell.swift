@@ -37,7 +37,9 @@ class ProfileTableViewCell: UITableViewCell {
     }
     
     func updateProfile() {
-        profileImageView.sd_setImage(with: URL(string: AppData.shared.user?.avatar ?? ""))
+        if let avatar = AppData.shared.user?.avatar, let avatarUrl = URL(string: avatar) {
+            profileImageView.sd_setImage(with: avatarUrl)
+        }
         profileName.text = AppData.shared.user?.customerName
     }
 }
