@@ -43,6 +43,7 @@ class NetworkAdaptor {
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = headers
         request.httpMethod = method.rawValue
+        request.timeoutInterval = 30
         
         if let bodyParameters = bodyParameters {
             let bodyData = try? JSONSerialization.data(withJSONObject: bodyParameters, options: .prettyPrinted)

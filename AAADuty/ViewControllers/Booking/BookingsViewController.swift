@@ -46,7 +46,7 @@ class BookingsViewController: BaseViewController {
     
     @objc func handleLoginSuccess() {
         blurBackgroundView.isHidden = false
-        getPastOrders()
+        getPastOrders(shouldShowLoader: false)
     }
 
     func updateUI() {
@@ -56,8 +56,10 @@ class BookingsViewController: BaseViewController {
         }
     }
     
-    func getPastOrders() {
-        showLoader()
+    func getPastOrders(shouldShowLoader: Bool = true) {
+        if shouldShowLoader {
+            showLoader()
+        }
         
         var bodyParams: [String: Any] = [:]
         bodyParams["CustomerID"] = AppData.shared.user?.id ?? ""
